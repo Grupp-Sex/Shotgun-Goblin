@@ -27,7 +27,7 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
     // tells the item to activate its interation function. shooting function for guns.
     private void ItemIteract(IHeldItem item)
     {
-        item.DoAcction();
+        item.DoAction();
 
     }
 
@@ -57,6 +57,6 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
 
 public interface IHeldItem
 {
-    public void DoAcction();
+    public void DoAction();
 
 }

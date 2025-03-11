@@ -10,10 +10,10 @@ public class PlaceholderGunScript : MonoBehaviour, IHeldItem
         
     }
 
-    public void DoAcction()
+    public void DoAction()
     {
         Debug.Log("Pow");
+        
     }
-
 
 }
