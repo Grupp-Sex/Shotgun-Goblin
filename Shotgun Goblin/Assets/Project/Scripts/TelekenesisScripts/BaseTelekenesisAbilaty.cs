@@ -17,39 +17,43 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
         DebugLog("Initialized telekenesis abilaty");
     }
 
-    public virtual void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec)
-    {
+    public virtual void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec){}
+    public void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject){}
 
-    }
-    public void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject)
-    {
+    public void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject){}
 
-    }
-
-    public void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject)
-    {
-
-    }
-
-    protected virtual void RunFuncOnAllObjects<T>(List<TelekenesisPhysicsObject> objects, Action<TelekenesisPhysicsObject> func)
+    protected virtual void RunFuncOnAllObjects(List<TelekenesisPhysicsObject> objects, Action<TelekenesisPhysicsObject> func)
     {
         for(int i = 0; i < objects.Count; i++)
         {
             func.Invoke(objects[i]);
         }
     }
-
-
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void RunFuncOnAllHeldObjects(Action<TelekenesisPhysicsObject> func)
     {
-        
-
+        RunFuncOnAllObjects(heldObjects, func);
     }
 
+    protected virtual void OnUpdate()
+    {
+
+    }
+        
     // Update is called once per frame
     void Update()
     {
-        
+        OnUpdate();
     }
+
+    protected Vector3 Direction(GameObject a, GameObject b)
+    {
+        return a.transform.position - b.transform.position;
+    }
+
+    protected Vector3 NormalDirection(GameObject a, GameObject b)
+    {
+        return (a.transform.position - b.transform.position).normalized;
+    }
+
+
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
 
-    [SerializeField] public Transform TargetPosition { get; protected set; }
-    [SerializeField] public float GrabDistanceThreshold { get; protected set; }
-    [SerializeField] public float HoldDistanceThreshold { get; protected set; }
-    [SerializeField] public List<TelekenesisPhysicsObject> HeldObjects { get; protected set; }
+    [SerializeField] public Transform TargetPosition;
+    [SerializeField] public float GrabDistanceThreshold;
+    [SerializeField] public float HoldDistanceThreshold;
+    [SerializeField] public List<TelekenesisPhysicsObject> HeldObjects;
 
 
     public Vector3 GetTargetPosition => TargetPosition.position;
