@@ -9,6 +9,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     [SerializeField] public Transform TargetPosition;
     [SerializeField] public float GrabDistanceThreshold;
     [SerializeField] public float HoldDistanceThreshold;
+    [SerializeField] public int HeldObjectMax;
     [SerializeField] public List<TelekenesisPhysicsObject> HeldObjects;
 
 
@@ -113,7 +114,16 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         {
             if (IsPhysicsObjectWithinTheshold(allOjects[i], GrabDistanceThreshold))
             {
-                GrabOneObject(allOjects[i]);
+                if(GetHeldObjectCount < HeldObjectMax)
+                {
+                    GrabOneObject(allOjects[i]);
+
+                }
+                else
+                {
+                    DebugLog("telekenesis, max amount of held objects reached");
+                    break;
+                }
             }
         }
 

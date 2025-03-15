@@ -8,6 +8,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 {
     [SerializeField] Collider Shape;
     [SerializeField] float ImplotionForce;
+    [SerializeField] float EpicenterForceMod;
     [SerializeField] float Radius;
     [SerializeField] float Upmod;
 
@@ -59,9 +60,27 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void PullObjectToEpicenter(TelekenesisPhysicsObject obj)
     {
+        //LerpPosToEpicenter(obj);
         obj.Rigidbody.AddExplosionForce(-ImplotionForce , GetShapePoint(obj), Radius, -Upmod);
-        obj.Rigidbody.AddExplosionForce(-ImplotionForce * 0.5f, pickuppOriginPoint.position, Radius, -Upmod);
+        obj.Rigidbody.AddExplosionForce(-ImplotionForce * EpicenterForceMod, pickuppOriginPoint.position, Radius, -Upmod);
+        //PushEdjgesOfObjectToFlatten(obj);
 
+
+    }
+
+
+    // not working
+    protected void PushEdjgesOfObjectToFlatten(TelekenesisPhysicsObject obj)
+    {
+        Vector3 direction = NormalDirection(GetShapePoint(obj), obj.transform.position);// * TelekenesisManager.Vector3DistanceSquared(GetShapePoint(obj), obj.transform.position) / 0.4f;
+        obj.Rigidbody.AddForceAtPosition(direction * ImplotionForce , obj.Rigidbody.ClosestPointOnBounds(transform.position));
+    }
+
+    protected void LerpPosToEpicenter(TelekenesisPhysicsObject obj)
+    {
+        float lerpV = 0.01f;
+
+        obj.transform.position = obj.transform.position * lerpV + GetShapePoint(obj) * (1 - lerpV);
     }
 
     protected void PushObjectsApart(TelekenesisPhysicsObject obj)
@@ -70,7 +89,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         {
             if(heldObjects[i] != obj)
             {
-                obj.Rigidbody.AddExplosionForce(ImplotionForce * 0.2f, heldObjects[i].transform.position, 0.2f, 0);
+                obj.Rigidbody.AddExplosionForce(ImplotionForce * 0.2f, heldObjects[i].transform.position, 1f, 0);
             }
         }
     }

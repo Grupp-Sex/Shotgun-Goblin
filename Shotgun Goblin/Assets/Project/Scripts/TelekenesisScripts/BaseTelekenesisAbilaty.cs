@@ -18,9 +18,9 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
     }
 
     public virtual void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec){}
-    public void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject){}
+    public virtual void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject){}
 
-    public void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject){}
+    public virtual void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject){}
 
     protected virtual void RunFuncOnAllObjects(List<TelekenesisPhysicsObject> objects, Action<TelekenesisPhysicsObject> func)
     {
@@ -45,14 +45,14 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
         OnUpdate();
     }
 
-    protected Vector3 Direction(GameObject a, GameObject b)
+    protected Vector3 Direction(Vector3 a, Vector3 b)
     {
-        return a.transform.position - b.transform.position;
+        return a - b;
     }
 
-    protected Vector3 NormalDirection(GameObject a, GameObject b)
+    protected Vector3 NormalDirection(Vector3 a, Vector3 b)
     {
-        return (a.transform.position - b.transform.position).normalized;
+        return (a - b).normalized;
     }
 
 
