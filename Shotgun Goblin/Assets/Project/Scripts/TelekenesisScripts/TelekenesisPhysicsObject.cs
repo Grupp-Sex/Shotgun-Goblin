@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class TelekenesisPhysicsObject : MonoBehaviour
 {
+    [SerializeField] public float BoundSize;
     public Rigidbody Rigidbody {  get; protected set; }
-    protected void CheckRigidBody()
-    {
-        Rigidbody = GetComponent<Rigidbody>();
 
-        if (Rigidbody == null)
-        {
-            Debug.Log("Missing Rigidbody in " + name + "!");
-        }
-    }
+    protected ParentConstraint parentConstraint;
 
     // saves data that might be modifyed by telekenesis abilaties, in order to be able to reset it afterwards
     // (when it is no logner affected by telekenesis)
     protected SavedState savedState = new SavedState();
+
+   
+
+    
 
 
     // Start is called before the first frame update
@@ -25,7 +25,27 @@ public class TelekenesisPhysicsObject : MonoBehaviour
     {
         CheckRigidBody();
         SaveSavedState();
+        //InitializeConstraint();
+
+        BoundSize = GetComponent<Collider>().bounds.size.magnitude;
     }
+
+
+    
+
+    protected void CheckRigidBody()
+    {
+        Rigidbody = GetComponent<Rigidbody>();
+
+        if (Rigidbody == null)
+        {
+            Debug.Log("Missing Rigidbody in " + name + "!");
+            gameObject.AddComponent<Rigidbody>();
+        }
+    }
+
+    
+
 
     public void OnEnterTeleknesis()
     {
@@ -35,18 +55,20 @@ public class TelekenesisPhysicsObject : MonoBehaviour
     public void OnLeaveTelekenesis()
     {
         LoadSavedState();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+
+    public void SetNewParrent(Transform parrent)
+    {
+        transform.SetParent(parrent);
+    }
+    
 
 
     protected void SaveSavedState()
     {
+        savedState.parrent = transform.parent;
+
         savedState.useGravity = Rigidbody.useGravity;
 
         savedState.liearDrag = Rigidbody.drag;
@@ -59,6 +81,8 @@ public class TelekenesisPhysicsObject : MonoBehaviour
     }
     protected void LoadSavedState()
     {
+        transform.SetParent(savedState.parrent, true);
+
         Rigidbody.useGravity = savedState.useGravity;
 
         Rigidbody.drag = savedState.liearDrag;
@@ -72,6 +96,8 @@ public class TelekenesisPhysicsObject : MonoBehaviour
 
     protected struct SavedState
     {
+        public Transform parrent;
+
         public bool useGravity;
         public bool isKinematic;
 

@@ -6,10 +6,12 @@ using UnityEngine.Animations;
 
 public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 {
+    
     [SerializeField] Collider Shape;
     [SerializeField] float ImplotionForce;
     [SerializeField] float EpicenterForceMod;
     [SerializeField] float Radius;
+    [SerializeField] float SizeForceMod;
     [SerializeField] float Upmod;
 
 
@@ -39,6 +41,8 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void AplyZeroG(TelekenesisPhysicsObject obj)
     {
+        obj.SetNewParrent(pickuppOriginPoint);
+
         obj.Rigidbody.angularDrag = 30;
         obj.Rigidbody.drag = 10;
         obj.Rigidbody.useGravity = false;
@@ -60,27 +64,21 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void PullObjectToEpicenter(TelekenesisPhysicsObject obj)
     {
-        LerpPosToEpicenter(obj);
         obj.Rigidbody.AddExplosionForce(-ImplotionForce , GetShapePoint(obj), Radius, -Upmod);
-        obj.Rigidbody.AddExplosionForce(-ImplotionForce * EpicenterForceMod, pickuppOriginPoint.position, Radius, -Upmod);
-        //PushEdjgesOfObjectToFlatten(obj);
-
-
+        obj.Rigidbody.AddExplosionForce(-ImplotionForce * ( ObjectBoundSizeMod(obj) * SizeForceMod * EpicenterForceMod * 0.5f), pickuppOriginPoint.position, Radius, -Upmod);
+        
+        
     }
 
-
-    // not working
-    protected void PushEdjgesOfObjectToFlatten(TelekenesisPhysicsObject obj)
+    protected float ObjectBoundSizeMod(TelekenesisPhysicsObject obj)
     {
-        Vector3 direction = NormalDirection(GetShapePoint(obj), obj.transform.position);// * TelekenesisManager.Vector3DistanceSquared(GetShapePoint(obj), obj.transform.position) / 0.4f;
-        obj.Rigidbody.AddForceAtPosition(direction * ImplotionForce , obj.Rigidbody.ClosestPointOnBounds(transform.position));
+        return obj.BoundSize * obj.BoundSize * obj.BoundSize;
     }
-
 
     
     protected void LerpPosToEpicenter(TelekenesisPhysicsObject obj)
     {
-
+        // unused
         // bug: telleports objects when they are picked upp
 
         float lerpV = 0.01f;
