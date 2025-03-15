@@ -39,7 +39,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void AplyZeroG(TelekenesisPhysicsObject obj)
     {
-        obj.Rigidbody.angularDrag = 20;
+        obj.Rigidbody.angularDrag = 30;
         obj.Rigidbody.drag = 10;
         obj.Rigidbody.useGravity = false;
 
@@ -60,7 +60,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void PullObjectToEpicenter(TelekenesisPhysicsObject obj)
     {
-        //LerpPosToEpicenter(obj);
+        LerpPosToEpicenter(obj);
         obj.Rigidbody.AddExplosionForce(-ImplotionForce , GetShapePoint(obj), Radius, -Upmod);
         obj.Rigidbody.AddExplosionForce(-ImplotionForce * EpicenterForceMod, pickuppOriginPoint.position, Radius, -Upmod);
         //PushEdjgesOfObjectToFlatten(obj);
@@ -76,8 +76,13 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         obj.Rigidbody.AddForceAtPosition(direction * ImplotionForce , obj.Rigidbody.ClosestPointOnBounds(transform.position));
     }
 
+
+    
     protected void LerpPosToEpicenter(TelekenesisPhysicsObject obj)
     {
+
+        // bug: telleports objects when they are picked upp
+
         float lerpV = 0.01f;
 
         obj.transform.position = obj.transform.position * lerpV + GetShapePoint(obj) * (1 - lerpV);
