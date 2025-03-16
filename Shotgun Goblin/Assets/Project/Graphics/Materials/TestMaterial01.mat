@@ -89,7 +89,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _Border_Position: 0
-    - _Border_Power: 4
+    - _Border_Power: 2.5
     - _BumpScale: 1
     - _CastShadows: 0
     - _ClearCoatMask: 0
@@ -118,6 +118,8 @@ Material:
     - _Scene_depth_Cutoff: 0
     - _Sheer_Power: 2
     - _Sheer_Size: 1
+    - _Size_Offset: 0.9
+    - _Size_Peeks: 0.05
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -127,13 +129,14 @@ Material:
     - _Warp_Depth_Cutoff: -10
     - _Warp_Power: 10
     - _Warp_Size: 2
+    - _Wave_Speed: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 34.673637, g: 7.798508, b: 36.329643, a: 1}
+    - _Color: {r: 9.957388, g: 2.2395337, b: 10.432951, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
