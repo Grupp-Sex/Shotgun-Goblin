@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody characterRB;
 
+    public Transform orientation;
+
     private Vector3 movementInput;
     private Vector3 movementVector;
     [SerializeField] private float movementSpeed;
@@ -31,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
         if (movementInput != Vector3.zero)
         {
             //Vector3 movementVector = new Vector3(movementInput.x, 0.0f, movementInput.y);
-            movementVector = movementInput * movementSpeed;
+            movementVector = movementInput.x * orientation.right + orientation.forward * movementInput.z;
 
-            characterRB.AddRelativeForce(movementVector , ForceMode.Force);
+            characterRB.AddForce(movementVector.normalized * movementSpeed , ForceMode.Force);
 
             //Debug.Log("___________ " + movementVector);
 

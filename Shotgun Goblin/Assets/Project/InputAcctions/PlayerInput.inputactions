@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "6b83e940-7ef2-4322-8d07-30177572681d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -143,10 +134,27 @@
                     "action": "MovementStop",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
+                }
+            ]
+        },
+        {
+            "name": "PlayerLook",
+            "id": "d061f743-89d1-4ef3-81a4-81ab3ffc7118",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "f8c54ce3-401b-417a-9f94-3eaad571e8c4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "cb443c78-c0a9-4bfe-b51c-13889861500d",
+                    "id": "7e6f77ac-a92f-4e93-b4c0-ac4907f94dab",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
