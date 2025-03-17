@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    public Transform cameraPosition;
+    public Transform playerTransform;
+    public float lerpValue;
   
     void Update()
     {
         //Byter ut sin egna transform (koordinater) för en annan transform vilket vi vill sätta till 
-        transform.position = cameraPosition.transform.position;
+        transform.position = playerTransform.position * lerpValue + transform.position * (1 - lerpValue); //Lerp gör så kameran "trailar" bakom spelaren för att göra en smooth movement utan jitter.
+        transform.rotation = playerTransform.rotation;
     }
 }
 

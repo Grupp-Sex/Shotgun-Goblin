@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
         if (movementInput != Vector3.zero)
         {
             //Vector3 movementVector = new Vector3(movementInput.x, 0.0f, movementInput.y);
-            movementVector = movementInput.x * orientation.right + orientation.forward * movementInput.z;
+            movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
-            characterRB.AddForce(movementVector.normalized * movementSpeed , ForceMode.Force);
+            characterRB.AddRelativeForce(movementVector.normalized * movementSpeed , ForceMode.Force);
 
             //Debug.Log("___________ " + movementVector);
 
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         movementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
-        Debug.Log(movementInput);
+        //Debug.Log(movementInput);
 
 
        
@@ -63,6 +63,6 @@ public class PlayerMovement : MonoBehaviour
     {
         movementInput = Vector3.zero; //new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
-        Debug.Log("stopped movement " + movementInput);
+        //Debug.Log("stopped movement " + movementInput);
     }
 }

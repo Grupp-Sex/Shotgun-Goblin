@@ -5,16 +5,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
-    public Transform orientation;
+    //public Transform orientation;
+    public Transform yTransform;
+    public Transform xTransform;
 
     public float sensitivity = 5f;
 
     float mouseX;
     float mouseY;
+    //[SerializeField] private float turnTime;
 
     private Vector2 lookInput;
-    
 
+    //float xRotationVelocity;
+    //float yRotationVelocity;
     float xRotation;
     float yRotation;
 
@@ -27,7 +31,7 @@ public class PlayerCam : MonoBehaviour
     }
 
    
-    void Update()
+    void LateUpdate()
     {
         //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity för att inte skapa inconsintency
         mouseX *= Time.deltaTime * sensitivity;
@@ -39,14 +43,20 @@ public class PlayerCam : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Begränsar spelar från att titta mer än 90 grader upp och ner
 
         //rotera kamera åt bägge axis (x och y)
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         //rotera orientation (vilket är spelaren) på y-axeln endast 
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
+        xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
         //Debug för att se ifall kameran tar emot mouse inputs
-        Debug.Log(lookInput);
+        //Debug.Log(lookInput);
 
     }
+
+    //protected float SmoothTurn(float input, float current, ref float velocity)
+    //{
+    //    return Mathf.SmoothDampAngle(current, current + input, ref velocity, turnTime);
+    //}
 
     //OnLook tar player inputs från musen och förvarar dem i mouseX och mouseY beroende på om player tittar horizontelt (X) eller vertikalt (Y)
     private void OnLook(InputValue input)
