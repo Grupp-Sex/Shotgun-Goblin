@@ -22,6 +22,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     {
 
     }
+
     protected override void OnUpdate()
     {
         base.OnUpdate();
@@ -53,7 +54,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     protected void UpdateParentMovement()
     {
         oldParentPosition = newParentPosition;
-        newParentPosition = parentRB.transform.position;
+        newParentPosition = pickuppOriginPoint.position;
 
     }
 

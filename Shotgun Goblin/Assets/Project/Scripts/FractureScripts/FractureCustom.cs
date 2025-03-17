@@ -31,11 +31,10 @@ public class FractureCustom : Fracture, IDebugActivatableVoid
     }
 
 
-    private void OnValidate()
+    void Update()
     {
         ActivateFractureButtonScript();
     }
-
 
     public void VoidDebugActivate()
     {

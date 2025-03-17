@@ -33,7 +33,7 @@ public class TelekenesisPhysicsObject : MonoBehaviour
         SaveSavedState();
         //InitializeConstraint();
 
-        Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+        //Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
         BoundSize = GetComponent<Collider>().bounds.size.magnitude;
     }

@@ -24,7 +24,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     void Start()
     {
-        if(AbilatiyScriptHolder == null)
+        if (AbilatiyScriptHolder == null)
         {
             AbilatiyScriptHolder = gameObject;
         }
@@ -79,6 +79,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         {
             telekenesisAbilaties[i].Initialize(this, HeldObjects, TargetPosition);
         }
+
     }
 
     protected void NotifyGrabOject(TelekenesisPhysicsObject obj)
