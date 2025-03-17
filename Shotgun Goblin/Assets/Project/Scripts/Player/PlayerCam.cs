@@ -45,19 +45,15 @@ public class PlayerCam : MonoBehaviour
         //rotera kamera åt bägge axis (x och y)
         //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         //rotera orientation (vilket är spelaren) på y-axeln endast 
+
+
         yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
         xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
-        //Debug för att se ifall kameran tar emot mouse inputs
-        //Debug.Log(lookInput);
 
     }
 
-    //protected float SmoothTurn(float input, float current, ref float velocity)
-    //{
-    //    return Mathf.SmoothDampAngle(current, current + input, ref velocity, turnTime);
-    //}
-
+    
     //OnLook tar player inputs från musen och förvarar dem i mouseX och mouseY beroende på om player tittar horizontelt (X) eller vertikalt (Y)
     private void OnLook(InputValue input)
     {
