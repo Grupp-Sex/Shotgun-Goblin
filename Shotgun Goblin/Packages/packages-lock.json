@@ -1,14 +1,23 @@
 {
   "dependencies": {
+    "com.unity.ai.navigation": {
+      "version": "1.1.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.dgreenheck.openfracture": {
-      "version": "https://github.com/dgreenheck/OpenFracture.git",
+      "version": "https://github.com/Moon-of-jupiter/OpenFracture-Fork1.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.test-framework": "1.1.30",
         "com.unity.testtools.codecoverage": "1.0.1"
       },
-      "hash": "6d0ddff64173193f024638c2de2dbeb8a2525965"
+      "hash": "ede30b126b612e0eb05313def280c5cc3d3c73eb"
     },
     "com.unity.burst": {
       "version": "1.8.18",
