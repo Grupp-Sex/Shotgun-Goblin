@@ -1677,7 +1677,7 @@ MonoBehaviour:
   TargetPosition: {fileID: 952274168}
   GrabDistanceThreshold: 5
   HoldDistanceThreshold: 5
-  HeldObjectMax: 10
+  HeldObjectMax: 100
   HeldObjects: []
 --- !u!136 &583402899
 CapsuleCollider:
@@ -2694,7 +2694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370288355}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000013240823, y: -0.7071068, z: -0.00000013240823, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -3318,7 +3318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1608405665
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,7 +3408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892372910}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000029802319, y: 0.000000014901159, z: 0.24480088, w: 0.9695734}
+  m_LocalRotation: {x: -0.000000034458935, y: -0, z: 0.10982359, w: 0.9939511}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3416,7 +3416,7 @@ Transform:
   - {fileID: 952274168}
   - {fileID: 1409142123}
   m_Father: {fileID: 583402902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.34}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.61}
 --- !u!1 &2048700404
 GameObject:
   m_ObjectHideFlags: 0
