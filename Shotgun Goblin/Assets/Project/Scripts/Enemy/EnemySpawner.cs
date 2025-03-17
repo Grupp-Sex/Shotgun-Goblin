@@ -8,8 +8,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform player;
     [SerializeField] private int numberOfEnemies;
     [SerializeField] private float delayBetweenSpawn;
-    private List<Enemy> enemies;
+    [SerializeField] private List<Enemy> enemies;
 
+    private NavMeshTriangulation triangulation;
     private Dictionary<int, PoolOfObjects> poolsOfEnemyObjects;
 
     private void Awake()
@@ -25,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        triangulation = NavMesh.CalculateTriangulation();
+
         StartCoroutine(SpawnEnemies());
     }
 
@@ -55,20 +58,17 @@ public class EnemySpawner : MonoBehaviour
         if (poolableObject != null)
         {
             Enemy enemy = poolableObject.GetComponent<Enemy>();
-            
-            NavMeshTriangulation triangulation = NavMesh.CalculateTriangulation();
 
             int indexOfVertex = Random.Range(0, triangulation.vertices.Length);
 
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(triangulation.vertices[indexOfVertex], out hit, 2f, 0))
+            if (NavMesh.SamplePosition(triangulation.vertices[indexOfVertex], out hit, 2f, 1))
             {
                 enemy.agent.Warp(hit.position);
                 enemy.movement.Target = player;
                 enemy.agent.enabled = true;
-                //enemy.movement.
+                enemy.movement.StartChase();
             }
-
         }
     }
 }

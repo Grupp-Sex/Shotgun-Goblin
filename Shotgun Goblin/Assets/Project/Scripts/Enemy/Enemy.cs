@@ -7,4 +7,11 @@ public class Enemy : PoolableObject
 {
     public EnemyMovement movement;
     public NavMeshAgent agent;
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+
+        agent.enabled = false;
+    }
 }
