@@ -7,12 +7,18 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
 {
     protected List<TelekenesisPhysicsObject> heldObjects;
 
-    protected Transform pickuppOriginPoint; 
+    protected Transform pickuppOriginPoint;
+    protected TelekenesisManager parentManager;
 
-    public virtual void Initialize(List<TelekenesisPhysicsObject> heldObjects, Transform origin)
+    protected Rigidbody parentRB;
+
+    public virtual void Initialize(TelekenesisManager parentManager, List<TelekenesisPhysicsObject> heldObjects, Transform origin)
     {
         this.heldObjects = heldObjects;
+        this.parentManager = parentManager;
         pickuppOriginPoint = origin;
+
+        parentRB = parentManager.gameObject.GetComponent<Rigidbody>();
 
         DebugLog("Initialized telekenesis abilaty");
     }

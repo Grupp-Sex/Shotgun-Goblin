@@ -13,7 +13,10 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     [SerializeField] float Radius;
     [SerializeField] float SizeForceMod;
     [SerializeField] float Upmod;
+    [SerializeField] Vector3 ParentMovement => newParentPosition - oldParentPosition;
 
+    protected Vector3 oldParentPosition;
+    protected Vector3 newParentPosition;
 
     void Start()
     {
@@ -25,6 +28,32 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
         UpdateShape();
         RunFuncOnAllHeldObjects(HoldTelekenesis);
+
+    }
+
+    public void FixedUpdate()
+    {
+        FixedUpdateActions();
+    }
+
+    protected virtual void FixedUpdateActions()
+    {
+        UpdateParentMovement();
+
+        RunFuncOnAllHeldObjects(AddParentMovementToHeld);
+    }
+
+    protected void AddParentMovementToHeld(TelekenesisPhysicsObject obj)
+    {
+        obj.Rigidbody.MovePosition(obj.Rigidbody.position + parentRB.velocity / 60f);
+    }
+
+    
+
+    protected void UpdateParentMovement()
+    {
+        oldParentPosition = newParentPosition;
+        newParentPosition = parentRB.transform.position;
 
     }
 
@@ -48,6 +77,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         obj.Rigidbody.useGravity = false;
 
         
+        
     }
 
     protected Vector3 GetShapePoint(TelekenesisPhysicsObject obj)
@@ -58,6 +88,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void HoldTelekenesis(TelekenesisPhysicsObject obj)
     {
+        //AddHolderVelocity(obj);
         PullObjectToEpicenter(obj);
         PushObjectsApart(obj);
     }
@@ -69,6 +100,8 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         
         
     }
+
+   
 
     protected float ObjectBoundSizeMod(TelekenesisPhysicsObject obj)
     {

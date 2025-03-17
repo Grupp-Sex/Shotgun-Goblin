@@ -7,6 +7,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
 
     [SerializeField] public Transform TargetPosition;
+    [SerializeField] public GameObject AbilatiyScriptHolder;
     [SerializeField] public float GrabDistanceThreshold;
     [SerializeField] public float HoldDistanceThreshold;
     [SerializeField] public int HeldObjectMax;
@@ -23,6 +24,11 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     void Start()
     {
+        if(AbilatiyScriptHolder == null)
+        {
+            AbilatiyScriptHolder = gameObject;
+        }
+
         HeldObjects = new List<TelekenesisPhysicsObject>();
 
         InitialzieAllAbilaties();
@@ -67,11 +73,11 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     protected void InitialzieAllAbilaties()
     {
-        telekenesisAbilaties = GetComponents<BaseTelekenesisAbilaty>();
+        telekenesisAbilaties = AbilatiyScriptHolder.GetComponents<BaseTelekenesisAbilaty>();
 
         for (int i = 0; i < telekenesisAbilaties.Length; i++)
         {
-            telekenesisAbilaties[i].Initialize(HeldObjects, TargetPosition);
+            telekenesisAbilaties[i].Initialize(this, HeldObjects, TargetPosition);
         }
     }
 
@@ -204,6 +210,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         CheckObjectsForDropping();
     }
 
+    
 
 
 
