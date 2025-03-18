@@ -34,7 +34,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     public void FixedUpdate()
     {
-        FixedUpdateActions();
+        //FixedUpdateActions();
     }
 
     protected virtual void FixedUpdateActions()
