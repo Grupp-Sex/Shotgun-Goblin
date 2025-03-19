@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6628727748682978656}
   - component: {fileID: 1048786899880067928}
   - component: {fileID: -8993865475924358407}
-  - component: {fileID: -7990764217903450983}
+  - component: {fileID: 6493673338787604821}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.46, y: -1.68, z: -3.24}
-  m_LocalScale: {x: 0.5, y: 0.6, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 2, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -173,9 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
-  movement: {fileID: -7990764217903450983}
+  movement: {fileID: 6493673338787604821}
   agent: {fileID: 1048786899880067928}
---- !u!114 &-7990764217903450983
+--- !u!114 &6493673338787604821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

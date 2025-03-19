@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class PoolableObject : MonoBehaviour
 {
-    public PoolOfObjects parent;
+    [HideInInspector] public PoolOfObjects parent;
 
     public virtual void OnDisable()
     {

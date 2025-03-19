@@ -5,22 +5,20 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField] private Transform player;
     [SerializeField] private int numberOfEnemies;
     [SerializeField] private float delayBetweenSpawn;
-    [SerializeField] private List<Enemy> enemies;
+    [SerializeField] private List<Enemy> enemies = new List<Enemy>();
+    [SerializeField] private MethodOfSpawning MethodOfSpawningEnemies;
 
     private NavMeshTriangulation triangulation;
-    private Dictionary<int, PoolOfObjects> poolsOfEnemyObjects;
+    private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
 
     private void Awake()
     {
-        enemies = new List<Enemy>();
-        poolsOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
-
         for (int i = 0; i < enemies.Count; i++)
         {
-            poolsOfEnemyObjects.Add(i, PoolOfObjects.CreateInstance(enemies[i], numberOfEnemies));
+            poolOfEnemyObjects.Add(i, PoolOfObjects.CreateInstance(enemies[i], numberOfEnemies));
         }
     }
 
@@ -39,11 +37,22 @@ public class EnemySpawner : MonoBehaviour
 
         while ( numberOfSpawnedEnemies < numberOfEnemies)
         {
-            SpawnRandomEnemy();
-            numberOfSpawnedEnemies++;
-        }
+            if (MethodOfSpawningEnemies == MethodOfSpawning.Third)
+            {
+                SpawnThirdIsEnemy(numberOfSpawnedEnemies);
+            }
+            else if (MethodOfSpawningEnemies == MethodOfSpawning.Even)
+            {
+                SpawnEvenEnemies(numberOfSpawnedEnemies);
+            }
+            else
+            {
+                SpawnRandomEnemy();     
+            }
 
-        yield return wait;
+            numberOfSpawnedEnemies++;
+            yield return wait;
+        }
     }
 
     private void SpawnRandomEnemy()
@@ -51,9 +60,30 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(Random.Range(0, enemies.Count));
     }
 
+    private void SpawnEvenEnemies(int numberOfSpawnedEnemies)
+    {
+        int spawnIndex = numberOfSpawnedEnemies % enemies.Count;
+        SpawnEnemy(spawnIndex);
+    }
+
+    private void SpawnThirdIsEnemy(int numberOfSpawnedEnemies)
+    {
+        int spawnIndex;
+        if (numberOfSpawnedEnemies < numberOfEnemies/3)
+        {
+            spawnIndex = 0;
+        }
+        else
+        {
+            spawnIndex = numberOfSpawnedEnemies % enemies.Count;
+        }
+
+        SpawnEnemy(spawnIndex);
+    }
+
     private void SpawnEnemy(int indexOfSpawn)
     {
-        PoolableObject poolableObject = poolsOfEnemyObjects[indexOfSpawn].GetObject();
+        PoolableObject poolableObject = poolOfEnemyObjects[indexOfSpawn].GetObject();
 
         if (poolableObject != null)
         {
@@ -61,8 +91,7 @@ public class EnemySpawner : MonoBehaviour
 
             int indexOfVertex = Random.Range(0, triangulation.vertices.Length);
 
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(triangulation.vertices[indexOfVertex], out hit, 2f, 1))
+            if (NavMesh.SamplePosition(triangulation.vertices[indexOfVertex], out NavMeshHit hit, 2f, 1))
             {
                 enemy.agent.Warp(hit.position);
                 enemy.movement.Target = player;
@@ -70,5 +99,12 @@ public class EnemySpawner : MonoBehaviour
                 enemy.movement.StartChase();
             }
         }
+    }
+
+    private enum MethodOfSpawning
+    {
+        Random,
+        Even,
+        Third
     }
 }

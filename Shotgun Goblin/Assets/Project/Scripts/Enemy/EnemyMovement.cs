@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Target;
-    public float UpdateSpeed = 1.0f;
+    [SerializeField] private float UpdateSpeed;
 
     private NavMeshAgent Agent;
 
