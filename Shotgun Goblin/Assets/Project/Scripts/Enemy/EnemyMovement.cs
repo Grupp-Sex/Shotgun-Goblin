@@ -7,18 +7,27 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Target;
-    public float UpdateSpeed = 1.0f;
+    [SerializeField] private float UpdateSpeed;
 
     private NavMeshAgent Agent;
+
+    private Coroutine Follow;
 
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Start()
+    public void StartChase()
     {
-        StartCoroutine(FollowTarget());
+        if (Follow == null)
+        {
+            StartCoroutine(FollowTarget());
+        }
+        else
+        {
+            Debug.LogWarning("Enemy is already chasing.");
+        }
     }
 
     private IEnumerator FollowTarget()
