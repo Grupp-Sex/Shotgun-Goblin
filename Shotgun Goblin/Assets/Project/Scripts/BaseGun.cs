@@ -5,62 +5,77 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
+
+// TO DO
+// SEPARATE GOTSHOTLOGIC INTO NEW IHITLOGIC SCRIPT
+
 public class BaseGun : MonoBehaviour
-{    
+{
+    [SerializeField] float baseDamage;
+    protected IHitLogic[] hitLogicScripts;
+
     void Start()
     {
-        
+        hitLogicScripts = GetComponents<IHitLogic>();
     }
-   
-    void Update()
-    {
 
+    protected virtual float GetDamage(RaycastHit hitinfo)
+    {
+        return baseDamage;
     }
+
     // Shoots one projectile one time, use it multiple times for shotgun!
     protected virtual void ShootOneTime(Vector3 origin, Vector3 direction, float maxDistance)
     {
         if (Physics.Raycast(origin, direction, out RaycastHit hitInfo, maxDistance))
         {
-            Hit(origin,direction,hitInfo);
+            Hit(direction,hitInfo,origin);
         }
     }
-    //Triggers all IShootAble scripts that can be hit for the hit object, All things that needs to be
-    //shot will have this script so this will just trigger it.
-    protected virtual void ActivateGotShotLogic(GameObject hitObject, ProjectileInfo projectileinfo)
-    {
-        IShootAble[] shootablecomponents = hitObject.GetComponents<IShootAble>();
-        for (int i = 0; i < shootablecomponents.Length; i++)
-        {
-            shootablecomponents[i].GotShotLogic(projectileinfo);
-        }
-    }
-
-    protected virtual void Hit(Vector3 origin, Vector3 direction, RaycastHit hitInfo)
-    {
-
-    }
-
-    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage)
+    
+    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin)
     {
         ProjectileInfo projectile = new ProjectileInfo()
         {
             direction = direction,
-            damage = damage
+            damage = damage,
+            origin = origin
         };
         return projectile;
     }
 
+    protected virtual void Hit(Vector3 direction, RaycastHit hitInfo, Vector3 origin)
+    {
+        ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin);
+        NotifyHitLogic(hitInfo, projectile);
+    }
+
+    public virtual void NotifyHitLogic(RaycastHit hitinfo, ProjectileInfo projectile)
+    {
+        foreach (var hit in hitLogicScripts)
+        {
+            hit.RunHitLogic(hitinfo, projectile);
+        }
+    }
+
+    
 }
+
+
+
+
 //Cointains all projectile info for the bullets 
 public struct ProjectileInfo
 {
     public Vector3 direction;
     public float damage;
+    public Vector3 origin;
     
 }
 
-//Hit for enemies to recognize damage, Give it to all enemies and things that needs to be shot
-public interface IShootAble 
+
+
+public interface IHitLogic
 {
-    public void GotShotLogic(ProjectileInfo projectile);
+    public void RunHitLogic(RaycastHit hitinfo, ProjectileInfo projectile);
 }
