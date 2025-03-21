@@ -10,9 +10,11 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     [SerializeField] Collider Shape;
     [SerializeField] float ImplotionForce;
     [SerializeField] float EpicenterForceMod;
+    [SerializeField] float PushApartForce;
     [SerializeField] float Radius;
     [SerializeField] float SizeForceMod;
     [SerializeField] float Upmod;
+    
     [SerializeField] Vector3 ParentMovement => newParentPosition - oldParentPosition;
 
     protected Vector3 oldParentPosition;
@@ -126,7 +128,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         {
             if(heldObjects[i] != obj)
             {
-                obj.Rigidbody.AddExplosionForce(ImplotionForce * 0.2f, heldObjects[i].transform.position, 1f, 0);
+                obj.Rigidbody.AddExplosionForce(PushApartForce, heldObjects[i].transform.position, 1f, 0);
             }
         }
     }

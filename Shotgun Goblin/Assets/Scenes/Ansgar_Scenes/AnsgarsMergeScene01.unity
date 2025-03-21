@@ -953,7 +953,7 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 20
+    fragmentCount: 40
     xAxis: 1
     yAxis: 1
     zAxis: 0
@@ -1346,7 +1346,7 @@ MonoBehaviour:
   AbilatiyScriptHolder: {fileID: 7144714691098515005}
   GrabDistanceThreshold: 5
   HoldDistanceThreshold: 7
-  HeldObjectMax: 10
+  HeldObjectMax: 30
   HeldObjects: []
 --- !u!114 &1684870173
 MonoBehaviour:
@@ -1703,8 +1703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 1
   Shape: {fileID: 5278397790361503209}
-  ImplotionForce: 5
-  EpicenterForceMod: 0.3
+  ImplotionForce: 7
+  EpicenterForceMod: 0.5
   Radius: 10
   SizeForceMod: 0.6
   Upmod: 0.001
