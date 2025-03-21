@@ -1082,6 +1082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107223212}
   - component: {fileID: 1107223213}
+  - component: {fileID: 1107223214}
   m_Layer: 0
   m_Name: Fracture Template
   m_TagString: Untagged
@@ -1119,6 +1120,21 @@ MonoBehaviour:
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
+--- !u!114 &1107223214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107223211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac36a28bb71ffd4d84df8b37490e2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  StartFrozen: 1
+  DoActivate: 0
 --- !u!4 &1124486808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2376197808244466416, guid: 28c4268ec401de74eaef2429792367a4,

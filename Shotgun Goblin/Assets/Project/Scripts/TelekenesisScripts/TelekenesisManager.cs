@@ -47,17 +47,17 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     {
         bool containsObjectAlready = HeldObjects.Contains(obj);
 
-        if (!containsObjectAlready)
+        if (!containsObjectAlready && obj.CanBeGrabbed)
         {
             AddHeldObject(obj);
-
+            return true;
         }
-        else
+        else if(containsObjectAlready)
         {
             Debug.Log("error in " + name + ":" + '\n' + "Failed to add object to held item list, Object already exists in list.");
         }
 
-        return !containsObjectAlready;
+        return false;
     }
 
     protected virtual void RemoveHeldObject(TelekenesisPhysicsObject obj)
