@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SecondaryShoot",
+                    "type": "Button",
+                    "id": "4ef27be7-9b4b-41fa-8637-c4fc9175342b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryShootStop",
+                    "type": "Button",
+                    "id": "940bd9c6-c644-49a5-aad2-43ba060e30c6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -134,6 +152,28 @@
                     "action": "MovementStop",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4035dcaf-80f3-4961-9e04-353d19cda841",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c6cb0dc-4bf9-461c-956c-2c50e80f34c4",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryShootStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
