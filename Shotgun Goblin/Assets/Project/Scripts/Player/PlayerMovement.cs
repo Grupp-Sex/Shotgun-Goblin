@@ -14,6 +14,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
    [SerializeField] private float Drag;
 
+    float jumpUpSpeed;
+
+    bool canJump;
+    bool jump;
+    bool grounded;
+
+    Collider ground;
+
    
     // Start is called before the first frame update
     void Start()
@@ -25,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         characterRB.drag = Drag;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jump = true;
+        }
     }
 
     // Update is called once per frame
