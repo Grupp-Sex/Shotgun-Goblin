@@ -16,7 +16,7 @@ public class SmoothCameraFollow : MonoBehaviour
     }
 
 
-    private void fixedfUpdate()
+    private void FixedUpdate()
     {
         Vector3 playerPosition = player.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref currentVelocity, smoothTime);
