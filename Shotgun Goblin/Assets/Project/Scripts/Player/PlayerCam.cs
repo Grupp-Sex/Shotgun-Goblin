@@ -9,6 +9,10 @@ public class PlayerCam : MonoBehaviour
     public Transform yTransform;
     public Transform xTransform;
 
+    
+
+    
+
     public float sensitivity = 5f;
 
     float mouseX;
@@ -49,6 +53,8 @@ public class PlayerCam : MonoBehaviour
 
         yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
         xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+
+        
 
 
     }
