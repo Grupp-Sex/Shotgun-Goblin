@@ -10,7 +10,9 @@ public class ShotGun01 : BaseGun
     
     protected override void Shoot()
     {
-        for(int i = 0; i < pelletsPerShot; i++)
+
+        ShootOneTime(transform.position, ToForward(new Vector3(0, 1, 0)), 100);
+        for (int i = 0; i < pelletsPerShot; i++)
         {
             ShootOneTime(transform.position, GetRandomDirection(randomScale), 100);
         }
@@ -22,7 +24,12 @@ public class ShotGun01 : BaseGun
 
         Vector3 localDirection = new Vector3(offset.x, 1, offset.y);
 
-        return transform.TransformVector(localDirection);
+        return ToForward(localDirection);
         
+    }
+
+    protected Vector3 ToForward(Vector3 direction)
+    {
+        return transform.TransformVector(direction);
     }
 }

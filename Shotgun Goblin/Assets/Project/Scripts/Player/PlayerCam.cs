@@ -40,7 +40,7 @@ public class PlayerCam : MonoBehaviour
         yRotation += mouseX;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Begränsar spelar från att titta mer än 90 grader upp och ner
+        xRotation = Mathf.Clamp(xRotation, -85f, 85f); // Begränsar spelar från att titta mer än 90 grader upp och ner
 
         //rotera kamera åt bägge axis (x och y)
         //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);

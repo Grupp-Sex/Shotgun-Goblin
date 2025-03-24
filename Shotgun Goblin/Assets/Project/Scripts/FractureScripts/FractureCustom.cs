@@ -11,14 +11,19 @@ public class FractureCustom : Fracture, IDebugActivatableVoid
     [SerializeField] public bool FractureOnStartup;
 
     [SerializeField] public bool ActivateFractureButton;
+
+    protected Mesh mesh;
     private void ActivateFractureButtonScript()
     {
+        mesh = GetComponent<Mesh>();
+
         if (ActivateFractureButton)
         {
             FractureObject();
 
             ActivateFractureButton = false;
         }
+
 
     }
 
@@ -46,7 +51,10 @@ public class FractureCustom : Fracture, IDebugActivatableVoid
     public virtual void FractureObject()
     {
         CauseFracture();
+        
     }
+
+    
 
     protected override GameObject CreateFragmentTemplate()
     {
