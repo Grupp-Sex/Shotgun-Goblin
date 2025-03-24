@@ -9,7 +9,7 @@ using static UnityEngine.UI.Image;
 // TO DO
 // SEPARATE GOTSHOTLOGIC INTO NEW IHITLOGIC SCRIPT
 
-public class BaseGun : MonoBehaviour
+public class BaseGun : MonoBehaviour, IHeldItem
 {
     [SerializeField] float baseDamage;
     protected IHitLogic[] hitLogicScripts;
@@ -18,6 +18,17 @@ public class BaseGun : MonoBehaviour
     {
         hitLogicScripts = GetComponents<IHitLogic>();
     }
+
+    public void DoAction()
+    {
+        Shoot();
+    }
+
+    protected virtual void Shoot()
+    {
+
+    }
+
 
     protected virtual float GetDamage(RaycastHit hitinfo)
     {

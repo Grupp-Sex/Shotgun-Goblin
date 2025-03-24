@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerCam : MonoBehaviour
 {
     //public Transform orientation;
-    public Transform yTransform;
-    public Transform xTransform;
+    public Rigidbody yTransform;
+    public Rigidbody xTransform;
 
     public float sensitivity = 5f;
 
@@ -45,8 +45,8 @@ public class PlayerCam : MonoBehaviour
         //rotera kamera åt bägge axis (x och y)
         //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         //rotera orientation (vilket är spelaren) på y-axeln endast 
-        yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
-        xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        yTransform.MoveRotation(Quaternion.Euler(0, yRotation, 0));
+        xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, 0));
 
         //Debug för att se ifall kameran tar emot mouse inputs
         //Debug.Log(lookInput);

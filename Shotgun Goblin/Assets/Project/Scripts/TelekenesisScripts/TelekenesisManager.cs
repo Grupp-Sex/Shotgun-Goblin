@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
-
+    [SerializeField] public bool DropOriginPoint;
     [SerializeField] public Transform TargetPosition;
     [SerializeField] public GameObject AbilatiyScriptHolder;
     [SerializeField] public float GrabDistanceThreshold;
@@ -27,6 +27,11 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         if (AbilatiyScriptHolder == null)
         {
             AbilatiyScriptHolder = gameObject;
+        }
+
+        if (DropOriginPoint)
+        {
+            TargetPosition.SetParent(null);
         }
 
         HeldObjects = new List<TelekenesisPhysicsObject>();

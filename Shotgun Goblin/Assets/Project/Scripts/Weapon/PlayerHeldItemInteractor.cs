@@ -32,7 +32,7 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
     }
 
 
-    private void HeldItemDoInteraction()
+    public void HeldItemDoInteraction()
     {
 
         
@@ -45,7 +45,6 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
 
         
     }
-
 
 
     public void VoidDebugActivate()
