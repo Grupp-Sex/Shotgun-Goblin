@@ -803,7 +803,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01b5a74c96f922c428da02665ac617e9, type: 2}
+  - {fileID: 2100000, guid: cabf799edda5b1249bcaf5f8c9a0238d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1412,6 +1412,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569732729602631477, guid: 65f1e40be6b57c5469ebbbd1aee02112,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
