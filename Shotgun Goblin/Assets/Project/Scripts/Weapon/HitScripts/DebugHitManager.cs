@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 public class DebugHitManager : BaseHitManage, IHitLogic
 {
     [SerializeField] GameObject hitObjectTemplate;
+    [SerializeField] float ForceMagnitude;
 
     [SerializeField] List<GameObject> hitObjects;
     [SerializeField] GameObject projectileHolder;
@@ -17,7 +18,20 @@ public class DebugHitManager : BaseHitManage, IHitLogic
         PlaceHitObject(hit);
         ActivateGotShotLogic(hit.collider.gameObject, projectile);
 
+        PushObject(hit, projectile.direction, ForceMagnitude);
 
+    }
+
+    protected void PushObject(RaycastHit hit, Vector3 direction, float forceMagnitude)
+    {
+        Rigidbody rb = hit.rigidbody;
+
+        if(rb != null)
+        {
+            Vector3 forceVector = direction.normalized * forceMagnitude;
+
+            rb.AddForce(forceVector);
+        }
 
     }
 
