@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerCam : MonoBehaviour
 {
     //public Transform orientation;
-    public Transform yTransform;
-    public Transform xTransform;
+    //public Transform yTransform;
+    //public Transform xTransform;
 
-    
+    public Rigidbody yTransform;
+    public Rigidbody xTransform;
 
     
 
@@ -51,8 +52,10 @@ public class PlayerCam : MonoBehaviour
         //rotera orientation (vilket är spelaren) på y-axeln endast 
 
 
-        yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
-        xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        //yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
+        //xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        yTransform.MoveRotation(Quaternion.Euler(0, yRotation, 0));
+        xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, 0));
 
         
 
