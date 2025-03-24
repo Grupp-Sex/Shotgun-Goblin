@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FragmentFreeze : MonobehaviorScript_ToggleLog
+public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
 {
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
@@ -12,7 +12,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
     protected IFrozenOnFractionFreeze[] componentsToBeThawed; 
 
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +80,10 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
         // should maybe be handled by a seperate game object
     }
 
+    public void GotShotLogic(ProjectileInfo projectile)
+    {
+        Thaw();
+    }
 
 }
 

@@ -15,6 +15,7 @@ public class DebugHitManager : BaseHitManage, IHitLogic
         base.HitLogic(hit, projectile);
 
         PlaceHitObject(hit);
+        RunHitLogic(hit,projectile);
     }
 
     protected void PlaceHitObject(RaycastHit hit)
