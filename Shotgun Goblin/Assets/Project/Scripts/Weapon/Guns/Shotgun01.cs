@@ -10,7 +10,7 @@ public class ShotGun01 : BaseGun
     
     protected override void Shoot()
     {
-
+        base.Shoot();
         ShootOneTime(transform.position, ToForward(new Vector3(0, 1, 0)), 100);
         for (int i = 0; i < pelletsPerShot; i++)
         {
