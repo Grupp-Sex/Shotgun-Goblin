@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
@@ -8,6 +9,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
     [SerializeField] bool DoActivate;
 
     protected Rigidbody rb;
+    
 
     protected IFrozenOnFractionFreeze[] componentsToBeThawed; 
 
@@ -74,15 +76,33 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
         Thaw();
     }
     
-    public virtual void ActivateNeighbours(float radius)
+    public virtual void ActivateNeighbours(Vector3 pos, float radius)
     {
-        // unimplemented
-        // should maybe be handled by a seperate game object
+        Collider[] colidersInside = Physics.OverlapSphere(pos, radius);
+        int counter = 0;
+        for (int i = 0; i < colidersInside.Length; i++)
+        {
+
+            DebugLog(colidersInside[i].gameObject.name);
+            FragmentFreeze fragment = colidersInside[i].gameObject.GetComponent<FragmentFreeze>();
+            
+            if (fragment != null)
+            {
+                counter++;
+                DebugLog("neighbour found");
+                fragment.Thaw();
+            }
+        }
+
+        DebugLog("neighbours found: " + counter + " of " + colidersInside.Length + " total objects");
+
+
+
     }
 
     public void GotShotLogic(ProjectileInfo projectile)
     {
-        Thaw();
+        ActivateNeighbours(projectile.hitPos, 0.3f);
     }
 
 }

@@ -49,20 +49,21 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
         }
     }
     
-    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin)
+    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin, Vector3 hitPos)
     {
         ProjectileInfo projectile = new ProjectileInfo()
         {
             direction = direction,
             damage = damage,
-            origin = origin
+            origin = origin,
+            hitPos = hitPos
         };
         return projectile;
     }
 
     protected virtual void Hit(Vector3 direction, RaycastHit hitInfo, Vector3 origin)
     {
-        ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin);
+        ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin,hitInfo.point);
         NotifyHitLogic(hitInfo, projectile);
     }
 
@@ -92,6 +93,7 @@ public struct ProjectileInfo
     public Vector3 direction;
     public float damage;
     public Vector3 origin;
+    public Vector3 hitPos;
     
 }
 

@@ -15,7 +15,10 @@ public class DebugHitManager : BaseHitManage, IHitLogic
         base.HitLogic(hit, projectile);
 
         PlaceHitObject(hit);
-        RunHitLogic(hit,projectile);
+        ActivateGotShotLogic(hit.collider.gameObject, projectile);
+
+
+
     }
 
     protected void PlaceHitObject(RaycastHit hit)
@@ -42,6 +45,8 @@ public class DebugHitManager : BaseHitManage, IHitLogic
 
         hitObjects.Add(newHitObject);
     }
+
+    
 
 
 }
