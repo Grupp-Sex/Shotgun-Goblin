@@ -9,14 +9,19 @@ using static UnityEngine.UI.Image;
 // TO DO
 // SEPARATE GOTSHOTLOGIC INTO NEW IHITLOGIC SCRIPT
 
-public class BaseGun : MonoBehaviour, IHeldItem
+public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
 {
     [SerializeField] float baseDamage;
     protected IHitLogic[] hitLogicScripts;
+    protected IShotActivated[] shootActivatedScripts;
 
     void Start()
     {
         hitLogicScripts = GetComponents<IHitLogic>();
+        shootActivatedScripts = GetComponents<IShotActivated>();
+
+
+
     }
 
     public void DoAction()
@@ -26,7 +31,7 @@ public class BaseGun : MonoBehaviour, IHeldItem
 
     protected virtual void Shoot()
     {
-
+        NotifyShotActivated();
     }
 
 
@@ -68,8 +73,14 @@ public class BaseGun : MonoBehaviour, IHeldItem
             hit.RunHitLogic(hitinfo, projectile);
         }
     }
+    public virtual void NotifyShotActivated()
+    {
+        foreach (var shot in shootActivatedScripts)
+        {
+            shot.RunShootLogic();
+        }
+    }
 
-    
 }
 
 
@@ -85,7 +96,10 @@ public struct ProjectileInfo
 }
 
 
-
+public interface IShotActivated
+{
+    public void RunShootLogic();
+}
 public interface IHitLogic
 {
     public void RunHitLogic(RaycastHit hitinfo, ProjectileInfo projectile);
