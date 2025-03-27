@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 
-public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
+public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactThreshold
 {
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
+    [SerializeField] bool IsFrozen;
 
     protected Rigidbody rb;
     
@@ -36,6 +37,23 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
         }
     }
 
+    public void SoftImpact(CollisionData collision)
+    {
+        if (IsFrozen)
+        {
+            ActivateNeighbours(collision.position, 0.5f);
+        }
+    }
+
+    public void HardImpact(CollisionData collision)
+    {
+        if (!IsFrozen)
+        {
+            gameObject.SetActive(false);
+        }
+        //Destroy(gameObject);
+    }
+
     protected void ActivateFreezeComponents(bool frezeOrThaw)
     {
         foreach(var component in componentsToBeThawed)
@@ -58,6 +76,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
 
     protected virtual void Freeze()
     {
+        IsFrozen = true;
         rb.isKinematic = true;
         rb.Sleep();
         ActivateFreezeComponents(true);
@@ -66,6 +85,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble
 
     protected virtual void Thaw()
     {
+        IsFrozen = false;
         rb.isKinematic = false;
         ActivateFreezeComponents(false);
         DebugLog("Object Thawed: " + name);

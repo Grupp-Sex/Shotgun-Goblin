@@ -226,6 +226,8 @@ GameObject:
   - component: {fileID: 22681456}
   - component: {fileID: 22681455}
   - component: {fileID: 22681454}
+  - component: {fileID: 22681458}
+  - component: {fileID: 22681457}
   m_Layer: 0
   m_Name: Fracture Template
   m_TagString: Untagged
@@ -245,9 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac36a28bb71ffd4d84df8b37490e2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
+  LogInDebugConsole: 0
   StartFrozen: 1
   DoActivate: 0
+  IsFrozen: 0
 --- !u!114 &22681455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +282,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 851436705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22681457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22681453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50845f7280555f247bbdf0518be4eaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  SoftImpactType: 3
+  SoftImpactThreshold: 30
+  HardImpactType: 2
+  HardImpactThreshold: 100
+--- !u!114 &22681458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22681453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c956c0b4e18062e48871ce1e9435162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  SumFalloff: 0
+  LowerThreshold: 1
+  TruncationLerpValue: 0
+  KESum_relative: 0
+  KESumMax_relative: 0
+  MomentumSum_relative: 0
+  MomentumSumMax_relative: 0
+  KESum_collider: 0
+  KESumMax_collider: 0
+  MomentumSum_collider: 0
+  MomentumSumMax_collider: 0
 --- !u!1 &124942388
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +337,7 @@ GameObject:
   - component: {fileID: 124942391}
   - component: {fileID: 124942390}
   - component: {fileID: 124942389}
+  - component: {fileID: 124942395}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -324,7 +369,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124942388}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -429,6 +474,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124942395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124942388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c956c0b4e18062e48871ce1e9435162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  SumFalloff: 0
+  LowerThreshold: 0.1
+  TruncationLerpValue: 0
+  KESum_relative: 0
+  KESumMax_relative: 0
+  MomentumSum_relative: 0
+  MomentumSumMax_relative: 0
+  KESum_collider: 0
+  KESumMax_collider: 0
+  MomentumSum_collider: 0
+  MomentumSumMax_collider: 0
 --- !u!1 &324308748
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,9 +706,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac36a28bb71ffd4d84df8b37490e2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
+  LogInDebugConsole: 0
   StartFrozen: 1
   DoActivate: 0
+  IsFrozen: 0
 --- !u!114 &361218232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,10 +2103,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Abilaties Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7709938542496030731, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: Spread
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709938542496030731, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897483423943410928, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

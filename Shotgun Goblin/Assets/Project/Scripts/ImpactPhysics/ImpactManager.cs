@@ -1,26 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ImpactManager : MonobehaviorScript_ToggleLog
 {
     // Start is called before the first frame update
     private Rigidbody rb;
-    [SerializeField] float KEsumFalloff;
+    [SerializeField] float SumFalloff;
 
-    [SerializeField] float LowerThreshold;
-    
+    [SerializeField] float LowerThreshold = 0.1f;
+    [SerializeField] float TruncationLerpValue;
 
     private List<ContactPoint> contactPoints_Pool = new List<ContactPoint>();
     private List<Vector3> contactVector3_Pool = new List<Vector3>();
 
-    [SerializeField] float KESum;
-    [SerializeField] float KESumMax;
+    [SerializeField] float KESum_relative;
+    [SerializeField] float KESumMax_relative;
+
+
+    [SerializeField] float MomentumSum_relative;
+    [SerializeField] float MomentumSumMax_relative;
+
+
+    [SerializeField] float KESum_collider;
+    [SerializeField] float KESumMax_collider;
+
+
+    [SerializeField] float MomentumSum_collider;
+    [SerializeField] float MomentumSumMax_collider;
+
+    protected IImapctManagerNotify[] imapctNotifyScripts;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        imapctNotifyScripts = GetComponents<IImapctManagerNotify>();
+
+
     }
 
     private void OnCollisionStay(Collision collision)
@@ -32,9 +50,21 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
 
     private void FixedUpdate()
     {
-        KESum *= KEsumFalloff + 1;
+        KESum_relative *= SumFalloff;
+        KESum_collider *= SumFalloff;
+
+        MomentumSum_relative *= SumFalloff;
+        MomentumSum_collider *= SumFalloff;
+        
     }
 
+    protected void Notify(CollisionData collision)
+    {
+        for(int i = 0; i < imapctNotifyScripts.Length; i++)
+        {
+            imapctNotifyScripts[i].OnNotifyedCollision(collision);
+        }
+    }
 
     protected virtual void Colition(Collision collision)
     {
@@ -46,21 +76,87 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
             return;
         }
 
-        Vector3 relativeV = collision.relativeVelocity;
+        Vector3 relativeColitionV = collision.relativeVelocity;
 
-        if(relativeV.sqrMagnitude > LowerThreshold)
+        
+
+
+
+        if(relativeColitionV.sqrMagnitude > LowerThreshold * LowerThreshold)
         {
-            //Vector3 colitionPoint = AvragePoint(GetAllPoints(collision));
+            Vector3 collisionNormal = collision.GetContact(0).normal;
 
-            float kineticEnergy = CalculateKineticEnergy(rb, coliderRB, relativeV);
+            Vector3 relativeV = Vector3.Project(relativeColitionV,collisionNormal);
 
-            //", number of points: " + collision.contactCount + ", avrage point " + colitionPoint +
-            DebugLog("Collision: " + collision.collider.name +  ", relative velocity: " + relativeV + ", kinetic energy: " + kineticEnergy);
-            KESum += kineticEnergy;
+            relativeV = relativeV * (1 - TruncationLerpValue) + relativeColitionV * TruncationLerpValue;
 
-            if(KESum > KESumMax)
+            //DebugLog("" +collisionNormal + " " + collision.gameObject.name);
+
+            if (relativeV.sqrMagnitude > LowerThreshold * LowerThreshold)
             {
-                KESumMax = KESum;
+
+                //Vector3 colitionPoint = AvragePoint(GetAllPoints(collision));
+
+                float relativeMass = CalculateRelativeMass(rb, coliderRB);
+
+                float relative_kineticEnergy = CalculateKineticEnergy(relativeMass, relativeV);
+
+                float relative_momentum = CalculateMomentum(relativeMass, relativeV);
+
+
+
+                //", number of points: " + collision.contactCount + ", avrage point " + colitionPoint +
+                DebugLog("Collision: " + collision.collider.name + ", relative velocity: " + relativeV + ", kinetic energy: " + relative_kineticEnergy + ", momentum: " + relative_momentum);
+
+                KESum_relative += relative_kineticEnergy;
+                if (KESum_relative > KESumMax_relative)
+                {
+                    KESumMax_relative = KESum_relative;
+                }
+
+                MomentumSum_relative += relative_momentum;
+                if (MomentumSum_relative > MomentumSumMax_relative)
+                {
+                    MomentumSumMax_relative = MomentumSum_relative;
+                }
+
+
+
+
+                if (RigidbodyExists(coliderRB))
+                {
+                    float collider_kineticEnergy = CalculateKineticEnergy(coliderRB.mass, relativeV);
+                    float collider_momentum = CalculateMomentum(coliderRB.mass, relativeV);
+
+                    KESum_collider += collider_kineticEnergy;
+                    if (KESum_collider > KESumMax_collider)
+                    {
+                        KESumMax_collider = KESum_collider;
+                    }
+
+                    MomentumSum_collider += relative_momentum;
+                    if (MomentumSum_collider > MomentumSumMax_collider)
+                    {
+                        MomentumSumMax_collider = MomentumSum_collider;
+                    }
+                }
+
+
+                Vector3 position = AvragePoint(GetAllPoints(collision));
+
+                CollisionData collisison = CollisionData.CreateColitionData
+                    (
+                        relativeColitionV,
+                        relativeV,
+                        position,
+                        collisionNormal,
+                        MomentumSum_relative,
+                        KESum_relative,
+                        KESum_collider,
+                        MomentumSum_collider
+                    );
+
+                Notify(collisison);
             }
         }
 
@@ -68,7 +164,14 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
 
     }
 
+    protected bool RigidbodyExists(Rigidbody rb)
+    {
+        if(rb == null) return false;
+        if(rb.isKinematic) return false;
 
+        return true;
+    }
+    
     protected List<Vector3> GetAllPoints(Collision collision)
     {
         contactPoints_Pool.Clear();
@@ -104,29 +207,27 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
 
     }
 
-    protected float CalculateKineticEnergy(Rigidbody personalRB, Rigidbody colliderRB, Vector3 relativeV)
+    protected float CalculateRelativeMass(Rigidbody personalRB, Rigidbody colliderRB)
     {
-        float kineticEnergy = 0;
-
-        float VSqrd = relativeV.sqrMagnitude;
-
         float massCalculation = 0;
 
-        switch (personalRB, colliderRB)
+        (bool, bool) rbExists = (RigidbodyExists(personalRB), RigidbodyExists(colliderRB));
+
+        switch (rbExists)
         {
-            case (not null, not null): // both objects are rigidbodys
+            case (true, true): // both objects are rigidbodys
 
-                massCalculation = ( personalRB.mass * colliderRB.mass) / (personalRB.mass + colliderRB.mass);
-
-                break;
-
-            case ( null, not null): // the colider allone is a rigidibody
-
-                massCalculation =  colliderRB.mass;
+                massCalculation = (personalRB.mass * colliderRB.mass) / (personalRB.mass + colliderRB.mass);
 
                 break;
 
-            case (not null, null):// script holder allone is a rigidibody
+            case (false, true): // the colider allone is a rigidibody
+
+                massCalculation = colliderRB.mass;
+
+                break;
+
+            case (true, false):// script holder allone is a rigidibody
 
                 massCalculation = personalRB.mass;
 
@@ -134,25 +235,75 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
 
         }
 
-        kineticEnergy = 0.5f * massCalculation * VSqrd; 
+        return massCalculation;
+
+    }
+
+    
+
+    protected float CalculateKineticEnergy(float massCalculation, Vector3 relativeV)
+    {
+        
+        float VSqrd = relativeV.sqrMagnitude;
+
+
+        float kineticEnergy = 0.5f * massCalculation * VSqrd; 
 
 
         return kineticEnergy;
     }
 
-    
-    
+    protected float CalculateMomentum(float massCalculation, Vector3 relativeV)
+    {
+        float V = relativeV.magnitude;
+
+        float momentum = massCalculation * V;
+
+        return momentum;
+        
+    }
 
     
-
-    
+        
 }
 
-public struct ColitionData
+public interface IImapctManagerNotify
 {
+
+    public void OnNotifyedCollision(CollisionData collition);
+
+}
+
+public struct CollisionData
+{
+    public static CollisionData CreateColitionData(Vector3 relativeVelocity, Vector3 truncatedRelativeVelocity, Vector3 position, Vector3 normalVector, float momentum, float kineticEnergy, float collider_momentum, float collider_kinematicEnergy)
+    {
+        return new CollisionData()
+        {
+            relativeVelocity = relativeVelocity,
+            truncatedRelativeVelocity = truncatedRelativeVelocity,
+            position = position,
+            normalVector = normalVector,
+            kineticEnergy = kineticEnergy,
+            momentum = momentum,
+            colider_kineticEnergy = collider_kinematicEnergy,
+            colider_momentum = collider_momentum
+        };
+
+    }
+
     public Vector3 relativeVelocity;
-    public Vector3 avragePoint;
-    public Vector3 colider_momentum;
+    public Vector3 truncatedRelativeVelocity;
+
+    public Vector3 position;
+    public Vector3 normalVector;
+
+    public float momentum;
+    public float kineticEnergy;
+
+    public float colider_momentum;
+    public float colider_kineticEnergy;
+    
 }
 
 
