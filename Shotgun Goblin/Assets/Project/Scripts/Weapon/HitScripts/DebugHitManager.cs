@@ -5,11 +5,23 @@ using UnityEngine.Animations;
 
 public class DebugHitManager : BaseHitManage, IHitLogic
 {
+    [SerializeField] bool PlaceHitMarker;
     [SerializeField] GameObject hitObjectTemplate;
+    [SerializeField] List<ProjectileVisuals> projectileBeamActivator;
     [SerializeField] float ForceMagnitude;
 
     [SerializeField] List<GameObject> hitObjects;
-    [SerializeField] GameObject projectileHolder;
+    [SerializeField] GameObject projectileHitHolder;
+
+    
+
+    protected override void ProjectileLogic(ProjectileInfo projectile)
+    {
+        for (int i = 0; i < projectileBeamActivator.Count; ++i)
+        {
+            projectileBeamActivator[i].Run(projectile);
+        }
+    }
 
     protected override void HitLogic(RaycastHit hit, ProjectileInfo projectile)
     {
@@ -37,27 +49,30 @@ public class DebugHitManager : BaseHitManage, IHitLogic
 
     protected void PlaceHitObject(RaycastHit hit)
     {
-        if(projectileHolder == null)
+        if (PlaceHitMarker)
         {
-            projectileHolder = new GameObject();
-            projectileHolder.name = "projectileHolder";
+            if (projectileHitHolder == null)
+            {
+                projectileHitHolder = new GameObject();
+                projectileHitHolder.name = "projectileHolder";
+            }
+
+            GameObject newHitObject = Instantiate(hitObjectTemplate, hit.point, transform.rotation, projectileHitHolder.transform);
+
+            newHitObject.AddComponent<ParentConstraint>();
+
+            ParentConstraint constraint = newHitObject.GetComponent<ParentConstraint>();
+
+            constraint.AddSource(new ConstraintSource { sourceTransform = hit.transform, weight = 1 });
+            constraint.SetTranslationOffset(0, hit.point - hit.transform.position);
+            constraint.SetRotationOffset(0, transform.rotation.eulerAngles);
+            constraint.constraintActive = true;
+
+
+            newHitObject.SetActive(true);
+
+            hitObjects.Add(newHitObject);
         }
-
-        GameObject newHitObject = Instantiate(hitObjectTemplate, hit.point, transform.rotation, projectileHolder.transform);
-
-        newHitObject.AddComponent<ParentConstraint>();
-
-        ParentConstraint constraint = newHitObject.GetComponent<ParentConstraint>();
-        
-        constraint.AddSource(new ConstraintSource { sourceTransform = hit.transform, weight = 1 });
-        constraint.SetTranslationOffset(0, hit.point - hit.transform.position );
-        constraint.SetRotationOffset(0, transform.rotation.eulerAngles);
-        constraint.constraintActive = true;
-        
-
-        newHitObject.SetActive(true);
-
-        hitObjects.Add(newHitObject);
     }
 
     

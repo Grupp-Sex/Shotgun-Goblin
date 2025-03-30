@@ -47,6 +47,10 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
         {
             Hit(direction,hitInfo,origin);
         }
+        else
+        {
+            Miss(direction, maxDistance, origin);
+        }
     }
     
     protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin, Vector3 hitPos)
@@ -64,7 +68,14 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
     protected virtual void Hit(Vector3 direction, RaycastHit hitInfo, Vector3 origin)
     {
         ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin,hitInfo.point);
+        NotifyProjectileActivated(projectile);
         NotifyHitLogic(hitInfo, projectile);
+    }
+
+    protected virtual void Miss(Vector3 direction, float length, Vector3 origin)
+    {
+        ProjectileInfo projectile = CreateProjectileInfo(direction, 0, origin, origin + direction * length);
+        NotifyProjectileActivated(projectile);
     }
 
     public virtual void NotifyHitLogic(RaycastHit hitinfo, ProjectileInfo projectile)
@@ -79,6 +90,15 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
         foreach (var shot in shootActivatedScripts)
         {
             shot.RunShootLogic();
+        }
+    }
+
+    public virtual void NotifyProjectileActivated(ProjectileInfo projectile)
+    {
+        foreach (var shot in shootActivatedScripts)
+        {
+            shot.RunProjectileLogic(projectile);
+
         }
     }
 
@@ -101,6 +121,8 @@ public struct ProjectileInfo
 public interface IShotActivated
 {
     public void RunShootLogic();
+
+    public void RunProjectileLogic(ProjectileInfo projectile);
 }
 public interface IHitLogic
 {
