@@ -20053,7 +20053,6 @@ GameObject:
   - component: {fileID: 5904484905776679407}
   - component: {fileID: 3180562606306808348}
   - component: {fileID: 1758004064371698547}
-  - component: {fileID: 7747675593799578809}
   - component: {fileID: 7370289306802565722}
   m_Layer: 0
   m_Name: Wheel
@@ -20127,27 +20126,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7747675593799578809
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5295495005426599990}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!146 &7370289306802565722
 WheelCollider:
   m_ObjectHideFlags: 0
