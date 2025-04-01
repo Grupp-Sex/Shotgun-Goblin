@@ -9,15 +9,31 @@ using static UnityEngine.UI.Image;
 // TO DO
 // SEPARATE GOTSHOTLOGIC INTO NEW IHITLOGIC SCRIPT
 
-public class BaseGun : MonoBehaviour
+public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
 {
     [SerializeField] float baseDamage;
     protected IHitLogic[] hitLogicScripts;
+    protected IShotActivated[] shootActivatedScripts;
 
     void Start()
     {
         hitLogicScripts = GetComponents<IHitLogic>();
+        shootActivatedScripts = GetComponents<IShotActivated>();
+
+
+
     }
+
+    public void DoAction()
+    {
+        Shoot();
+    }
+
+    protected virtual void Shoot()
+    {
+        NotifyShotActivated();
+    }
+
 
     protected virtual float GetDamage(RaycastHit hitinfo)
     {
@@ -31,23 +47,35 @@ public class BaseGun : MonoBehaviour
         {
             Hit(direction,hitInfo,origin);
         }
+        else
+        {
+            Miss(direction, maxDistance, origin);
+        }
     }
     
-    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin)
+    protected virtual ProjectileInfo CreateProjectileInfo(Vector3 direction, float damage, Vector3 origin, Vector3 hitPos)
     {
         ProjectileInfo projectile = new ProjectileInfo()
         {
             direction = direction,
             damage = damage,
-            origin = origin
+            origin = origin,
+            hitPos = hitPos
         };
         return projectile;
     }
 
     protected virtual void Hit(Vector3 direction, RaycastHit hitInfo, Vector3 origin)
     {
-        ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin);
+        ProjectileInfo projectile = CreateProjectileInfo(direction,GetDamage(hitInfo),origin,hitInfo.point);
+        NotifyProjectileActivated(projectile);
         NotifyHitLogic(hitInfo, projectile);
+    }
+
+    protected virtual void Miss(Vector3 direction, float length, Vector3 origin)
+    {
+        ProjectileInfo projectile = CreateProjectileInfo(direction, 0, origin, origin + direction * length);
+        NotifyProjectileActivated(projectile);
     }
 
     public virtual void NotifyHitLogic(RaycastHit hitinfo, ProjectileInfo projectile)
@@ -57,8 +85,23 @@ public class BaseGun : MonoBehaviour
             hit.RunHitLogic(hitinfo, projectile);
         }
     }
+    public virtual void NotifyShotActivated()
+    {
+        foreach (var shot in shootActivatedScripts)
+        {
+            shot.RunShootLogic();
+        }
+    }
 
-    
+    public virtual void NotifyProjectileActivated(ProjectileInfo projectile)
+    {
+        foreach (var shot in shootActivatedScripts)
+        {
+            shot.RunProjectileLogic(projectile);
+
+        }
+    }
+
 }
 
 
@@ -70,11 +113,17 @@ public struct ProjectileInfo
     public Vector3 direction;
     public float damage;
     public Vector3 origin;
+    public Vector3 hitPos;
     
 }
 
 
+public interface IShotActivated
+{
+    public void RunShootLogic();
 
+    public void RunProjectileLogic(ProjectileInfo projectile);
+}
 public interface IHitLogic
 {
     public void RunHitLogic(RaycastHit hitinfo, ProjectileInfo projectile);

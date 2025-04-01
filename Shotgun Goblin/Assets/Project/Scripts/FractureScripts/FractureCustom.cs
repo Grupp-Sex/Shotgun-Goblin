@@ -4,21 +4,25 @@ using Unity.VisualScripting;
 using UnityEditor.Toolbars;
 using UnityEngine;
 
-public class FractureCustom : Fracture, IDebugActivatableVoid
+public class FractureCustom : FractureBase, IDebugActivatableVoid
 {
-    [SerializeField] public GameObject FractureTemplate;
 
     [SerializeField] public bool FractureOnStartup;
 
     [SerializeField] public bool ActivateFractureButton;
+
+    protected Mesh mesh;
     private void ActivateFractureButtonScript()
     {
+        mesh = GetComponent<Mesh>();
+
         if (ActivateFractureButton)
         {
             FractureObject();
 
             ActivateFractureButton = false;
         }
+
 
     }
 
@@ -46,17 +50,11 @@ public class FractureCustom : Fracture, IDebugActivatableVoid
     public virtual void FractureObject()
     {
         CauseFracture();
+
+       
+        
     }
 
-    protected override GameObject CreateFragmentTemplate()
-    {
-        GameObject obj = Instantiate(FractureTemplate);
-
-        obj.SetActive(true);
-
-        ModifyTemplateObject(obj);
-
-        return obj;
-    }
+    
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseHitManage : MonoBehaviour,IHitLogic
+public class BaseHitManage : MonoBehaviour,IHitLogic, IShotActivated
 {
     // Start is called before the first frame update
     void Start()
@@ -12,6 +12,21 @@ public class BaseHitManage : MonoBehaviour,IHitLogic
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public void RunShootLogic()
+    {
+
+    }
+
+    public void RunProjectileLogic(ProjectileInfo projectile)
+    {
+        ProjectileLogic(projectile);
+    }
+
+    protected virtual void ProjectileLogic(ProjectileInfo projectile)
     {
         
     }
