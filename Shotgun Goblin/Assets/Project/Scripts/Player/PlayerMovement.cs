@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
    [SerializeField] private float groundDrag;
 
+    [SerializeField] private float isGroundedOffset;
+
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -50,8 +52,9 @@ public class PlayerMovement : MonoBehaviour
       
 
         //Ground Check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f + isGroundedOffset, whatIsGround);
         Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.1f);
+
 
         //Handle Drag
         if (grounded)
