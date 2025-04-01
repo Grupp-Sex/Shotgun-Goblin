@@ -1,50 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    
+
     private Rigidbody characterRB;
 
     public Transform orientation;
 
+    [Header("Movement")]
     private Vector3 movementInput;
     private Vector3 movementVector;
+
     [SerializeField] private float movementSpeed;
-   [SerializeField] private float Drag;
+   [SerializeField] private float groundDrag;
+
+    [SerializeField] private float isGroundedOffset;
+
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump;
+
+    [Header ("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
 
    
-    // Start is called before the first frame update
+    
     void Start()
     {
         characterRB = GetComponent<Rigidbody>();
+
+        readyToJump = true;
+
         
     }
 
     private void Update()
     {
-        characterRB.drag = Drag;
+        characterRB.drag = groundDrag;
+
+        SpeedControl();
+
+      
+
+        //Ground Check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f + isGroundedOffset, whatIsGround);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.1f);
+
+
+        //Handle Drag
+        if (grounded)
+        {
+            characterRB.drag = groundDrag;
+        }
+        else
+        {
+            characterRB.drag = 0;
+        }
+
+       
+        
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         if (movementInput != Vector3.zero)
         {
-            //Vector3 movementVector = new Vector3(movementInput.x, 0.0f, movementInput.y);
+            
             movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
-            characterRB.AddRelativeForce(movementVector.normalized * movementSpeed , ForceMode.Force);
+            if (grounded)
+            {
+                characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
+            }
+            else if (!grounded)
+            {
+                characterRB.AddRelativeForce(movementVector.normalized * movementSpeed * airMultiplier, ForceMode.Force);
+            }
+            
 
             //Debug.Log("___________ " + movementVector);
 
         }
 
+
        
 
 
+
     }
+
+  
 
 
     private void OnMovement(InputValue inputValue)
@@ -65,4 +120,50 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log("stopped movement " + movementInput);
     }
+
+    private void OnJumpStart()
+    {
+        
+        if (readyToJump && grounded)
+        {
+            readyToJump = false;
+
+            Jump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+    }
+
+    private void Jump()
+    {
+
+        
+        //reset Y velocity
+        characterRB.velocity = new Vector3(characterRB.velocity.x, 0f, characterRB.velocity.z);
+
+        characterRB.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVelocity = new Vector3(characterRB.velocity.x, 0f, characterRB.velocity.z);
+
+        //Limit velocity if needed
+        if (flatVelocity.magnitude > movementSpeed)
+        {
+            Vector3 limitedVelocity = flatVelocity.normalized * movementSpeed;
+            characterRB.velocity = new Vector3(limitedVelocity.x, characterRB.velocity.y, limitedVelocity.z);
+        }
+    }
+
+   
+
+   
 }

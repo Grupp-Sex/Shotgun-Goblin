@@ -19924,7 +19924,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 327407414600433406}
   movementSpeed: 30
-  Drag: 1
+  groundDrag: 0
+  isGroundedOffset: 0.2
+  jumpForce: 10
+  jumpCooldown: 0
+  airMultiplier: 0.25
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5590560657115794484
 MonoBehaviour:
   m_ObjectHideFlags: 0
