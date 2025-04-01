@@ -24,9 +24,29 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "JumpStart",
+                    "type": "Button",
+                    "id": "2edc9e05-5d9a-43d2-890e-1084caa06115",
+
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "JumpStop",
+                    "type": "Button",
+                    "id": "2f4ec387-64d2-4385-acf6-c935436e9687",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SecondaryShoot",
                     "type": "Button",
                     "id": "4ef27be7-9b4b-41fa-8637-c4fc9175342b",
+                    
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -173,17 +193,42 @@
                 },
                 {
                     "name": "",
+                    "id": "7de533b0-89d4-4806-8c39-ad3ef53d14a9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpStart",
+
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4035dcaf-80f3-4961-9e04-353d19cda841",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryShoot",
+                    
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
+
+                    "id": "10e5ae7b-954f-42ad-9860-2d8c39651517",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpStop",
+
+                },
+                {
+                    "name": "",
+
                     "id": "9c6cb0dc-4bf9-461c-956c-2c50e80f34c4",
                     "path": "<Mouse>/rightButton",
                     "interactions": "Press(behavior=1)",
@@ -212,6 +257,7 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
