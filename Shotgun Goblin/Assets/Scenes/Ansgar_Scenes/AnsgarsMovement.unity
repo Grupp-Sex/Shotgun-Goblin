@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
@@ -678,28 +678,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: wheel
-      value: 
-      objectReference: {fileID: 6035205341323557578}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: BreakingTorque
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
       propertyPath: turningSmotheness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 4711699251150180364, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: pelletsPerShot
-      value: 7
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -758,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7370289306802565722, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: m_SidewaysFriction.m_Stiffness
+      propertyPath: m_SuspensionSpring.spring
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -766,12 +746,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}
---- !u!146 &6035205341323557578 stripped
-WheelCollider:
-  m_CorrespondingSourceObject: {fileID: 7370289306802565722, guid: eb331929aa402534b921e8eebc01d2c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 6035205341323557577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

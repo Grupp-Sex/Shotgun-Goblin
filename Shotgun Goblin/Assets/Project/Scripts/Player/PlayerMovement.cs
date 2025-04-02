@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
+
         SmotheInput(turningSmotheness);
 
         if (targetMovementInput != Vector3.zero)
@@ -110,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //gradualy turns movementInput to thetrargent input
+    //gradualy turns movementInput to the trargent input
     protected void SmotheInput(float lerpValue)
     {
         
