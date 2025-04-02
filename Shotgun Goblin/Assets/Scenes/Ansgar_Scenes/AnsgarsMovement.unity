@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
@@ -678,28 +678,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: playerHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: airMultiplier
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: isGroundedOffset
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 64
+      propertyPath: turningSmotheness
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -755,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Abilaties Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370289306802565722, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
