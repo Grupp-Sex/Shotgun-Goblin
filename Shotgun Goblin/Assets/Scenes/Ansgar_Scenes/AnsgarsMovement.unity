@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
@@ -676,11 +676,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 826903468658713800, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: wheel
@@ -688,28 +683,13 @@ PrefabInstance:
       objectReference: {fileID: 6035205341323557578}
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: playerHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: airMultiplier
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
       propertyPath: BreakingTorque
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: isGroundedOffset
-      value: 0.2
+      propertyPath: turningSmotheness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -776,8 +756,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Abilaties Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 826903468658713800, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}
+    - target: {fileID: 7370289306802565722, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

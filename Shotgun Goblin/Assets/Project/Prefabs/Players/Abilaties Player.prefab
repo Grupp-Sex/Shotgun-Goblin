@@ -19857,7 +19857,6 @@ GameObject:
   - component: {fileID: 645523774859631722}
   - component: {fileID: 1176946838625830464}
   - component: {fileID: 6447759996987636807}
-  - component: {fileID: 826903468658713800}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -19925,14 +19924,17 @@ MonoBehaviour:
   orientation: {fileID: 327407414600433406}
   movementSpeed: 30
   groundDrag: 0
-  isGroundedOffset: 0.2
+  turningSmotheness: 1
   jumpForce: 10
   jumpCooldown: 0
   airMultiplier: 0.25
   playerHeight: 2
+  isGroundedOffset: 0.2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
+  wheel: {fileID: 7370289306802565722}
+  BreakingTorque: 100
 --- !u!114 &5590560657115794484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20037,19 +20039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
---- !u!114 &826903468658713800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5131602888718148011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73983148ba232444f9983b780a20ad69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelHolder: {fileID: 5295495005426599990}
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
@@ -20163,7 +20152,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 10
+    m_Stiffness: 5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20277,7 +20266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 1
   baseDamage: 10
-  pelletsPerShot: 8
+  pelletsPerShot: 7
   randomScale: 0.2
 --- !u!1 &9157848374567524709
 GameObject:

@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     private Vector3 movementInput;
+    private Vector3 targetMovementInput;
     private Vector3 movementVector;
 
     [SerializeField] private float movementSpeed;
    [SerializeField] private float groundDrag;
+    [SerializeField] private float turningSmotheness = 0.9f;
 
 
     [Header("Jump")]
@@ -74,10 +76,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+
     
     void FixedUpdate()
     {
-        if (movementInput != Vector3.zero)
+        SmotheInput(turningSmotheness);
+
+        if (targetMovementInput != Vector3.zero)
         {
             
             movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
@@ -105,6 +110,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //gradualy turns movementInput to thetrargent input
+    protected void SmotheInput(float lerpValue)
+    {
+        
+        movementInput = movementInput * (1 - lerpValue) + targetMovementInput * lerpValue;
+    }
+
     protected void TurnWheel(Vector3 turnDirection)
     {
         //converts the turnDirection vectior into an angle between -180 and 180
@@ -129,10 +141,13 @@ public class PlayerMovement : MonoBehaviour
         wheel.motorTorque = 0.00001f; 
     }
 
+    
+    
+
     private void OnMovement(InputValue inputValue)
     {
 
-        movementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
+        targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
         //Debug.Log(movementInput);
 
@@ -143,7 +158,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovementStop(InputValue inputValue)
     {
-        movementInput = Vector3.zero; //new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
+        //movementInput = Vector3.zero; //new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
+        targetMovementInput = Vector3.zero;
 
         //Debug.Log("stopped movement " + movementInput);
 
