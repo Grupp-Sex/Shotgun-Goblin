@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
    [SerializeField] private float groundDrag;
 
-    [SerializeField] private float isGroundedOffset;
 
+    [Header("Jump")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -29,17 +29,21 @@ public class PlayerMovement : MonoBehaviour
 
     [Header ("Ground Check")]
     public float playerHeight;
+    [SerializeField] private float isGroundedOffset;
     public LayerMask whatIsGround;
     bool grounded;
 
-   
-    
+    [Header("Wheel")]
+    [SerializeField] WheelCollider wheel;
+    [SerializeField] float BreakingTorque;
+
     void Start()
     {
         characterRB = GetComponent<Rigidbody>();
 
         readyToJump = true;
 
+        
         
     }
 
@@ -86,10 +90,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 characterRB.AddRelativeForce(movementVector.normalized * movementSpeed * airMultiplier, ForceMode.Force);
             }
-            
+
 
             //Debug.Log("___________ " + movementVector);
 
+
+            TurnWheel(movementInput.normalized);
         }
 
 
@@ -99,8 +105,29 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-  
+    protected void TurnWheel(Vector3 turnDirection)
+    {
+        //converts the turnDirection vectior into an angle between -180 and 180
+        float turnAngle = Vector3.SignedAngle(turnDirection, new Vector3(0, 0, 1), new Vector3(0, -1, 0));
 
+        wheel.steerAngle = turnAngle;
+
+    }
+
+    protected void WheelBreaksOn()
+    {
+        wheel.brakeTorque = BreakingTorque;
+
+        wheel.motorTorque = 0;
+    }
+
+    protected void WheelBreaksOff()
+    {
+        wheel.brakeTorque = 0;
+
+        // disables the wheels built in "handbrake mode"
+        wheel.motorTorque = 0.00001f; 
+    }
 
     private void OnMovement(InputValue inputValue)
     {
@@ -109,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(movementInput);
 
-
+        WheelBreaksOff();
        
         
     }
@@ -119,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
         movementInput = Vector3.zero; //new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
         //Debug.Log("stopped movement " + movementInput);
+
+        WheelBreaksOn();
     }
 
     private void OnJumpStart()
