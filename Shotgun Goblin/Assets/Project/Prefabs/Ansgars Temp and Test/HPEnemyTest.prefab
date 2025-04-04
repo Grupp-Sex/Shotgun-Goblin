@@ -221,9 +221,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.4641509, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.6830188, g: 0.024485484, b: 0.48505485, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1416,7 +1416,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1424,9 +1424,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.21509439, g: 0, b: 0, a: 1}
-        key1: {r: 0.4415095, g: 0, b: 0, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0.40769196, a: 1}
+        key1: {r: 1, g: 0, b: 0.40769196, a: 1}
+        key2: {r: 0.4415095, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1434,7 +1434,7 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 65535
-        ctime2: 0
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -14971,7 +14971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 1
-  maxHealth: 70
+  maxHealth: 50
   currentHealth: 0
   imortal: 0
 --- !u!114 &8931954895680974901
@@ -15010,7 +15010,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &6974859789039393714
@@ -15038,7 +15038,7 @@ MonoBehaviour:
     zAxis: 1
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 01b5a74c96f922c428da02665ac617e9, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 8eb9ed47ea120db40a6cb6ff6bdcc045, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -15112,7 +15112,7 @@ MonoBehaviour:
   SoftImpactType: 3
   SoftImpactThreshold: 5
   HardImpactType: 2
-  HardImpactThreshold: 30
+  HardImpactThreshold: 10
 --- !u!114 &6524629547707790758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15126,7 +15126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  LowImpactDamage: 5
+  LowImpactDamage: 10
   HighImpactDamage: 60
 --- !u!1 &6312898031062988050
 GameObject:
