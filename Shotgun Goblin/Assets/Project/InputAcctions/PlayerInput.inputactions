@@ -1,170 +1,290 @@
 {
-    "name": "PlayerInput",
-    "maps": [
-        {
-            "name": "PlayerActionsMap",
-            "id": "1a792f23-a79c-45d2-8675-cd2412499b97",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "e0a5bfa7-45cf-4bcf-b5a9-230a595468cc",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MovementStop",
-                    "type": "Value",
-                    "id": "dfa357c4-2ffd-4c92-8623-5af1250bf6f5",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "WASD",
-                    "id": "0625d808-0c93-4cfd-bf69-58ca890ece28",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a759d7b9-3b32-45f5-9072-73326f7bfac3",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "b5bb7646-4434-42a8-877f-5a6c56115359",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "d0154470-190e-4029-ba2d-7526b7ca6ffc",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "f3898cb8-a2f5-4290-b719-b2873156cf01",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "WASD",
-                    "id": "36c50c52-6976-4cde-aa2f-6564ee8374cb",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementStop",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "4731350c-84fc-4874-8935-f1d0554ca838",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementStop",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "491538fb-fb6c-4ca0-b972-4e282f45ebd2",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementStop",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "06ea9400-0394-4d6d-b472-f5f561c7b8aa",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementStop",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "c3393337-a453-42ef-b95c-154657de9b6d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MovementStop",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "PlayerLook",
-            "id": "d061f743-89d1-4ef3-81a4-81ab3ffc7118",
-            "actions": [
-                {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "f8c54ce3-401b-417a-9f94-3eaad571e8c4",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7e6f77ac-a92f-4e93-b4c0-ac4907f94dab",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        }
-    ],
-    "controlSchemes": []
+   "name":"PlayerInput",
+   "maps":[
+      {
+         "name":"PlayerActionsMap",
+         "id":"1a792f23-a79c-45d2-8675-cd2412499b97",
+         "actions":[
+            {
+               "name":"Movement",
+               "type":"Value",
+               "id":"e0a5bfa7-45cf-4bcf-b5a9-230a595468cc",
+               "expectedControlType":"Vector2",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":true
+            },
+            {
+               "name":"MovementStop",
+               "type":"Value",
+               "id":"dfa357c4-2ffd-4c92-8623-5af1250bf6f5",
+               "expectedControlType":"Vector2",
+               "processors":"",
+               "interactions":"Press(behavior=1)",
+               "initialStateCheck":true
+            },
+            {
+               "name":"JumpStart",
+               "type":"Button",
+               "id":"2edc9e05-5d9a-43d2-890e-1084caa06115",
+               "expectedControlType":"",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":false
+            },
+            {
+               "name":"JumpStop",
+               "type":"Button",
+               "id":"2f4ec387-64d2-4385-acf6-c935436e9687",
+               "expectedControlType":"",
+               "processors":"",
+               "interactions":"Press(behavior=1)",
+               "initialStateCheck":false
+            },
+            {
+               "name":"SecondaryShoot",
+               "type":"Button",
+               "id":"4ef27be7-9b4b-41fa-8637-c4fc9175342b",
+               "expectedControlType":"",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":false
+            },
+            {
+               "name":"SecondaryShootStop",
+               "type":"Button",
+               "id":"940bd9c6-c644-49a5-aad2-43ba060e30c6",
+               "expectedControlType":"",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":false
+            },
+            {
+               "name":"PrimaryShoot",
+               "type":"Button",
+               "id":"7386b538-b34d-4a81-8b04-0c87a45d7714",
+               "expectedControlType":"",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":false
+            },
+            {
+               "name":"Look",
+               "type":"Value",
+               "id":"9a8fec23-530f-4207-8c50-0b7fcf346345",
+               "expectedControlType":"Vector2",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":true
+            }
+         ],
+         "bindings":[
+            {
+               "name":"WASD",
+               "id":"0625d808-0c93-4cfd-bf69-58ca890ece28",
+               "path":"2DVector",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Movement",
+               "isComposite":true,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"up",
+               "id":"a759d7b9-3b32-45f5-9072-73326f7bfac3",
+               "path":"<Keyboard>/w",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Movement",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"down",
+               "id":"b5bb7646-4434-42a8-877f-5a6c56115359",
+               "path":"<Keyboard>/s",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Movement",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"left",
+               "id":"d0154470-190e-4029-ba2d-7526b7ca6ffc",
+               "path":"<Keyboard>/a",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Movement",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"right",
+               "id":"f3898cb8-a2f5-4290-b719-b2873156cf01",
+               "path":"<Keyboard>/d",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Movement",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"WASD",
+               "id":"36c50c52-6976-4cde-aa2f-6564ee8374cb",
+               "path":"2DVector",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"MovementStop",
+               "isComposite":true,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"up",
+               "id":"4731350c-84fc-4874-8935-f1d0554ca838",
+               "path":"<Keyboard>/w",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"MovementStop",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"down",
+               "id":"491538fb-fb6c-4ca0-b972-4e282f45ebd2",
+               "path":"<Keyboard>/s",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"MovementStop",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"left",
+               "id":"06ea9400-0394-4d6d-b472-f5f561c7b8aa",
+               "path":"<Keyboard>/a",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"MovementStop",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"right",
+               "id":"c3393337-a453-42ef-b95c-154657de9b6d",
+               "path":"<Keyboard>/d",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"MovementStop",
+               "isComposite":false,
+               "isPartOfComposite":true
+            },
+            {
+               "name":"",
+               "id":"7de533b0-89d4-4806-8c39-ad3ef53d14a9",
+               "path":"<Keyboard>/space",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"JumpStart",
+               "isComposite":false,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"",
+               "id":"4035dcaf-80f3-4961-9e04-353d19cda841",
+               "path":"<Mouse>/rightButton",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"SecondaryShoot",
+               "isComposite":false,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"",
+               "id":"10e5ae7b-954f-42ad-9860-2d8c39651517",
+               "path":"<Keyboard>/space",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"JumpStop"
+            },
+            {
+               "name":"",
+               "id":"9c6cb0dc-4bf9-461c-956c-2c50e80f34c4",
+               "path":"<Mouse>/rightButton",
+               "interactions":"Press(behavior=1)",
+               "processors":"",
+               "groups":"",
+               "action":"SecondaryShootStop",
+               "isComposite":false,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"",
+               "id":"58a9f3fe-47e3-4628-bd9e-24b7f323d6b2",
+               "path":"<Mouse>/leftButton",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"PrimaryShoot",
+               "isComposite":false,
+               "isPartOfComposite":false
+            },
+            {
+               "name":"",
+               "id":"13839ca9-3949-4fae-83a9-147c9edce44e",
+               "path":"<Mouse>/delta",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Look",
+               "isComposite":false,
+               "isPartOfComposite":false
+            }
+         ]
+      },
+      {
+         "name":"PlayerLook",
+         "id":"d061f743-89d1-4ef3-81a4-81ab3ffc7118",
+         "actions":[
+            {
+               "name":"Look",
+               "type":"Value",
+               "id":"f8c54ce3-401b-417a-9f94-3eaad571e8c4",
+               "expectedControlType":"Vector2",
+               "processors":"",
+               "interactions":"",
+               "initialStateCheck":true
+            }
+         ],
+         "bindings":[
+            {
+               "name":"",
+               "id":"7e6f77ac-a92f-4e93-b4c0-ac4907f94dab",
+               "path":"<Mouse>/delta",
+               "interactions":"",
+               "processors":"",
+               "groups":"",
+               "action":"Look",
+               "isComposite":false,
+               "isPartOfComposite":false
+            }
+         ]
+      }
+   ],
+   "controlSchemes":[
+      
+   ]
 }

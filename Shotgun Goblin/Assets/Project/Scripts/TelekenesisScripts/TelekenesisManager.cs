@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
-
+    [SerializeField] public bool DropOriginPoint;
     [SerializeField] public Transform TargetPosition;
+    [SerializeField] public GameObject AbilatiyScriptHolder;
     [SerializeField] public float GrabDistanceThreshold;
     [SerializeField] public float HoldDistanceThreshold;
     [SerializeField] public int HeldObjectMax;
@@ -23,6 +24,16 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     void Start()
     {
+        if (AbilatiyScriptHolder == null)
+        {
+            AbilatiyScriptHolder = gameObject;
+        }
+
+        if (DropOriginPoint)
+        {
+            TargetPosition.SetParent(null);
+        }
+
         HeldObjects = new List<TelekenesisPhysicsObject>();
 
         InitialzieAllAbilaties();
@@ -41,17 +52,17 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     {
         bool containsObjectAlready = HeldObjects.Contains(obj);
 
-        if (!containsObjectAlready)
+        if (!containsObjectAlready && obj.CanBeGrabbed)
         {
             AddHeldObject(obj);
-
+            return true;
         }
-        else
+        else if(containsObjectAlready)
         {
             Debug.Log("error in " + name + ":" + '\n' + "Failed to add object to held item list, Object already exists in list.");
         }
 
-        return !containsObjectAlready;
+        return false;
     }
 
     protected virtual void RemoveHeldObject(TelekenesisPhysicsObject obj)
@@ -67,12 +78,13 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     protected void InitialzieAllAbilaties()
     {
-        telekenesisAbilaties = GetComponents<BaseTelekenesisAbilaty>();
+        telekenesisAbilaties = AbilatiyScriptHolder.GetComponents<BaseTelekenesisAbilaty>();
 
         for (int i = 0; i < telekenesisAbilaties.Length; i++)
         {
-            telekenesisAbilaties[i].Initialize(HeldObjects, TargetPosition);
+            telekenesisAbilaties[i].Initialize(this, HeldObjects, TargetPosition);
         }
+
     }
 
     protected void NotifyGrabOject(TelekenesisPhysicsObject obj)
@@ -204,6 +216,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         CheckObjectsForDropping();
     }
 
+    
 
 
 
