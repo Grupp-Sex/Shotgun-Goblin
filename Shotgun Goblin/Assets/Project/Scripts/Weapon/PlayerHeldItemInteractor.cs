@@ -34,10 +34,7 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
 
     public void HeldItemDoInteraction()
     {
-
-        
         IHeldItem[] items = GetHeldItems();
-        Debug.Log("Items activated " + items.Length);
         for (int i = 0; i < items.Length; i++)
         {
             ItemIteract(items[i]);
