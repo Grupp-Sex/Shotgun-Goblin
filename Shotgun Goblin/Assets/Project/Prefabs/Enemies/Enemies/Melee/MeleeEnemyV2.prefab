@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 3612686630280114003}
   - component: {fileID: 2886976891419402656}
   - component: {fileID: 4388712799115279301}
+  - component: {fileID: 357120369348802887}
   m_Layer: 0
   m_Name: MeleeEnemyV2
   m_TagString: Untagged
@@ -622,9 +623,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 1
   SoftImpactType: 0
-  SoftImpactThreshold: 30
-  HardImpactType: 2
-  HardImpactThreshold: 100
+  SoftImpactThreshold: 10
+  HardImpactType: 0
+  HardImpactThreshold: 30
 --- !u!114 &1149126225058344559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,8 +639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  LowImpactDamage: 30
-  HighImpactDamage: 60
+  LowImpactDamage: 5
+  HighImpactDamage: 25
 --- !u!195 &3612686630280114003
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -675,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  UpdateSpeed: 2
+  UpdateSpeed: 1
 --- !u!114 &4388712799115279301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +692,21 @@ MonoBehaviour:
   parent: {fileID: 0}
   movement: {fileID: 2886976891419402656}
   agent: {fileID: 3612686630280114003}
+--- !u!114 &357120369348802887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307155069707205661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1d0bb01c0f1684bbc00bdc29b41e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  RagdollTime: 10
+  angularTripSpeed: {x: 0, y: 0, z: -1}
 --- !u!1 &5824971394392043363
 GameObject:
   m_ObjectHideFlags: 0
