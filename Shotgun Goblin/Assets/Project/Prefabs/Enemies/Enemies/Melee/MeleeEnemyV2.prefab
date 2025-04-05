@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1d0bb01c0f1684bbc00bdc29b41e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
+  LogInDebugConsole: 0
   RagdollTime: 10
   angularTripSpeed: {x: 0, y: 0, z: -1}
 --- !u!1 &5824971394392043363
@@ -5821,7 +5821,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5844,7 +5844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbee6a82e4dcd9b4eb9d016582d592ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 0}
+  LogInDebugConsole: 0
+  Collider: {fileID: 8966961142201382246}
   Damage: 10
   AttackDelay: 1
 --- !u!114 &2826093698537460602
@@ -5859,6 +5860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5620b799f76e7d64fb4a4d388b02642c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
 --- !u!1 &7733922527216873218
 GameObject:
   m_ObjectHideFlags: 0

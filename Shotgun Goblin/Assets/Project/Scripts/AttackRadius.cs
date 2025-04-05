@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 
-public class AttackRadius : MonoBehaviour
+public class AttackRadius : MonobehaviorScript_ToggleLog
 {
     public SphereCollider Collider;
     private List<IDamageAbleByEnemy> damageAbles = new List<IDamageAbleByEnemy>();
@@ -49,8 +49,10 @@ public class AttackRadius : MonoBehaviour
 
         if (damageable != null)
         {
-            damageAbles.Add(damageable);  
-            
+            damageAbles.Add(damageable);
+
+            DebugLog("Target in hit radius: " + other.gameObject.name);
+
             if (AttackCoroutine == null)
             {
                 AttackCoroutine = StartCoroutine(Attack());
@@ -66,6 +68,9 @@ public class AttackRadius : MonoBehaviour
         if (damageable != null)
         {
             damageAbles.Remove(damageable);
+
+            DebugLog("Target left radius: " + other.gameObject.name);
+
 
             if (damageAbles.Count == 0)
             {
@@ -106,6 +111,9 @@ public class AttackRadius : MonoBehaviour
                 //closestDamageable.TakeDamage(Damage);
 
                 NotifyHit(closestDamageable);
+
+                DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
+
             }
 
             closestDamageable = null;
