@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactThreshold
 {
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
     [SerializeField] bool IsFrozen;
+
+    protected NavMeshObstacle navMeshObstacle;
 
     protected Rigidbody rb;
     
@@ -26,6 +29,13 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         {
             Freeze();
         }
+
+        navMeshObstacle = GetComponent<NavMeshObstacle>();
+        if(navMeshObstacle != null)
+        {
+            navMeshObstacle.center = transform.InverseTransformPoint(rb.centerOfMass + transform.position);
+        }
+        
     }
 
     private void OnValidate()
@@ -89,6 +99,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         rb.isKinematic = false;
         ActivateFreezeComponents(false);
         DebugLog("Object Thawed: " + name);
+        navMeshObstacle.enabled = false;
     }
 
     public virtual void Activate()

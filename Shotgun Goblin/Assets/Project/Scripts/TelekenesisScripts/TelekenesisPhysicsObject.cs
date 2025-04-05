@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Animations;
 
 public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
@@ -13,6 +15,7 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
 
     [SerializeField] public bool CanBeGrabbed;
 
+    
     public bool IsFrozen { get; set; }
     
     public Rigidbody Rigidbody {  get; protected set; }
@@ -32,13 +35,13 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     {
         IsFrozen = false;
         CanBeGrabbed = true;
+        
     }
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
 
         CheckRigidBody();
         SaveSavedState();
