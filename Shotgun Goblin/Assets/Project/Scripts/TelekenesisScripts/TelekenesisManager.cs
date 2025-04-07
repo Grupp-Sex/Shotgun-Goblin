@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
-
+    [SerializeField] public bool DropOriginPoint;
     [SerializeField] public Transform TargetPosition;
     [SerializeField] public GameObject AbilatiyScriptHolder;
     [SerializeField] public float GrabDistanceThreshold;
@@ -29,6 +29,11 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
             AbilatiyScriptHolder = gameObject;
         }
 
+        if (DropOriginPoint)
+        {
+            TargetPosition.SetParent(null);
+        }
+
         HeldObjects = new List<TelekenesisPhysicsObject>();
 
         InitialzieAllAbilaties();
@@ -47,17 +52,17 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     {
         bool containsObjectAlready = HeldObjects.Contains(obj);
 
-        if (!containsObjectAlready)
+        if (!containsObjectAlready && obj.CanBeGrabbed)
         {
             AddHeldObject(obj);
-
+            return true;
         }
-        else
+        else if(containsObjectAlready)
         {
             Debug.Log("error in " + name + ":" + '\n' + "Failed to add object to held item list, Object already exists in list.");
         }
 
-        return !containsObjectAlready;
+        return false;
     }
 
     protected virtual void RemoveHeldObject(TelekenesisPhysicsObject obj)

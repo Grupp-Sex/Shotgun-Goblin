@@ -1,33 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class TelekenesisPhysicsObject : MonoBehaviour
+public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
 {
+
     [SerializeField] public float BoundSize;
     [SerializeField] public Vector3 Velocity;
     [SerializeField] public Vector3 ForceSum;
+
+    [SerializeField] public bool CanBeGrabbed;
+
+    
+    public bool IsFrozen { get; set; }
     
     public Rigidbody Rigidbody {  get; protected set; }
-
-    
-
 
     // saves data that might be modifyed by telekenesis abilaties, in order to be able to reset it afterwards
     // (when it is no logner affected by telekenesis)
     protected SavedState savedState = new SavedState();
 
    
+    public void Freze()
+    {
+        IsFrozen = true;
+        CanBeGrabbed = false;
+    }
 
+    public void Thaw()
+    {
+        IsFrozen = false;
+        CanBeGrabbed = true;
+        
+    }
     
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
 
         CheckRigidBody();
         SaveSavedState();
@@ -41,12 +55,8 @@ public class TelekenesisPhysicsObject : MonoBehaviour
     public void Update()
     {
         
-
         Velocity = Rigidbody.velocity;
         ForceSum = Rigidbody.GetAccumulatedForce();
-
-
-        
 
 
     }
