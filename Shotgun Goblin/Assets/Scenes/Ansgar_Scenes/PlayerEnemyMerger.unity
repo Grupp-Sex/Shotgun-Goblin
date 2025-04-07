@@ -331,6 +331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test-House-1-Fracture (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136350076364292252, guid: 8daa31817bce788499e10006ed3cecc2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7675086749040920136, guid: 8daa31817bce788499e10006ed3cecc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -447,6 +452,11 @@ PrefabInstance:
     - target: {fileID: 7675086749040920136, guid: 8daa31817bce788499e10006ed3cecc2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675086749040920136, guid: 8daa31817bce788499e10006ed3cecc2,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1625,7 +1635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeOfSpawn: 5
   player: {fileID: 7774825011648893867}
-  numberOfEnemies: 100
+  numberOfEnemies: 30
   delayBetweenSpawn: 0.5
   enemies:
   - {fileID: 4388712799115279301, guid: 147143daf9f68114299cee7ec7c32144, type: 3}
