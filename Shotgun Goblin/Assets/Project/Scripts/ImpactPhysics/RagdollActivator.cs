@@ -14,6 +14,8 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
     protected RigidBodyData rbData = new RigidBodyData();
 
+    [SerializeField] bool IsKinematic;
+
     protected IEnumerator ActiveRagdollTimer;
 
     protected IRagdollActivated[] ragdollScripts;
@@ -75,8 +77,6 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
             agent.updateRotation = false;
         }
 
-        SaveRB(rbData, rb);
-
         rb.constraints = new RigidbodyConstraints();
         rb.isKinematic = false;
 
@@ -97,7 +97,7 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
         rb.MoveRotation(rotation);
         isRagdolled = false;
 
-        LoadRB(rbData, rb);
+        
 
         if (agent != null)
         {
@@ -105,6 +105,8 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
             agent.updateUpAxis = true;
             agent.updateRotation = true;
         }
+
+        LoadRB(rbData, rb);
     }
 
     
@@ -123,6 +125,8 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
     protected void SaveRB(RigidBodyData rbData, Rigidbody rb)
     {
+        DebugLog("is kinematick = " + rb.isKinematic);
+        IsKinematic = rb.isKinematic;
         rbData.isKinematic = rb.isKinematic;
         rbData.constraints = rb.constraints;
     }
@@ -131,13 +135,17 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
     {
         rb.isKinematic = rbData.isKinematic;
         rb.constraints = rbData.constraints;
+
+        rb.isKinematic = IsKinematic;
+
+        DebugLog("is kinematick = " + rb.isKinematic);
     }
 
 
     protected struct RigidBodyData
     {
-        public bool isKinematic;
-        public RigidbodyConstraints constraints;
+        [SerializeField] public bool isKinematic;
+        [SerializeField] public RigidbodyConstraints constraints;
     }
 }
 

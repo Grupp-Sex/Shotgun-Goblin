@@ -651,8 +651,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5000001
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 7
+  m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -705,8 +705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  RagdollTime: 10
+  RagdollTime: 6
   angularTripSpeed: {x: 0, y: 0, z: -1}
+  IsKinematic: 0
 --- !u!1 &5824971394392043363
 GameObject:
   m_ObjectHideFlags: 0
