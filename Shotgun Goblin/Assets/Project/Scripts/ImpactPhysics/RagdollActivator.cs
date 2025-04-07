@@ -34,6 +34,11 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
     protected void EnterRagdoll()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         if (isRagdolled)
         {
             StopCoroutine(ActiveRagdollTimer);
@@ -54,6 +59,10 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
         RagdollDeactivate();
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 
     protected void RagdollActivate()
     {
