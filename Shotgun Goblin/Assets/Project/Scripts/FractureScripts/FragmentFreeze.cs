@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactThreshold
 {
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
     [SerializeField] bool IsFrozen;
+
+    protected NavMeshObstacle navMeshObstacle;
 
     protected Rigidbody rb;
     
@@ -26,6 +29,10 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         {
             Freeze();
         }
+
+        navMeshObstacle = GetComponent<NavMeshObstacle>();
+        
+        
     }
 
     private void OnValidate()
@@ -79,8 +86,19 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         IsFrozen = true;
         rb.isKinematic = true;
         rb.Sleep();
+
+        StartCoroutine(StartupTimer(0.001f));
+
         ActivateFreezeComponents(true);
         DebugLog("Object Frozen: " + name);
+    }
+
+    protected IEnumerator StartupTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        rb.MoveRotation(transform.parent.rotation);
+        rb.MovePosition(transform.parent.position);
     }
 
     protected virtual void Thaw()
@@ -89,6 +107,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         rb.isKinematic = false;
         ActivateFreezeComponents(false);
         DebugLog("Object Thawed: " + name);
+        navMeshObstacle.enabled = false;
     }
 
     public virtual void Activate()
