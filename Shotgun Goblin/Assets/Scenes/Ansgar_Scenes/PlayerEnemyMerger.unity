@@ -1087,6 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeMult: {x: 1, y: 1, z: 1}
+  boundSize: {x: 0, y: 0, z: 0}
 --- !u!1 &952493032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
@@ -1441,17 +1442,17 @@ PrefabInstance:
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.17
+      value: 11.39
       objectReference: {fileID: 0}
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.000621
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6579363463136653555, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}
@@ -1829,6 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeMult: {x: 1, y: 1, z: 1}
+  boundSize: {x: 0, y: 0, z: 0}
 --- !u!1 &1438362468
 GameObject:
   m_ObjectHideFlags: 0

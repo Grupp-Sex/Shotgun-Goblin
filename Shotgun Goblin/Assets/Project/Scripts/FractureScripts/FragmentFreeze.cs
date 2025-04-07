@@ -31,16 +31,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         }
 
         navMeshObstacle = GetComponent<NavMeshObstacle>();
-        if(navMeshObstacle != null)
-        {
-            //Vector3 scale = transform.lossyScale;
-
-            //Vector3 centerM = rb.centerOfMass;
-
-            //Vector3 center = new Vector3(centerM.x / scale.x, centerM.y / scale.y, centerM.z /  scale.z);
-
-            //navMeshObstacle.center = center; // new Vector3(centerM.x / 10f, centerM.y / 5f, center.z
-        }
+        
         
     }
 
@@ -95,8 +86,19 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         IsFrozen = true;
         rb.isKinematic = true;
         rb.Sleep();
+
+        StartCoroutine(StartupTimer(0.001f));
+
         ActivateFreezeComponents(true);
         DebugLog("Object Frozen: " + name);
+    }
+
+    protected IEnumerator StartupTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        rb.MoveRotation(transform.parent.rotation);
+        rb.MovePosition(transform.parent.position);
     }
 
     protected virtual void Thaw()
