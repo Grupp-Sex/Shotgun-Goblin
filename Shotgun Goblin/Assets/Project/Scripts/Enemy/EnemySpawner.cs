@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private float rangeOfSpawn;
     [SerializeField] private Transform player;
     [SerializeField] private int numberOfEnemies;
     [SerializeField] private float delayBetweenSpawn;
     [SerializeField] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private MethodOfSpawning MethodOfSpawningEnemies;
 
-    private NavMeshTriangulation triangulation;
     private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
+
 
     private void Awake()
     {
@@ -24,8 +26,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        triangulation = NavMesh.CalculateTriangulation();
-
         StartCoroutine(SpawnEnemies());
     }
 
@@ -81,6 +81,22 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(spawnIndex);
     }
 
+    private bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+        result = Vector3.zero;
+        return false;
+    }
+
     private void SpawnEnemy(int indexOfSpawn)
     {
         PoolableObject poolableObject = poolOfEnemyObjects[indexOfSpawn].GetObject();
@@ -89,11 +105,10 @@ public class EnemySpawner : MonoBehaviour
         {
             Enemy enemy = poolableObject.GetComponent<Enemy>();
 
-            int indexOfVertex = Random.Range(0, triangulation.vertices.Length);
-
-            if (NavMesh.SamplePosition(triangulation.vertices[indexOfVertex], out NavMeshHit hit, 2f, 1))
+            Vector3 point;
+            if (RandomPoint(transform.position, rangeOfSpawn, out point))
             {
-                enemy.agent.Warp(hit.position);
+                enemy.agent.Warp(point);
                 enemy.movement.Target = player;
                 enemy.agent.enabled = true;
                 enemy.movement.StartChase();
