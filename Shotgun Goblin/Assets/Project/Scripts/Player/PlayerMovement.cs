@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
+
+    [Header ("Camera Tilt")]
+    private float currentTilt = 0f;
+     private float targetTilt;
+    [SerializeField] private float tiltAmount = 10f;
+    [SerializeField] private float tiltSpeed = 0.8f;
+
+
+   [SerializeField] private Transform orientation;
+    private Rigidbody characterRB;
 
     
 
-    private Rigidbody characterRB;
-
-    public Transform orientation;
-
-    [Header("Movement")]
+    [Header ("Movement")]
     private Vector3 movementInput;
     private Vector3 targetMovementInput;
     private Vector3 movementVector;
@@ -45,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         readyToJump = true;
 
-        
+      
         
     }
 
@@ -104,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             TurnWheel(movementInput.normalized);
         }
 
+        CameraTiltValue();
 
        
 
@@ -147,14 +156,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovement(InputValue inputValue)
     {
+        Vector2 input = inputValue.Get<Vector2>();
 
         targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
         //Debug.Log(movementInput);
 
         WheelBreaksOff();
-       
+
+        //Send horizontal movement to camera for tilting
         
+        CameraTilt(input.x);
+
     }
 
     private void OnMovementStop(InputValue inputValue)
@@ -165,6 +178,10 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("stopped movement " + movementInput);
 
         WheelBreaksOn();
+
+       // Stop Camera tilt if not moving
+       CameraTilt(0f);
+        
     }
 
     private void OnJumpStart()
@@ -209,7 +226,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   
+  
+    private void CameraTiltValue()
+    {
+        float lerpValue = tiltSpeed;
+        currentTilt = currentTilt * lerpValue + targetTilt * (1 - lerpValue);
 
-   
+        //Apply tilt to camera (z-axis)
+        Quaternion rotation = Quaternion.Euler(0, 0, currentTilt * tiltAmount);
+        orientation.SetLocalPositionAndRotation(orientation.localPosition, rotation);
+    }
+
+    private void CameraTilt(float horizontalInput)
+    {
+        
+       
+
+        //Debug.Log(targetTilt + " wweeew");
+
+        targetTilt = -horizontalInput;
+    }
+
 }
