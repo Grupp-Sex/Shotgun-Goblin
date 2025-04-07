@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamageTest : MonoBehaviour, IOnEnemyHit
+public class EnemyDamageTest : MonobehaviorScript_ToggleLog, IOnEnemyHit
 {
     public void OnAttackHit(IDamageAbleByEnemy hitObject, float damage)
     {
+        DebugLog("Damage Delt: " + damage);
         hitObject.TakeDamage(damage);
     }
 
