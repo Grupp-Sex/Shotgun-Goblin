@@ -33,7 +33,13 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
         navMeshObstacle = GetComponent<NavMeshObstacle>();
         if(navMeshObstacle != null)
         {
-            navMeshObstacle.center = transform.InverseTransformPoint(rb.centerOfMass + transform.position);
+            //Vector3 scale = transform.lossyScale;
+
+            //Vector3 centerM = rb.centerOfMass;
+
+            //Vector3 center = new Vector3(centerM.x / scale.x, centerM.y / scale.y, centerM.z /  scale.z);
+
+            //navMeshObstacle.center = center; // new Vector3(centerM.x / 10f, centerM.y / 5f, center.z
         }
         
     }
