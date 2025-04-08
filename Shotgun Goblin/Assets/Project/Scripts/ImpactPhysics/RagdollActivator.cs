@@ -72,6 +72,7 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
         if (agent != null)
         {
+            agent.enabled = false;
             agent.updatePosition = false;
             agent.updateUpAxis = false;
             agent.updateRotation = false;
@@ -101,6 +102,7 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
         if (agent != null)
         {
+            agent.enabled = true;
             agent.updatePosition = true;
             agent.updateUpAxis = true;
             agent.updateRotation = true;
