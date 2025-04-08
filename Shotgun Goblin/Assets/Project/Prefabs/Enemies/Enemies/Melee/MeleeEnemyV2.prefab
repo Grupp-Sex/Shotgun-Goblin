@@ -651,10 +651,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5000001
-  m_Speed: 15
+  m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 1000
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  UpdateSpeed: 1
+  UpdateSpeed: 2
 --- !u!114 &4388712799115279301
 MonoBehaviour:
   m_ObjectHideFlags: 0
