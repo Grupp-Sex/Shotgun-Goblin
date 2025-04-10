@@ -28,6 +28,9 @@
         },
         {
             "m_Id": "2d9a749cbab1438880be20c05942b15f"
+        },
+        {
+            "m_Id": "79996210cd484d9892244ebda6e95178"
         }
     ],
     "m_GroupDatas": [],
@@ -36,7 +39,7 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "2d9a749cbab1438880be20c05942b15f"
+                    "m_Id": "79996210cd484d9892244ebda6e95178"
                 },
                 "m_SlotId": 0
             },
@@ -285,6 +288,43 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.PositionNode",
+    "m_ObjectId": "79996210cd484d9892244ebda6e95178",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Position",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -278.39996337890627,
+            "y": 267.20001220703127,
+            "width": 207.9999542236328,
+            "height": 312.79998779296877
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "df0e5cfca57c4abd97c28fdb4034acfb"
+        }
+    ],
+    "synonyms": [
+        "location"
+    ],
+    "m_Precision": 1,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 2,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Space": 0,
+    "m_PositionSource": 0
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "7e181df9463748bf8ba4adce837c9da8",
@@ -442,6 +482,29 @@
         "x": 0.0,
         "y": 0.0,
         "z": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "df0e5cfca57c4abd97c28fdb4034acfb",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
     },
     "m_DefaultValue": {
         "x": 0.0,
