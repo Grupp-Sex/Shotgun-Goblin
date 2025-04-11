@@ -4,21 +4,44 @@ using UnityEngine;
 
 public class Explosive : MonoBehaviour
 {
-    [SerializeField] List<IExplotion> explotions = new List<IExplotion>();
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] bool DestroyOnExplotion;
+    [SerializeField] List<Explotion> Explotions;
+
+    [SerializeField] bool ExplodeButton;
+
+    protected void OnValidate()
     {
-             
+        if (isActiveAndEnabled)
+        {
+            if (ExplodeButton)
+            {
+                Explode();
+
+                ExplodeButton = false;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Explode()
     {
-        
+        for(int i = 0; i < Explotions.Count; i++)
+        {
+            Explotion newExplotion = Instantiate(Explotions[i], transform.position, Quaternion.identity);
+            newExplotion.gameObject.SetActive(true);
+        }
+
+        if (DestroyOnExplotion)
+        {
+            Destroy(gameObject);
+        }
+
     }
+
+    protected void RunIExplotions()
+    {
+
+    }
+
 }
 
-public interface IExplotion
-{
-    public void Explode();
-}
+

@@ -25,10 +25,13 @@ public class ToggleShader : MonobehaviorScript_ToggleLog
 
     protected void ToggleAll() 
     {
-        DebugLog("Toggle Shaders");
-        for (int i = 0; i < ToggleShaders.Count; i++)
+        if (isActiveAndEnabled)
         {
-            Toggle(ToggleShaders[i]);
+            DebugLog("Toggle Shaders");
+            for (int i = 0; i < ToggleShaders.Count; i++)
+            {
+                Toggle(ToggleShaders[i]);
+            }
         }
     }
 
