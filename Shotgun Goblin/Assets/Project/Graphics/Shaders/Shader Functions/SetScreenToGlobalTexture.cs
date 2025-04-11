@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -17,7 +18,7 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
     [SerializeField] RenderType Type = RenderType.Color;
     class CustomRenderPass : ScriptableRenderPass
     {
-       
+        
 
         protected RTHandle tempRender;
 
@@ -30,6 +31,7 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
 
         public CustomRenderPass(string texName, RenderType type)
         {
+
             TexName = texName;  
 
             tempRender = RTHandles.Alloc(TexName, name: TexName);
