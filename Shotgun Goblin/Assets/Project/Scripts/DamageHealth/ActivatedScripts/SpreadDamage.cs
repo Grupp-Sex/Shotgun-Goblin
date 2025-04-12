@@ -11,9 +11,11 @@ public class SpreadDamage : MonobehaviorScript_ToggleLog, IDamageActivated
     [SerializeField] float EpicenterDamageMult;
     [SerializeField] float EdgeDamageMult;
 
+    static public string DamageTag { get; private set; } = "SpreadDamage";
+
     public void OnDamage(DamageInfo damage)
     {
-        if (!damage.IsSpread)
+        if (!(damage.DamageTag == DamageTag))
         {
             DamageNeighbours(damage, DamageSpreadRadius);
         }
@@ -57,7 +59,7 @@ public class SpreadDamage : MonobehaviorScript_ToggleLog, IDamageActivated
         {
             position = closestPoint,
             damage = CalculateDamage(inputDamage.damage, distance, radius),
-            IsSpread = true
+            DamageTag = DamageTag
         };
     }
 

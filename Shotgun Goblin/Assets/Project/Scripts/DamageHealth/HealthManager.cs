@@ -54,7 +54,10 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
         lastHit = damageInfo;
 
-        NotifyDamage(damageInfo);
+        if (!damageInfo.NoEffects)
+        {
+            NotifyDamage(damageInfo);
+        }
 
         currentHealth -= damage;
         DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth);
@@ -106,8 +109,9 @@ public struct DamageInfo
     public bool hasDirection;
     public Vector3 direction;
 
-    public bool IsSpread;
+    public string DamageTag;
 
+    public bool NoEffects;
 }
 
 public interface IDeathActivated

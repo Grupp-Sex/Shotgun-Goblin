@@ -32,7 +32,16 @@ public class ParticlesOnDamage : MonoBehaviour, IDamageActivated
 
         newObject.SetActive(true);
 
-        newObject.transform.position = damageInfo.position;
+        if(mehscollider != null)
+        {
+            newObject.transform.position = mehscollider.ClosestPoint( damageInfo.position);
+        }
+        else
+        {
+            newObject.transform.position = damageInfo.position;
+        }
+
+        
 
         if (damageInfo.hasDirection)
         {

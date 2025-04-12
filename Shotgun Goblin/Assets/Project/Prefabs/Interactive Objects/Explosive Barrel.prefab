@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 2355272510820778467}
   - component: {fileID: 2219855895723465102}
   - component: {fileID: 3112233379040376723}
+  - component: {fileID: 1482580638245376707}
   m_Layer: 0
   m_Name: Explosive Barrel
   m_TagString: Untagged
@@ -128,7 +129,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166868699098219350}
   serializedVersion: 4
-  m_Mass: 3
+  m_Mass: 7
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnExplotion: 1
+  ExplotionTimerDuration: 0.1
   Explotions:
   - {fileID: 5828585644190952437}
   ExplodeButton: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  maxHealth: 40
+  maxHealth: 400
   currentHealth: 0
   invincible: 0
   imortal: 0
@@ -275,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
   LowImpactDamage: 10
-  HighImpactDamage: 50
+  HighImpactDamage: 400
 --- !u!114 &2219855895723465102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 1
   Duration: 0.4
+--- !u!114 &1482580638245376707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166868699098219350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509479b0e7eb59d47abd1a45dee51f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  intervalTime: 1
+  damage: 10
+  duration: 30
 --- !u!1 &2889709379128283354
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +334,7 @@ GameObject:
   - component: {fileID: 7190807138504599252}
   - component: {fileID: 608609820760550972}
   - component: {fileID: 8738947510811065807}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Firework Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5213,7 +5231,7 @@ GameObject:
   - component: {fileID: 4569495702170968687}
   - component: {fileID: 133837982133330198}
   - component: {fileID: 7631260454223641082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Firework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5320,7 +5338,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10176,7 +10194,7 @@ GameObject:
   - component: {fileID: 3448784311337670718}
   - component: {fileID: 3723496739100984675}
   - component: {fileID: 2576058514099677936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Firework Sparks 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15073,7 +15091,7 @@ GameObject:
   - component: {fileID: 6952861062310480100}
   - component: {fileID: 6883485372292441072}
   - component: {fileID: 6689270792899697998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15178,7 +15196,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 0.2
+      scalar: 0.7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15358,7 +15376,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15736,7 +15754,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 10
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -18748,9 +18766,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0

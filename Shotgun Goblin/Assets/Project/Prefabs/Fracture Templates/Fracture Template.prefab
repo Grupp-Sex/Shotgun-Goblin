@@ -161,6 +161,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   maxHealth: 5
   currentHealth: 0
+  invincible: 0
   imortal: 0
 --- !u!114 &5500495884141641198
 MonoBehaviour:
@@ -177,9 +178,9 @@ MonoBehaviour:
   LogInDebugConsole: 1
   TargetTags:
   - FrozenFragment
-  DamageSpreadRadius: 0.5
+  DamageSpreadRadius: 1
   EpicenterDamageMult: 1
-  EdgeDamageMult: 0.1
+  EdgeDamageMult: 1
 --- !u!114 &6856171906596192525
 MonoBehaviour:
   m_ObjectHideFlags: 0
