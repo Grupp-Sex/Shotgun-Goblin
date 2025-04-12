@@ -15,7 +15,9 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
 
     [SerializeField] public bool CanBeGrabbed;
 
-    
+    [SerializeField] IOnTelekenesisEnter[] onTelekenesisEnterScripts;
+    [SerializeField] IOnTelekenesisLeave[] onTelekenesisLeaveScripts;
+
     public bool IsFrozen { get; set; }
     
     public Rigidbody Rigidbody {  get; protected set; }
@@ -24,7 +26,7 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     // (when it is no logner affected by telekenesis)
     protected SavedState savedState = new SavedState();
 
-   
+
     public void Freze()
     {
         IsFrozen = true;
@@ -43,6 +45,7 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     void Start()
     {
 
+
         CheckRigidBody();
         SaveSavedState();
         //InitializeConstraint();
@@ -50,6 +53,9 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         //Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
         BoundSize = GetComponent<Collider>().bounds.size.magnitude;
+
+        onTelekenesisEnterScripts = GetComponents<IOnTelekenesisEnter>();
+        onTelekenesisLeaveScripts = GetComponents<IOnTelekenesisLeave>();
     }
 
     public void Update()
@@ -82,12 +88,30 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     public void OnEnterTeleknesis()
     {
         SaveSavedState();
+        NotifyTelekenesisEnter();
     }
 
     public void OnLeaveTelekenesis()
     {
         LoadSavedState();
+        NotifyTelekenesisLeave();
         
+    }
+
+    protected void NotifyTelekenesisEnter()
+    {
+        for (int i = 0; i < onTelekenesisEnterScripts.Length; i++)
+        {
+            onTelekenesisEnterScripts[i].OnTelekenesisEnter();
+        }
+    }
+
+    protected void NotifyTelekenesisLeave()
+    {
+        for (int i = 0; i < onTelekenesisLeaveScripts.Length; i++)
+        {
+            onTelekenesisLeaveScripts[i].OnTelekenesisLeave();
+        }
     }
 
     public void SetNewParrent(Transform parrent)
@@ -141,4 +165,16 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         public float maxAngularVelocity;
 
     }
+}
+
+public interface IOnTelekenesisEnter
+{
+    public void OnTelekenesisEnter();
+
+}
+
+public interface IOnTelekenesisLeave
+{
+    public void OnTelekenesisLeave();
+
 }

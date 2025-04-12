@@ -9,6 +9,10 @@ public class DamageExplotion : MonoBehaviour, IOnExplotionInRadius
     {
         HealthManager targetHP = target.GetComponent<HealthManager>();
 
-        targetHP.Damage(DPS * effect * Time.deltaTime, target.ClosestPoint(transform.position));
+        if (targetHP != null)
+        {
+
+            targetHP.Damage(DPS * effect * Time.deltaTime, target.ClosestPoint(transform.position));
+        }
     }
 }

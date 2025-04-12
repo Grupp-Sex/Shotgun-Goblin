@@ -10,10 +10,14 @@ public class ForceExplotion : MonobehaviorScript_ToggleLog, IOnExplotionInRadius
     {
         Rigidbody rb = target.GetComponent<Rigidbody>();
 
-        float force = KNewtonPerSec * 1000 * effect * Time.deltaTime;
+        if (rb != null)
+        {
 
-        rb.AddExplosionForce(force, transform.position, Radius);
+            float force = KNewtonPerSec * 1000 * effect * Time.deltaTime;
 
-        DebugLog("exploded: " + target.name + " force: " + force);
+            rb.AddExplosionForce(force, transform.position, Radius);
+
+            DebugLog("exploded: " + target.name + " force: " + force);
+        }
     }
 }

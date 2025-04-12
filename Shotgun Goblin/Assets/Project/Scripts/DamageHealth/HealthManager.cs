@@ -7,6 +7,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 {
     [SerializeField] float maxHealth = 1;
     [SerializeField] float currentHealth;
+    [SerializeField] public bool invincible;
 
     [SerializeField] bool imortal;
 
@@ -47,7 +48,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     public virtual void Damage(DamageInfo damageInfo)
     {
-        if (dead || !isActiveAndEnabled) return;
+        if (dead || !isActiveAndEnabled || invincible) return;
 
         float damage = damageInfo.damage;
 

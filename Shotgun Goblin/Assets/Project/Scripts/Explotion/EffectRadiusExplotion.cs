@@ -30,7 +30,10 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
     {
         float effect = GetEffect(other.ClosestPoint(transform.position));
 
-        NotifyExplotion(other, effect);
+        if (other != null && other == isActiveAndEnabled)
+        {
+            NotifyExplotion(other, effect);
+        }
     }
 
     protected float GetEffect(Vector3 impactPoint)
