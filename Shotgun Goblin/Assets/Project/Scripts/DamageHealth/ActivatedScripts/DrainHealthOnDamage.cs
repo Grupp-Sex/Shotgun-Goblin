@@ -64,7 +64,7 @@ public class DrainHealthOnDamage : MonobehaviorScript_ToggleLog, IDamageActivate
         {
             damage = damage,
             position = originalDamage.position,
-            hasDirection = false,
+            hasDirection = originalDamage.hasDirection,
             direction = originalDamage.direction,
             DamageTag = DamageTag
         });
