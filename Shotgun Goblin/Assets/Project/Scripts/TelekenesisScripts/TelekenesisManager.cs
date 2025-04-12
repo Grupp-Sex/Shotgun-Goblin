@@ -183,10 +183,20 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     {
         for(int i = 0; i < HeldObjects.Count; i++)
         {
-            if (!IsPhysicsObjectWithinTheshold(HeldObjects[i], HoldDistanceThreshold))
+            if (HeldObjects[i] != null)
             {
-                DropOneObject(HeldObjects[i]);
-                i--;
+
+                if (!IsPhysicsObjectWithinTheshold(HeldObjects[i], HoldDistanceThreshold))
+                {
+                    DropOneObject(HeldObjects[i]);
+                    i--;
+                }
+            }
+            else
+            {
+                HeldObjects.RemoveAt(i);
+                i--;    
+
             }
         }
     }
