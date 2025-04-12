@@ -5078,7 +5078,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -59007,6 +59007,7 @@ GameObject:
   - component: {fileID: 8446689633263150750}
   - component: {fileID: 3428614628866018130}
   - component: {fileID: 8173848082825456514}
+  - component: {fileID: 3379066548906108830}
   m_Layer: 0
   m_Name: EffectExplotion
   m_TagString: Untagged
@@ -59103,6 +59104,19 @@ MonoBehaviour:
   LogInDebugConsole: 0
   KNewtonPerSec: 100
   Radius: 100
+--- !u!114 &3379066548906108830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463595576684085070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610be7be32ddf74f92e91e5dc246876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DPS: 2000
 --- !u!1 &5843243946654693571
 GameObject:
   m_ObjectHideFlags: 0

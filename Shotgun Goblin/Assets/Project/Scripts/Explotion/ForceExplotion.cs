@@ -6,7 +6,7 @@ public class ForceExplotion : MonobehaviorScript_ToggleLog, IOnExplotionInRadius
 {
     [SerializeField] float KNewtonPerSec = 1000;
     [SerializeField] float Radius = 100;
-    public void OnExplode(GameObject target, float effect)
+    public void OnExplode(Collider target, float effect)
     {
         Rigidbody rb = target.GetComponent<Rigidbody>();
 

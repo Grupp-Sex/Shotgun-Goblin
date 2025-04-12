@@ -30,7 +30,7 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
     {
         float effect = GetEffect(other.ClosestPoint(transform.position));
 
-        NotifyExplotion(other.gameObject, effect);
+        NotifyExplotion(other, effect);
     }
 
     protected float GetEffect(Vector3 impactPoint)
@@ -40,7 +40,7 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
         return EffectOverDistance.Evaluate(distance);
     }
 
-    protected void NotifyExplotion(GameObject collider, float effect)
+    protected void NotifyExplotion(Collider collider, float effect)
     {
         for (int i = 0; i < onExplotionScripts.Length; i++)
         {
@@ -82,6 +82,6 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
 
 public interface IOnExplotionInRadius
 {
-    public void OnExplode(GameObject collider, float effect);
+    public void OnExplode(Collider collider, float effect);
 }
 

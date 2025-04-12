@@ -102,7 +102,11 @@ public struct DamageInfo
     public float damage;
     public Vector3 position;
 
+    public bool hasDirection;
+    public Vector3 direction;
+
     public bool IsSpread;
+
 }
 
 public interface IDeathActivated
