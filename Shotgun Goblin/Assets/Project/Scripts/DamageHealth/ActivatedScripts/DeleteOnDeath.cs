@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeleteOnDeath : MonoBehaviour, IDeathActivated
 {
-    public void OnDeath(float remainingHealth)
+    public void OnDeath(DamageInfo damage)
     {
         gameObject.SetActive(false);
     }

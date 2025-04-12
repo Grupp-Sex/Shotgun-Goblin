@@ -6,7 +6,7 @@ public class ParticleActivatorAndRemover : MonoBehaviour, IDeathActivated
 {
     [SerializeField] List<GameObject> particleHolders;
 
-    public void OnDeath(float remainingHelth)
+    public void OnDeath(DamageInfo damage)
     {
         for (int i = 0; i < particleHolders.Count; i++)
         {

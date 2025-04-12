@@ -11,7 +11,7 @@ public class GoblinMeleDamageReciver : MonobehaviorScript_ToggleLog, IDamageAble
     }
 
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageInfo damage)
     {
         healthManager.Damage(damage);
     }

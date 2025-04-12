@@ -15,9 +15,14 @@ GameObject:
   - component: {fileID: 3429795546144225330}
   - component: {fileID: 245983950170615653}
   - component: {fileID: 1514559514758087776}
+  - component: {fileID: -8219543084440411587}
+  - component: {fileID: 5500495884141641198}
+  - component: {fileID: 6856171906596192525}
+  - component: {fileID: -465320920851364473}
+  - component: {fileID: -798559688326188676}
   m_Layer: 0
   m_Name: Fracture Template
-  m_TagString: Untagged
+  m_TagString: FrozenFragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
+  ThawNeighboursRadius: 0.3
   StartFrozen: 1
   DoActivate: 0
   IsFrozen: 0
@@ -107,9 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
   SoftImpactType: 3
-  SoftImpactThreshold: 30
+  SoftImpactThreshold: 20
   HardImpactType: 2
-  HardImpactThreshold: 100
+  HardImpactThreshold: 50
 --- !u!208 &245983950170615653
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -140,3 +146,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeMult: {x: 1, y: 1, z: 1}
   boundSize: {x: 0, y: 0, z: 0}
+--- !u!114 &-8219543084440411587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f261152e0c70b9e40a2acf60f825d859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  maxHealth: 5
+  currentHealth: 0
+  imortal: 0
+--- !u!114 &5500495884141641198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a94d40cf6571e43a2277d05d207f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  TargetTags:
+  - FrozenFragment
+  DamageSpreadRadius: 0.4
+  EpicenterDamageMult: 1
+  EdgeDamageMult: 0.1
+--- !u!114 &6856171906596192525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138b9c7d9309fe345817ec6e9c47b7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  LowImpactDamage: 4
+  HighImpactDamage: 10
+--- !u!114 &-465320920851364473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb498402efdb2864b8b2450da03db761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-798559688326188676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2f9344d528a243aefb7caf7ce76f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

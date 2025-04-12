@@ -4,12 +4,13 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactThreshold
+public class FragmentFreeze : MonobehaviorScript_ToggleLog
 {
+    [SerializeField] float ThawNeighboursRadius = 0.3f;
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
-    [SerializeField] bool IsFrozen;
-
+    [SerializeField] public bool IsFrozen;
+    
     protected NavMeshObstacle navMeshObstacle;
 
     protected Rigidbody rb;
@@ -114,7 +115,11 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog, IShootAble, IImpactT
     {
         Thaw();
     }
-    
+
+    public virtual void ActivateNeighbours(Vector3 pos)
+    {
+        ActivateNeighbours(pos, ThawNeighboursRadius);
+    }
     public virtual void ActivateNeighbours(Vector3 pos, float radius)
     {
         Collider[] colidersInside = Physics.OverlapSphere(pos, radius);

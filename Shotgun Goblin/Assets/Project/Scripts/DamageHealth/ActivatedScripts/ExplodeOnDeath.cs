@@ -12,7 +12,7 @@ public class ExplodeOnDeath : MonoBehaviour, IDeathActivated
 
     }
 
-    public void OnDeath(float remainingHealth)
+    public void OnDeath(DamageInfo damage)
     {
         explosice.Explode();
     }

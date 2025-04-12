@@ -16,11 +16,11 @@ public class ImpactDamage : MonobehaviorScript_ToggleLog, IImpactThreshold
 
     public void SoftImpact(CollisionData collision)
     {
-        healthManager.Damage(LowImpactDamage);
+        healthManager.Damage(LowImpactDamage, collision.position);
     }
 
     public void HardImpact(CollisionData collision)
     {
-        healthManager.Damage(HighImpactDamage);
+        healthManager.Damage(HighImpactDamage, collision.position);
     }
 }
