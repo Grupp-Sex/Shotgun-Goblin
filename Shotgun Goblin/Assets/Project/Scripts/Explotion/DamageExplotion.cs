@@ -12,7 +12,13 @@ public class DamageExplotion : MonoBehaviour, IOnExplotionInRadius
         if (targetHP != null)
         {
 
-            targetHP.Damage(DPS * effect * Time.deltaTime, target.ClosestPoint(transform.position));
+            targetHP.Damage( new DamageInfo 
+                    { 
+                        damage = DPS * effect * Time.deltaTime,
+                        position = target.ClosestPoint(transform.position),
+                        NoEffects = true,
+
+                    });
         }
     }
 }

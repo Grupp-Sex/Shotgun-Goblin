@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -27,10 +28,15 @@ public class SpreadDamage : MonobehaviorScript_ToggleLog, IDamageActivated
 
         Collider[] colidersInside = Physics.OverlapSphere(damage.position, radius);
         int counter = 0;
+
+        DebugLog("number of neighbours: " + colidersInside.Count());
+
         for (int i = 0; i < colidersInside.Length; i++)
         {
+            DebugLog("neighbour foud, tag: " + colidersInside[i].tag);
             if (TargetTags.Contains(colidersInside[i].tag))
             {
+                
                 if (colidersInside[i].gameObject != gameObject) {
                     DebugLog(colidersInside[i].gameObject.name);
 
@@ -39,7 +45,7 @@ public class SpreadDamage : MonobehaviorScript_ToggleLog, IDamageActivated
                     if (fragment != null)
                     {
                         counter++;
-                        DebugLog("neighbour found");
+                        DebugLog("damage delt: " + damage);
 
                         fragment.Damage(SpreadDamageInfo(damage, colidersInside[i], radius));
                     }
