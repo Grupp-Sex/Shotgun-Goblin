@@ -8,8 +8,8 @@ public class DropObjectOnDeath : MonoBehaviour, IDeathActivated
 
     [SerializeField] List<GameObject> DroppedObjects = new List<GameObject>();
 
-    public GameObject DeathDroppedObjects;
-
+    static protected GameObject DeathDroppedObjects_Static;
+    [SerializeField] GameObject DeathDroppedObjects;
 
     private void Awake()
     {
@@ -18,9 +18,14 @@ public class DropObjectOnDeath : MonoBehaviour, IDeathActivated
 
     protected GameObject CreateDroppedObjectDestination()
     {
-        if (DeathDroppedObjects != null)
+        if(DeathDroppedObjects_Static == null)
         {
-            DeathDroppedObjects = Instantiate(new GameObject("DeathDroppedObjects"));
+            DeathDroppedObjects_Static = new GameObject("DeathDroppedObjects");
+        }
+        if (DeathDroppedObjects == null)
+        {
+           
+            DeathDroppedObjects = DeathDroppedObjects_Static;
         }
 
         return DeathDroppedObjects;
@@ -36,10 +41,12 @@ public class DropObjectOnDeath : MonoBehaviour, IDeathActivated
 
     protected void DroppObject(GameObject obj)
     {
-        
+        if(obj == null) return;
 
-        obj.transform.parent = CreateDroppedObjectDestination().transform;
+        CreateDroppedObjectDestination();
+        obj.transform.parent = DeathDroppedObjects_Static.transform;
         ActivateObjectDroppScripts(obj);
+        
     }
 
     protected void ActivateObjectDroppScripts(GameObject obj)
