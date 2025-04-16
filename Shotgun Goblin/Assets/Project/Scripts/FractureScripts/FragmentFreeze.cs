@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class FragmentFreeze : MonobehaviorScript_ToggleLog
 {
     [SerializeField] float ThawNeighboursRadius = 0.3f;
+    [SerializeField] bool RecallOnStart = true;
     [SerializeField] bool StartFrozen;
     [SerializeField] bool DoActivate;
     [SerializeField] public bool IsFrozen;
@@ -88,7 +89,10 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
         rb.isKinematic = true;
         rb.Sleep();
 
-        StartCoroutine(StartupTimer(0.001f));
+        if (RecallOnStart)
+        {
+            StartCoroutine(StartupTimer(0.001f));
+        }
 
         ActivateFreezeComponents(true);
         DebugLog("Object Frozen: " + name);
@@ -108,7 +112,11 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
         rb.isKinematic = false;
         ActivateFreezeComponents(false);
         DebugLog("Object Thawed: " + name);
-        navMeshObstacle.enabled = false;
+
+        if (navMeshObstacle != null)
+        {
+            navMeshObstacle.enabled = false;
+        }
     }
 
     public virtual void Activate()
