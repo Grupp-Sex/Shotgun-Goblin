@@ -47,6 +47,8 @@ public class FPS_Counter : MonoBehaviour
 
         AvrageFPS(fps);
 
+        
+
     }
 
     protected void AvrageFPS(float fps)
