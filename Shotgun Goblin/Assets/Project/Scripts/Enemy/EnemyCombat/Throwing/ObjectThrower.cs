@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.SearchService;
 using UnityEngine;
 
@@ -29,10 +30,23 @@ public class ObjectThrower : MonoBehaviour
                 Aim();
                 AimButton = false;
             }
+            
+        }
+    }
+
+    protected void CheckButtons()
+    {
+        if (isActiveAndEnabled)
+        {
+            if (AimButton)
+            {
+                Aim();
+                AimButton = false;
+            }
             if (ShootButton)
             {
                 Throw();
-                ShootButton = false;    
+                ShootButton = false;
             }
         }
     }
@@ -62,6 +76,8 @@ public class ObjectThrower : MonoBehaviour
 
     private void Update()
     {
+        CheckButtons();
+
         if (UpdateOnUpdate)
         {
             Aim();

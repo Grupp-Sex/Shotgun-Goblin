@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class ThrowAimer : MonobehaviorScript_ToggleLog
 {
-    [SerializeField] GameObject RotationObject;
+    [SerializeField] Transform Vertical_RotationObject;
+    [SerializeField] Transform Horizontal_RotationObject;
     [SerializeField] public Transform OriginObject;
     protected enum TypeOfThrow
     {
@@ -22,8 +23,10 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
     [SerializeField] float MinHorizontalAngle = -90;
 
     protected Vector3 upDirection => new Vector3(0,1,0);
-
     
+
+
+
 
     public void Aim(Vector3 TargetPos, float StartVelocity)
     {
@@ -36,18 +39,21 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
         angleV = ToDegrees(angleV);
 
 
-        float angleH = Vector3.Angle(Vector3.ProjectOnPlane(transform.forward, upDirection), groundDirection);
+        float angleH = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, upDirection), groundDirection, upDirection);
 
+        
 
-
-        ExecuteAim(-angleV);
+        ExecuteAim(-angleV, angleH);
     }
 
-    protected void ExecuteAim(float verticalAngle)
+    protected void ExecuteAim(float verticalAngle, float horizontalAngle)
     {
-        
-        RotationObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
-        RotationObject.transform.Rotate(new Vector3(1,0,0), verticalAngle);
+        Horizontal_RotationObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+
+        Horizontal_RotationObject.transform.Rotate(new Vector3(0, 1, 0), horizontalAngle);
+
+        Vertical_RotationObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
+        Vertical_RotationObject.transform.Rotate(new Vector3(1,0,0), verticalAngle);
 
         
 
@@ -76,8 +82,8 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
         float groundDistanceMagnitude = groundDistance.magnitude;
         float hightMagnitude = hight.magnitude;
 
-        if (IsNegativeX(hight, transform.up)) hightMagnitude *= -1;
-        if(IsNegativeX(groundDistance, transform.forward)) groundDistanceMagnitude *= -1;
+        if (IsNegativeX(hight, upDirection)) hightMagnitude *= -1;
+        if(IsNegativeX(groundDistance, Horizontal_RotationObject.forward)) groundDistanceMagnitude *= -1;
 
         return new Vector2(groundDistanceMagnitude, hightMagnitude);
     }
