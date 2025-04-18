@@ -14,7 +14,11 @@ public class ObjectThrower : MonoBehaviour
     [SerializeField] ThrowAimer Aimer;
 
 
-    [SerializeField] float Velocity = 5;
+    [SerializeField] float MaxVelocity = 15;
+    [SerializeField] float MaxDistance = 5;
+
+    [SerializeField] float MinVelocity = 10;
+    [SerializeField] float MinDistance = 0;
 
     [SerializeField] bool UpdateOnUpdate = true;
 
@@ -57,9 +61,26 @@ public class ObjectThrower : MonoBehaviour
         Throw();
     }
 
+    protected float CalculateVelocity()
+    {
+        float distance = Vector3.Distance(Target.position, Aimer.transform.position);
+
+        distance = Mathf.Clamp(distance, MinDistance, MaxDistance);
+
+        float lerpValue = (distance - MinDistance) / (MaxDistance - MinDistance);
+
+        lerpValue = 1 - lerpValue;
+
+        lerpValue *= lerpValue;
+
+        lerpValue = 1 - lerpValue;
+
+        return MaxVelocity * lerpValue + MinVelocity * (1 - lerpValue);
+    }
+
     protected void Aim()
     {
-        Aimer?.Aim(Target.position, Velocity);
+        Aimer?.Aim(Target.position, CalculateVelocity());
     }
 
     protected void Throw()
@@ -70,7 +91,7 @@ public class ObjectThrower : MonoBehaviour
 
         projectile.transform.parent = null;
 
-        projectile.AddRelativeForce(new Vector3(0,0,Velocity), ForceMode.VelocityChange);
+        projectile.AddRelativeForce(new Vector3(0,0, CalculateVelocity()), ForceMode.VelocityChange);
         
     }
 

@@ -43,17 +43,26 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
 
         
 
-        ExecuteAim(-angleV, angleH);
+        ExecuteAim(angleV, angleH);
     }
 
     protected void ExecuteAim(float verticalAngle, float horizontalAngle)
     {
+
+
+        float vAngle = Mathf.Clamp(verticalAngle, MinVerticalAngle, MaxVerticalAngle);
+        float hAngle = Mathf.Clamp(horizontalAngle, MinHorizontalAngle, MaxHorizontalAngle);
+
+
+        vAngle *= -1;
+
+
         Horizontal_RotationObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
 
-        Horizontal_RotationObject.transform.Rotate(new Vector3(0, 1, 0), horizontalAngle);
+        Horizontal_RotationObject.transform.Rotate(new Vector3(0, 1, 0), hAngle);
 
         Vertical_RotationObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
-        Vertical_RotationObject.transform.Rotate(new Vector3(1,0,0), verticalAngle);
+        Vertical_RotationObject.transform.Rotate(new Vector3(1,0,0), vAngle);
 
         
 
