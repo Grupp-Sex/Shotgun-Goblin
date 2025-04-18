@@ -3167,6 +3167,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: HeldObjectMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: tiltAmount
@@ -3226,6 +3236,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Abilaties Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: Drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: AngularDrag
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7243295373465348943, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}

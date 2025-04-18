@@ -483,10 +483,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 255
+  PickupPriority: 4
 --- !u!65 &212233473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -633,10 +636,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 0
+  PickupPriority: 3
 --- !u!65 &214663064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -998,10 +1004,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 0
+  PickupPriority: 5
 --- !u!65 &539361280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1655,10 +1664,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 0
+  PickupPriority: 2
 --- !u!65 &815769788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2910,10 +2922,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 3
+  PickupPriority: 1
 --- !u!1 &1638759640
 GameObject:
   m_ObjectHideFlags: 0

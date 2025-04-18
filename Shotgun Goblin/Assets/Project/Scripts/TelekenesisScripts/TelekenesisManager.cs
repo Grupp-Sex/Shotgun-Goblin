@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TelekenesisManager : MonobehaviorScript_ToggleLog
 {
@@ -120,13 +124,61 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     #region Grab Objects    
     public void GrabOjcects()
     {
+        GrabOjcects(GetTargetPosition, GrabDistanceThreshold);
+
+    }
+
+    protected void GrabOjcects(Vector3 position, float range)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, range);
+
+        SortedList<SortableWrapper<double>, TelekenesisPhysicsObject> grabbedList = new SortedList<SortableWrapper<double>, TelekenesisPhysicsObject>();
+        
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            TelekenesisPhysicsObject newObject = colliders[i].GetComponent<TelekenesisPhysicsObject>();
+
+            if( newObject != null && newObject.isActiveAndEnabled && newObject.CanBeGrabbed)
+            {
+                Vector3 ClosestPoint = colliders[i].ClosestPoint(position);
+
+                float distance = Vector3.Distance(ClosestPoint, position) / range;
+
+                double priority = newObject.GetPickuppPriority(distance, i);
+
+                DebugLog("Object Priority: " + priority);
+
+                grabbedList.Add(SortableWrapper<double>.Create(priority), newObject);
+            }
+        }
+
+        int heldObjectCount = 0;
+
+        if (HeldObjectMax > 0)
+        {
+            foreach (var collisionObject in grabbedList)
+            {
+                if (heldObjectCount >= HeldObjectMax) break;
+                heldObjectCount++;
+                GrabOneObject(collisionObject.Value);
+                
+            }
+        }
+        
+        DebugLog("telekenesis. grabed objects, held object count is: " + GetHeldObjectCount);
+
+    }
+
+
+    protected void LegacyGrabObjects()
+    {
         TelekenesisPhysicsObject[] allOjects = GetAllAfectableObjects();
 
-        for(int i = 0; i < allOjects.Length; i++)
+        for (int i = 0; i < allOjects.Length; i++)
         {
             if (IsPhysicsObjectWithinTheshold(allOjects[i], GrabDistanceThreshold))
             {
-                if(GetHeldObjectCount < HeldObjectMax)
+                if (GetHeldObjectCount < HeldObjectMax)
                 {
                     GrabOneObject(allOjects[i]);
 
@@ -140,8 +192,8 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         }
 
         DebugLog("telekenesis. grabed objects, held object count is: " + GetHeldObjectCount);
-
     }
+
     protected void GrabOneObject(TelekenesisPhysicsObject obj)
     {
         if (TryAddHeldObject(obj))
@@ -246,6 +298,8 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     }
 
+    
+
 
     public static float Vector3DistanceSquared(Vector3 a, Vector3 b)
     {
@@ -254,4 +308,27 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         return Vector3.SqrMagnitude(ab);
     }
     #endregion
+
+    protected class SortableWrapper<T>: IComparable<SortableWrapper<T>> where T : IComparable
+    {
+        public T Value;
+        public static SortableWrapper<T> Create(T value)
+        {
+            
+            return new SortableWrapper<T>() { Value = value};
+        }
+
+        public int CompareTo(SortableWrapper<T> obj)
+        {
+            int result = Value.CompareTo(obj.Value);
+
+            if(result == 0)
+            {
+                result = 1;
+            }
+
+            return result;
+        }
+
+    }
 }

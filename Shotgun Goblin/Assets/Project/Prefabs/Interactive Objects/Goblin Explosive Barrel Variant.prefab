@@ -162,10 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   BoundSize: 0
   Velocity: {x: 0, y: 0, z: 0}
   ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
+  PriorityLayer: 200
+  PickupPriority: 0
 --- !u!114 &7593756091198656782
 MonoBehaviour:
   m_ObjectHideFlags: 0

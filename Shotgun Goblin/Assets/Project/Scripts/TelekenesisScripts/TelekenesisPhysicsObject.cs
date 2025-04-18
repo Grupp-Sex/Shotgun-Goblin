@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
+public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnFractionFreeze
 {
 
     [SerializeField] public float BoundSize;
@@ -17,6 +19,21 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
 
     [SerializeField] IOnTelekenesisEnter[] onTelekenesisEnterScripts;
     [SerializeField] IOnTelekenesisLeave[] onTelekenesisLeaveScripts;
+
+    [SerializeField] byte PriorityLayer;
+    [SerializeField] byte PickupPriority;
+
+    protected List<Func<int, int>> PickuppModifications = new List<Func<int, int>>();
+
+    private void OnValidate()
+    {
+        if (isActiveAndEnabled)
+        {
+            ClampPriority();
+        }
+    }
+
+
 
     public bool IsFrozen { get; set; }
     
@@ -40,6 +57,62 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         
     }
     
+    protected void ClampPriority()
+    {
+        PriorityLayer = Math.Clamp(PriorityLayer, (byte)0, (byte)10);
+        PickupPriority = Math.Clamp(PickupPriority, (byte)0, (byte)10);
+
+    }
+    public double GetPickuppPriority(float distance, int counter)
+    {
+
+        ClampPriority();
+
+        int pickupLayer = PriorityLayer * 1000; // 10___ - 00____
+
+        int subPriority = PickupPriority; // 10_ - 00_
+
+        float modDistance = distance;
+
+        int subPriorityMod = subPriority;
+
+        for (int i = 0; i < PickuppModifications.Count; i++)
+        {
+
+            subPriorityMod = PickuppModifications[i].Invoke(subPriority);
+
+            math.clamp(subPriorityMod, 1, 0);
+
+            subPriority = (byte)subPriorityMod;
+        }
+
+        math.clamp(modDistance, 1, 0);
+
+        modDistance = 1 - modDistance;
+
+
+       
+
+        
+
+        double sum = pickupLayer + subPriority * 10 + modDistance;
+
+        DebugLog("Telekenesis Pickupp priority: Layer:" + PriorityLayer + ", Sub Layer " + subPriority + " distance: " + distance + ", sum: " + sum);
+
+        
+
+        return -sum;
+    }
+
+    public void AddPickuppModification()
+    {
+
+    }
+
+    public void RemovePickuppModification()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
