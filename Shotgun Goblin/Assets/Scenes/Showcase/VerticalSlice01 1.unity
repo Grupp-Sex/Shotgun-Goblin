@@ -262,6 +262,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6810972141680791267}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &90913575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90913576}
+  - component: {fileID: 90913577}
+  m_Layer: 0
+  m_Name: ExplosiveRangedEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90913576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90913575}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.36, y: 0, z: 35.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2118649040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90913577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90913575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf768c095d3bde40baa89f83ef39145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeOfSpawn: 10
+  player: {fileID: 4486414118573245754}
+  numberOfEnemies: 40
+  delayBetweenSpawn: 5
+  enemies:
+  - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
+  MethodOfSpawningEnemies: 2
 --- !u!1001 &100927293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2784,6 +2835,7 @@ Transform:
   m_Children:
   - {fileID: 952493034}
   - {fileID: 2139115115}
+  - {fileID: 90913576}
   m_Father: {fileID: 1250092286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2127845368 stripped
