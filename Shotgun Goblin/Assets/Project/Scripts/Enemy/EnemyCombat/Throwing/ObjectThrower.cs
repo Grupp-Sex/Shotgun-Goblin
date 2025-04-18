@@ -11,9 +11,9 @@ public class ObjectThrower : MonoBehaviour
 
     [SerializeField] Rigidbody ThrownObjectTemplate;
 
-    [SerializeField] ThrowAimer Aimer;
-
-
+    public ThrowAimer Aimer;
+    public Transform GetAimerPos => Aimer.transform;
+    [SerializeField] float VelocityMult = 1;
     [SerializeField] float MaxVelocity = 15;
     [SerializeField] float MaxDistance = 5;
 
@@ -75,15 +75,15 @@ public class ObjectThrower : MonoBehaviour
 
         lerpValue = 1 - lerpValue;
 
-        return MaxVelocity * lerpValue + MinVelocity * (1 - lerpValue);
+        return (MaxVelocity * lerpValue + MinVelocity * (1 - lerpValue)) * VelocityMult;
     }
 
-    protected void Aim()
+    public void Aim()
     {
         Aimer?.Aim(Target.position, CalculateVelocity());
     }
 
-    protected void Throw()
+    public void Throw()
     {
         Rigidbody projectile = Instantiate(ThrownObjectTemplate, Aimer.OriginObject);
         projectile.gameObject.SetActive(true);

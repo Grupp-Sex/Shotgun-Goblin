@@ -23,6 +23,8 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
     [SerializeField] float MinHorizontalAngle = -90;
 
     protected Vector3 upDirection => new Vector3(0,1,0);
+
+    public bool FoundTrejectory {  get; private set; }
     
 
 
@@ -48,7 +50,6 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
 
     protected void ExecuteAim(float verticalAngle, float horizontalAngle)
     {
-
 
         float vAngle = Mathf.Clamp(verticalAngle, MinVerticalAngle, MaxVerticalAngle);
         float hAngle = Mathf.Clamp(horizontalAngle, MinHorizontalAngle, MaxHorizontalAngle);
@@ -129,6 +130,15 @@ public class ThrowAimer : MonobehaviorScript_ToggleLog
         Eq = Eq / (G * X);
 
         float angle = -math.atan(Eq);
+
+        if (float.IsNormal(angle))
+        {
+            FoundTrejectory = true;
+        }
+        else
+        {
+            FoundTrejectory = false;
+        }
 
         return angle;
     }
