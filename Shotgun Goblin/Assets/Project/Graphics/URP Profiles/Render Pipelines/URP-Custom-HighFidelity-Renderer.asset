@@ -65,6 +65,48 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-5557933229305829640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: ObjectBourder
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    passTag: ObjectBourder
+    Event: 200
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 1023
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: af3209e449bbca3419851595f938deff, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 1
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &-4546235882941236758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +231,8 @@ MonoBehaviour:
   - {fileID: -6722133272827862498}
   - {fileID: 3808807739788989307}
   - {fileID: 7803706175683830646}
-  m_RendererFeatureMap: adc0de57c6d2eee540460a07c3858785ea39272c8d86e8c0b4779a5671e22cc2ef529af59c8dc443104a9d54b6a3e0751ee2425c672fb6a27b93e19b759adb34762328c56b554c6c
+  - {fileID: -5557933229305829640}
+  m_RendererFeatureMap: adc0de57c6d2eee540460a07c3858785ea39272c8d86e8c0b4779a5671e22cc2ef529af59c8dc443104a9d54b6a3e0751ee2425c672fb6a27b93e19b759adb34762328c56b554c6cf8e6e2d52c41deb2
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -215,10 +258,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 1271
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 1
@@ -245,7 +288,7 @@ MonoBehaviour:
   m_Name: Pixelator
   m_EditorClassIdentifier: 
   m_Active: 1
-  RenderPassEvent: 1000
+  RenderPassEvent: 550
   Priority: 1
   ScreenMaterial: {fileID: -876546973899608171, guid: 9030ed9a2e807ba4e92cc7d38e7fdb2f,
     type: 3}
@@ -278,7 +321,7 @@ MonoBehaviour:
   m_Name: ShaderToScreen
   m_EditorClassIdentifier: 
   m_Active: 1
-  RenderPassEvent: 1000
+  RenderPassEvent: 550
   Priority: 0
   ScreenMaterial: {fileID: -876546973899608171, guid: 463b4e633aa6cb04b81c8c247bde9a22,
     type: 3}
