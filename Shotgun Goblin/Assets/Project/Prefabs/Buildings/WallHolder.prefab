@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3017172997808163902}
   m_Layer: 0
   m_Name: WallHolder
-  m_TagString: Untagged
+  m_TagString: FrozenFragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751997212212397232, guid: da8f4434b5feadc448dd83dee4cd0685,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
       objectReference: {fileID: 0}
     - target: {fileID: 8934126607402034381, guid: da8f4434b5feadc448dd83dee4cd0685,
         type: 3}

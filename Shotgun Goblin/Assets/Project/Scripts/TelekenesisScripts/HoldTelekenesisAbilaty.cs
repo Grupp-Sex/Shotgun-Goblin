@@ -14,6 +14,12 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     [SerializeField] float Radius;
     [SerializeField] float SizeForceMod;
     [SerializeField] float Upmod;
+
+    [SerializeField] float Drag;
+    [SerializeField] float AngularDrag;
+    
+
+    [SerializeField] ForceMode ForceMode = ForceMode.Acceleration;
     
     [SerializeField] Vector3 ParentMovement => newParentPosition - oldParentPosition;
 
@@ -75,8 +81,8 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
     {
         obj.SetNewParrent(pickuppOriginPoint);
 
-        obj.Rigidbody.angularDrag = 30;
-        obj.Rigidbody.drag = 10;
+        obj.Rigidbody.angularDrag = AngularDrag; // 30
+        obj.Rigidbody.drag = Drag; // 10
         obj.Rigidbody.useGravity = false;
 
         
@@ -98,8 +104,8 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
 
     protected void PullObjectToEpicenter(TelekenesisPhysicsObject obj)
     {
-        obj.Rigidbody.AddExplosionForce(-ImplotionForce , GetShapePoint(obj), Radius, -Upmod);
-        obj.Rigidbody.AddExplosionForce(-ImplotionForce * ( ObjectBoundSizeMod(obj) * SizeForceMod * EpicenterForceMod * 0.5f), pickuppOriginPoint.position, Radius, -Upmod);
+        obj.Rigidbody.AddExplosionForce(-ImplotionForce , GetShapePoint(obj), Radius, -Upmod, ForceMode);
+        obj.Rigidbody.AddExplosionForce(-ImplotionForce * ( ObjectBoundSizeMod(obj) * SizeForceMod * EpicenterForceMod * 0.5f), pickuppOriginPoint.position, Radius, -Upmod, ForceMode);
         
         
     }
@@ -128,7 +134,7 @@ public class HoldTelekenesisAbilaty : BaseTelekenesisAbilaty
         {
             if(heldObjects[i] != obj)
             {
-                obj.Rigidbody.AddExplosionForce(PushApartForce, heldObjects[i].transform.position, 1f, 0);
+                obj.Rigidbody.AddExplosionForce(PushApartForce, heldObjects[i].transform.position, 1f, 0, ForceMode);
             }
         }
     }

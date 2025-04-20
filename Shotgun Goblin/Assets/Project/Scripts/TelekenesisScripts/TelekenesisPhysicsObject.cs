@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
+public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnFractionFreeze
 {
 
     [SerializeField] public float BoundSize;
@@ -15,7 +17,24 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
 
     [SerializeField] public bool CanBeGrabbed;
 
-    
+    [SerializeField] IOnTelekenesisEnter[] onTelekenesisEnterScripts;
+    [SerializeField] IOnTelekenesisLeave[] onTelekenesisLeaveScripts;
+
+    [SerializeField] byte PriorityLayer;
+    [SerializeField] byte PickupPriority;
+
+    protected List<Func<int, int>> PickuppModifications = new List<Func<int, int>>();
+
+    private void OnValidate()
+    {
+        if (isActiveAndEnabled)
+        {
+            ClampPriority();
+        }
+    }
+
+
+
     public bool IsFrozen { get; set; }
     
     public Rigidbody Rigidbody {  get; protected set; }
@@ -24,7 +43,7 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     // (when it is no logner affected by telekenesis)
     protected SavedState savedState = new SavedState();
 
-   
+
     public void Freze()
     {
         IsFrozen = true;
@@ -38,10 +57,67 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         
     }
     
+    protected void ClampPriority()
+    {
+        PriorityLayer = Math.Clamp(PriorityLayer, (byte)0, (byte)10);
+        PickupPriority = Math.Clamp(PickupPriority, (byte)0, (byte)10);
+
+    }
+    public double GetPickuppPriority(float distance, int counter)
+    {
+
+        ClampPriority();
+
+        int pickupLayer = PriorityLayer * 1000; // 10___ - 00____
+
+        int subPriority = PickupPriority; // 10_ - 00_
+
+        float modDistance = distance;
+
+        int subPriorityMod = subPriority;
+
+        for (int i = 0; i < PickuppModifications.Count; i++)
+        {
+
+            subPriorityMod = PickuppModifications[i].Invoke(subPriority);
+
+            math.clamp(subPriorityMod, 1, 0);
+
+            subPriority = (byte)subPriorityMod;
+        }
+
+        math.clamp(modDistance, 1, 0);
+
+        modDistance = 1 - modDistance;
+
+
+       
+
+        
+
+        double sum = pickupLayer + subPriority * 10 + modDistance;
+
+        DebugLog("Telekenesis Pickupp priority: Layer:" + PriorityLayer + ", Sub Layer " + subPriority + " distance: " + distance + ", sum: " + sum);
+
+        
+
+        return -sum;
+    }
+
+    public void AddPickuppModification()
+    {
+
+    }
+
+    public void RemovePickuppModification()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
 
         CheckRigidBody();
         SaveSavedState();
@@ -50,6 +126,9 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         //Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
         BoundSize = GetComponent<Collider>().bounds.size.magnitude;
+
+        onTelekenesisEnterScripts = GetComponents<IOnTelekenesisEnter>();
+        onTelekenesisLeaveScripts = GetComponents<IOnTelekenesisLeave>();
     }
 
     public void Update()
@@ -82,12 +161,30 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
     public void OnEnterTeleknesis()
     {
         SaveSavedState();
+        NotifyTelekenesisEnter();
     }
 
     public void OnLeaveTelekenesis()
     {
         LoadSavedState();
+        NotifyTelekenesisLeave();
         
+    }
+
+    protected void NotifyTelekenesisEnter()
+    {
+        for (int i = 0; i < onTelekenesisEnterScripts.Length; i++)
+        {
+            onTelekenesisEnterScripts[i].OnTelekenesisEnter();
+        }
+    }
+
+    protected void NotifyTelekenesisLeave()
+    {
+        for (int i = 0; i < onTelekenesisLeaveScripts.Length; i++)
+        {
+            onTelekenesisLeaveScripts[i].OnTelekenesisLeave();
+        }
     }
 
     public void SetNewParrent(Transform parrent)
@@ -141,4 +238,16 @@ public class TelekenesisPhysicsObject : MonoBehaviour, IFrozenOnFractionFreeze
         public float maxAngularVelocity;
 
     }
+}
+
+public interface IOnTelekenesisEnter
+{
+    public void OnTelekenesisEnter();
+
+}
+
+public interface IOnTelekenesisLeave
+{
+    public void OnTelekenesisLeave();
+
 }

@@ -6,7 +6,7 @@ public class FractureExplodeOnDeath : FractureCustom, IDeathActivated
 {
     
 
-    public void OnDeath(float remainingHealth)
+    public void OnDeath(DamageInfo damage)
     {
         FractureObject();
     }

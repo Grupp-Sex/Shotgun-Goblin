@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamageAbleByEnemy
 {
-    void TakeDamage(float Damage);
+    void TakeDamage(DamageInfo damage);
 
     Transform GetTransform();
 }

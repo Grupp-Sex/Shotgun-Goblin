@@ -12,6 +12,10 @@ public class GunDamageReciever : MonoBehaviour, IShootAble
 
     public void GotShotLogic(ProjectileInfo projectile)
     {
-        healthManager.Damage(projectile.damage);
+        healthManager.Damage(new DamageInfo 
+        {
+            damage = projectile.damage, position = projectile.hitPos, 
+            hasDirection = true,  direction = projectile.direction
+        });
     }
 }

@@ -11,9 +11,9 @@ public class EnemyReciveTest : MonoBehaviour, IDamageAbleByEnemy
         return transform;
     }
 
-    public void TakeDamage(float Damage)
+    public void TakeDamage(DamageInfo Damage)
     {
-        Debug.Log(Damage);
+        Debug.Log(Damage.damage);
     }
 
     void Start()

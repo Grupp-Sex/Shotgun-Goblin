@@ -7,6 +7,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 {
     [SerializeField] float maxHealth = 1;
     [SerializeField] float currentHealth;
+    [SerializeField] public bool invincible;
 
     [SerializeField] bool imortal;
 
@@ -16,10 +17,12 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     private bool gameIsOn;
 
+    protected DamageInfo lastHit;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         gameIsOn = true;
         currentHealth = maxHealth;
         CheckHealth();
@@ -36,16 +39,31 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
     }
 
-    public virtual void Damage(float damage)
+    
+    public virtual void Damage(float damage, Vector3 position)
     {
+        Damage(new DamageInfo { damage = damage, position = position } );
         
-        if(dead || !isActiveAndEnabled) return;
-        
-        NotifyDamage(damage);
+    }
+
+    public virtual void Damage(DamageInfo damageInfo)
+    {
+        if (dead || !isActiveAndEnabled || invincible) return;
+
+        float damage = damageInfo.damage;
+
+        lastHit = damageInfo;
+
+        if (!damageInfo.NoEffects)
+        {
+            NotifyDamage(damageInfo);
+        }
 
         currentHealth -= damage;
-        DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth );
+        DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth);
         CheckHealth();
+
+
     }
 
     
@@ -63,18 +81,18 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
         DebugLog("object has perrished, remaining health: " + currentHealth);
 
-        NotifyDeath();
+        NotifyDeath(lastHit);
     }
 
-    protected virtual void NotifyDeath()
+    protected virtual void NotifyDeath(DamageInfo damage)
     {
         for(int i = 0; i < deathActivatedScripts?.Length; i++)
         {
-            deathActivatedScripts[i].OnDeath(currentHealth);
+            deathActivatedScripts[i].OnDeath(damage);
         }
     }
 
-    protected virtual void NotifyDamage(float damage)
+    protected virtual void NotifyDamage(DamageInfo damage)
     {
         for (int i = 0; i < damageActivatedScripts?.Length; i++)
         {
@@ -83,14 +101,27 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     }
 }
 
+public struct DamageInfo
+{
+    public float damage;
+    public Vector3 position;
+
+    public bool hasDirection;
+    public Vector3 direction;
+
+    public string DamageTag;
+
+    public bool NoEffects;
+}
+
 public interface IDeathActivated
 {
-    public void OnDeath(float negativeHealthRemaining);
+    public void OnDeath(DamageInfo damage);
 
 }
 
 public interface IDamageActivated
 {
-    public void OnDamage(float damage);
+    public void OnDamage(DamageInfo damage);
 
 }
