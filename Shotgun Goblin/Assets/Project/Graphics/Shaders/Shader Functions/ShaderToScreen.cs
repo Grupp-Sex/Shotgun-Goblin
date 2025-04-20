@@ -1,24 +1,29 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using static UnityEngine.XR.XRDisplaySubsystem;
+using static SetScreenToGlobalTexture;
 
-public class SetScreenToGlobalTexture : ScriptableRendererFeature
+public class ShaderToScreen : ScriptableRendererFeature
 {
-    public enum RenderType
-    {
-        Color,
-        Depth
-    }
+    [SerializeField] RenderPassEvent RenderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
+    [SerializeField] int Priority = -1;
+    
+    [SerializeField] Material ScreenMaterial;
 
-    [SerializeField] string GlobalTextureName = "_PostProcessing";
-
-    [SerializeField] public RenderPassEvent RenderPass = RenderPassEvent.AfterRenderingPostProcessing;
-    [SerializeField] RenderType Type = RenderType.Color;
-    class CustomRenderPass : ScriptableRenderPass
+    private void OnValidate()
     {
         
+
+        if(m_ScriptablePass != null)
+        {
+            m_ScriptablePass.SetMatierial(ScreenMaterial);
+            m_ScriptablePass.SetPriority(Priority);
+            m_ScriptablePass.renderPassEvent = RenderPassEvent;
+        }
+    }
+    class CustomRenderPass : ScriptableRenderPass
+    {
+
 
         protected RTHandle tempRender;
 
@@ -28,10 +33,15 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
 
         protected string TexName;
 
-        public CustomRenderPass(string texName, RenderType type)
-        {
+        protected int prio;
 
-            TexName = texName;  
+        protected Material material;
+
+        public CustomRenderPass()
+        {
+            
+
+            TexName = "ScreenTexture";
 
             tempRender = RTHandles.Alloc(TexName, name: TexName);
         }
@@ -39,21 +49,22 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
         {
             base.Configure(cmd, cameraTextureDescriptor);
-
-            RenderTextureDescriptor fullscreenDescriptor = cameraTextureDescriptor;
-
-            fullscreenDescriptor.width = Screen.width;
-            fullscreenDescriptor.height = Screen.height;
-            fullscreenDescriptor.msaaSamples = 1;
-
-
-            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
-
+            
         }
 
         public void SetRenderTarget(ScriptableRenderer target)
         {
             renderTarget = target;
+        }
+
+        public void SetMatierial(Material material)
+        {
+            this.material = material;
+        }
+
+        public void SetPriority(int priority)
+        {
+            prio = priority;
         }
 
         // This method is called before executing the render pass.
@@ -64,6 +75,14 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
             
+
+            RenderTextureDescriptor fullscreenDescriptor = renderingData.cameraData.cameraTargetDescriptor;
+            
+            
+
+
+            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
+
         }
 
 
@@ -73,48 +92,47 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         // You don't have to call ScriptableRenderContext.submit, the render pipeline will call it at specific points in the pipeline.
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            CommandBuffer cmd = CommandBufferPool.Get();
+            if(renderingData.cameraData.cameraType != CameraType.Game) return;
 
-
-            switch (this.type)
+            if (material != null)
             {
-                case RenderType.Color:
+                CommandBuffer cmd = CommandBufferPool.Get();
 
-                    cmd.Blit(renderTarget.cameraColorTargetHandle, tempRender);
-                    break;
+                cmd.Blit(renderingData.cameraData.targetTexture, Shader.PropertyToID(tempRender.name));
 
-                case RenderType.Depth:
-                    cmd.Blit(renderTarget.cameraDepthTargetHandle, tempRender);
 
-                    break;
+
+                material.mainTexture = renderingData.cameraData.targetTexture;
+                cmd.Blit(Shader.PropertyToID(tempRender.name), renderingData.cameraData.renderer.cameraColorTargetHandle, material, prio);
+                    //Blitter.BlitCameraTexture(cmd, tempRender, renderTarget.cameraColorTargetHandle);
+
+                context.ExecuteCommandBuffer(cmd);
+                cmd.Clear();
+
+                cmd.Release();
             }
-            
-            
-            cmd.SetGlobalTexture(TexName, tempRender);
-
-            context.ExecuteCommandBuffer(cmd);
-
-            cmd.Release();
 
         }
 
         // Cleanup any allocated resources that were created during the execution of this render pass.
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
+            
             cmd.ReleaseTemporaryRT(Shader.PropertyToID(tempRender.name));
         }
-
     }
-
 
     CustomRenderPass m_ScriptablePass;
 
     /// <inheritdoc/>
     public override void Create()
     {
-        m_ScriptablePass = new CustomRenderPass(GlobalTextureName, this.Type);
+        m_ScriptablePass = new CustomRenderPass();
+        
+
         // Configures where the render pass should be injected.
-        m_ScriptablePass.renderPassEvent = RenderPass;
+        m_ScriptablePass.renderPassEvent = RenderPassEvent;
+        
     }
 
     // Here you can inject one or multiple render passes in the renderer.
@@ -122,10 +140,12 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
         renderer.EnqueuePass(m_ScriptablePass);
-
-        
         m_ScriptablePass.SetRenderTarget(renderer);
+        m_ScriptablePass.SetMatierial(ScreenMaterial);
+        m_ScriptablePass.SetPriority(Priority);
     }
+
+
 }
 
 
