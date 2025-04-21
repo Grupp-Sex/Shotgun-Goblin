@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 544122250801070399}
   - component: {fileID: 8752096483802689178}
   - component: {fileID: 5368608530676447957}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +437,7 @@ MonoBehaviour:
   LogInDebugConsole: 1
   maxHealth: 100
   currentHealth: 0
+  invincible: 0
   imortal: 0
 --- !u!114 &7686211528705036371
 MonoBehaviour:
@@ -618,6 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1955124532013665294}
+  - component: {fileID: 1346141501661330367}
   m_Layer: 2
   m_Name: GunHand
   m_TagString: Untagged
@@ -641,6 +643,21 @@ Transform:
   - {fileID: 2767656118726424205}
   m_Father: {fileID: 327407414600433406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1346141501661330367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504096760730647767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfacf9b636676b243aa04811ca96f1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerVerticalLooker: {fileID: 5124393934527020834}
+  MinDistance: 2
+  MaxDistance: 100
 --- !u!1 &9157848374567524709
 GameObject:
   m_ObjectHideFlags: 0
