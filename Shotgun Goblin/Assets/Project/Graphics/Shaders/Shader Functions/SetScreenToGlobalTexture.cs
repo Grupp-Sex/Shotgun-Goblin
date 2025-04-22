@@ -22,7 +22,6 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
 
         protected RTHandle tempRender;
 
-
         protected ScriptableRenderer renderTarget;
 
         protected RenderType type;
@@ -41,8 +40,14 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         {
             base.Configure(cmd, cameraTextureDescriptor);
 
-            
-            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), cameraTextureDescriptor);
+            RenderTextureDescriptor fullscreenDescriptor = cameraTextureDescriptor;
+
+            fullscreenDescriptor.width = Screen.width;
+            fullscreenDescriptor.height = Screen.height;
+            fullscreenDescriptor.msaaSamples = 1;
+
+
+            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
 
         }
 

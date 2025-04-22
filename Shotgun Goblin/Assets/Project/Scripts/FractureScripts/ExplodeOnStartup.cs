@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ExplodeOnStartup : MonobehaviorScript_ToggleLog
 {
-    [SerializeField] GameObject parrent;
-
     [SerializeField] float explotionVelocity;
     [SerializeField] float angularVelocityMult;
 
@@ -37,7 +35,7 @@ public class ExplodeOnStartup : MonobehaviorScript_ToggleLog
 
     protected Vector3 DirectionFromCenter()
     {
-        Vector3 center = parrent.transform.position;
+        
 
         Vector3 position = rb.worldCenterOfMass;
 

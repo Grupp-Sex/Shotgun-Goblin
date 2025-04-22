@@ -8,6 +8,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     [SerializeField] float maxHealth = 1;
     [SerializeField] float currentHealth;
     [SerializeField] public bool invincible;
+    public float Health => currentHealth;
+    public float MaxHealth => maxHealth;
 
     [SerializeField] bool imortal;
 

@@ -13,7 +13,7 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
 
     protected IOnExplotionInRadius[] onExplotionScripts;
 
-
+    protected List<Collider> collidersInExplotion = new List<Collider>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +26,58 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
         StopAllCoroutines();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        float effect = GetEffect(other.ClosestPoint(transform.position));
+        AffectObjectsInExplotion();
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        EnterExplotion(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        ExitExplotion(other);
+    }
+
+    protected void AffectObjectsInExplotion()
+    {
+        for (int i = 0; i < collidersInExplotion.Count; i++)
+        {
+            InExplotion(collidersInExplotion[i]);
+        }
+    }
+
+    protected void InExplotion(Collider other)
+    {
         if (other != null && other == isActiveAndEnabled)
         {
+            float effect = GetEffect(other.ClosestPoint(transform.position));
             NotifyExplotion(other, effect);
+        }
+        else
+        {
+            ExitExplotion(other);
+        }
+    }
+
+    protected void EnterExplotion(Collider collider)
+    {
+        if (collider != null && collider == isActiveAndEnabled)
+        {
+            if (!collidersInExplotion.Contains(collider))
+            {
+                collidersInExplotion.Add(collider);
+            }
+        }
+    }
+
+    protected void ExitExplotion(Collider collider)
+    {
+        if (collidersInExplotion.Contains(collider))
+        {
+            collidersInExplotion.Remove(collider);
         }
     }
 
