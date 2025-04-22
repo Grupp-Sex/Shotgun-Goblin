@@ -12,10 +12,26 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     [SerializeField] public bool DropOriginPoint;
     [SerializeField] public Transform TargetPosition;
     [SerializeField] public GameObject AbilatiyScriptHolder;
+
+    [Header("Held Items")]
     [SerializeField] public float GrabDistanceThreshold;
     [SerializeField] public float HoldDistanceThreshold;
     [SerializeField] public int HeldObjectMax;
+
+    [Header("Cooldown And Duration")]
+    [SerializeField] float CooldownTimer = 2;
+    [SerializeField] bool DoDuration = true;
+    [SerializeField] float DurationTimer = 5;
+    [SerializeField] bool OnCooldown;
+    [SerializeField] bool CanGrab = true;
+
+    public bool IsActivated { get; protected set; }
+
+
+    [Header("Held Objects")]
     [SerializeField] public List<TelekenesisPhysicsObject> HeldObjects;
+
+    
 
 
     public Vector3 GetTargetPosition => TargetPosition.position;
@@ -23,7 +39,8 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     public int GetHeldObjectCount => HeldObjects.Count;
 
     protected BaseTelekenesisAbilaty[] telekenesisAbilaties;
-  
+    protected IOnTelekenesis[] telekenesisVisuals;
+    protected IOnTelekenesisThrow[] telekenesisThrowVisuals;
 
 
     void Start()
@@ -75,7 +92,120 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         HeldObjects.Remove(obj);
     }
 
+    #region Cooldown And Activate
+    protected void StartTelekeneis()
+    {
+        IsActivated = true;
+        NotifyTelekenesisStart();
+    }
 
+    protected void EndTelekeneis()
+    {
+        IsActivated = false;
+
+        EndDuration();
+        NotifyTelekenesisEnd();
+        DropAllObjects();
+    }
+    
+    public void ActivateGrab()
+    {
+        if (!IsActivated)
+        {
+            if (CanGrab)
+            {
+                StartTelekeneis();
+                GrabOjcects();
+                StartCooldown();
+                StartDuration();
+            }
+        }
+    }
+
+    public void ActivateThrow()
+    {
+        if (IsActivated)
+        {
+            
+            ThrowObjects();
+            NotifyTelekeneisisThrow();
+            EndTelekeneis();
+        }
+    }
+
+
+    protected void StartCooldown()
+    {
+        if (!OnCooldown)
+        {
+            CooldownCoroutine = DoCooldownTimer(CooldownTimer);
+            StartCoroutine(CooldownCoroutine);
+        }
+    }
+
+    protected void EndCooldown()
+    {
+        if (CooldownCoroutine != null)
+        {
+            
+            StopCoroutine(CooldownCoroutine);
+            CooldownCoroutine = null;
+
+            CanGrab = true;
+            OnCooldown = false;
+        }
+    }
+
+    protected IEnumerator CooldownCoroutine;
+    protected IEnumerator DoCooldownTimer(float time)
+    {
+        OnCooldown = true;
+        CanGrab = false;
+        yield return new WaitForSeconds(time);  
+        CanGrab = true;
+
+        OnCooldown = false;
+    }
+
+    
+
+    protected void StartDuration()
+    {
+        DurationCoroutine = DoDurationTimer(DurationTimer);
+        StartCoroutine(DurationCoroutine);
+    }
+
+    protected void EndDuration()
+    {
+        if (DurationCoroutine != null)
+        {
+            StopCoroutine(DurationCoroutine);
+            DurationCoroutine = null;
+        }
+    }
+
+    protected IEnumerator DurationCoroutine;
+
+    protected IEnumerator DoDurationTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        if(IsActivated)
+        {
+            ActivateThrow();
+        }
+    }
+
+    protected void AbortTelekenesis()
+    {
+        DebugLog("Telekenesis Aborted");
+        EndDuration();
+        EndCooldown();
+        EndTelekeneis();
+    }
+
+
+    #endregion
 
 
     #region Abilaties
@@ -83,6 +213,9 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     protected void InitialzieAllAbilaties()
     {
         telekenesisAbilaties = AbilatiyScriptHolder.GetComponents<BaseTelekenesisAbilaty>();
+
+        telekenesisVisuals = AbilatiyScriptHolder.GetComponents<IOnTelekenesis>();
+        telekenesisThrowVisuals = AbilatiyScriptHolder.GetComponents<IOnTelekenesisThrow>();
 
         for (int i = 0; i < telekenesisAbilaties.Length; i++)
         {
@@ -112,6 +245,30 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         foreach (var abilaty in telekenesisAbilaties)
         {
             abilaty.OnDroppTelekenesisObject(obj);
+        }
+    }
+
+    protected void NotifyTelekenesisStart()
+    {
+        foreach (var visual in telekenesisVisuals)
+        {
+            visual.OnTelekenesisStart();
+        }
+    }
+
+    protected void NotifyTelekenesisEnd()
+    {
+        foreach (var visual in telekenesisVisuals)
+        {
+            visual.OnTelekenesisEnd();
+        }
+    }
+
+    protected void NotifyTelekeneisisThrow()
+    {
+        foreach (var throwVisual in telekenesisThrowVisuals)
+        {
+            throwVisual.OnTelekenesisThrow();
         }
     }
 
@@ -251,6 +408,14 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
             }
         }
+
+        if (IsActivated)
+        {
+            if (HeldObjects.Count <= 0)
+            {
+                AbortTelekenesis();
+            }
+        }
     }
     public void DropAllObjects()
     {
@@ -273,7 +438,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     #endregion
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         CheckObjectsForDropping();
     }
@@ -331,4 +496,15 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         }
 
     }
+}
+
+public interface IOnTelekenesis
+{
+    public void OnTelekenesisStart();
+    public void OnTelekenesisEnd();
+}
+
+public interface IOnTelekenesisThrow
+{
+    public void OnTelekenesisThrow();
 }

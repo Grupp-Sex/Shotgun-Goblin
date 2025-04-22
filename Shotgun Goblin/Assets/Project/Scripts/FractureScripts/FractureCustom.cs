@@ -11,10 +11,8 @@ public class FractureCustom : FractureBase, IDebugActivatableVoid
 
     [SerializeField] public bool ActivateFractureButton;
 
-    protected Mesh mesh;
     private void ActivateFractureButtonScript()
     {
-        mesh = GetComponent<Mesh>();
 
         if (ActivateFractureButton)
         {

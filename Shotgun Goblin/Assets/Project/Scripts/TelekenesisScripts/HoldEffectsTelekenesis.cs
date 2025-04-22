@@ -5,17 +5,21 @@ using UnityEngine;
 
 //could be better. Possibly using interfaces and scripts in the "activatable" objects
 
-public class HoldEffectsTelekenesis : BaseTelekenesisAbilaty
+public class HoldEffectsTelekenesis: MonobehaviorScript_ToggleLog, IOnTelekenesis
 {
     [SerializeField] List<GameObject> ActivatedOnTelekenesis;
 
-    public override void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec)
+    public void OnTelekenesisStart()
     {
-        base.OnGrabTelekenesisObject(grabedObjec);
-
         ShowObjects();
     }
 
+    public void OnTelekenesisEnd()
+    {
+        HideObjects();
+    }
+
+    
     protected void ShowObject(GameObject obj)
     {
         obj.SetActive(true);
@@ -42,11 +46,5 @@ public class HoldEffectsTelekenesis : BaseTelekenesisAbilaty
         }
     }
 
-    protected override void OnUpdate()
-    {
-        if(heldObjects.Count <= 0)
-        {
-            HideObjects();
-        }
-    }
+   
 }

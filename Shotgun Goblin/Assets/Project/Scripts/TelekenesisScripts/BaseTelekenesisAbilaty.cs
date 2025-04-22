@@ -25,7 +25,6 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
 
     public virtual void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec){}
     public virtual void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject){}
-
     public virtual void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject){}
 
     protected virtual void RunFuncOnAllObjects(List<TelekenesisPhysicsObject> objects, Action<TelekenesisPhysicsObject> func)
