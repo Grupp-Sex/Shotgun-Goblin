@@ -29,12 +29,12 @@ public class TelekenesisActivator : MonobehaviorScript_ToggleLog
 
     protected virtual void Grab()
     {
-        telekenesisManager.GrabOjcects();
+        telekenesisManager.ActivateGrab();
     }
 
     protected virtual void Throw()
     {
-        telekenesisManager.ThrowObjects();
+        telekenesisManager.ActivateThrow();
     }
 
 
