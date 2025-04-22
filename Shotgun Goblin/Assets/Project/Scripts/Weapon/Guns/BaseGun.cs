@@ -12,6 +12,13 @@ using static UnityEngine.UI.Image;
 public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
 {
     [SerializeField] float baseDamage;
+    [SerializeField] int MaxRoudsLoaded = 2;
+    [SerializeField] int CurrentRoudsLoaded;
+    [SerializeField] float ReloadTimer = 2;
+    [SerializeField] bool IsReloading;
+    
+    public bool GetIsReloading => IsReloading;
+
     protected IHitLogic[] hitLogicScripts;
     protected IShotActivated[] shootActivatedScripts;
 
@@ -24,14 +31,59 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
 
     }
 
+    
+
     public void DoAction()
     {
-        Shoot();
+        CheckReload();
+    }
+
+    public bool CanShoot()
+    {
+        return !IsReloading && CurrentRoudsLoaded > 0;
+    }
+
+    protected virtual void CheckReload()
+    {
+        if (!GetIsReloading)
+        {
+            if (CurrentRoudsLoaded > 0)
+            {
+                CurrentRoudsLoaded--;
+                DebugLog("Gun Shot, rounds left: " + CurrentRoudsLoaded);
+                Shoot();
+
+            }
+            if(!(CurrentRoudsLoaded > 0))
+            {
+                Reload();
+            }
+        }
     }
 
     protected virtual void Shoot()
     {
         NotifyShotActivated();
+    }
+
+    public void Reload()
+    {
+        if (!GetIsReloading)
+        {
+            StartCoroutine(DoReloadTimer(ReloadTimer));
+        }
+    }
+
+    protected IEnumerator DoReloadTimer(float timer)
+    {
+        IsReloading = true;
+        DebugLog("Reloading Started");
+        yield return new WaitForSeconds(timer);
+
+        CurrentRoudsLoaded = MaxRoudsLoaded;
+        IsReloading = false;
+        DebugLog("Reloading Finished, rouns left: " + CurrentRoudsLoaded);
+
     }
 
 
