@@ -28,6 +28,11 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Game file"); //Game file and it's components must be added here
+    }
+
     public void GameOver()
     {
         gameOverUI.SetActive(true);
@@ -40,7 +45,7 @@ public class Game_Manager : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu"); //Main Menu screen and it's components must be created
+        SceneManager.LoadScene("Main_Menu"); //Main Menu screen and it's components must be created
     }
 
     public void Options()
@@ -48,7 +53,7 @@ public class Game_Manager : MonoBehaviour
         SceneManager.LoadScene("Options"); //Options, if decided to be implemented, must be added
     }
 
-    public void Quit()
+    public void QuitProgram()
     {
         Application.Quit();
     }
