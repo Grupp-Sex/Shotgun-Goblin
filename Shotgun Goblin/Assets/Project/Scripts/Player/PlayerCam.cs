@@ -24,13 +24,13 @@ public class PlayerCam : MonoBehaviour
     private Vector2 lookInput;
 
     
-    float xRotation;
-    float yRotation;
+    public float xRotation { get; protected set; }
+    public float yRotation { get; protected set; }
 
-    
 
-    
-    
+
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
