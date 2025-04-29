@@ -9710,6 +9710,8 @@ GameObject:
   - component: {fileID: 8626599823304693784}
   - component: {fileID: 5580643148873272025}
   - component: {fileID: 2994986816104830118}
+  - component: {fileID: 1209584319383109356}
+  - component: {fileID: 1727705532210433102}
   m_Layer: 11
   m_Name: ShotGun01
   m_TagString: Untagged
@@ -9777,6 +9779,45 @@ MonoBehaviour:
   IsReloading: 0
   pelletsPerShot: 7
   randomScale: 0.2
+--- !u!114 &1209584319383109356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777437075893006855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab9a6753f10ed34893f241c52ce01b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  DashObject: {fileID: 0}
+  rigidbody: {fileID: 0}
+  movement: {fileID: 0}
+  DirectionInterpolation: 0.5
+  TruncationInterpolation: 0
+  DashData:
+    unalterd_direction: {x: 0, y: 1, z: 0}
+    velocity: 15
+    truncateDirection: {x: 0, y: 1, z: 0}
+    worldForce: 0
+    forceMode: 2
+--- !u!114 &1727705532210433102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777437075893006855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e2a39eac31ac74da049519d29d2941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  DirectionControledDash: {fileID: 1209584319383109356}
+  maximumAngle: -70
 --- !u!1 &1913269347283854139
 GameObject:
   m_ObjectHideFlags: 0

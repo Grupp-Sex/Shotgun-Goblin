@@ -27519,30 +27519,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
+    - target: {fileID: 1344463466994950834, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
-      propertyPath: CanGrab
+      propertyPath: LogInDebugConsole
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: CooldownTimer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: DurationTimer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176946838625830464, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: HeldObjectMax
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1346141501661330367, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: MinDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689980872624935033, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: DashData.velocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689980872624935033, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689980872624935033, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: TruncationInterpolation
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -27594,45 +27594,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5054566286851875547, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: maximumAngle
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054566286851875547, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: m_Name
       value: Abilaties Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: Drag
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: ForceMode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150761986892755035, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: AngularDrag
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 8127145669896971995, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: imortal
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8669203757419067955, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: ReloadTimer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8669203757419067955, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: MaxRoudsLoaded
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

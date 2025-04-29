@@ -9,14 +9,16 @@ using static UnityEngine.UI.Image;
 // TO DO
 // SEPARATE GOTSHOTLOGIC INTO NEW IHITLOGIC SCRIPT
 
-public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
+public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem, IUserReference
 {
     [SerializeField] float baseDamage;
     [SerializeField] int MaxRoudsLoaded = 2;
     [SerializeField] int CurrentRoudsLoaded;
     [SerializeField] float ReloadTimer = 2;
     [SerializeField] bool IsReloading;
-    
+
+    protected GameObject gunUser;
+
     public bool GetIsReloading => IsReloading;
 
     protected IHitLogic[] hitLogicScripts;
@@ -32,6 +34,10 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem
     }
 
     
+    public void SetUser(GameObject user)
+    {
+        gunUser = user;
+    }
 
     public void DoAction()
     {

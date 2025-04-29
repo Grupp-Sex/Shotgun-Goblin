@@ -10,18 +10,39 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
     // the parrent gameobject to the item (gun)
     // Rather than the item (gun) itself being referenced here, the hand is.
     // This is done to facilitate swapign items (guns) without having to tell this script.
-    [SerializeField] GameObject ItemHolder;
+    [SerializeField] ItemHoder itemHolder;
+
+    
 
     void Start()
     {
         
     }
 
-
-    // extracts the interface that tells the item to do an acction from each of the ItemHolders children
-    private IHeldItem[] GetHeldItems()
+    private void OnDisable()
     {
-        return ItemHolder.GetComponentsInChildren<IHeldItem>();
+        if (itemHolder != null)
+        {
+            itemHolder.Event_StateChanged -= OnItemHolderStateChange;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (itemHolder != null)
+        {
+            itemHolder.Event_StateChanged += OnItemHolderStateChange;
+        }
+    }
+
+    protected void OnItemHolderStateChange(ItemHoder newObjects)
+    {
+        itemHolder.InteractWithAllHeldItems<IUserReference>(SetItemParrentReference);
+    }
+    
+    protected void SetItemParrentReference(IUserReference item)
+    {
+        item.SetUser(gameObject);
     }
 
     // tells the item to activate its interation function. shooting function for guns.
@@ -34,13 +55,7 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
 
     public void HeldItemDoInteraction()
     {
-        IHeldItem[] items = GetHeldItems();
-        for (int i = 0; i < items.Length; i++)
-        {
-            ItemIteract(items[i]);
-        }
-
-        
+        itemHolder?.InteractWithAllHeldItems<IHeldItem>(ItemIteract);           
     }
 
 
@@ -51,8 +66,15 @@ public class PlayerHeldItemInteractor : MonoBehaviour, IDebugActivatableVoid
 
 }
 
+
 public interface IHeldItem
 {
     public void DoAction();
+
+}
+
+public interface IUserReference
+{
+    public void SetUser(GameObject user);
 
 }

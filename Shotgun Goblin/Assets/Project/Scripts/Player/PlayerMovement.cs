@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IMover
 {
     
 
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     [SerializeField] private float isGroundedOffset;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded {  get; private set; }
 
     [Header("Wheel")]
     [SerializeField] WheelCollider wheel;
@@ -118,6 +118,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    }
+
+    public Vector3 GetInputDirection()
+    {
+        return targetMovementInput.normalized;
     }
 
     //gradualy turns movementInput to the trargent input
@@ -247,4 +252,9 @@ public class PlayerMovement : MonoBehaviour
         targetTilt = -horizontalInput;
     }
 
+}
+
+public interface IMover
+{
+    public Vector3 GetInputDirection();
 }
