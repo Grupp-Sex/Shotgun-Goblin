@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 189297331149543736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e9d65bc58eac444bf4aedbb9b17f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemHolder: {fileID: 6504096760730647767}
+  itemHolder: {fileID: 1344463466994950834}
 --- !u!114 &6027982204960477004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   invincible: 0
-  imortal: 0
+  imortal: 1
 --- !u!114 &7686211528705036371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955124532013665294}
   - component: {fileID: 1346141501661330367}
+  - component: {fileID: 1344463466994950834}
   m_Layer: 2
   m_Name: GunHand
   m_TagString: Untagged
@@ -661,11 +662,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerVerticalLooker: {fileID: 5124393934527020834}
-  MinDistance: 2
+  MinDistance: 1.5
   MaxDistance: 100
   MoveBackMult: -0.5
   DirectionLerpValue: 0.9
   OffsetLerpValue: 0.1
+--- !u!114 &1344463466994950834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504096760730647767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d930834f587e2408a5f8c5f2fc488f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldItems:
+  - {fileID: 6563262671012748434}
 --- !u!1 &9157848374567524709
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +783,12 @@ PrefabInstance:
 --- !u!4 &2767656118726424205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8626599823304693784, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5899546491715448469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6563262671012748434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 777437075893006855, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
     type: 3}
   m_PrefabInstance: {fileID: 5899546491715448469}
   m_PrefabAsset: {fileID: 0}
