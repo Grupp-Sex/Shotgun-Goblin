@@ -673,9 +673,9 @@ ParticleSystem:
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
-    placementMode: 2
+    placementMode: 1
     m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: -0.1
+    m_MeshNormalOffset: 0
     m_MeshSpawn:
       mode: 0
       spread: 0
@@ -738,7 +738,7 @@ ParticleSystem:
     m_Sprite: {fileID: 0}
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
-    m_UseMeshColors: 0
+    m_UseMeshColors: 1
     alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
@@ -749,7 +749,7 @@ ParticleSystem:
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0.1
     sphericalDirectionAmount: 0
-    randomPositionAmount: 0.1
+    randomPositionAmount: 0
     radius:
       value: 1
       mode: 0

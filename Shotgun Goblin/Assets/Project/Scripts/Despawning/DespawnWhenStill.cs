@@ -13,7 +13,9 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
     [SerializeField] bool PauseOnFreeze = true;
     [SerializeField] float DespawnTimerMinutes; 
     [SerializeField] float DespawnCheckIntervall;
-    
+
+    [SerializeField] bool isChecking;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,8 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
 
     private void OnEnable()
     {
-        StartChecks();
+        if (!PauseOnFreeze)
+            StartChecks();
     }
 
     private void OnDisable()
@@ -42,11 +45,15 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
     public void Thaw()
     {
         IsFrozen = false;
+        if (PauseOnFreeze && !isChecking)
+            StartChecks();
+
+
     }
 
     protected bool CheckIfThawed()
     {
-        return !IsFrozen;
+        return !IsFrozen || !PauseOnFreeze;
     }
     
 
@@ -62,7 +69,7 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
 
     protected void StartChecks()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && !isChecking)
         {
             StartCoroutine(WaitUntillSleeping(DespawnCheckIntervall));
         }
@@ -70,16 +77,25 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
 
     protected void EndChecks()
     {
+        isChecking = false;
         StopAllCoroutines();
     }
 
     protected IEnumerator WaitUntillSleeping(float interval)
     {
-        while (true)
+        isChecking = true;
+        while (isChecking)
         {
+            DebugLog("Despawn While Still, Wait for " + interval);
             yield return new WaitForSeconds(interval);
+
+            DebugLog("Despawn While Still, Wait for if thawed");
             yield return new WaitUntil(CheckIfThawed);
+
+            DebugLog("Despawn While Still, Wait for is still");
             yield return new WaitUntil(Rigidbody.IsSleeping);
+
+            DebugLog("Despawn While Still, Wait for if despawn queue");
             yield return new WaitUntil(Despawner.DespawnTimerFree);
 
 
@@ -87,6 +103,7 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
             {
                 StartDespawn();
 
+                DebugLog("Despawn While Still, Wait for if not still");
                 yield return new WaitUntil(CheckNotIfSleeping);
 
                 

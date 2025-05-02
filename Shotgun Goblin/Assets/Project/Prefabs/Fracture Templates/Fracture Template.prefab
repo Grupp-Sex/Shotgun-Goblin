@@ -20,6 +20,9 @@ GameObject:
   - component: {fileID: 6856171906596192525}
   - component: {fileID: -465320920851364473}
   - component: {fileID: -798559688326188676}
+  - component: {fileID: -3044910364488511605}
+  - component: {fileID: -2670819513709704078}
+  - component: {fileID: 5542207658818523489}
   m_Layer: 0
   m_Name: Fracture Template
   m_TagString: FrozenFragment
@@ -224,3 +227,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd2f9344d528a243aefb7caf7ce76f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3044910364488511605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  CanDespawn: 1
+  despawnType: 0
+  isDespawning: 0
+--- !u!114 &-2670819513709704078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b65f1cce66cd2479ce0c7f7fe974fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  Despawner: {fileID: 0}
+  Rigidbody: {fileID: 0}
+  PauseOnFreeze: 1
+  DespawnTimerMinutes: 2
+  DespawnCheckIntervall: 10
+  isChecking: 0
+--- !u!114 &5542207658818523489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b74ebc02d2ab5848a06a6cecbe981fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endParticles: {fileID: 5777372909905234414, guid: 98de5a8464a1d4a42bb80ceca17a5e23,
+    type: 3}
+  DoOnDisable: 1
+  objectShapeMesh: {fileID: 0}

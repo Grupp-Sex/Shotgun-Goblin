@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6339675778625416412}
   - component: {fileID: 7894291258418429965}
   - component: {fileID: 7001862826646912030}
+  - component: {fileID: -3164109251070799775}
+  - component: {fileID: -2612874148729168407}
   m_Layer: 0
   m_Name: Goblin Fracture Template
   m_TagString: Untagged
@@ -65,10 +67,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7545c81c8fd2ec842929b09baa454b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
-  parrent: {fileID: 0}
+  LogInDebugConsole: 0
   explotionVelocity: 7
   angularVelocityMult: 10
+--- !u!114 &-3164109251070799775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702047887813957574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  CanDespawn: 1
+  despawnType: 0
+  isDespawning: 0
+--- !u!114 &-2612874148729168407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702047887813957574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b65f1cce66cd2479ce0c7f7fe974fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  Despawner: {fileID: 0}
+  Rigidbody: {fileID: 0}
+  PauseOnFreeze: 0
+  DespawnTimerMinutes: 0.01
+  DespawnCheckIntervall: 1
+  isChecking: 0
 --- !u!1 &2678665005592961390
 GameObject:
   m_ObjectHideFlags: 0
