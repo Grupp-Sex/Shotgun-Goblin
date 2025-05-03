@@ -12,8 +12,8 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 {
 
     [SerializeField] public float BoundSize;
-    [SerializeField] public Vector3 Velocity;
-    [SerializeField] public Vector3 ForceSum;
+    //[SerializeField] public Vector3 Velocity;
+    //[SerializeField] public Vector3 ForceSum;
 
     [SerializeField] public bool CanBeGrabbed;
 
@@ -131,14 +131,14 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
         onTelekenesisLeaveScripts = GetComponents<IOnTelekenesisLeave>();
     }
 
-    public void Update()
-    {
+    //public void Update()
+    //{
         
-        Velocity = Rigidbody.velocity;
-        ForceSum = Rigidbody.GetAccumulatedForce();
+    //    Velocity = Rigidbody.velocity;
+    //    ForceSum = Rigidbody.GetAccumulatedForce();
 
 
-    }
+    //}
 
     
 

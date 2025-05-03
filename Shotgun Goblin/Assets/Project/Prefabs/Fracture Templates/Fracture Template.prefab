@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: -3044910364488511605}
   - component: {fileID: -2670819513709704078}
   - component: {fileID: 5542207658818523489}
+  - component: {fileID: -1196105753458712178}
+  - component: {fileID: -706688815540715780}
   m_Layer: 0
   m_Name: Fracture Template
   m_TagString: FrozenFragment
@@ -274,8 +276,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b74ebc02d2ab5848a06a6cecbe981fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endParticles: {fileID: 5777372909905234414, guid: 98de5a8464a1d4a42bb80ceca17a5e23,
-    type: 3}
+  particles:
+  - particleEmitterHolder: {fileID: 5777372909905234414, guid: 98de5a8464a1d4a42bb80ceca17a5e23,
+      type: 3}
+    OverideParticleMaterial: 2
+  volumeSpawner: {fileID: 0}
   DoOnDisable: 1
-  OverideParticleMaterial: 1
+--- !u!114 &-1196105753458712178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1a4e8ac31dd964eb2cba68495a1b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   objectShapeMesh: {fileID: 0}
+--- !u!114 &-706688815540715780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff6796c5250a4649a87f4ed33ddcaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - particleEmitterHolder: {fileID: 705878447692446232, guid: be3be48dc8a24d84583e486a93511a87,
+      type: 3}
+    OverideParticleMaterial: 2
+  volumeSpawner: {fileID: 0}
