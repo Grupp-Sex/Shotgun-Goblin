@@ -10,6 +10,8 @@ public class OnDisableParticles : MonoBehaviour
 
     [SerializeField] bool DoOnDisable = true;
 
+    [SerializeField] EndParticleMaterialType OverideParticleMaterial;
+
     [SerializeField] MeshRenderer objectShapeMesh;
 
     protected bool hasBeenEnabled;
@@ -49,25 +51,79 @@ public class OnDisableParticles : MonoBehaviour
 
             if (endParticles != null)
             {
-                GameObject particleGameObject = Instantiate(endParticles);
-                particleGameObject.transform.position = transform.position;
+                
+                switch (OverideParticleMaterial)
+                {
+                    case EndParticleMaterialType.Particle or EndParticleMaterialType.Mesh:
 
-                //particleGameObject.transform.localScale = transform.lossyScale;
+                        ParticleSystem ps = PrepareParticles(objectShapeMesh);
 
-                ParticleSystem ps = particleGameObject.GetComponent<ParticleSystem>();
-                ParticleSystemRenderer ps_renderer = ps.GetComponent<ParticleSystemRenderer>();
-                var shape = ps.shape;
+                        if (OverideParticleMaterial == EndParticleMaterialType.Mesh)
+                        {
+                            SetParticleMaterial(ps, objectShapeMesh.materials.ToList());
+                        }
+                        
+                        break;
 
-                shape.enabled = true;
-                shape.shapeType = ParticleSystemShapeType.MeshRenderer;
-                shape.meshRenderer = objectShapeMesh;
+                    case EndParticleMaterialType.OneForEachMesh:
+
+                        Material[] materials = objectShapeMesh.materials;
+
+                        for(int i = 0; i < materials.Length; i++)
+                        {
+                            ParticleSystem iteratedParticles = PrepareParticles(objectShapeMesh);
+
+                            SetParticleMaterial(iteratedParticles, new List<Material> { materials[i]});
+
+                        }
+
+                        break;
+                }
 
                 //shape.texture = objectShapeMesh.
-
-                ps_renderer.SetMaterials(objectShapeMesh.materials.ToList());
+                
+                
                 
             }
         }
+    }
+
+    protected ParticleSystem PrepareParticles(MeshRenderer objectShapeMesh)
+    {
+        GameObject particleGameObject = Instantiate(endParticles);
+        particleGameObject.transform.position = transform.position;
+
+        //particleGameObject.transform.localScale = transform.lossyScale;
+
+        ParticleSystem ps = particleGameObject.GetComponent<ParticleSystem>();
+       
+        var shape = ps.shape;
+
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.MeshRenderer;
+        shape.meshRenderer = objectShapeMesh;
+
+
+        return ps;
+        
+    }
+
+    protected void SetParticleMaterial(ParticleSystem ps, List<Material> materials)
+    {
+        ParticleSystemRenderer ps_renderer = ps.GetComponent<ParticleSystemRenderer>();
+
+        ps_renderer.SetMaterials(materials);
+    
+    }
+
+    
+
+
+    public enum EndParticleMaterialType
+    {
+        Particle,
+        Mesh,
+        OneForEachMesh
     }
 
 

@@ -24,18 +24,14 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
         
         if(Rigidbody == null)
             Rigidbody = GetComponent<Rigidbody>();
-    }
 
-    private void OnEnable()
-    {
         if (!PauseOnFreeze)
             StartChecks();
     }
 
-    private void OnDisable()
-    {
-        EndChecks();
-    }
+    
+
+
 
     public void Freze()
     {
@@ -71,12 +67,14 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
     {
         if (Application.isPlaying && !isChecking)
         {
+            DebugLog("Despawn Checking Started");
             StartCoroutine(WaitUntillSleeping(DespawnCheckIntervall));
         }
     }
 
     protected void EndChecks()
     {
+        DebugLog("Despawn Checking Ended");
         isChecking = false;
         StopAllCoroutines();
     }
