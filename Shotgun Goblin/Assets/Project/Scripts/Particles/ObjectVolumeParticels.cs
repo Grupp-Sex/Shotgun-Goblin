@@ -83,12 +83,17 @@ public class ObjectVolumeParticels : MonoBehaviour
 
         ParticleSystem ps = particleGameObject.GetComponent<ParticleSystem>();
 
-        var shape = ps.shape;
+        if (ps != null)
+        {
 
-        shape.enabled = true;
-        shape.shapeType = ParticleSystemShapeType.MeshRenderer;
-        shape.meshRenderer = objectShapeMesh;
+            var shape = ps.shape;
 
+            shape.enabled = true;
+            shape.shapeType = ParticleSystemShapeType.MeshRenderer;
+            shape.meshRenderer = objectShapeMesh;
+
+        }
+        
 
         return ps;
 
