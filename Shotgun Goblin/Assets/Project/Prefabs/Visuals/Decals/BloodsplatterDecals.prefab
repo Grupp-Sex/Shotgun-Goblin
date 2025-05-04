@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6833812429967183285}
   - component: {fileID: 528899614740511831}
   - component: {fileID: 5796018576364559858}
+  - component: {fileID: 456336472751875014}
   m_Layer: 3
   m_Name: Bloodsplatter (2)
   m_TagString: Untagged
@@ -72,9 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -98,6 +98,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &528899614740511831
@@ -130,6 +131,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &456336472751875014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976425676833253167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4
 --- !u!1 &3936640168691828218
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +193,7 @@ GameObject:
   - component: {fileID: 6217245676876541685}
   - component: {fileID: 222682548623478359}
   - component: {fileID: 3962915076415775471}
+  - component: {fileID: 743634045401848530}
   m_Layer: 3
   m_Name: Bloodsplatter
   m_TagString: Untagged
@@ -202,9 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -228,6 +278,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &222682548623478359
@@ -260,6 +311,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &743634045401848530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936640168691828218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4
 --- !u!1 &6140948926665612823
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +373,7 @@ GameObject:
   - component: {fileID: 497408662816776408}
   - component: {fileID: 6008560188638354574}
   - component: {fileID: 1746118549059708398}
+  - component: {fileID: 878884180226306335}
   m_Layer: 3
   m_Name: Bloodsplatter (3)
   m_TagString: Untagged
@@ -332,9 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -358,6 +458,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &6008560188638354574
@@ -390,6 +491,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &878884180226306335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140948926665612823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4
 --- !u!1 &6414193662385543524
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +553,7 @@ GameObject:
   - component: {fileID: 5072326446733306794}
   - component: {fileID: 2646016102239657410}
   - component: {fileID: 5891747376429942380}
+  - component: {fileID: 6321797783741220524}
   m_Layer: 3
   m_Name: Bloodsplatter (1)
   m_TagString: Untagged
@@ -462,9 +613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -488,6 +638,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &2646016102239657410
@@ -520,6 +671,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &6321797783741220524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414193662385543524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4
 --- !u!1 &6995044540109252095
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +733,7 @@ GameObject:
   - component: {fileID: 8977088857445551425}
   - component: {fileID: 9019190165845996081}
   - component: {fileID: 6342693805834132205}
+  - component: {fileID: 7714917651661147502}
   m_Layer: 3
   m_Name: Bloodsplatter (4)
   m_TagString: Untagged
@@ -592,9 +793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -618,6 +818,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &9019190165845996081
@@ -650,6 +851,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &7714917651661147502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995044540109252095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4
 --- !u!1 &8052496006612818749
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +982,7 @@ GameObject:
   - component: {fileID: 7693747104508783680}
   - component: {fileID: 3475591791853525101}
   - component: {fileID: 4522332140926511915}
+  - component: {fileID: 7666740211188763228}
   m_Layer: 3
   m_Name: Bloodsplatter (5)
   m_TagString: Untagged
@@ -791,9 +1042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  FadeTime: 5
-  DespawnAfterFade: 1
-  FadeCurve:
+  EffectDuration: 5
+  EffectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -817,6 +1067,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DespawnAfterFade: 1
   Decal: {fileID: 0}
   Despawner: {fileID: 0}
 --- !u!114 &3475591791853525101
@@ -849,3 +1100,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
+--- !u!114 &7666740211188763228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075766331259764861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  EffectDuration: 0.6
+  EffectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006823107
+      value: 0.00842241
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5005226
+      value: 0.014038086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0688405
+      outSlope: 6.0688405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.048209872
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Decal: {fileID: 0}
+  startMult: 0.4

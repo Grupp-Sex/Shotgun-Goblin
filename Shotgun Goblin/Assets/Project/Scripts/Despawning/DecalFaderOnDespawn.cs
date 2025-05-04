@@ -1,26 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class DecalFaderOnDespawn : MonobehaviorScript_ToggleLog
+public class DecalFaderOnDespawn : EffectOverDuration<float>
 {
-    [SerializeField] float FadeTime;
+    
 
     [SerializeField] bool DespawnAfterFade;
 
-    [SerializeField] AnimationCurve FadeCurve; 
+   
 
     public DecalProjector Decal;
 
     public ObjectDespawner Despawner;
 
-    protected float oppacity;
-
-    protected float maxOppacity;
-
-    
 
     private void Start()
     {
@@ -29,10 +25,9 @@ public class DecalFaderOnDespawn : MonobehaviorScript_ToggleLog
             Decal = GetComponent<DecalProjector>();
         }
 
-        maxOppacity = Decal.fadeFactor;
-        oppacity = maxOppacity;
+        SetValues(Decal.fadeFactor, 0);
 
-        if(Despawner == null)
+        if (Despawner == null)
         {
             Despawner = GetComponent<ObjectDespawner>();
         }
@@ -43,64 +38,29 @@ public class DecalFaderOnDespawn : MonobehaviorScript_ToggleLog
 
     protected void Event_Despawn(object sender, object args)
     {
-        StartCoroutine(FadeDecalInterval(FadeTime));
+        StartEffect();
         
     }
 
-    protected IEnumerator FadeDecalInterval(float fadeTimer)
+    
+
+    protected override void ApplyEffect(float interpolationValue)
     {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
 
-        long fadeTimerMS = (long)(fadeTimer * 1000f);
-
-        //DebugLog(fadeTimerMS.ToString());
-
-
-        for (long i = 0; i < fadeTimerMS; i = stopwatch.ElapsedMilliseconds)
-        {
-            
-
-            yield return new WaitForFixedUpdate();
-            float interpolationValue = (float)i / (float)fadeTimerMS;
-
-           
-            FadeDecal(interpolationValue);
-        }
-
+        Decal.fadeFactor = interpolationValue;
 
     }
 
-    protected void FadeDecal(float interpolationValue)
+    protected override void EndEffect()
     {
-        float lerpValue = FadeCurve.Evaluate(1 - interpolationValue);
-        
-        
-
-        oppacity = Lerp(maxOppacity, 0, lerpValue);
-
-        DebugLog("Decal Fade lerpvalue: " + interpolationValue + ", oppacity: " + oppacity);
-
-        if (oppacity > 0.001f)
+        if (DespawnAfterFade)
         {
-            Decal.fadeFactor = lerpValue;
+            Despawner.Despawn(this, ObjectDespawner.DespawnType.Destroy);
         }
-        else
-        {
-            if (DespawnAfterFade)
-            {
-
-                Despawner.Despawn(this, ObjectDespawner.DespawnType.Destroy);
-            }
-
-            StopAllCoroutines();
-        }
-
     }
 
-    protected float Lerp(float a, float b, float t)
+    protected override float Lerp(float a, float b, float t) 
     {
-        return a * t + b * (1- t);
+        return a * t + b * (1-t);
     }
-
 }

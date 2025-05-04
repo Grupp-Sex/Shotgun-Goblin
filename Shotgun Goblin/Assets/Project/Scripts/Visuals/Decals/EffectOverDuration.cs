@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public abstract class EffectOverDuration : MonobehaviorScript_ToggleLog
+public abstract class EffectOverDuration<T> : MonobehaviorScript_ToggleLog
 {
     [SerializeField] float EffectDuration;
 
@@ -12,14 +15,25 @@ public abstract class EffectOverDuration : MonobehaviorScript_ToggleLog
 
     
 
-    protected float currentValue;
+    protected T currentValue;
 
-    protected float maxValue;
+    protected T maxValue;
 
-    protected abstract void SetMaxValue();
+    protected T minValue;
+
+    protected virtual void SetValues(T max, T min)
+    {
+        maxValue = max;
+        currentValue = max;
+
+        minValue = min;
+    }
+
     
-    
-
+    protected virtual void StartEffect()
+    {
+        StartCoroutine(RunEffectOverDuration(EffectDuration));
+    }
 
     protected IEnumerator RunEffectOverDuration(float effectTimer)
     {
@@ -35,11 +49,11 @@ public abstract class EffectOverDuration : MonobehaviorScript_ToggleLog
         {
 
 
-            yield return new WaitForFixedUpdate();
             float interpolationValue = (float)i / (float)effectTimerMS;
 
-
             InterploateEffect(interpolationValue);
+
+            yield return new WaitForFixedUpdate();
         }
 
 
@@ -52,18 +66,27 @@ public abstract class EffectOverDuration : MonobehaviorScript_ToggleLog
         float lerpValue = EffectCurve.Evaluate(1 - interpolationValue);
 
 
-        currentValue = Lerp(maxValue, 0, lerpValue);
+        currentValue = Lerp(maxValue, minValue, lerpValue);
 
-        DebugLog("interpolation: " + interpolationValue + ", current value: " + currentValue);
+        DebugLog("interpolation: " + lerpValue + ", current value: " + currentValue);
 
+        
         ApplyEffect(currentValue);
+        
+        if (lerpValue <= 0.001f)
+        {
+
+            ApplyEffect(minValue);
+            EndEffect();
+
+            StopAllCoroutines();
+        }
 
     }
 
-    protected abstract void ApplyEffect(float value);
+    protected abstract void ApplyEffect(T value);
 
-    protected float Lerp(float a, float b, float t)
-    {
-        return a * t + b * (1 - t);
-    }
+    protected abstract void EndEffect();
+
+    protected abstract T Lerp(T a, T b, float t);
 }
