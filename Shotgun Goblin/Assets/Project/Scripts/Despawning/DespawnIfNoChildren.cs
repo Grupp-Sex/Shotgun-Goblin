@@ -8,24 +8,39 @@ public class DespawnIfNoChildren : MonoBehaviour
 
     [SerializeField] float despawnTimer;
 
-    protected int childCount;
+    public int childCount;
 
+    protected bool firstFrame = true;
+    
 
-
-    void Start()
+    private void Update()
     {
-        if(despawner == null)
+        if (firstFrame)
         {
-            despawner = GetComponent<ObjectDespawner>();    
+            Initialize();
+
+            firstFrame = false;
+        }
+        
+    }
+
+    
+
+
+    protected void Initialize()
+    {
+        if (despawner == null)
+        {
+            despawner = GetComponent<ObjectDespawner>();
         }
 
-        GameObject[] children = transform.GetComponentsInChildren<GameObject>();
+        Transform[] children = transform.GetComponentsInChildren<Transform>();
 
         childCount = children.Length;
 
-        for(int i = 0; i < childCount; i++)
+        for (int i = 0; i < childCount; i++)
         {
-            EventOnDestroy disableEvent = children[i].AddComponent<EventOnDestroy>();
+            EventOnDestroy disableEvent = children[i].gameObject.AddComponent<EventOnDestroy>();
 
 
             disableEvent.Event_OnDisable.Subscribe(Event_ChildDisabled);
@@ -35,11 +50,12 @@ public class DespawnIfNoChildren : MonoBehaviour
     protected void Event_ChildDisabled(object sender, object args)
     {
         childCount--;
-        if(childCount == 0)
+        if(childCount == 1)
         {
             despawner.StartDespawnTimer(this, despawnTimer);
         }
     }
 
+    
     
 }

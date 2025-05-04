@@ -56,6 +56,7 @@ public abstract class EffectOverDuration<T> : MonobehaviorScript_ToggleLog
             yield return new WaitForFixedUpdate();
         }
 
+        DoEndEffect();
 
     }
 
@@ -73,17 +74,18 @@ public abstract class EffectOverDuration<T> : MonobehaviorScript_ToggleLog
         
         ApplyEffect(currentValue);
         
-        if (lerpValue <= 0.001f)
-        {
-
-            ApplyEffect(minValue);
-            EndEffect();
-
-            StopAllCoroutines();
-        }
+        
 
     }
 
+    protected virtual void DoEndEffect()
+    {
+        ApplyEffect(minValue);
+        EndEffect();
+
+        StopAllCoroutines();
+    }
+    
     protected abstract void ApplyEffect(T value);
 
     protected abstract void EndEffect();

@@ -21,6 +21,7 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
 
     private void OnDestroy()
     {
+        StopAllCoroutines();
         Event_Despawn.UnSubscribeAll();
     }
 
@@ -73,10 +74,10 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
 
     public void StartDespawnTimer(object sender, float timer)
     {
-        if (!isDespawning)
+        if (!isDespawning && isActiveAndEnabled)
         {
-
-            StartCoroutine(DespawnTimer(sender,timer));
+            
+            StartCoroutine(DespawnTimer(sender, timer));
             
         }
     }

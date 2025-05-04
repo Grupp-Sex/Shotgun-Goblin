@@ -55,7 +55,7 @@ public class DecalFaderOnDespawn : EffectOverDuration<float>
     {
         if (DespawnAfterFade)
         {
-            Despawner.Despawn(this, ObjectDespawner.DespawnType.Destroy);
+            Destroy(Decal.gameObject);
         }
     }
 
