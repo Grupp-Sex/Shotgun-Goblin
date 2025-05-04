@@ -55,7 +55,7 @@ public class DespawnWhenStill : MonobehaviorScript_ToggleLog, IFrozenOnFractionF
 
     protected void StartDespawn()
     {
-        Despawner?.StartDespawnTimer(DespawnTimerMinutes);
+        Despawner?.StartDespawnTimer(this, DespawnTimerMinutes);
     }
 
     protected void EndDespawn()

@@ -10,10 +10,18 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
 
     [SerializeField] bool isDespawning;
 
+    public EventPusher<object> Event_Despawn = new EventPusher<object>();
+
+    
 
     private void OnDisable()
     {
         AbortDespawnTimer();
+    }
+
+    private void OnDestroy()
+    {
+        Event_Despawn.UnSubscribeAll();
     }
 
     private void OnValidate()
@@ -33,34 +41,47 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
     }
 
 
-    public void Despawn()
+    public void Despawn(object sender, DespawnType type)
     {
 
         StopAllCoroutines();
 
         DebugLog("Object Despawned");
 
-        switch (despawnType)
+        switch (type)
         {
             case DespawnType.Dissable:
 
                 gameObject.SetActive(false);
 
                 break;
+
+
+            case DespawnType.Event_Only or DespawnType.Dissable:
+
+                Event_Despawn.Invoke(this, sender);
+
+                break;
+
+            case DespawnType.Destroy:
+
+                Destroy(gameObject);
+
+                break;
         }
     }
 
-    public void StartDespawnTimer(float timer)
+    public void StartDespawnTimer(object sender, float timer)
     {
         if (!isDespawning)
         {
 
-            StartCoroutine(DespawnTimer(timer));
+            StartCoroutine(DespawnTimer(sender,timer));
             
         }
     }
 
-    protected IEnumerator DespawnTimer(float time)
+    protected IEnumerator DespawnTimer(object sender, float time)
     {
         float timeInSeconds = time * 60;
 
@@ -69,7 +90,7 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
         yield return new WaitForSeconds(timeInSeconds);
 
         OnTimerEnd();
-        Despawn();
+        Despawn(sender, despawnType);
         
         
             
@@ -103,7 +124,9 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
 
     public enum DespawnType
     {
-        Dissable
+        Dissable,
+        Event_Only,
+        Destroy
     }
     
 }
