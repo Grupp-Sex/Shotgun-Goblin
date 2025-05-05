@@ -13,6 +13,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     [SerializeField] bool imortal;
 
+    protected bool isDying;
     protected bool dead;
     protected IDeathActivated[] deathActivatedScripts;
     protected IDamageActivated[] damageActivatedScripts;
@@ -71,12 +72,25 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     
     protected virtual void CheckHealth()
     {
-        if (!imortal && currentHealth <= 0)
+        if (!imortal && currentHealth <= 0 && !isDying)
         {
-            Death();
+            StartDeath();
         }
     }
 
+    public virtual void StartDeath()
+    {
+        StartCoroutine(DeathTimer());
+    }
+
+    protected IEnumerator DeathTimer()
+    {
+        isDying = true;
+
+        yield return new WaitForEndOfFrame();
+
+        Death();
+    }
     protected virtual void Death()
     {
         dead = true;
@@ -85,6 +99,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
         NotifyDeath(lastHit);
     }
+
+    
 
     protected virtual void NotifyDeath(DamageInfo damage)
     {

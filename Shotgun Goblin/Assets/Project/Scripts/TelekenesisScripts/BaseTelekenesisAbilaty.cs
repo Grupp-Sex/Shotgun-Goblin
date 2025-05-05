@@ -31,12 +31,17 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
     {
         for(int i = 0; i < objects.Count; i++)
         {
-            func.Invoke(objects[i]);
+            if (objects[i] != null)
+            {
+                func.Invoke(objects[i]);
+            }
         }
     }
     protected virtual void RunFuncOnAllHeldObjects(Action<TelekenesisPhysicsObject> func)
     {
+        
         RunFuncOnAllObjects(heldObjects, func);
+        
     }
 
     protected virtual void OnUpdate()

@@ -16,7 +16,11 @@ public class ParticleActivatorAndRemover : MonoBehaviour, IDeathActivated
 
     protected void ActiveteParticleHolder(GameObject holder)
     {
-        holder.transform.parent = transform.parent;
-        holder.SetActive(true);
+        GameObject newHolder = Instantiate(holder);
+
+        newHolder.transform.position = transform.position;
+
+        newHolder.transform.parent = transform.parent;
+        newHolder.SetActive(true);
     }
 }
