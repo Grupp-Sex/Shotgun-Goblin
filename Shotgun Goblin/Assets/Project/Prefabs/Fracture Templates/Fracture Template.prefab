@@ -61,8 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
   BoundSize: 0
-  Velocity: {x: 0, y: 0, z: 0}
-  ForceSum: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 5
   PickupPriority: 0
@@ -261,7 +259,7 @@ MonoBehaviour:
   Despawner: {fileID: 0}
   Rigidbody: {fileID: 0}
   PauseOnFreeze: 1
-  DespawnTimerMinutes: 2
+  DespawnTimerMinutes: 1
   DespawnCheckIntervall: 10
   isChecking: 0
 --- !u!114 &5542207658818523489
