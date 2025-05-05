@@ -74,7 +74,7 @@ public class ObjectDespawner : MonobehaviorScript_ToggleLog
 
     public void StartDespawnTimer(object sender, float timer)
     {
-        if (!isDespawning && isActiveAndEnabled)
+        if (!isDespawning && isActiveAndEnabled && gameObject.activeInHierarchy)
         {
             
             StartCoroutine(DespawnTimer(sender, timer));

@@ -160,14 +160,20 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
     public void OnEnterTeleknesis()
     {
-        SaveSavedState();
-        NotifyTelekenesisEnter();
+        if (isActiveAndEnabled)
+        {
+            SaveSavedState();
+            NotifyTelekenesisEnter();
+        }
     }
 
     public void OnLeaveTelekenesis()
     {
-        LoadSavedState();
-        NotifyTelekenesisLeave();
+        if (isActiveAndEnabled)
+        {
+            LoadSavedState();
+            NotifyTelekenesisLeave();
+        }
         
     }
 
