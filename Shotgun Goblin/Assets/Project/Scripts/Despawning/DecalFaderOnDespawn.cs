@@ -5,28 +5,20 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class DecalFaderOnDespawn : EffectOverDuration<float>
+public class DecalFaderOnDespawn : DecalEffectOverTime<float>
 {
     
 
     [SerializeField] bool DespawnAfterFade;
-
-   
-
-    public DecalProjector Decal;
+    [SerializeField] float EndMult;
 
     public ObjectDespawner Despawner;
 
 
-    private void Start()
+    
+
+    protected override void Initialize()
     {
-        if(Decal == null)
-        {
-            Decal = GetComponent<DecalProjector>();
-        }
-
-        SetValues(Decal.fadeFactor, 0);
-
         if (Despawner == null)
         {
             Despawner = GetComponent<ObjectDespawner>();
@@ -44,18 +36,19 @@ public class DecalFaderOnDespawn : EffectOverDuration<float>
 
     
 
-    protected override void ApplyEffect(float interpolationValue)
+    protected override void ApplyEffect(DecalHolder decal, float interpolationValue)
     {
+        decal.decal.fadeFactor = Lerp(decal.startOppacity, decal.startOppacity * EndMult, interpolationValue);
 
-        Decal.fadeFactor = interpolationValue;
-
+        
+        DebugLog("after: " + decal.decal.fadeFactor.ToString());
     }
 
     protected override void EndEffect()
     {
         if (DespawnAfterFade)
         {
-            Destroy(Decal.gameObject);
+            Destroy(gameObject);
         }
     }
 

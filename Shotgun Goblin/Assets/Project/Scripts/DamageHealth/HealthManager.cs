@@ -81,6 +81,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     public virtual void StartDeath()
     {
         StartCoroutine(DeathTimer());
+
+        
     }
 
     protected IEnumerator DeathTimer()

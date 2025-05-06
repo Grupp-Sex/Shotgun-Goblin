@@ -10,10 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2355658927811082885}
   - component: {fileID: 5999371510051964697}
-  - component: {fileID: 1401200804558011468}
-  - component: {fileID: 8452694509363779232}
-  - component: {fileID: 4247350324287855635}
-  - component: {fileID: 6205105202571975419}
   m_Layer: 3
   m_Name: Bloodsplatter
   m_TagString: Untagged
@@ -29,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551145037900122976}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.19}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.19000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 983971491413509400}
+  m_Father: {fileID: 7640759403106460683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5999371510051964697
 MonoBehaviour:
@@ -60,126 +56,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 4, y: 4, z: 2}
   m_FadeFactor: 1
---- !u!114 &1401200804558011468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551145037900122976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2058cde0f17efd246b177b6fc64ed2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 5
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  DespawnAfterFade: 1
-  Decal: {fileID: 0}
-  Despawner: {fileID: 0}
---- !u!114 &8452694509363779232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551145037900122976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
-  CanDespawn: 1
-  despawnType: 1
-  isDespawning: 0
---- !u!114 &4247350324287855635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551145037900122976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb3a4f2a206e5147835d1ebc4160e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Despawner: {fileID: 0}
-  DespawnTimer: 0.1
---- !u!114 &6205105202571975419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551145037900122976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 0.6
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.006823107
-      value: 0.00842241
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5005226
-      value: 0.014038086
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 6.0688405
-      outSlope: 6.0688405
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.048209872
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Decal: {fileID: 0}
-  startMult: 0.4
 --- !u!1 &1019078934599637689
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,11 +87,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2355658927811082885}
-  - {fileID: 2269733969422093011}
-  - {fileID: 974926889844698949}
-  - {fileID: 1253129614812823161}
-  - {fileID: 6987520553113838764}
+  - {fileID: 7640759403106460683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -366.699}
 --- !u!114 &229364142491840374
@@ -259,10 +131,6 @@ GameObject:
   m_Component:
   - component: {fileID: 974926889844698949}
   - component: {fileID: 4965955127110388428}
-  - component: {fileID: 2976969787266912535}
-  - component: {fileID: 2704657631459989022}
-  - component: {fileID: 1860756082081186824}
-  - component: {fileID: 2669840275587827468}
   m_Layer: 3
   m_Name: Bloodsplatter (5)
   m_TagString: Untagged
@@ -278,12 +146,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2919872940017961400}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08676348, y: -0.48665127, z: 0.8644395, w: 0.091580786}
-  m_LocalPosition: {x: -0.22, y: -0.09, z: -0}
+  m_LocalRotation: {x: -0.08676345, y: -0.48665133, z: 0.8644394, w: 0.09158078}
+  m_LocalPosition: {x: -0.22000004, y: -0.08999971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 983971491413509400}
+  m_Father: {fileID: 7640759403106460683}
   m_LocalEulerAnglesHint: {x: 55.636, y: -25.067, z: -565.475}
 --- !u!114 &4965955127110388428
 MonoBehaviour:
@@ -309,13 +177,68 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 3, y: 3, z: 2}
   m_FadeFactor: 1
---- !u!114 &2976969787266912535
+--- !u!1 &5382803753076003726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7640759403106460683}
+  - component: {fileID: 4609283782467225193}
+  - component: {fileID: 8185981173863622577}
+  - component: {fileID: 6633895468459092667}
+  - component: {fileID: 6447512520513993116}
+  - component: {fileID: 2203607254233715748}
+  m_Layer: 9
+  m_Name: Decals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7640759403106460683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382803753076003726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2355658927811082885}
+  - {fileID: 2269733969422093011}
+  - {fileID: 974926889844698949}
+  - {fileID: 1253129614812823161}
+  - {fileID: 6987520553113838764}
+  m_Father: {fileID: 983971491413509400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4609283782467225193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919872940017961400}
+  m_GameObject: {fileID: 5382803753076003726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39370c56b356064187e8b472873b9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Decals: []
+  GetDecalsFromChildren: 1
+--- !u!114 &8185981173863622577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382803753076003726}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2058cde0f17efd246b177b6fc64ed2e1, type: 3}
@@ -347,16 +270,17 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Decals: {fileID: 0}
   DespawnAfterFade: 1
-  Decal: {fileID: 0}
+  EndMult: 0
   Despawner: {fileID: 0}
---- !u!114 &2704657631459989022
+--- !u!114 &6633895468459092667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919872940017961400}
+  m_GameObject: {fileID: 5382803753076003726}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
@@ -366,13 +290,13 @@ MonoBehaviour:
   CanDespawn: 1
   despawnType: 1
   isDespawning: 0
---- !u!114 &1860756082081186824
+--- !u!114 &6447512520513993116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919872940017961400}
+  m_GameObject: {fileID: 5382803753076003726}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb3a4f2a206e5147835d1ebc4160e7b, type: 3}
@@ -380,13 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Despawner: {fileID: 0}
   DespawnTimer: 0.1
---- !u!114 &2669840275587827468
+--- !u!114 &2203607254233715748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919872940017961400}
+  m_GameObject: {fileID: 5382803753076003726}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
@@ -427,7 +351,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Decal: {fileID: 0}
+  Decals: {fileID: 0}
   startMult: 0.4
 --- !u!1 &6037672429128153795
 GameObject:
@@ -439,10 +363,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6987520553113838764}
   - component: {fileID: 7937309212804190153}
-  - component: {fileID: 4664423432612438745}
-  - component: {fileID: 5748069983975882308}
-  - component: {fileID: 4050299640687491685}
-  - component: {fileID: 3732185955148361465}
   m_Layer: 3
   m_Name: Bloodsplatter (7)
   m_TagString: Untagged
@@ -458,12 +378,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037672429128153795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5249182, y: -0.12471626, z: -0.8404392, w: -0.05068296}
+  m_LocalRotation: {x: 0.5249182, y: -0.12471625, z: -0.8404392, w: -0.05068298}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 983971491413509400}
+  m_Father: {fileID: 7640759403106460683}
   m_LocalEulerAnglesHint: {x: -15.239, y: -64.339, z: -177.283}
 --- !u!114 &7937309212804190153
 MonoBehaviour:
@@ -489,126 +409,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 3, y: 3, z: 2}
   m_FadeFactor: 1
---- !u!114 &4664423432612438745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037672429128153795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2058cde0f17efd246b177b6fc64ed2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 5
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  DespawnAfterFade: 1
-  Decal: {fileID: 0}
-  Despawner: {fileID: 0}
---- !u!114 &5748069983975882308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037672429128153795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
-  CanDespawn: 1
-  despawnType: 1
-  isDespawning: 0
---- !u!114 &4050299640687491685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037672429128153795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb3a4f2a206e5147835d1ebc4160e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Despawner: {fileID: 0}
-  DespawnTimer: 0.1
---- !u!114 &3732185955148361465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037672429128153795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 0.6
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.006823107
-      value: 0.00842241
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5005226
-      value: 0.014038086
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 6.0688405
-      outSlope: 6.0688405
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.048209872
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Decal: {fileID: 0}
-  startMult: 0.4
 --- !u!1 &6769273310120901895
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,10 +419,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1253129614812823161}
   - component: {fileID: 1947777291764662914}
-  - component: {fileID: 4103923750959768313}
-  - component: {fileID: 6139575190947471277}
-  - component: {fileID: 6976835664360615131}
-  - component: {fileID: 1334565155496096506}
   m_Layer: 3
   m_Name: Bloodsplatter (6)
   m_TagString: Untagged
@@ -638,12 +434,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769273310120901895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10673535, y: -0.5288678, z: 0.02197522, w: -0.841679}
+  m_LocalRotation: {x: -0.106735334, y: -0.5288678, z: 0.021975247, w: -0.841679}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 983971491413509400}
+  m_Father: {fileID: 7640759403106460683}
   m_LocalEulerAnglesHint: {x: 11.708, y: 64.742, z: -355.554}
 --- !u!114 &1947777291764662914
 MonoBehaviour:
@@ -669,126 +465,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 3, y: 3, z: 2}
   m_FadeFactor: 1
---- !u!114 &4103923750959768313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769273310120901895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2058cde0f17efd246b177b6fc64ed2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 5
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  DespawnAfterFade: 1
-  Decal: {fileID: 0}
-  Despawner: {fileID: 0}
---- !u!114 &6139575190947471277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769273310120901895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
-  CanDespawn: 1
-  despawnType: 1
-  isDespawning: 0
---- !u!114 &6976835664360615131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769273310120901895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb3a4f2a206e5147835d1ebc4160e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Despawner: {fileID: 0}
-  DespawnTimer: 0.1
---- !u!114 &1334565155496096506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769273310120901895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 0.6
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.006823107
-      value: 0.00842241
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5005226
-      value: 0.014038086
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 6.0688405
-      outSlope: 6.0688405
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.048209872
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Decal: {fileID: 0}
-  startMult: 0.4
 --- !u!1 &8577212379956288001
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,10 +475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2269733969422093011}
   - component: {fileID: 3620703868127901224}
-  - component: {fileID: 8791076664287063079}
-  - component: {fileID: 6948618169137843579}
-  - component: {fileID: 2909087495191464401}
-  - component: {fileID: 6921418996595452424}
   m_Layer: 3
   m_Name: Bloodsplatter (4)
   m_TagString: Untagged
@@ -818,12 +490,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8577212379956288001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29483756, y: -0.4518446, z: -0.5746463, w: -0.61537707}
+  m_LocalRotation: {x: 0.29483756, y: -0.45184457, z: -0.5746463, w: -0.6153771}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 983971491413509400}
+  m_Father: {fileID: 7640759403106460683}
   m_LocalEulerAnglesHint: {x: -61.906, y: 27.474, z: -290.602}
 --- !u!114 &3620703868127901224
 MonoBehaviour:
@@ -849,123 +521,3 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.6666667}
   m_Size: {x: 3, y: 3, z: 2}
   m_FadeFactor: 1
---- !u!114 &8791076664287063079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577212379956288001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2058cde0f17efd246b177b6fc64ed2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 5
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  DespawnAfterFade: 1
-  Decal: {fileID: 0}
-  Despawner: {fileID: 0}
---- !u!114 &6948618169137843579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577212379956288001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
-  CanDespawn: 1
-  despawnType: 1
-  isDespawning: 0
---- !u!114 &2909087495191464401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577212379956288001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb3a4f2a206e5147835d1ebc4160e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Despawner: {fileID: 0}
-  DespawnTimer: 0.1
---- !u!114 &6921418996595452424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8577212379956288001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938c2a03ac9920e44a00da73f466fe19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LogInDebugConsole: 0
-  EffectDuration: 0.6
-  EffectCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.006823107
-      value: 0.00842241
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5005226
-      value: 0.014038086
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 6.0688405
-      outSlope: 6.0688405
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.048209872
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Decal: {fileID: 0}
-  startMult: 0.4
