@@ -7232,7 +7232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1118239139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8521,10 +8521,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplotionGlowDecals (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4655245951277210825, guid: 491ea4546684c9b4696fb0ff72ac248a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.72599
+      value: 41.68
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
@@ -8534,27 +8539,27 @@ PrefabInstance:
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.260164
+      value: 46.32
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.6879276
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.6879276
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.16357155
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.16357155
       objectReference: {fileID: 0}
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
@@ -8569,7 +8574,7 @@ PrefabInstance:
     - target: {fileID: 7314800022392440709, guid: 491ea4546684c9b4696fb0ff72ac248a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 26.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
