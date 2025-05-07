@@ -13,6 +13,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     [SerializeField] bool imortal;
 
+    [SerializeField] bool kill;
+
     protected bool isDying;
     protected bool dead;
     protected IDeathActivated[] deathActivatedScripts;
@@ -38,7 +40,14 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     {
         if (isActiveAndEnabled && gameIsOn)
         {
-            CheckHealth();
+            //CheckHealth();
+
+            if (kill)
+            {
+                kill = false;
+
+                Death();
+            }
         }
     }
 
