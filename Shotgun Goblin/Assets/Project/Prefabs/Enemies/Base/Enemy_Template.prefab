@@ -383,6 +383,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &5450903973860932361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &322687426823831476
@@ -548,7 +549,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3089769828471599658}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5000001
+  m_Radius: 0.8
   m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50

@@ -9,6 +9,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
     [SerializeField] float ThawNeighboursRadius = 0.3f;
     [SerializeField] bool RecallOnStart = true;
     [SerializeField] bool StartFrozen;
+    [SerializeField] bool RemoveNavmeshObstileOnUnfreeze;
     [SerializeField] bool DoActivate;
     [SerializeField] public bool IsFrozen;
     
@@ -113,7 +114,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
         ActivateFreezeComponents(false);
         DebugLog("Object Thawed: " + name);
 
-        if (navMeshObstacle != null)
+        if (navMeshObstacle != null && RemoveNavmeshObstileOnUnfreeze)
         {
             navMeshObstacle.enabled = false;
         }
