@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class EffectRadiusExplotion : MonoBehaviour, IExplotion
@@ -43,11 +44,16 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
 
     protected void AffectObjectsInExplotion()
     {
-        for (int i = 0; i < collidersInExplotion.Count; i++)
+        for(int i = 0; i < collidersInExplotion.Count; i++)
         {
-            InExplotion(collidersInExplotion[i]);
+              InExplotion(collidersInExplotion[i]);
         }
+
+        
     }
+
+    
+    
 
     protected void InExplotion(Collider other)
     {
@@ -60,6 +66,7 @@ public class EffectRadiusExplotion : MonoBehaviour, IExplotion
         {
             ExitExplotion(other);
         }
+
     }
 
     protected void EnterExplotion(Collider collider)

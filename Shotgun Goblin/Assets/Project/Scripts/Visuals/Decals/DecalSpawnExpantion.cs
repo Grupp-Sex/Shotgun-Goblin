@@ -3,29 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class DecalSpawnExpantion : EffectOverDuration<Vector3>
+public class DecalSpawnExpantion : DecalEffectOverTime<Vector3>
 {
-    public DecalProjector Decal;
+    
 
     [SerializeField] float startMult;
 
-    private void Start()
+    protected override void Initialize()
     {
-        if(Decal == null)
-        {
-            Decal = GetComponent<DecalProjector>();
-        }
-
-        SetValues(Decal.size * startMult, Decal.size);
-
         StartEffect();
     }
 
 
-
-    protected override void ApplyEffect(Vector3 value)
+    protected override void ApplyEffect(DecalHolder decal, float lerpValue)
     {
-        Decal.size = value;
+        decal.decal.size = Lerp(decal.startSize * startMult, decal.startSize, lerpValue);
+        
     }
 
     protected override void EndEffect()
