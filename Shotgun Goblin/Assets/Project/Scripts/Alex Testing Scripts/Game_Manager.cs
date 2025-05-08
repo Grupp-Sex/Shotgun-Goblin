@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
+    //public GameObject optionsUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,19 +39,22 @@ public class Game_Manager : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
+    /*Reloads the active scene, as long as it's in the build-index.
+     Scenes can be added to the build-index.*/
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //Switches scenes within the build-index
     public void MainMenu()
     {
-        SceneManager.LoadScene("Main_Menu"); //Main Menu screen and it's components must be created
+        SceneManager.LoadScene("Main_Menu"); 
     }
 
     public void Options()
     {
-        SceneManager.LoadScene("Options"); //Options, if decided to be implemented, must be added
+        SceneManager.LoadScene("Options_Menu");
     }
 
     public void QuitProgram()
