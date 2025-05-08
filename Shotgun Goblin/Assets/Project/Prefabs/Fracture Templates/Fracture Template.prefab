@@ -80,6 +80,7 @@ MonoBehaviour:
   ThawNeighboursRadius: 0.3
   RecallOnStart: 1
   StartFrozen: 1
+  RemoveNavmeshObstileOnUnfreeze: 0
   DoActivate: 0
   IsFrozen: 0
 --- !u!114 &2312572841517368258
@@ -170,6 +171,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &5500495884141641198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +261,7 @@ MonoBehaviour:
   Despawner: {fileID: 0}
   Rigidbody: {fileID: 0}
   PauseOnFreeze: 1
-  DespawnTimerMinutes: 1
+  DespawnTimerMinutes: 0.5
   DespawnCheckIntervall: 10
   isChecking: 0
 --- !u!114 &5542207658818523489
