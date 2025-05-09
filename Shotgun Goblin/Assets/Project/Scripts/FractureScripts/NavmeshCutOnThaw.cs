@@ -27,7 +27,7 @@ public class NavmeshCutOnThaw : MonoBehaviour, IFrozenOnFractionFreeze
         }
 
         FreezeObsticleData = FreezeObsticleData.Save(NavMeshObstacle, Bounds);
-
+        
     }
 
     public void Freze()
