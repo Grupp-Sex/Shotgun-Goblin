@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4557855952657544198}
   - component: {fileID: 1406316914094028047}
   - component: {fileID: -2765786035006243699}
+  - component: {fileID: 1045600371294930543}
   m_Layer: 0
   m_Name: Goblin Fracture Template
   m_TagString: Untagged
@@ -73,6 +74,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   explotionVelocity: 7
   angularVelocityMult: 10
+  damping: 0
 --- !u!114 &-3164109251070799775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd8d6e817b4d42949a19c455cb7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeMult: {x: 0.1, y: 0.1, z: 0.1}
+  sizeMult: {x: 1, y: 1, z: 1}
   boundSize: {x: 0, y: 0, z: 0}
 --- !u!114 &-2765786035006243699
 MonoBehaviour:
@@ -191,6 +193,19 @@ MonoBehaviour:
     MoveThreshold: 0
     TimeToStationary: 0
     CarveOnlyStationary: 0
+--- !u!114 &1045600371294930543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702047887813957574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d054a974bb8be0342918c356606cb18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavMeshObstacle: {fileID: 0}
 --- !u!1 &2678665005592961390
 GameObject:
   m_ObjectHideFlags: 0

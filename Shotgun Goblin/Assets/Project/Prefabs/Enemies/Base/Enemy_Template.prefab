@@ -562,7 +562,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &1749809544541325711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,8 +637,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   Agent: {fileID: 0}
   Active: 1
-  Interpolation: 0.5
-  TargetInterpolation: 0.5
+  Interpolation: 0.1
+  TargetInterpolation: 0.2
   MaxRotationAngle: 360
   CanRotate: 0
   NotNull: 0

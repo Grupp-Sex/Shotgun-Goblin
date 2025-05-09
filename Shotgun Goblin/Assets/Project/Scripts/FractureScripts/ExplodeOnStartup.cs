@@ -7,6 +7,7 @@ public class ExplodeOnStartup : MonobehaviorScript_ToggleLog
     [SerializeField] float explotionVelocity;
     [SerializeField] float angularVelocityMult;
 
+    [SerializeField] float damping; 
 
     protected Rigidbody rb;
 
@@ -15,7 +16,12 @@ public class ExplodeOnStartup : MonobehaviorScript_ToggleLog
 
         
         rb = GetComponent<Rigidbody>();
-
+        
+        if (rb != null)
+        {
+            rb.drag = damping;
+        }
+        
 
 
         Explode();
