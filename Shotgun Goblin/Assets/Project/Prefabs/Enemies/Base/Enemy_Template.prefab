@@ -422,7 +422,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &322687426823831476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ NavMeshAgent:
   m_AgentTypeID: -1372625422
   m_Radius: 0.6
   m_Speed: 7
-  m_Acceleration: 100
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 500
   m_StoppingDistance: 2
@@ -561,7 +561,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &1749809544541325711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  UpdateSpeed: 0
+  UpdateSpeed: 1.6
 --- !u!114 &1840320366320052042
 MonoBehaviour:
   m_ObjectHideFlags: 0

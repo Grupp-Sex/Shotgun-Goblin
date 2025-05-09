@@ -139,7 +139,7 @@ NavMeshObstacle:
   m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 2
 --- !u!114 &1514559514758087776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cdd8d6e817b4d42949a19c455cb7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeMult: {x: 1, y: 1, z: 1}
+  sizeMult: {x: 0.5, y: 0.5, z: 0.5}
   boundSize: {x: 0, y: 0, z: 0}
 --- !u!114 &-8219543084440411587
 MonoBehaviour:
