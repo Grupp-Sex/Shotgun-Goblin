@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8352126967347233987}
   - component: {fileID: 8776330016152839171}
+  - component: {fileID: 245983950170615653}
   - component: {fileID: 2451181719784949526}
   - component: {fileID: 2312572841517368258}
   - component: {fileID: 3429795546144225330}
-  - component: {fileID: 245983950170615653}
+  - component: {fileID: 2420230112068804877}
   - component: {fileID: 1514559514758087776}
   - component: {fileID: -8219543084440411587}
   - component: {fileID: 5500495884141641198}
@@ -64,6 +65,22 @@ MonoBehaviour:
   CanBeGrabbed: 1
   PriorityLayer: 5
   PickupPriority: 0
+--- !u!208 &245983950170615653
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.005, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 2
 --- !u!114 &2451181719784949526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +97,6 @@ MonoBehaviour:
   ThawNeighboursRadius: 0.3
   RecallOnStart: 1
   StartFrozen: 1
-  RemoveNavmeshObstileOnUnfreeze: 0
   DoActivate: 0
   IsFrozen: 0
 --- !u!114 &2312572841517368258
@@ -124,22 +140,28 @@ MonoBehaviour:
   SoftImpactThreshold: 20
   HardImpactType: 2
   HardImpactThreshold: 50
---- !u!208 &245983950170615653
-NavMeshObstacle:
+--- !u!114 &2420230112068804877
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2218318203337981819}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.05, y: 0.005, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 2
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45531e51f7ba37c41afe0998f3d630a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavMeshObstacle: {fileID: 0}
+  Bounds: {fileID: 0}
+  type: 3
+  ThawObsticleData:
+    SizeMult: {x: 0, y: 0, z: 0}
+    Shape: 0
+    Carving: 0
+    MoveThreshold: 0
+    TimeToStationary: 0
+    CarveOnlyStationary: 0
 --- !u!114 &1514559514758087776
 MonoBehaviour:
   m_ObjectHideFlags: 0
