@@ -16,12 +16,16 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
+        Agent.enabled = false;
     }
 
     public void StartChase()
     {
+
         if (Follow == null)
         {
+            Agent.enabled = true;
+
             StartCoroutine(FollowTarget());
         }
         else
@@ -36,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
         while (enabled)
         {
-            if (Agent.enabled)
+            if (Agent.enabled && Target != null)
             {
                 Agent.SetDestination(Target.transform.position);
             }

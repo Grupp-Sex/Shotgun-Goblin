@@ -406,8 +406,8 @@ Rigidbody:
   m_GameObject: {fileID: 3089769828471599658}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 4
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -422,7 +422,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &322687426823831476
 MonoBehaviour:
@@ -550,8 +550,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 3089769828471599658}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.6
-  m_Speed: 15
+  m_Radius: 0.7
+  m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 0
@@ -636,12 +636,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
   Agent: {fileID: 0}
-  Interpolation: 1
+  Active: 1
+  Interpolation: 0.5
+  TargetInterpolation: 0.5
   MaxRotationAngle: 360
+  CanRotate: 0
+  NotNull: 0
   currentRotation: {x: 0, y: 0, z: 0, w: 0}
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   interploationRotation: {x: 0, y: 0, z: 0, w: 0}
   differenceRotation: {x: 0, y: 0, z: 0, w: 0}
+  navmeshDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &5106359225211248570
 GameObject:
   m_ObjectHideFlags: 0
