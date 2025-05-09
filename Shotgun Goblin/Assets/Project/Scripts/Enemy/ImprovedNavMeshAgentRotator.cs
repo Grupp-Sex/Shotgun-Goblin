@@ -57,6 +57,8 @@ public class ImprovedNavMeshAgentRotator : MonoBehaviour
 
             Interpolate(Interpolation);
         }
+        
+        Agent.updateUpAxis = false;
     }
 
     protected bool CheckCanRotate()
