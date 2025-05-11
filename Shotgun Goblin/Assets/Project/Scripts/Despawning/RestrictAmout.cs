@@ -38,6 +38,8 @@ public class RestrictAmout : MonobehaviorScript_ToggleLog
         DebugLog("Count ID, tag = " + id + ", count = " + idCounters[id] + ", added ammount: " + ammount);
     }
 
+    
+
     protected static int GetNrOfTag(string tag)
     {
         if (idCounters.ContainsKey(tag))
@@ -112,6 +114,6 @@ public class RestrictAmout : MonobehaviorScript_ToggleLog
 public struct AmountTag
 {
     public string tag;
-    public int maxAmount;
+    public int maxAmount; 
     public int objectValue;
 }
