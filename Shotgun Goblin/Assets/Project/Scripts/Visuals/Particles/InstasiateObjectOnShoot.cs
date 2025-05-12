@@ -42,7 +42,7 @@ public class InstasiateObjectOnShoot : MonoBehaviour, IShotActivated
     {
         for (int i = 0; i < OnProjectileObject.Count; i++)
         {
-            CreateProjectileGameObject(OnShotObject[i], projectile);
+            CreateProjectileGameObject(OnProjectileObject[i], projectile);
         }
     }
 }
