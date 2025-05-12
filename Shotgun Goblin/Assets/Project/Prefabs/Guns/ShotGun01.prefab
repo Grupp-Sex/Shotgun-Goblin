@@ -9712,7 +9712,6 @@ GameObject:
   - component: {fileID: 2994986816104830118}
   - component: {fileID: 1209584319383109356}
   - component: {fileID: 1727705532210433102}
-  - component: {fileID: 4256121845726932761}
   m_Layer: 11
   m_Name: ShotGun01
   m_TagString: Untagged
@@ -9755,6 +9754,8 @@ MonoBehaviour:
   projectileBeamActivator:
   - {fileID: 8802226319221307774}
   - {fileID: 6520508496490809035}
+  - {fileID: 6496965722427218826}
+  - {fileID: 8801657372864026538}
   ForceMagnitude: 1000
   hitObjects: []
   projectileHitHolder: {fileID: 0}
@@ -9778,7 +9779,7 @@ MonoBehaviour:
   IsReloading: 0
   pelletsPerShot: 7
   randomScale: 0.2
-  delay: 0.06
+  delay: 0
 --- !u!114 &1209584319383109356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9818,25 +9819,6 @@ MonoBehaviour:
   LogInDebugConsole: 0
   DirectionControledDash: {fileID: 1209584319383109356}
   maximumAngle: -70
---- !u!114 &4256121845726932761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777437075893006855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f6ff62343033d45825c08f5c1f8a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpanwedObjectParrent: {fileID: 178476145026609780}
-  OnShotObject:
-  - {fileID: 6015598366161711808, guid: 14378f803508ecb48af097844cadf7c8, type: 3}
-  - {fileID: 209204568871432225, guid: 949d4807a77fa31449ef518d793cac65, type: 3}
-  - {fileID: 3366215339392859082, guid: 1207df103deb5a243a3265e47de5f4b0, type: 3}
-  OnProjectileObject:
-  - {fileID: 4733495985846023237, guid: 62b71e4e16cc9294393a98db35140e54, type: 3}
 --- !u!1 &1913269347283854139
 GameObject:
   m_ObjectHideFlags: 0

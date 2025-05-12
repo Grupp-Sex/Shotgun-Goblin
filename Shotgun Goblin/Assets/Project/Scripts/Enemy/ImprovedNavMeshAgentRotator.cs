@@ -109,7 +109,8 @@ public class ImprovedNavMeshAgentRotator : MonoBehaviour
 
             if (interploationRotation != currentRotation)
             {
-                Rigidbody.MoveRotation(interploationRotation);
+                
+                Rigidbody.MoveRotation(interploationRotation.normalized);
                 //Rigidbody.AddRelativeTorque(differenceRotation.eulerAngles * TorqueAcceleration, ForceMode.Acceleration);
                 
             }
