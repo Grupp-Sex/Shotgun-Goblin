@@ -27,7 +27,7 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
     {
         rb = GetComponent<Rigidbody>();
 
-        SaveRB(rbData,rb);
+        rbData = SaveRB(rbData,rb);
 
         agent = GetComponent<NavMeshAgent>();
 
@@ -80,7 +80,8 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
         rb.constraints = new RigidbodyConstraints();
         rb.isKinematic = false;
-
+        rb.drag = 0;
+        rb.angularDrag = 0;
 
         rb.angularVelocity += angularTripSpeed;
 
@@ -125,20 +126,32 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
     }
 
 
-    protected void SaveRB(RigidBodyData rbData, Rigidbody rb)
+    protected RigidBodyData SaveRB(RigidBodyData rbData, Rigidbody rb)
     {
         DebugLog("is kinematick = " + rb.isKinematic);
         IsKinematic = rb.isKinematic;
         rbData.isKinematic = rb.isKinematic;
         rbData.constraints = rb.constraints;
+
+        rbData.drag = rb.drag;
+        rbData.angularDrag = rb.angularDrag;
+
+        return rbData;
+        
     }
 
     protected void LoadRB(RigidBodyData rbData, Rigidbody rb)
     {
         rb.isKinematic = rbData.isKinematic;
         rb.constraints = rbData.constraints;
+       
+        
 
         rb.isKinematic = IsKinematic;
+
+        rb.drag = rbData.drag;
+        rb.angularDrag = rbData.angularDrag;
+        
 
         DebugLog("is kinematick = " + rb.isKinematic);
     }
@@ -146,8 +159,10 @@ public class RagdollActivator : MonobehaviorScript_ToggleLog, IImpactThreshold
 
     protected struct RigidBodyData
     {
-        [SerializeField] public bool isKinematic;
-        [SerializeField] public RigidbodyConstraints constraints;
+        public bool isKinematic;
+        public RigidbodyConstraints constraints;
+        public float drag;
+        public float angularDrag;
     }
 }
 

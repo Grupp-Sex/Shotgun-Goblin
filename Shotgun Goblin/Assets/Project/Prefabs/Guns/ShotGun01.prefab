@@ -9744,7 +9744,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777437075893006855}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480c24b0acc54ad4d995b0eb5669297e, type: 3}
   m_Name: 
@@ -9752,10 +9752,10 @@ MonoBehaviour:
   PlaceHitMarker: 0
   hitObjectTemplate: {fileID: 8082718345868447640}
   projectileBeamActivator:
-  - {fileID: 6496965722427218826}
   - {fileID: 8802226319221307774}
-  - {fileID: 8801657372864026538}
   - {fileID: 6520508496490809035}
+  - {fileID: 6496965722427218826}
+  - {fileID: 8801657372864026538}
   ForceMagnitude: 1000
   hitObjects: []
   projectileHitHolder: {fileID: 0}
@@ -9779,6 +9779,7 @@ MonoBehaviour:
   IsReloading: 0
   pelletsPerShot: 7
   randomScale: 0.2
+  delay: 0
 --- !u!114 &1209584319383109356
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -240,7 +240,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1840320366320052042}
   - component: {fileID: 4029653110763140708}
   - component: {fileID: 8079707184984434840}
+  - component: {fileID: 5214476765797493792}
   m_Layer: 0
   m_Name: Enemy_Template
   m_TagString: Untagged
@@ -383,6 +384,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &5450903973860932361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,8 +406,8 @@ Rigidbody:
   m_GameObject: {fileID: 3089769828471599658}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 4
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -418,10 +420,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &322687426823831476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,19 +550,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 3089769828471599658}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5000001
+  m_Radius: 0.7
   m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 0
+  m_AngularSpeed: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &1749809544541325711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  UpdateSpeed: 2
+  UpdateSpeed: 1.6
 --- !u!114 &1840320366320052042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +622,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InstanciatedObject:
   - {fileID: 6983204364332887158, guid: a8d0648ebdbc63a4294fe2627990f637, type: 3}
+  - {fileID: 6834379432930131194, guid: d805ad3f6c4b2c4488623ff839ab6d85, type: 3}
+--- !u!114 &5214476765797493792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 932fd6964b3c1d5499d3579bd1b6e421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 0}
+  Agent: {fileID: 0}
+  Active: 1
+  Interpolation: 0.1
+  TargetInterpolation: 0.2
+  MaxRotationAngle: 360
+  CanRotate: 0
+  NotNull: 0
+  currentRotation: {x: 0, y: 0, z: 0, w: 0}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  interploationRotation: {x: 0, y: 0, z: 0, w: 0}
+  differenceRotation: {x: 0, y: 0, z: 0, w: 0}
+  navmeshDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &5106359225211248570
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +749,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

@@ -25,6 +25,9 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
     protected List<Func<int, int>> PickuppModifications = new List<Func<int, int>>();
 
+    public EventPusher<TelekenesisPhysicsObject> Event_OnTelekenesisEnter { get; private set; } = new EventPusher<TelekenesisPhysicsObject>();
+    public EventPusher<TelekenesisPhysicsObject> Event_OnTelekenesisLeave { get; private set; } = new EventPusher<TelekenesisPhysicsObject>();
+
     private void OnValidate()
     {
         if (isActiveAndEnabled)
@@ -179,6 +182,8 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
     protected void NotifyTelekenesisEnter()
     {
+        Event_OnTelekenesisEnter.Invoke(this, this);
+
         for (int i = 0; i < onTelekenesisEnterScripts.Length; i++)
         {
             onTelekenesisEnterScripts[i].OnTelekenesisEnter();
@@ -187,6 +192,8 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
     protected void NotifyTelekenesisLeave()
     {
+        Event_OnTelekenesisLeave.Invoke(this, this);
+
         for (int i = 0; i < onTelekenesisLeaveScripts.Length; i++)
         {
             onTelekenesisLeaveScripts[i].OnTelekenesisLeave();

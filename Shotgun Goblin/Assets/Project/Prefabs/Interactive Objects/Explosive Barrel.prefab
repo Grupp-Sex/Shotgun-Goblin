@@ -47,6 +47,7 @@ Transform:
   - {fileID: 9186127391767829361}
   - {fileID: 6952861062310480100}
   - {fileID: 4569495702170968687}
+  - {fileID: 2463139001344265971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2593588529909481244
@@ -163,7 +164,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundSize: 0
   CanBeGrabbed: 1
-  PriorityLayer: 200
+  PriorityLayer: 10
   PickupPriority: 1
 --- !u!114 &7655403697063906656
 MonoBehaviour:
@@ -199,6 +200,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &4808535909441291028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19978,6 +19980,70 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &8898493896707756112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2463139001344265971}
+  - component: {fileID: 7005870553081926312}
+  - component: {fileID: 457581576404966201}
+  m_Layer: 0
+  m_Name: NavMeshObsticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2463139001344265971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898493896707756112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6559437202000231082}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &7005870553081926312
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898493896707756112}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &457581576404966201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898493896707756112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d054a974bb8be0342918c356606cb18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TelekenesisPhysicsObject: {fileID: 2363901307635069691}
+  NavMeshObstacle: {fileID: 0}
+  ReEnable: 0
 --- !u!1001 &7407223198297181545
 PrefabInstance:
   m_ObjectHideFlags: 0

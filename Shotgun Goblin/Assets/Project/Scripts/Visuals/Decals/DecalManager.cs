@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.Windows;
 
 public class DecalManager : MonobehaviorScript_ToggleLog
 {
@@ -29,10 +31,20 @@ public class DecalManager : MonobehaviorScript_ToggleLog
     {
         for (int i = 0; i < Decals.Count; i++)
         {
-            Decals[i] = Save(Decals[i]);
-            DebugLog(Decals[i].ToString());
+            if (Decals[i].decal == null)
+            {
+                Decals.RemoveAt(i);
+                i--;
+            }
+            else
+            {
+                Decals[i] = Save(Decals[i]);
+                DebugLog(Decals[i].ToString());
+            }
         }
     }
+
+    
 
     protected DecalHolder Save(DecalHolder decal)
     {
@@ -51,9 +63,20 @@ public class DecalManager : MonobehaviorScript_ToggleLog
     {
         for(int i = 0;i < Decals.Count; i++)
         {
-            action.Invoke(Decals[i], input);
+            if (Decals[i].decal == null)
+            {
+                Decals.RemoveAt(i);
+                i--;
+            }
+            else
+            {
+                action.Invoke(Decals[i], input);
+            }
         }
     }
+
+    
+   
 
 }
 

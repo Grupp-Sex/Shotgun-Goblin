@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2355658927811082885}
   - component: {fileID: 5999371510051964697}
+  - component: {fileID: 7259148233802530866}
   m_Layer: 3
   m_Name: Bloodsplatter
   m_TagString: Untagged
@@ -56,6 +57,23 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_Size: {x: 4, y: 4, z: 2}
   m_FadeFactor: 1
+--- !u!114 &7259148233802530866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551145037900122976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a083ad39351745418f6dd00da2ea12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  tags:
+  - tag: decals
+    maxAmount: 50
+    objectValue: 1
 --- !u!1 &1019078934599637689
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +139,59 @@ MonoBehaviour:
   despawner: {fileID: 0}
   despawnTimer: 0
   childCount: 0
+--- !u!1 &2330047457502311639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5846908166657495882}
+  - component: {fileID: 5833022502269106097}
+  m_Layer: 0
+  m_Name: SideDecals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5846908166657495882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330047457502311639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.70589685, y: 0.04131637, z: -0.041316576, w: -0.7059006}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2269733969422093011}
+  - {fileID: 974926889844698949}
+  - {fileID: 1253129614812823161}
+  - {fileID: 6987520553113838764}
+  m_Father: {fileID: 7640759403106460683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5833022502269106097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330047457502311639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a083ad39351745418f6dd00da2ea12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  tags:
+  - tag: decals
+    maxAmount: 15
+    objectValue: 1
 --- !u!1 &2919872940017961400
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,12 +217,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2919872940017961400}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08676345, y: -0.48665133, z: 0.8644394, w: 0.09158078}
-  m_LocalPosition: {x: -0.22000004, y: -0.08999971, z: 0}
+  m_LocalRotation: {x: -0.019008957, y: 0.946364, z: -0.26648355, w: -0.18171531}
+  m_LocalPosition: {x: -0.22899729, y: 0, z: -0.063719764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7640759403106460683}
+  m_Father: {fileID: 5846908166657495882}
   m_LocalEulerAnglesHint: {x: 55.636, y: -25.067, z: -565.475}
 --- !u!114 &4965955127110388428
 MonoBehaviour:
@@ -212,10 +283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2355658927811082885}
-  - {fileID: 2269733969422093011}
-  - {fileID: 974926889844698949}
-  - {fileID: 1253129614812823161}
-  - {fileID: 6987520553113838764}
+  - {fileID: 5846908166657495882}
   m_Father: {fileID: 983971491413509400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4609283782467225193
@@ -230,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39370c56b356064187e8b472873b9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
   Decals: []
   GetDecalsFromChildren: 1
 --- !u!114 &8185981173863622577
@@ -286,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LogInDebugConsole: 1
+  LogInDebugConsole: 0
   CanDespawn: 1
   despawnType: 1
   isDespawning: 0
@@ -378,12 +447,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037672429128153795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5249182, y: -0.12471625, z: -0.8404392, w: -0.05068298}
+  m_LocalRotation: {x: -0.29488626, y: -0.48144418, z: 0.700897, w: 0.43588644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7640759403106460683}
+  m_Father: {fileID: 5846908166657495882}
   m_LocalEulerAnglesHint: {x: -15.239, y: -64.339, z: -177.283}
 --- !u!114 &7937309212804190153
 MonoBehaviour:
@@ -434,12 +503,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769273310120901895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.106735334, y: -0.5288678, z: 0.021975247, w: -0.841679}
+  m_LocalRotation: {x: 0.69042605, y: 0.41920558, z: 0.31862852, w: 0.49603865}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7640759403106460683}
+  m_Father: {fileID: 5846908166657495882}
   m_LocalEulerAnglesHint: {x: 11.708, y: 64.742, z: -355.554}
 --- !u!114 &1947777291764662914
 MonoBehaviour:
@@ -490,12 +559,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8577212379956288001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29483756, y: -0.45184457, z: -0.5746463, w: -0.6153771}
+  m_LocalRotation: {x: 0.26867768, y: -0.049076803, z: 0.71135515, w: 0.64759386}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7640759403106460683}
+  m_Father: {fileID: 5846908166657495882}
   m_LocalEulerAnglesHint: {x: -61.906, y: 27.474, z: -290.602}
 --- !u!114 &3620703868127901224
 MonoBehaviour:
