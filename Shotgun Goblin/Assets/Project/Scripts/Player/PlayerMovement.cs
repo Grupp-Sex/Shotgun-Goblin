@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour, IMover
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    public bool isJumping;
 
     [Header ("Ground Check")]
     public float playerHeight;
@@ -192,14 +193,25 @@ public class PlayerMovement : MonoBehaviour, IMover
     private void OnJumpStart()
     {
         
-        if (readyToJump && grounded)
+        if (readyToJump)
         {
-            readyToJump = false;
+            isJumping = true;
+            if (grounded)
+            {
 
-            Jump();
 
-            Invoke(nameof(ResetJump), jumpCooldown);
+                readyToJump = false;
+
+                Jump();
+
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
+    }
+
+    private void OnJumpStop()
+    {
+        isJumping = false;
     }
 
     private void Jump()
