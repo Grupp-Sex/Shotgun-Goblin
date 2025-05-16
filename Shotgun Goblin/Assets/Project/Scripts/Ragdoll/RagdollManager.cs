@@ -22,6 +22,11 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
 
     protected List<object> canExitRagdolQueue = new List<object>();
 
+    public EventPusher<object> Event_RagdollStart = new EventPusher<object>();
+    public EventPusher<object> Event_RagdollEnd = new EventPusher<object>();
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,8 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
         ragdollScripts = GetComponents<IRagdollActivated>();
     }
 
+
+    
 
     public void BlockExitRagdoll(object key)
     {
@@ -111,6 +118,7 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
 
         isRagdolled = true;
 
+        Event_RagdollStart.Invoke(this, null);
 
     }
 
@@ -134,12 +142,15 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
         }
 
         LoadRB(rbData, rb);
+
+        Event_RagdollEnd.Invoke(this, null);
+
     }
 
 
 
 
-    
+
 
 
     protected RigidBodyData SaveRB(RigidBodyData rbData, Rigidbody rb)
