@@ -35,7 +35,7 @@ public class PlayerDash : MonoBehaviour
         
     }
 
-
+    //Do when pressing left shift
     private void OnDashStart()
     {
         if (!canDash) return;
@@ -46,22 +46,18 @@ public class PlayerDash : MonoBehaviour
         StartCoroutine(Dash(dashDirection));
     }
 
-    //private void dash()
-    //{
-    //    Vector3 forceToApply = orientation.forward * dashForce;
-
-    //    playerRB.AddForce(forceToApply, ForceMode.Impulse);
-
-    //}
-
+    //Coroutine for dash behaviour
     IEnumerator Dash(Vector3 direction)
     {
 
         canDash = false;
+        
         Vector3 forceToApply = direction.normalized * dashForce;
 
         playerRB.velocity = Vector3.zero;
-        playerRB.AddForce(forceToApply, ForceMode.Impulse);
+
+        //Added force when dash is initiated in game in player local space, not world space
+        playerRB.AddRelativeForce(forceToApply, ForceMode.Impulse);
 
         yield return new WaitForSeconds(dashDuration);
 
