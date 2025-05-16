@@ -354,12 +354,13 @@ MonoBehaviour:
   tiltAmount: 2
   tiltSpeed: 0.94
   orientation: {fileID: 5580618361630915387}
-  movementSpeed: 30
+  movementSpeed: 200
   groundDrag: 0
   turningSmotheness: 0.4
-  jumpForce: 10
+  jumpForce: 100
   jumpCooldown: 0
   airMultiplier: 0.25
+  isJumping: 0
   playerHeight: 2
   isGroundedOffset: 0.2
   whatIsGround:
