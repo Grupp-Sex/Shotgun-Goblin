@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AfixerOnArrowColition : MonoBehaviour
+public class AfixerOnArrowColition : MonoBehaviour, IArrowDamage
 {
     public Rigidbody fixPoint;
 
     public bool deleatOnColition = true;
+
+    public EventPusher<Collision> Event_ArrowCollision { get; protected set; }  = new EventPusher<Collision>();
 
     // Start is called before the first frame update
     void Awake()
@@ -42,8 +44,9 @@ public class AfixerOnArrowColition : MonoBehaviour
                 joint.connectedArticulationBody = ab;
             }
 
-            Debug.Log("b");
-
+            //joint.breakForce = 10000;
+            //joint.breakTorque = 10000;
+            //joint.enableCollision = true;
         }
         else
         {
@@ -52,6 +55,9 @@ public class AfixerOnArrowColition : MonoBehaviour
         }
 
         fixPoint.mass = 0.000001f;
+
+        Event_ArrowCollision.Invoke(this, collision);
+
 
         if (deleatOnColition)
         {
