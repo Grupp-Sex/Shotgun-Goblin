@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour, IMover
     
 
     [Header ("Camera Tilt")]
-    private float currentTilt = 0f;
-     private float targetTilt;
+   
     [SerializeField] private float tiltAmount = 10f;
     [SerializeField] private float tiltSpeed = 0.8f;
+    private float currentTilt = 0f;
+    private float targetTilt;
 
 
-   [SerializeField] private Transform orientation;
+    [SerializeField] private Transform orientation;
     private Rigidbody characterRB;
 
     

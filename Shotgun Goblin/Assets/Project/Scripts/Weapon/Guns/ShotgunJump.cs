@@ -33,4 +33,9 @@ public class ShotgunJump : MonobehaviorScript_ToggleLog, IShotActivated, IUserRe
     {
 
     }
+
+    public void RunReloadLogic()
+    {
+       
+    }
 }
