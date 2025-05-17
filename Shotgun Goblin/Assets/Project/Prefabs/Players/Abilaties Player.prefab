@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 7686211528705036371}
   - component: {fileID: 5139814587353766637}
   - component: {fileID: 2253420176761217349}
+  - component: {fileID: 8401927174849969734}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -320,7 +321,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5131602888718148011}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -543,6 +544,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8401927174849969734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3712a79b9bed8cf46b0ba4bfc78b4aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 0}
+  Movement: {fileID: 0}
+  downMult: 1
+  uppMult: 0
+  applyGravity: 1
+  useJumping: 0
+  fallQuickly: 0
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maximumAngle
       value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994986816104830118, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8626599823304693784, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
         type: 3}
