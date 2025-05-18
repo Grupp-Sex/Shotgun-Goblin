@@ -6189,6 +6189,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4553e7db37592854d9da6e0bf9fa852d, type: 3}
+--- !u!1 &613491029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613491031}
+  - component: {fileID: 613491030}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &613491030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613491029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: eb760b5b45f62154f96a9d5f8031c909, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_DecalLayerMask: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 3, z: 5}
+  m_FadeFactor: 1
+--- !u!4 &613491031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613491029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.691228, y: -0.14900996, z: 0.14900996, w: 0.691228}
+  m_LocalPosition: {x: 5.14, y: -0, z: 10.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 24.33}
 --- !u!1001 &652764267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11843,7 +11899,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01212140b5a033a42b07a6eef4327638, type: 2}
+  - {fileID: 2100000, guid: 86dd123af78c71543912581d64d70920, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29641,7 +29697,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objects.Array.data[0]
       value: 
-      objectReference: {fileID: 7120190560444621904, guid: ecae849be6d1bb740bb83fcd9f97e026,
+      objectReference: {fileID: 7120190560444621904, guid: 4553e7db37592854d9da6e0bf9fa852d,
         type: 3}
     - target: {fileID: 8323768411694810918, guid: d3f277bd028e825498b207f36a3a156c,
         type: 3}
@@ -29728,3 +29784,4 @@ SceneRoots:
   - {fileID: 1886316219}
   - {fileID: 348468046}
   - {fileID: 198289037}
+  - {fileID: 613491031}
