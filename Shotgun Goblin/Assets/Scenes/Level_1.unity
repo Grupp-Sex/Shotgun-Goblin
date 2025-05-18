@@ -783,13 +783,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -1300,13 +1300,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -1393,13 +1393,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -2569,7 +2569,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50e7af80577c7324b8bd2a1153179543,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1402919979}
   m_SourcePrefab: {fileID: 100100000, guid: 50e7af80577c7324b8bd2a1153179543, type: 3}
 --- !u!64 &333771338
 MeshCollider:
@@ -2612,13 +2616,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -3071,13 +3075,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -4738,13 +4742,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -6164,13 +6168,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -6380,6 +6384,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 622559898}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &819070213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2314624791997585959, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_Name
+      value: exp_barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.121916
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.02422
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.362656
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122369278018601117, guid: 7182147a666f7ef499bb31af5bb327b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7182147a666f7ef499bb31af5bb327b7, type: 3}
 --- !u!1 &835706492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5938260464478734986, guid: 54ec02c3a3e31e14d879c6e362eff127,
@@ -6603,13 +6675,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -7198,13 +7270,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
-    zAxis: 1
+    zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -7831,13 +7903,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -8471,13 +8543,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -8899,13 +8971,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -9803,13 +9875,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -9896,13 +9968,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -11591,13 +11663,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -11684,13 +11756,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -11736,6 +11808,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1402919975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50e7af80577c7324b8bd2a1153179543,
+    type: 3}
+  m_PrefabInstance: {fileID: 330190472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1402919979
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402919975}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: 50e7af80577c7324b8bd2a1153179543, type: 3}
 --- !u!1001 &1403714043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11923,13 +12023,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -12063,13 +12163,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481635496}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.9119059, y: -0.30822006, z: 0.2483649, w: 0.108365476}
+  m_LocalRotation: {x: -0.3887924, y: 0.35104257, z: 0.053805564, w: -0.85012615}
   m_LocalPosition: {x: -9.3, y: 67.42, z: 16.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20.533, y: -204.354, z: -147.126}
+  m_LocalEulerAnglesHint: {x: 38.555, y: 305.24, z: -27.778}
 --- !u!114 &1481635499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12471,6 +12571,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1403714043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1551098592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50e7af80577c7324b8bd2a1153179543,
+    type: 3}
+  m_PrefabInstance: {fileID: 1733876554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1551098596
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551098592}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: 50e7af80577c7324b8bd2a1153179543, type: 3}
 --- !u!1001 &1551811213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12658,7 +12786,7 @@ PrefabInstance:
     - target: {fileID: 2074064025033066147, guid: 95aa4182c6e427344ae95799d251ab87,
         type: 3}
       propertyPath: ToggleShaders.Array.data[0].Toggle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6614351506306506069, guid: 95aa4182c6e427344ae95799d251ab87,
         type: 3}
@@ -13904,7 +14032,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50e7af80577c7324b8bd2a1153179543,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1551098596}
   m_SourcePrefab: {fileID: 100100000, guid: 50e7af80577c7324b8bd2a1153179543, type: 3}
 --- !u!1001 &1752498078
 PrefabInstance:
@@ -15723,13 +15855,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -16240,13 +16372,13 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 2
     xAxis: 1
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -17107,3 +17239,4 @@ SceneRoots:
   - {fileID: 1733876554}
   - {fileID: 330190472}
   - {fileID: 1158651310}
+  - {fileID: 819070213}
