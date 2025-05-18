@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AfixerOnArrowColition : MonoBehaviour, IArrowDamage
+public class AfixerOnArrowColition : MonoBehaviour
 {
     public Rigidbody fixPoint;
 
+    public GameObject collisionDetection;
+    protected ICollision collision1;
+
     public bool deleatOnColition = true;
 
-    public EventPusher<Collision> Event_ArrowCollision { get; protected set; }  = new EventPusher<Collision>();
 
     // Start is called before the first frame update
     void Awake()
@@ -20,10 +22,30 @@ public class AfixerOnArrowColition : MonoBehaviour, IArrowDamage
 
         }
 
+        if(collisionDetection == null)
+        {
+            collisionDetection = gameObject;
+
+        }
+
+        collision1 = collisionDetection.GetComponent<ICollision>();
+
+        
         //joint.breakForce = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnEnable()
+    {
+        collision1.Event_Collision.Subscribe(Event_Collision);
+
+    }
+
+    private void OnDisable()
+    {
+        collision1.Event_Collision.UnSubscribe(Event_Collision);
+    }
+
+    private void Event_Collision( object sender, Collision collision)
     {
 
         
@@ -56,7 +78,7 @@ public class AfixerOnArrowColition : MonoBehaviour, IArrowDamage
 
         fixPoint.mass = 0.000001f;
 
-        Event_ArrowCollision.Invoke(this, collision);
+        
 
 
         if (deleatOnColition)

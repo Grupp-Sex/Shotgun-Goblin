@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9009520961721563057}
   - component: {fileID: 7670617111327447449}
   - component: {fileID: 9006348802643492437}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858474303229518466}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 3158768639279308970}
   - component: {fileID: 1034058890989437529}
   - component: {fileID: 3500494062908391429}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 5214476765797493792}
   - component: {fileID: 2961999212100492909}
   - component: {fileID: 5309388336936671357}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 559244350921827851}
   - component: {fileID: 271647011678381227}
   - component: {fileID: 152981530034157330}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 3030634868689586766}
   - component: {fileID: 8853952061648093960}
   - component: {fileID: 4133937127345715509}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 3519492111830356329}
   - component: {fileID: 5836335770693035468}
   - component: {fileID: 8575325565087758308}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: NavMeshObsticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192749736517585172}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,6 +1000,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goblin Fracture Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 702047887813957574, guid: 5b1eb137fe63d224bb0344791b956ffc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678665005592961390, guid: 5b1eb137fe63d224bb0344791b956ffc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6339675778625416412, guid: 5b1eb137fe63d224bb0344791b956ffc,
         type: 3}

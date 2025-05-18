@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1534327169403489189}
   - component: {fileID: 5046778870483640344}
   - component: {fileID: 480468316438695856}
+  - component: {fileID: 8388602546578099186}
+  - component: {fileID: 1628836811956633403}
+  - component: {fileID: 1952281610358588220}
   m_Layer: 2
   m_Name: ArrowControler
   m_TagString: Untagged
@@ -63,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixPoint: {fileID: 1569341467774203439}
+  collisionDetection: {fileID: 0}
   deleatOnColition: 1
 --- !u!54 &5046778870483640344
 Rigidbody:
@@ -106,6 +110,72 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8388602546578099186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873254751081327347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46fd9eac16eed74c931dc0b414d0a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1628836811956633403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873254751081327347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b14ffe118e4c8448cd5850e73b9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeleatedGameObject: {fileID: 0}
+  CollisionDetection: {fileID: 0}
+--- !u!114 &1952281610358588220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873254751081327347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587017c43354098469072b25a07d3443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 15
+  maxSpeed: 30
+  damageCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rigidbody: {fileID: 0}
+  CollisionDetection: {fileID: 0}
 --- !u!1 &1671728302444154943
 GameObject:
   m_ObjectHideFlags: 0

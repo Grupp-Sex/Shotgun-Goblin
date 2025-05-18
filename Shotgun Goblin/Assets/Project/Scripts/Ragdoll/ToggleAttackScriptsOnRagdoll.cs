@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowDamage : MonoBehaviour
+public class ToggleAttackScriptsOnRagdoll : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,9 +15,4 @@ public class ArrowDamage : MonoBehaviour
     {
         
     }
-}
-
-public interface IArrowDamage
-{
-    EventPusher<Collision> Event_ArrowCollision { get; }
 }

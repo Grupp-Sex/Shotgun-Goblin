@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RagdollManager : MonobehaviorScript_ToggleLog
+public class RagdollManager : MonobehaviorScript_ToggleLog, IBlockable
 {
     
 
@@ -20,7 +20,7 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
     protected Rigidbody rb;
     protected NavMeshAgent agent;
 
-    protected List<object> canExitRagdolQueue = new List<object>();
+    protected EnableQueue canExitRagdolQueue = new EnableQueue();
 
     public EventPusher<object> Event_RagdollStart = new EventPusher<object>();
     public EventPusher<object> Event_RagdollEnd = new EventPusher<object>();
@@ -28,7 +28,7 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -42,25 +42,19 @@ public class RagdollManager : MonobehaviorScript_ToggleLog
 
     
 
-    public void BlockExitRagdoll(object key)
+    public void AddBlocker(object key)
     {
-        if (!canExitRagdolQueue.Contains(key))
-        {
-            canExitRagdolQueue.Add(key);
-        }
+        canExitRagdolQueue.AddBlocker(key);
     }
 
-    public void UnBlockExitRagdoll(object key)
+    public void RemoveBlocker(object key)
     {
-        if (canExitRagdolQueue.Contains(key))
-        {
-            canExitRagdolQueue.Remove(key);
-        }
+        canExitRagdolQueue.RemoveBlocker(key);
     }
 
     public bool CanExitRagdoll()
     {
-        return canExitRagdolQueue.Count <= 0;
+        return canExitRagdolQueue.IsBlocked();
     }
 
     public void EnterRagdoll(float duration, Vector3 trippSpeed)
