@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 5214476765797493792}
   - component: {fileID: 2961999212100492909}
   - component: {fileID: 5309388336936671357}
+  - component: {fileID: 8443566120703246168}
   m_Layer: 13
   m_Name: Enemy_Template
   m_TagString: Untagged
@@ -681,6 +682,21 @@ MonoBehaviour:
   Duration: 50
   ApliedAngularVelocity: {x: 0, y: 0, z: 0}
   ActivateButton: 0
+--- !u!114 &8443566120703246168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae3587b756d57f4e896bc36376881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  blockedObjects: []
+  RagdollManager: {fileID: 0}
 --- !u!1 &5106359225211248570
 GameObject:
   m_ObjectHideFlags: 0

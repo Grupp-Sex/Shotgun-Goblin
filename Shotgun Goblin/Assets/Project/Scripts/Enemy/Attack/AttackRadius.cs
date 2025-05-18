@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 
-public class AttackRadius : MonobehaviorScript_ToggleLog
+public class AttackRadius : EnemyAttackScript
 {
     public SphereCollider Collider;
     protected List<IDamageAbleByEnemy> damageAbles = new List<IDamageAbleByEnemy>();
@@ -103,17 +103,21 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
                 }
             }
 
-            NotifyAttack();
-
-            if (closestDamageable != null)
+            if (AttackIsUnblocked())
             {
-                //OnAttack?.Invoke(closestDamageable);
-                //closestDamageable.TakeDamage(Damage);
 
-                NotifyHit(closestDamageable);
+                NotifyAttack();
 
-                DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
+                if (closestDamageable != null)
+                {
+                    //OnAttack?.Invoke(closestDamageable);
+                    //closestDamageable.TakeDamage(Damage);
 
+                    NotifyHit(closestDamageable);
+
+                    DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
+
+                }
             }
 
             closestDamageable = null;

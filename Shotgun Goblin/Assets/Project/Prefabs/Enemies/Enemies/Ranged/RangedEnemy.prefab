@@ -124,6 +124,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08dfec826de23244d83b8b2ccf2b20ae, type: 3}
+--- !u!1 &1491558950601881023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8492934829539720686, guid: 08dfec826de23244d83b8b2ccf2b20ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 7021080810940532817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4894699556004452055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2486713343180824198, guid: 08dfec826de23244d83b8b2ccf2b20ae,
@@ -148,6 +154,16 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8443566120703246168, guid: 4d4c33fea1ba9cb4992c1aeea7a53434,
+        type: 3}
+      propertyPath: blockedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443566120703246168, guid: 4d4c33fea1ba9cb4992c1aeea7a53434,
+        type: 3}
+      propertyPath: blockedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1491558950601881023}
     - target: {fileID: 8491803010093424710, guid: 4d4c33fea1ba9cb4992c1aeea7a53434,
         type: 3}
       propertyPath: m_LocalPosition.x

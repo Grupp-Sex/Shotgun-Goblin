@@ -54,7 +54,7 @@ public class RagdollManager : MonobehaviorScript_ToggleLog, IBlockable
 
     public bool CanExitRagdoll()
     {
-        return canExitRagdolQueue.IsBlocked();
+        return canExitRagdolQueue.IsUnBlocked();
     }
 
     public void EnterRagdoll(float duration, Vector3 trippSpeed)

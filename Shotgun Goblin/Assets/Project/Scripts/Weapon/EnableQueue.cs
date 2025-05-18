@@ -27,9 +27,9 @@ public class EnableQueue
         blockerQueue.Clear();
     }
 
-    public bool IsBlocked()
+    public bool IsUnBlocked()
     {
-        return blockerQueue.Count > 0;
+        return blockerQueue.Count <= 0;
     }
 }
 
