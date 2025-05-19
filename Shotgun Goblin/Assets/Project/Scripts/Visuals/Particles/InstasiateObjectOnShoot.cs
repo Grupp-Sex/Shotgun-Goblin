@@ -45,4 +45,9 @@ public class InstasiateObjectOnShoot : MonoBehaviour, IShotActivated
             CreateProjectileGameObject(OnProjectileObject[i], projectile);
         }
     }
+
+    public void RunReloadLogic()
+    {
+
+    }
 }
