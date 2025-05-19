@@ -9712,6 +9712,7 @@ GameObject:
   - component: {fileID: 2994986816104830118}
   - component: {fileID: 1209584319383109356}
   - component: {fileID: 1727705532210433102}
+  - component: {fileID: 6414871301538359743}
   m_Layer: 11
   m_Name: ShotGun01
   m_TagString: Untagged
@@ -9754,8 +9755,6 @@ MonoBehaviour:
   projectileBeamActivator:
   - {fileID: 8802226319221307774}
   - {fileID: 6520508496490809035}
-  - {fileID: 6496965722427218826}
-  - {fileID: 8801657372864026538}
   ForceMagnitude: 1000
   hitObjects: []
   projectileHitHolder: {fileID: 0}
@@ -9819,6 +9818,24 @@ MonoBehaviour:
   LogInDebugConsole: 0
   DirectionControledDash: {fileID: 1209584319383109356}
   maximumAngle: -70
+--- !u!114 &6414871301538359743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777437075893006855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f6ff62343033d45825c08f5c1f8a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpanwedObjectParrent: {fileID: 178476145026609780}
+  OnShotObject:
+  - {fileID: 640817231561352848, guid: 8bcea5c38329ac04aa8487342c0129a3, type: 3}
+  - {fileID: 4104611702888453869, guid: 460f7b7f0f0d1a345966fa35e24f8ae5, type: 3}
+  OnProjectileObject:
+  - {fileID: 4733495985846023237, guid: 62b71e4e16cc9294393a98db35140e54, type: 3}
 --- !u!1 &1913269347283854139
 GameObject:
   m_ObjectHideFlags: 0
