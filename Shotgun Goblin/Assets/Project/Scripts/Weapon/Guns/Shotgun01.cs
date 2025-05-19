@@ -7,6 +7,7 @@ public class ShotGun01 : BaseGun
 {
     [SerializeField] int pelletsPerShot;
     [SerializeField] float randomScale;
+
     [SerializeField] float delay;
 
     private void OnDisable()
@@ -14,8 +15,11 @@ public class ShotGun01 : BaseGun
         StopAllCoroutines();
     }
 
+
     protected override void Shoot()
     {
+        
+
         base.Shoot();
         
         if(delay > 0)
@@ -35,6 +39,7 @@ public class ShotGun01 : BaseGun
         {
             ShootOneTime(transform.position, GetRandomDirection(randomScale), 100);
         }
+        
     }
 
     protected IEnumerator ShootDelay(float duration)

@@ -26,6 +26,11 @@ public class BaseHitManage : MonoBehaviour,IHitLogic, IShotActivated
         ProjectileLogic(projectile);
     }
 
+    public void RunReloadLogic()
+    {
+
+    }
+
     protected virtual void ProjectileLogic(ProjectileInfo projectile)
     {
         
