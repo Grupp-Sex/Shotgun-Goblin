@@ -217,6 +217,54 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4310579066823723909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7347887259121447850}
+  - component: {fileID: 2337498608738438769}
+  m_Layer: 2
+  m_Name: NavMeshObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7347887259121447850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310579066823723909}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4977380439728875049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &2337498608738438769
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310579066823723909}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.65, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5131602888718148011
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +286,7 @@ GameObject:
   - component: {fileID: 7686211528705036371}
   - component: {fileID: 5139814587353766637}
   - component: {fileID: 2253420176761217349}
+  - component: {fileID: 8401927174849969734}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -258,6 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7347887259121447850}
   - {fileID: 544122250801070399}
   - {fileID: 327407414600433406}
   - {fileID: 5904484905776679407}
@@ -271,7 +321,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5131602888718148011}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -305,12 +355,13 @@ MonoBehaviour:
   tiltAmount: 2
   tiltSpeed: 0.94
   orientation: {fileID: 5580618361630915387}
-  movementSpeed: 30
+  movementSpeed: 200
   groundDrag: 0
   turningSmotheness: 0.4
-  jumpForce: 10
+  jumpForce: 100
   jumpCooldown: 0
   airMultiplier: 0.25
+  isJumping: 0
   playerHeight: 2
   isGroundedOffset: 0.2
   whatIsGround:
@@ -388,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yTransform: {fileID: 81546719770475385}
   xTransform: {fileID: 1339582620177739000}
-  sensitivity: 70
+  sensitivity: 15
 --- !u!114 &1176946838625830464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +495,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &7686211528705036371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +544,26 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8401927174849969734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3712a79b9bed8cf46b0ba4bfc78b4aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 0}
+  Movement: {fileID: 0}
+  downMult: 2
+  uppMult: 1
+  applyGravity: 1
+  useJumping: 0
+  isGrounded: 0
+  fallQuickly: 0
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +808,11 @@ PrefabInstance:
       propertyPath: maximumAngle
       value: -70
       objectReference: {fileID: 0}
+    - target: {fileID: 2994986816104830118, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+        type: 3}
+      propertyPath: LogInDebugConsole
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8626599823304693784, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}

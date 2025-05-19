@@ -15,19 +15,7 @@ public abstract class EffectOverDuration<T> : MonobehaviorScript_ToggleLog
 
     
 
-    protected T currentValue;
-
-    protected T maxValue;
-
-    protected T minValue;
-
-    protected virtual void SetValues(T max, T min)
-    {
-        maxValue = max;
-        currentValue = max;
-
-        minValue = min;
-    }
+    
 
     
     protected virtual void StartEffect()
@@ -60,35 +48,38 @@ public abstract class EffectOverDuration<T> : MonobehaviorScript_ToggleLog
 
     }
 
-    
 
     protected virtual void InterploateEffect(float interpolationValue)
     {
-        float lerpValue = EffectCurve.Evaluate(1 - interpolationValue);
+        float lerpValue = EvaluateCurve(interpolationValue);
 
+        DebugLog("interpolation: " + interpolationValue + ", current value: " + lerpValue);
 
-        currentValue = Lerp(maxValue, minValue, lerpValue);
-
-        DebugLog("interpolation: " + lerpValue + ", current value: " + currentValue);
-
+        ApplyEffect(lerpValue);
         
-        ApplyEffect(currentValue);
-        
-        
-
     }
+
+
+
+    protected virtual float EvaluateCurve(float interplation)
+    {
+        return EffectCurve.Evaluate(1 - interplation);
+    }
+
+    
 
     protected virtual void DoEndEffect()
     {
-        ApplyEffect(minValue);
+        ApplyEffect(EvaluateCurve(1));
         EndEffect();
 
         StopAllCoroutines();
     }
     
-    protected abstract void ApplyEffect(T value);
+    protected abstract void ApplyEffect(float interploationValue);
 
     protected abstract void EndEffect();
 
     protected abstract T Lerp(T a, T b, float t);
 }
+

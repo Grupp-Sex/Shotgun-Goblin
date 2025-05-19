@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemeyThrowManager : MonobehaviorScript_ToggleLog
+public class EnemeyThrowManager : EnemyAttackScript
 {
     [SerializeField] ObjectThrower Thrower;
 
@@ -39,7 +39,7 @@ public class EnemeyThrowManager : MonobehaviorScript_ToggleLog
     {
         if (ToggleAttacks)
         {
-            if (CanAttack)
+            if (CanAttack && AttackIsUnblocked())
             {
                 Shoot();
             }

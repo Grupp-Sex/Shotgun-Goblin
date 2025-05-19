@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2935263949028621811}
   - component: {fileID: 1655727494870309885}
   - component: {fileID: 3968220239078386373}
+  - component: {fileID: 5124556441173366513}
   m_Layer: 0
   m_Name: InternalsParticles
   m_TagString: Untagged
@@ -4965,3 +4966,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5124556441173366513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140250886354715064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a083ad39351745418f6dd00da2ea12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  tags:
+  - tag: goblinOrganParticles
+    maxAmount: 4
+    objectValue: 1

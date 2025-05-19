@@ -4,30 +4,30 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 
-public class AttackRadius : MonobehaviorScript_ToggleLog
+public class AttackRadius : EnemyAttackScript
 {
     public SphereCollider Collider;
-    private List<IDamageAbleByEnemy> damageAbles = new List<IDamageAbleByEnemy>();
+    protected List<IDamageAbleByEnemy> damageAbles = new List<IDamageAbleByEnemy>();
     [SerializeField] public float Damage = 10.0f;
     [SerializeField] public float AttackDelay = 0.5f;
     public delegate void AttackEvent(IDamageAbleByEnemy Target);
     private AttackEvent OnAttack;
-    private Coroutine AttackCoroutine;
-    private IOnEnemyAttack[] attacksScripts;
-    private IOnEnemyHit[] hitsScripts;
+    protected Coroutine AttackCoroutine;
+    private IOnEnemyAttack[] attacksScripts;//här
+    private IOnEnemyHit[] hitsScripts;//här
 
-    private void Start()
+    private void Start() //här
     {
         attacksScripts = GetComponents<IOnEnemyAttack>();
         hitsScripts = GetComponents<IOnEnemyHit>();
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Collider = GetComponent<SphereCollider>();    
     }
 
-    protected void NotifyAttack()
+    protected void NotifyAttack()//här
     {
         foreach (var attacksScripts in attacksScripts)
         {
@@ -35,7 +35,7 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
         }
     }
 
-    protected void NotifyHit(IDamageAbleByEnemy hitObject)
+    protected void NotifyHit(IDamageAbleByEnemy hitObject)//här
     {
         foreach (var hitsScripts in hitsScripts)
         {
@@ -43,7 +43,7 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         IDamageAbleByEnemy damageable = other.GetComponent<IDamageAbleByEnemy>();
 
@@ -61,7 +61,7 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         IDamageAbleByEnemy damageable = other.GetComponent<IDamageAbleByEnemy>();
 
@@ -80,7 +80,7 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
         }
     }
 
-    private IEnumerator Attack()
+    protected virtual IEnumerator Attack()
     {
         WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
 
@@ -103,17 +103,21 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
                 }
             }
 
-            NotifyAttack();
-
-            if (closestDamageable != null)
+            if (AttackIsUnblocked())
             {
-                //OnAttack?.Invoke(closestDamageable);
-                //closestDamageable.TakeDamage(Damage);
 
-                NotifyHit(closestDamageable);
+                NotifyAttack();
 
-                DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
+                if (closestDamageable != null)
+                {
+                    //OnAttack?.Invoke(closestDamageable);
+                    //closestDamageable.TakeDamage(Damage);
 
+                    NotifyHit(closestDamageable);
+
+                    DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
+
+                }
             }
 
             closestDamageable = null;
@@ -127,18 +131,18 @@ public class AttackRadius : MonobehaviorScript_ToggleLog
         AttackCoroutine = null;
     }
 
-    private bool DisableDamageAbles(IDamageAbleByEnemy damageAble)
+    protected bool DisableDamageAbles(IDamageAbleByEnemy damageAble)
     {
         return damageAble != null && !damageAble.GetTransform().gameObject.activeSelf;
     }
 }
 
-public interface IOnEnemyAttack
+public interface IOnEnemyAttack//här
 {
     public void OnAttack();
 }
 
-public interface IOnEnemyHit
+public interface IOnEnemyHit//här
 {
     public void OnAttackHit(IDamageAbleByEnemy hitObject, float damage);
 

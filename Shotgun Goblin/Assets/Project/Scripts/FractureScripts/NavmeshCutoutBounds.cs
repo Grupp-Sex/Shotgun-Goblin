@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class NavmeshCutoutBounds : MonoBehaviour
 {
 
-    [SerializeField] Vector3 sizeMult = new Vector3(1,1,1);
+    public Vector3 sizeMult = new Vector3(1,1,1);
     [SerializeField] Vector3 boundSize;
     protected NavMeshObstacle navMeshObstacle;
 

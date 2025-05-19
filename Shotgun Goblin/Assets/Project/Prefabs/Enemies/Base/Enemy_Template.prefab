@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9009520961721563057}
   - component: {fileID: 7670617111327447449}
   - component: {fileID: 9006348802643492437}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858474303229518466}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 3158768639279308970}
   - component: {fileID: 1034058890989437529}
   - component: {fileID: 3500494062908391429}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -269,7 +269,11 @@ GameObject:
   - component: {fileID: 1840320366320052042}
   - component: {fileID: 4029653110763140708}
   - component: {fileID: 8079707184984434840}
-  m_Layer: 0
+  - component: {fileID: 5214476765797493792}
+  - component: {fileID: 2961999212100492909}
+  - component: {fileID: 5309388336936671357}
+  - component: {fileID: 8443566120703246168}
+  m_Layer: 13
   m_Name: Enemy_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,6 +295,7 @@ Transform:
   m_Children:
   - {fileID: 7898969726975408732}
   - {fileID: 9192749736517585172}
+  - {fileID: 3519492111830356329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4467291215052337543
@@ -383,6 +388,7 @@ MonoBehaviour:
   currentHealth: 0
   invincible: 0
   imortal: 0
+  kill: 0
 --- !u!114 &5450903973860932361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,8 +410,8 @@ Rigidbody:
   m_GameObject: {fileID: 3089769828471599658}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_Drag: 4
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -418,10 +424,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &322687426823831476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +488,7 @@ MonoBehaviour:
   - {fileID: 5286726007972810379, guid: afd370ec24ce4f4478b75b929d636798, type: 3}
   - {fileID: 4837165116107692786, guid: 6c4fe93a5d3baf94aa7bb9b01be4b257, type: 3}
   - {fileID: 9140250886354715064, guid: 86ec30336e6729a41ba8005a9731a623, type: 3}
-  - {fileID: 8052496006612818749, guid: fe5121ba7ee722046a5c352fe131c923, type: 3}
+  - {fileID: 3836592571752099545, guid: ecd3286fb483a9246abec59098bdc9d4, type: 3}
 --- !u!114 &8759330194841913597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,19 +554,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 3089769828471599658}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5000001
+  m_Radius: 0.7
   m_Speed: 7
   m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 0
+  m_AngularSpeed: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &1749809544541325711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  UpdateSpeed: 2
+  UpdateSpeed: 1.6
 --- !u!114 &1840320366320052042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +611,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   RagdollTime: 6
   angularTripSpeed: {x: 0, y: 0, z: -1}
-  IsKinematic: 0
+  RagdollManager: {fileID: 0}
 --- !u!114 &8079707184984434840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +626,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InstanciatedObject:
   - {fileID: 6983204364332887158, guid: a8d0648ebdbc63a4294fe2627990f637, type: 3}
+  - {fileID: 6834379432930131194, guid: d805ad3f6c4b2c4488623ff839ab6d85, type: 3}
+--- !u!114 &5214476765797493792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 932fd6964b3c1d5499d3579bd1b6e421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 0}
+  Agent: {fileID: 0}
+  Active: 1
+  Interpolation: 0.1
+  TargetInterpolation: 0.2
+  MaxRotationAngle: 360
+  CanRotate: 0
+  NotNull: 0
+  currentRotation: {x: 0, y: 0, z: 0, w: 0}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  interploationRotation: {x: 0, y: 0, z: 0, w: 0}
+  differenceRotation: {x: 0, y: 0, z: 0, w: 0}
+  navmeshDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &2961999212100492909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09915d9b7c8439047bb07ccd5df8f88e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  IsKinematic: 0
+--- !u!114 &5309388336936671357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85638294ce3f974984cc76901e8c2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RagdollManager: {fileID: 0}
+  Duration: 50
+  ApliedAngularVelocity: {x: 0, y: 0, z: 0}
+  ActivateButton: 0
+--- !u!114 &8443566120703246168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae3587b756d57f4e896bc36376881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  blockedObjects: []
+  RagdollManager: {fileID: 0}
 --- !u!1 &5106359225211248570
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +709,7 @@ GameObject:
   - component: {fileID: 559244350921827851}
   - component: {fileID: 271647011678381227}
   - component: {fileID: 152981530034157330}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +798,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -737,7 +814,7 @@ GameObject:
   - component: {fileID: 3030634868689586766}
   - component: {fileID: 8853952061648093960}
   - component: {fileID: 4133937127345715509}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,6 +908,70 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8696698515940536142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3519492111830356329}
+  - component: {fileID: 5836335770693035468}
+  - component: {fileID: 8575325565087758308}
+  m_Layer: 13
+  m_Name: NavMeshObsticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3519492111830356329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696698515940536142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8491803010093424710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &5836335770693035468
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696698515940536142}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.55, y: 1.05, z: 0.55}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &8575325565087758308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696698515940536142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e44d6506dee8e4d8ef4bc41b897173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 2961999212100492909}
+  EnableOnRagdoll: 1
+  DoToggle: 1
 --- !u!1 &9141592343737676525
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192749736517585172}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,6 +1016,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goblin Fracture Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 702047887813957574, guid: 5b1eb137fe63d224bb0344791b956ffc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678665005592961390, guid: 5b1eb137fe63d224bb0344791b956ffc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6339675778625416412, guid: 5b1eb137fe63d224bb0344791b956ffc,
         type: 3}
