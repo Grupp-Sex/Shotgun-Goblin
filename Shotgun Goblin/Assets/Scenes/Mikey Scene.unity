@@ -415,11 +415,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a40c6caa7531bc4b88ae535e6307b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  DashObject: {fileID: 628586873}
   cam: {fileID: 35291369}
   orientation: {fileID: 2101733368}
-  dashForce: 20
-  dashDuration: 0
-  dashCD: 2
+  dashForce: 150
+  baseDash: {x: 0, y: 0, z: 1}
+  dashDuration: 0.5
+  dashCD: 1
+  canDash: 1
 --- !u!1 &849489055
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +887,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Abilaties Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401927174849969734, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: uppMult
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
