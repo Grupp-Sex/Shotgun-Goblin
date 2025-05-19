@@ -11,6 +11,7 @@ public class PlatformerGravity : MonoBehaviour
     [SerializeField] private float uppMult = 0;
     [SerializeField] private bool applyGravity;
     [SerializeField] private bool useJumping;
+    [SerializeField] private bool isGrounded;
 
     public bool fallQuickly = false;
 
@@ -38,13 +39,21 @@ public class PlatformerGravity : MonoBehaviour
 
     protected void CheckFalling()
     {
+
+        
+
         bool isMoveingUp = Vector3.Dot(Rigidbody.velocity, Physics.gravity) < 0;
         bool isJumping = isMoveingUp;
+        
 
-
-        if (Movement != null && useJumping)
+        if (Movement != null)
         {
-            isJumping = Movement.isJumping;
+            isGrounded = Movement.grounded;
+
+            if (useJumping)
+            {
+                isJumping = Movement.isJumping;
+            }
         }
 
         fallQuickly = !(isMoveingUp && isJumping);
@@ -69,7 +78,7 @@ public class PlatformerGravity : MonoBehaviour
 
     protected void ApplyGravity(Vector3 gravity, float mult)
     {
-        if (mult != 0)
+        if (mult != 0 && !isGrounded)
         {
             Rigidbody.AddForce(gravity * mult, ForceMode.Acceleration);
         }
