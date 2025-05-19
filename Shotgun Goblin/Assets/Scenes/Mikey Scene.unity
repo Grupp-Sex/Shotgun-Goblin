@@ -417,9 +417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 35291369}
   orientation: {fileID: 2101733368}
-  dashForce: 20
-  dashDuration: 0
-  dashCD: 2
+  dashForce: 250
+  dashDuration: 0.25
+  dashCD: 0.75
 --- !u!1 &849489055
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +883,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Abilaties Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401927174849969734, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: uppMult
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401927174849969734, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: downMult
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
