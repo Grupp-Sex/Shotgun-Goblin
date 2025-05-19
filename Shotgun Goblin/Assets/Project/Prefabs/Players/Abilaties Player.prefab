@@ -107,7 +107,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.5, z: 0}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 5139814587353766637}
   - component: {fileID: 2253420176761217349}
   - component: {fileID: 8401927174849969734}
+  - component: {fileID: 555486766966792024}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -559,11 +560,32 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   Movement: {fileID: 0}
   downMult: 2
-  uppMult: 1
+  uppMult: 0.5
   applyGravity: 1
   useJumping: 0
   isGrounded: 0
   fallQuickly: 0
+--- !u!114 &555486766966792024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a40c6caa7531bc4b88ae535e6307b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  DashObject: {fileID: 5131602888718148011}
+  cam: {fileID: 0}
+  orientation: {fileID: 327407414600433406}
+  dashForce: 150
+  baseDash: {x: 0, y: 0, z: 1}
+  dashDuration: 0.5
+  dashCD: 0.5
+  canDash: 1
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +888,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 777437075893006855, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1284417204947279841}
+    - targetCorrespondingSourceObject: {fileID: 777437075893006855, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2320283416121655480}
   m_SourcePrefab: {fileID: 100100000, guid: fcce4a658cdf7864fb1adf17ad50ff0a, type: 3}
 --- !u!4 &2767656118726424205 stripped
 Transform:
@@ -880,6 +910,42 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5899546491715448469}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1284417204947279841
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563262671012748434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1653cad90fccc79439dddbe91ae18581, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2320283416121655480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563262671012748434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e2791520ea75948a108183d68efee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  shootTrigger: RECOIL
+  reloadTrigger: RELOAD
 --- !u!1001 &7551594475689504743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}

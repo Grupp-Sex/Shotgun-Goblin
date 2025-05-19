@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     public Vector3 GetInputDirection()
     {
-        return targetMovementInput.normalized;
+        return targetMovementInput;
     }
 
     //gradualy turns movementInput to the trargent input
@@ -143,14 +143,14 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     }
 
-    protected void WheelBreaksOn()
+    public void WheelBreaksOn()
     {
         wheel.brakeTorque = BreakingTorque;
 
         wheel.motorTorque = 0;
     }
 
-    protected void WheelBreaksOff()
+    public void WheelBreaksOff()
     {
         wheel.brakeTorque = 0;
 

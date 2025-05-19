@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerDash : MonoBehaviour
+public class PlayerDash : BaseDash
 {
 
     [Header("References")]
@@ -17,10 +17,12 @@ public class PlayerDash : MonoBehaviour
 
     [Header("Dash Values")]
     [SerializeField] private float dashForce;
+    [SerializeField] private Vector3 baseDash = Vector3.forward;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCD;
-    private bool canDash = true;
+    [SerializeField] private bool canDash = true;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,17 +53,43 @@ public class PlayerDash : MonoBehaviour
     {
 
         canDash = false;
-        
-        Vector3 forceToApply = direction.normalized * dashForce;
 
-        playerRB.velocity = Vector3.zero;
+        movement.WheelBreaksOff();
+        
+        //Vector3 forceToApply = direction.normalized * dashForce;
+
+        //playerRB.velocity = Vector3.zero;
 
         //Added force when dash is initiated in game in player local space, not world space
-        playerRB.AddRelativeForce(forceToApply, ForceMode.Impulse);
+        //playerRB.AddRelativeForce(forceToApply, ForceMode.Impulse);
+        if(direction.sqrMagnitude <= 0.0001f * 0.0001f)
+        {
+            direction = baseDash;
+        }
+        
+
+        ApplyDash(CreateDashData(direction), playerRB);
 
         yield return new WaitForSeconds(dashDuration);
 
+        movement.WheelBreaksOn();
+
         yield return new WaitForSeconds(dashCD);
+
         canDash = true;
     }
+
+    protected DashData CreateDashData(Vector3 direction)
+    {
+        return new DashData()
+        {
+            forceMode = ForceMode.Impulse,
+            truncateDirection = -direction,
+            unalterd_direction = direction,
+            velocity = dashForce,
+            worldForce = false,
+        };
+
+
+    } 
 }
