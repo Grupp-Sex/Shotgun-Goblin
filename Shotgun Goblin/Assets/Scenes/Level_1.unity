@@ -1829,6 +1829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2267,6 +2272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3306,6 +3316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4065,6 +4080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5704,6 +5724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6019,6 +6044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty_house_nr1 Variant (4) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9314,6 +9344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr 3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10326,6 +10361,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 305496706}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &856014249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8887209440777681288, guid: eb331929aa402534b921e8eebc01d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782074809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &861334897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10510,84 +10551,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 741841616}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &882578889
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2925579495432597513, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 59.672028
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_Name
-      value: Abilaties Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}
 --- !u!1 &884827527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7598235769162925432, guid: 54ec02c3a3e31e14d879c6e362eff127,
@@ -10766,6 +10729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty_house_nr1 Variant (4) Variant (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12097,6 +12065,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12339,6 +12312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty_house_nr1 Variant (4) Variant (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12486,6 +12464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12714,12 +12697,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16083455, y: 0.022616385, z: 0.25546288}
   m_Center: {x: 0.06910917, y: -0.00000009966802, z: 0.11773149}
---- !u!4 &1043956943 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5124393934527020834, guid: eb331929aa402534b921e8eebc01d2c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 882578889}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1044198258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8473097295116205307, guid: a612b2b1b2b2dd34bb6839fa6a9ce9db,
@@ -13129,6 +13106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13208,6 +13190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr 3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14552,6 +14539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15017,7 +15009,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 1043956943}
+      objectReference: {fileID: 1782074810}
     - target: {fileID: 8227362601943977032, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19940,6 +19932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr 3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20250,6 +20247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20822,6 +20824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty_house_nr1 Variant (4) Variant (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21755,6 +21762,94 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16083455, y: 0.02261641, z: 0.18031637}
   m_Center: {x: 0.06910891, y: -1.3383851e-10, z: 0.080157064}
+--- !u!1001 &1782074809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 606288327557056292, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266424165746602426, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.60002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.893
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.610385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: m_Name
+      value: Abilaties Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8887209440777681288, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1841644999}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}
+--- !u!4 &1782074810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5124393934527020834, guid: eb331929aa402534b921e8eebc01d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782074809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1784747645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22572,6 +22667,80 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 446b954b687ffbd41a568a800090fd5e, type: 3}
+--- !u!1001 &1841644998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 856014249}
+    m_Modifications:
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.726
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.067
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9922886
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.119163826
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.016000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.030121408
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 166.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 178.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 183.303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038073506221817743, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+        type: 3}
+      propertyPath: m_Name
+      value: shotgun3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 644f5ac7d68509f4b80ac88f56ddd10d, type: 3}
+--- !u!4 &1841644999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 372720105343690037, guid: 644f5ac7d68509f4b80ac88f56ddd10d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841644998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1845756595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24390,6 +24559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shanty house nr 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27079,6 +27253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27800,6 +27979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3553178883642992151, guid: e89ca8b6a791d8f42ba1671eb140b8e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27942,6 +28126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shanty house nr2
       objectReference: {fileID: 0}
+    - target: {fileID: 8536287450624015053, guid: 3ef3d89f71f781242afbd6ce686f508b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27957,9 +28146,9 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 882578889}
   - {fileID: 1219919949}
   - {fileID: 1562116244}
+  - {fileID: 1782074809}
   - {fileID: 1481635498}
   - {fileID: 2143843348}
   - {fileID: 305579577}
