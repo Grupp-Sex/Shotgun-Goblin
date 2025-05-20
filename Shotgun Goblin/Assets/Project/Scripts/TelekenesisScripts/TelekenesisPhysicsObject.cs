@@ -11,6 +11,8 @@ using UnityEngine.Animations;
 public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnFractionFreeze
 {
 
+    public Collider BoundCollider;
+
     [SerializeField] public float BoundSize;
     //[SerializeField] public Vector3 Velocity;
     //[SerializeField] public Vector3 ForceSum;
@@ -128,7 +130,12 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
         //Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
-        BoundSize = GetComponent<Collider>().bounds.size.magnitude;
+        if(BoundCollider == null)
+        {
+            BoundCollider = GetComponent<Collider>();
+        }
+
+        BoundSize = BoundCollider.bounds.size.magnitude;
 
         onTelekenesisEnterScripts = GetComponents<IOnTelekenesisEnter>();
         onTelekenesisLeaveScripts = GetComponents<IOnTelekenesisLeave>();

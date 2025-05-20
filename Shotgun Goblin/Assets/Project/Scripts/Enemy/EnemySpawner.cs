@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
 
-
+    public EventPusher<GameObject> Event_ObjectSpawned = new EventPusher<GameObject>();
     private void Awake()
     {
         for (int i = 0; i < enemies.Count; i++)
@@ -113,6 +113,8 @@ public class EnemySpawner : MonoBehaviour
                 enemy.agent.enabled = true;
                 enemy.movement.StartChase();
             }
+
+            Event_ObjectSpawned.Invoke(this, enemy.gameObject);
         }
     }
 
