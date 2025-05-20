@@ -82,8 +82,6 @@ public class PlayerDash : BaseDash
 
         Vector3 dash;
 
-        DebugLog(input.ToString());
-
         if (CheckDirection(new Vector3(1, 0, 0), input, out dash))
         {
             StartCoroutine(Dash(dash));
