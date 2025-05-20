@@ -289,6 +289,8 @@ GameObject:
   - component: {fileID: 8401927174849969734}
   - component: {fileID: 555486766966792024}
   - component: {fileID: 1604784130447322221}
+  - component: {fileID: 6228649924915096453}
+  - component: {fileID: 7967066861798169160}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -309,10 +311,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7347887259121447850}
   - {fileID: 544122250801070399}
   - {fileID: 327407414600433406}
   - {fileID: 5904484905776679407}
+  - {fileID: 7347887259121447850}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &81546719770475385
@@ -625,6 +627,35 @@ MonoBehaviour:
     m_RotationOrder: 4
   lerpValue: 0.5
   urpVolume: {fileID: 2363283799817611891}
+--- !u!114 &6228649924915096453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5c7fedd44dae64ea451f55749f9a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DroppedObjects:
+  - {fileID: 6310695856090240144}
+  DeathDroppedObjects: {fileID: 0}
+--- !u!114 &7967066861798169160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdc15da8d6d6e44f93ba72b0cc96a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  templates:
+  - {fileID: 1586364916420043334, guid: 60a33c9f0ac0317459a750e41d0264dd, type: 3}
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,12 +978,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2940397446322014656}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6310695856090240144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6310695856090240144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9176783066670341456, guid: 0bf999c9ec834ee439d09137bababff2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2940397446322014656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5899546491715448469
 PrefabInstance:
   m_ObjectHideFlags: 0

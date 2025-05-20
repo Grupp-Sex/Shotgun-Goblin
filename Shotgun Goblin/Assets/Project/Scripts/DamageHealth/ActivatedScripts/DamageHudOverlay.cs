@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class DamageHudOverlay : MonoBehaviour, IDamageActivated
+public class DamageHudOverlay : MonoBehaviour, IDamageActivated, IDeathActivated
 {
     protected HealthManager healthManager;
     [SerializeField] private AnimationCurve curve;
@@ -22,6 +22,16 @@ public class DamageHudOverlay : MonoBehaviour, IDamageActivated
     public void OnDamage(DamageInfo damageInfo)
     {
         CalculateHealthLerp();
+    }
+
+    public void OnDeath(DamageInfo damage)
+    {
+        targetValue = 1;
+        currentValue = 1;
+        if (urpVolume != null)
+        {
+            urpVolume.weight = 1;
+        }
     }
 
     protected void CalculateHealthLerp()
