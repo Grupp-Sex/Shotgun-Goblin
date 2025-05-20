@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8222662960024394512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 36.759354
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.151573
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -57.329292
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a050e1bd01af44a478d0bef7a2584bbc, type: 2}
+    - target: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_Name
+      value: bigSpikeWall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7684823715203125376}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5250052733531724549}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8000937568443677986}
+  m_SourcePrefab: {fileID: 100100000, guid: 0e014f1770e31a1489b3a9ba4959c17b, type: 3}
+--- !u!1 &9141653809050232385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8222662960024394512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7684823715203125376
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141653809050232385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7994650926060863905, guid: 0e014f1770e31a1489b3a9ba4959c17b, type: 3}
+--- !u!54 &5250052733531724549
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141653809050232385}
+  serializedVersion: 4
+  m_Mass: 30
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8000937568443677986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141653809050232385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eaf265018f99a418169cb0e71863cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerOptions:
+    triggerType: 0
+    minimumCollisionForce: 0
+    filterCollisionsByTag: 0
+    triggerAllowedTags: []
+    triggerKey: 0
+  fractureOptions:
+    fragmentCount: 25
+    xAxis: 0
+    yAxis: 1
+    zAxis: 1
+    detectFloatingFragments: 0
+    asynchronous: 0
+    insideMaterial: {fileID: 2100000, guid: a050e1bd01af44a478d0bef7a2584bbc, type: 2}
+    textureScale: {x: 1, y: 1}
+    textureOffset: {x: 0, y: 0}
+  refractureOptions:
+    enableRefracturing: 0
+    maxRefractureCount: 1
+    invokeCallbacks: 0
+  callbackOptions:
+    onFracture:
+      m_PersistentCalls:
+        m_Calls: []
+    onCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  currentRefractureCount: 0
+  FractureTemplate: {fileID: 2218318203337981819, guid: a4b2fe93285c2944cb44b35669734159,
+    type: 3}
+  FractureOnStartup: 1
+  ActivateFractureButton: 0
