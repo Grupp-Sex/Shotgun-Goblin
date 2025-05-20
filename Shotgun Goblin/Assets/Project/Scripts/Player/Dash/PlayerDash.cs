@@ -145,7 +145,7 @@ public class PlayerDash : BaseDash
         return new DashData()
         {
             forceMode = ForceMode.Impulse,
-            truncateDirection = -direction,
+            truncateDirection = direction,
             unalterd_direction = direction,
             velocity = dashForce,
             worldForce = false,
