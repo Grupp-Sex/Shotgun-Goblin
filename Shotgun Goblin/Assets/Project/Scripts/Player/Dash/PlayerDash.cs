@@ -22,6 +22,9 @@ public class PlayerDash : BaseDash
     [SerializeField] private float dashCD;
     [SerializeField] private bool canDash = true;
 
+
+    private Vector3 tappCount;
+    
     
 
     // Start is called before the first frame update
@@ -47,6 +50,66 @@ public class PlayerDash : BaseDash
         Vector3 dashDirection = movement.GetInputDirection();
         StartCoroutine(Dash(dashDirection));
     }
+    private void OnKeysDashStart(InputValue input)
+    {
+        if (!canDash) return;
+
+
+        if (tappCount.sqrMagnitude <= 0)
+        {
+            StartCoroutine(Multitap(0.5f));
+        }
+
+        Vector3 inputV = input.Get<Vector3>();
+        Vector3 dashDirection = new Vector3(inputV.x, 0, inputV.y);
+
+        tappCount += dashDirection;
+
+        KeysDash(tappCount);
+
+        
+    }
+
+    private IEnumerator Multitap(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        tappCount = Vector3.zero;
+    }
+
+    protected void KeysDash(Vector3 input)
+    {
+
+        Vector3 dash;
+
+        DebugLog(input.ToString());
+
+        if (CheckDirection(new Vector3(1, 0, 0), input, out dash))
+        {
+            StartCoroutine(Dash(dash));
+            tappCount = Vector3.zero;
+            return;
+        }
+        else if (CheckDirection(new Vector3(0, 0, 1), input, out dash))
+        {
+            StartCoroutine(Dash(dash));
+            tappCount = Vector3.zero;
+            return;
+        }
+
+        //tappCount = Vector3.zero;
+
+    }
+
+    protected bool CheckDirection(Vector3 direction, Vector3 input, out Vector3 fixedInput)
+    {
+        fixedInput = new Vector3(direction.x * input.x, direction.y * input.y, direction.z * input.z);
+
+        return fixedInput.sqrMagnitude > 1; 
+    }
+
+    
+
 
     //Coroutine for dash behaviour
     IEnumerator Dash(Vector3 direction)
@@ -89,7 +152,5 @@ public class PlayerDash : BaseDash
             velocity = dashForce,
             worldForce = false,
         };
-
-
     } 
 }
