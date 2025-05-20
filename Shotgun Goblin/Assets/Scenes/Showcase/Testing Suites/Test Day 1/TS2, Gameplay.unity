@@ -587,10 +587,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 974636516652071717, guid: c53855979bda61f4ab3f209991b002fd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1166868699098219350, guid: c53855979bda61f4ab3f209991b002fd,
         type: 3}
       propertyPath: m_Name
       value: Explosive Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852637047914389379, guid: c53855979bda61f4ab3f209991b002fd,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852637047914389379, guid: c53855979bda61f4ab3f209991b002fd,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6559437202000231082, guid: c53855979bda61f4ab3f209991b002fd,
         type: 3}
