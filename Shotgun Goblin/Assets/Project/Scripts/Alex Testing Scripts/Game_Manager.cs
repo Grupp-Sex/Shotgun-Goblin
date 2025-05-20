@@ -31,7 +31,7 @@ public class Game_Manager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Game file"); //Game file and it's components must be added here
+        SceneManager.LoadScene("TS2, Gameplay"); //Game file and it's components must be added here
     }
 
     public void GameOver()
@@ -52,6 +52,10 @@ public class Game_Manager : MonoBehaviour
         SceneManager.LoadScene("Main_Menu"); 
     }
 
+    public void Levels()
+    {
+        SceneManager.LoadScene("Level_Selection");
+    }
     public void Options()
     {
         SceneManager.LoadScene("Options_Menu");
