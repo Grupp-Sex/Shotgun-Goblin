@@ -76,6 +76,9 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem, IUserReference
     {
         if (!GetIsReloading)
         {
+            //Micke modifierade i interface och här
+            NotifyReloadActivated();
+
             StartCoroutine(DoReloadTimer(ReloadTimer));
         }
     }
@@ -160,6 +163,15 @@ public class BaseGun : MonobehaviorScript_ToggleLog, IHeldItem, IUserReference
         }
     }
 
+    //Micke lade till denna 
+    public virtual void NotifyReloadActivated()
+    {
+        foreach (var shot in shootActivatedScripts)
+        {
+            shot.RunReloadLogic();
+        }
+    }
+
 }
 
 
@@ -175,12 +187,14 @@ public struct ProjectileInfo
     
 }
 
-
+//Used in shotgun animations script as well (some of it)
 public interface IShotActivated
 {
     public void RunShootLogic();
 
     public void RunProjectileLogic(ProjectileInfo projectile);
+
+    public void RunReloadLogic();
 }
 public interface IHitLogic
 {

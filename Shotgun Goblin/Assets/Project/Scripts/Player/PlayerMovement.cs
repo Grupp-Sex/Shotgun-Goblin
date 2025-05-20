@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour, IMover
     
 
     [Header ("Camera Tilt")]
-    private float currentTilt = 0f;
-     private float targetTilt;
+   
     [SerializeField] private float tiltAmount = 10f;
     [SerializeField] private float tiltSpeed = 0.8f;
+    private float currentTilt = 0f;
+    private float targetTilt;
 
 
-   [SerializeField] private Transform orientation;
+    [SerializeField] private Transform orientation;
     private Rigidbody characterRB;
 
     
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour, IMover
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    public bool isJumping;
 
     [Header ("Ground Check")]
     public float playerHeight;
@@ -122,7 +124,7 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     public Vector3 GetInputDirection()
     {
-        return targetMovementInput.normalized;
+        return targetMovementInput;
     }
 
     //gradualy turns movementInput to the trargent input
@@ -141,14 +143,14 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     }
 
-    protected void WheelBreaksOn()
+    public void WheelBreaksOn()
     {
         wheel.brakeTorque = BreakingTorque;
 
         wheel.motorTorque = 0;
     }
 
-    protected void WheelBreaksOff()
+    public void WheelBreaksOff()
     {
         wheel.brakeTorque = 0;
 
@@ -192,14 +194,25 @@ public class PlayerMovement : MonoBehaviour, IMover
     private void OnJumpStart()
     {
         
-        if (readyToJump && grounded)
+        if (readyToJump)
         {
-            readyToJump = false;
+            isJumping = true;
+            if (grounded)
+            {
 
-            Jump();
 
-            Invoke(nameof(ResetJump), jumpCooldown);
+                readyToJump = false;
+
+                Jump();
+
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
+    }
+
+    private void OnJumpStop()
+    {
+        isJumping = false;
     }
 
     private void Jump()
