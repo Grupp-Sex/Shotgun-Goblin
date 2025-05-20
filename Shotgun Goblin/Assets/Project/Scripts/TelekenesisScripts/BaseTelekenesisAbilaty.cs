@@ -25,19 +25,23 @@ public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
 
     public virtual void OnGrabTelekenesisObject(TelekenesisPhysicsObject grabedObjec){}
     public virtual void OnThrowTelekenesisObject(TelekenesisPhysicsObject thrownObject){}
-
     public virtual void OnDroppTelekenesisObject(TelekenesisPhysicsObject droppedObject){}
 
     protected virtual void RunFuncOnAllObjects(List<TelekenesisPhysicsObject> objects, Action<TelekenesisPhysicsObject> func)
     {
         for(int i = 0; i < objects.Count; i++)
         {
-            func.Invoke(objects[i]);
+            if (objects[i] != null)
+            {
+                func.Invoke(objects[i]);
+            }
         }
     }
     protected virtual void RunFuncOnAllHeldObjects(Action<TelekenesisPhysicsObject> func)
     {
+        
         RunFuncOnAllObjects(heldObjects, func);
+        
     }
 
     protected virtual void OnUpdate()
