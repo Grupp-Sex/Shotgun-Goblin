@@ -131,7 +131,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -158,7 +158,7 @@ MonoBehaviour:
     xAxis: 0
     yAxis: 1
     zAxis: 1
-    detectFloatingFragments: 0
+    detectFloatingFragments: 1
     asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 38a96a795bc26e44c9c0092455466e31, type: 2}
     textureScale: {x: 1, y: 1}

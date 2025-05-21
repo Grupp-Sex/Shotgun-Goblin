@@ -50,6 +50,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6028361233274503299, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6981722123407915473, guid: b33ec863faf854c47b994deafbf5e882,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -115,6 +120,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: brickwall
       objectReference: {fileID: 0}
+    - target: {fileID: 8447527881771646016, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447527881771646016, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -137,6 +152,11 @@ PrefabInstance:
     - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2864248215751500541, guid: dad337477249c9b468cca3015565a165,
@@ -204,6 +224,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall-post (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -226,6 +256,11 @@ PrefabInstance:
     - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2864248215751500541, guid: dad337477249c9b468cca3015565a165,
@@ -282,6 +317,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall-post
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -356,9 +401,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 72.12
       objectReference: {fileID: 0}
+    - target: {fileID: 4695409623596463905, guid: be882095451714c46b83f4b165b92493,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695409623596463905, guid: be882095451714c46b83f4b165b92493,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6940283750711663084, guid: be882095451714c46b83f4b165b92493,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940283750711663084, guid: be882095451714c46b83f4b165b92493,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -383,6 +443,11 @@ PrefabInstance:
     - target: {fileID: 6028361233274503299, guid: b33ec863faf854c47b994deafbf5e882,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6028361233274503299, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6981722123407915473, guid: b33ec863faf854c47b994deafbf5e882,
@@ -450,6 +515,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: brickwall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8447527881771646016, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447527881771646016, guid: b33ec863faf854c47b994deafbf5e882,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -472,6 +547,11 @@ PrefabInstance:
     - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413461562456440820, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2864248215751500541, guid: dad337477249c9b468cca3015565a165,
@@ -528,6 +608,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall-post (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581540510521054194, guid: dad337477249c9b468cca3015565a165,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
