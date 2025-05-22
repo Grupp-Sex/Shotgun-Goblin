@@ -19,6 +19,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     protected IDeathActivated[] deathActivatedScripts;
     protected IDamageActivated[] damageActivatedScripts;
 
+    public EventPusher<float> Event_HealthChanged = new EventPusher<float>();
+
     private bool gameIsOn;
 
     protected DamageInfo lastHit;
@@ -50,11 +52,19 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
     }
 
-    
+    public virtual void Heal(float health)
+    {
+        
+        currentHealth += health;
+        Event_HealthChanged.Invoke(this, health);
+
+
+        CheckHealth();
+    }
+
     public virtual void Damage(float damage, Vector3 position)
     {
-        Damage(new DamageInfo { damage = damage, position = position } );
-        
+        Damage(new DamageInfo { damage = damage, position = position } );   
     }
 
     public virtual void Damage(DamageInfo damageInfo)
@@ -71,6 +81,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
 
         currentHealth -= damage;
+        Event_HealthChanged.Invoke(this,-damage);
         DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth);
         CheckHealth();
 
@@ -80,6 +91,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     
     protected virtual void CheckHealth()
     {
+        if(currentHealth >= maxHealth) currentHealth = maxHealth;
+
         if (!imortal && currentHealth <= 0 && !isDying)
         {
             StartDeath();
