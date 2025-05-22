@@ -158,7 +158,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6418231685011932691}
   serializedVersion: 8
   lengthInSec: 1000
-  simulationSpeed: 30
+  simulationSpeed: 100
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -403,7 +403,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -456,7 +456,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -509,7 +509,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -722,7 +722,7 @@ ParticleSystem:
     gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -786,7 +786,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 5, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.5, y: 0.1, z: 0.5}
     placementMode: 2
@@ -5019,6 +5019,8 @@ MonoBehaviour:
   objects:
   - {fileID: 7120190560444621904, guid: 4553e7db37592854d9da6e0bf9fa852d, type: 3}
   max_Objects_Spawned: 600
+  spawnCounter: 0
   deleatOnCompleation: 1
+  prewarm: 1
   spawnDestination: {fileID: 3962996454264325253}
   particles: {fileID: 0}
