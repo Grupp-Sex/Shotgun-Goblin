@@ -10,7 +10,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     public float Health => currentHealth;
     public float MaxHealth => maxHealth;
 
-    [SerializeField] bool imortal;
+    [SerializeField] public bool imortal;
 
     [SerializeField] bool kill;
 
@@ -50,6 +50,11 @@ public class HealthManager : MonobehaviorScript_ToggleLog
                 Death();
             }
         }
+    }
+
+    public virtual void Kill()
+    {
+        StartDeath();
     }
 
     public virtual void Heal(float health)

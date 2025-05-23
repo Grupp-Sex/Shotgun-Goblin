@@ -421,6 +421,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PauseActions",
+            "id": "27426b41-5a8e-4915-9b1a-9f0504d07168",
+            "actions": [
+                {
+                    "name": "KillPlayerKey",
+                    "type": "Button",
+                    "id": "c640e9df-da54-41b7-ad08-8f1a493294c7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "80e6564c-d2cf-4b31-91e6-c40c7ebc345d",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KillPlayerKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
