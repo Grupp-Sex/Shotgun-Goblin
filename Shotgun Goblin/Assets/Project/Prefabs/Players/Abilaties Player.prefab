@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 8117566495598979719}
   - component: {fileID: 7662303867548443242}
   - component: {fileID: 8281369891890303682}
+  - component: {fileID: 919975449670354677}
   m_Layer: 2
   m_Name: KillPlayerOnKillKey
   m_TagString: Untagged
@@ -294,6 +295,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthManager: {fileID: 8127145669896971995}
+--- !u!114 &919975449670354677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515460670220000664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1571d7b76c6c546880ff9a5f6e3248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4310579066823723909
 GameObject:
   m_ObjectHideFlags: 0

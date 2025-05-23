@@ -434,6 +434,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleConsoleKey",
+                    "type": "Button",
+                    "id": "bfc2d268-75b6-43f2-9c62-a5234f6981be",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -445,6 +454,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "KillPlayerKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ed4d344-d2a7-4135-8dc8-9646a4aeaf7c",
+                    "path": "<Keyboard>/insert",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleConsoleKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
