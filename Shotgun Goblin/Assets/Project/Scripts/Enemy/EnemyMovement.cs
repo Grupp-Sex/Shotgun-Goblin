@@ -45,7 +45,8 @@ public class EnemyMovement : MonoBehaviour
                 if (Agent.isOnNavMesh)
                 {
 
-                    Agent.SetDestination(Target.transform.position);
+                    //Agent.SetDestination(Target.transform.position);
+                    SetDestination(Target.transform.position);
                 }
                 else
                 {
@@ -55,6 +56,18 @@ public class EnemyMovement : MonoBehaviour
 
             yield return Wait;
         }
+
+        
+
+    }
+
+
+    // added by Ansgar
+    protected void SetDestination(Vector3 position)
+    {
+        NavMeshPath path = new NavMeshPath();
+        Agent.CalculatePath(position, path);
+        Agent.SetPath(path);
 
     }
 }
