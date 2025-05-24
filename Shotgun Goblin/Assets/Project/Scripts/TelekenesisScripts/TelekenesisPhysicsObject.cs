@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
 public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnFractionFreeze
 {
+
+    public Collider BoundCollider;
 
     [SerializeField] public float BoundSize;
     //[SerializeField] public Vector3 Velocity;
@@ -128,7 +129,12 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
 
         //Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
-        BoundSize = GetComponent<Collider>().bounds.size.magnitude;
+        if(BoundCollider == null)
+        {
+            BoundCollider = GetComponent<Collider>();
+        }
+
+        BoundSize = BoundCollider.bounds.size.magnitude;
 
         onTelekenesisEnterScripts = GetComponents<IOnTelekenesisEnter>();
         onTelekenesisLeaveScripts = GetComponents<IOnTelekenesisLeave>();

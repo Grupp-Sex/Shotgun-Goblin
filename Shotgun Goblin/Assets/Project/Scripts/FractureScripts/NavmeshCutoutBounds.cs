@@ -11,16 +11,24 @@ public class NavmeshCutoutBounds : MonoBehaviour
 
     public Vector3 sizeMult = new Vector3(1,1,1);
     [SerializeField] Vector3 boundSize;
+    [SerializeField] bool carve;
     protected NavMeshObstacle navMeshObstacle;
 
+    protected MeshFilter meshFilter;
+
     protected Bounds bounds;
+
     
+
     // Start is called before the first frame update
     void Start()
     {
+        meshFilter = GetComponent<MeshFilter>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
-        
-        SetBounds();
+
+        StartCoroutine(SetBoundsOnCondition());
+
+        //SetBounds();
 
     }
    
@@ -28,7 +36,7 @@ public class NavmeshCutoutBounds : MonoBehaviour
     protected void SetBounds()
     {
 
-        bounds = GetComponent<MeshFilter>().sharedMesh.bounds;
+        bounds = meshFilter.sharedMesh.bounds;
 
         boundSize = bounds.size;
 
@@ -37,8 +45,17 @@ public class NavmeshCutoutBounds : MonoBehaviour
         navMeshObstacle.size = scaledBoundSize;
 
         navMeshObstacle.center = bounds.center;
+        navMeshObstacle.carving = carve;
 
     }
+
+    protected IEnumerator SetBoundsOnCondition()
+    {
+        yield return new WaitUntil(() => meshFilter != null && meshFilter.sharedMesh != null && navMeshObstacle != null);
+
+        SetBounds();
+    }
+
 
  
 

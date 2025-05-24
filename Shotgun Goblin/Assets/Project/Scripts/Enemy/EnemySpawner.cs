@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
 
-
+    public EventPusher<GameObject> Event_ObjectSpawned = new EventPusher<GameObject>();
     private void Awake()
     {
         for (int i = 0; i < enemies.Count; i++)
@@ -87,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out hit, 0.8f, NavMesh.AllAreas))
             {
                 result = hit.position;
                 return true;
@@ -111,8 +111,12 @@ public class EnemySpawner : MonoBehaviour
                 enemy.agent.Warp(point);
                 enemy.movement.Target = player;
                 enemy.agent.enabled = true;
+                Debug.Log(point);
+
                 enemy.movement.StartChase();
             }
+
+            Event_ObjectSpawned.Invoke(this, enemy.gameObject);
         }
     }
 

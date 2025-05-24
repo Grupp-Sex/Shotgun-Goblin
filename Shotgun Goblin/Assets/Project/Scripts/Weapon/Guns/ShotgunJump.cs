@@ -7,6 +7,8 @@ public class ShotgunJump : MonobehaviorScript_ToggleLog, IShotActivated, IUserRe
 {
     [SerializeField] DirectionControledDash DirectionControledDash;
     [SerializeField] float maximumAngle;
+    [SerializeField] private int dubbleJumpCount;
+    public int currentDubbleJumpCounter;
 
     protected PlayerCam cam;
     protected PlayerMovement movement;
@@ -19,13 +21,51 @@ public class ShotgunJump : MonobehaviorScript_ToggleLog, IShotActivated, IUserRe
         
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(GroundCeck());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    protected IEnumerator GroundCeck()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(IsGrounded);
+            ResetDubbleJump();
+        }
+    }
+
+    protected void ResetDubbleJump()
+    {
+        DebugLog("ResetDubbleJump");
+        currentDubbleJumpCounter = dubbleJumpCount;
+    }
+
+    protected bool IsGrounded()
+    {
+        
+        return movement != null && movement.grounded;
+    }
+
+    protected bool CanDash()
+    {
+        return -cam.xRotation < maximumAngle && currentDubbleJumpCounter > 0;
+    }
+
+    
+
     public void RunShootLogic()
     {
         DebugLog("Shotgun Jump: angle = " + -cam.xRotation);
-        if (-cam.xRotation < maximumAngle && movement.grounded)
+        if (CanDash())
         {
             DirectionControledDash.Dash();
-            
+            currentDubbleJumpCounter--;
         }
     }
 
