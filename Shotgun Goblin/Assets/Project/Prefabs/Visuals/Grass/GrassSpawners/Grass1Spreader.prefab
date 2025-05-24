@@ -158,7 +158,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6418231685011932691}
   serializedVersion: 8
   lengthInSec: 1000
-  simulationSpeed: 100
+  simulationSpeed: 10
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5018,7 +5018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 7120190560444621904, guid: 4553e7db37592854d9da6e0bf9fa852d, type: 3}
-  max_Objects_Spawned: 600
+  max_Objects_Spawned: 700
   spawnCounter: 0
   deleatOnCompleation: 1
   prewarm: 1
