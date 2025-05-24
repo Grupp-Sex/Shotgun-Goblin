@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,7 +29,7 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
             Freeze();
         }
 
-      
+        
         
         
     }
@@ -99,6 +98,8 @@ public class FragmentFreeze : MonobehaviorScript_ToggleLog
     protected IEnumerator StartupTimer(float time)
     {
         yield return new WaitForSeconds(time);
+
+        yield return new WaitUntil(() => rb != null && transform.parent != null);
 
         rb.MoveRotation(transform.parent.rotation);
         rb.MovePosition(transform.parent.position);
