@@ -132,7 +132,7 @@ public class PlayerDash : BaseDash
 
         yield return new WaitForSeconds(dashDuration);
 
-        movement.WheelBreaksOn();
+        //movement.WheelBreaksOn();
 
         yield return new WaitForSeconds(dashCD);
 

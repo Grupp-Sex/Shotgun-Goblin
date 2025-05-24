@@ -111,8 +111,6 @@ public class EnemySpawner : MonoBehaviour
                 enemy.agent.Warp(point);
                 enemy.movement.Target = player;
                 enemy.agent.enabled = true;
-                Debug.Log(point);
-
                 enemy.movement.StartChase();
             }
 

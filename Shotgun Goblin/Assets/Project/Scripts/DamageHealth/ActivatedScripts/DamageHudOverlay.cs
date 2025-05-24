@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class DamageHudOverlay : MonoBehaviour, IDamageActivated, IDeathActivated
+public class DamageHudOverlay : MonoBehaviour, IDeathActivated
 {
     protected HealthManager healthManager;
     [SerializeField] private AnimationCurve curve;
@@ -17,9 +17,10 @@ public class DamageHudOverlay : MonoBehaviour, IDamageActivated, IDeathActivated
     void Awake()
     {
         healthManager = GetComponent<HealthManager>();
+        healthManager.Event_HealthChanged.Subscribe(Event_HealthChange);
     }
 
-    public void OnDamage(DamageInfo damageInfo)
+    public void Event_HealthChange(object sender, float damageInfo)
     {
         CalculateHealthLerp();
     }
