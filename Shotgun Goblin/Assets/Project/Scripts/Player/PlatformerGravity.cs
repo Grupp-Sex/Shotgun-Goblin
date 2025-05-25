@@ -80,7 +80,7 @@ public class PlatformerGravity : MonoBehaviour
     {
         if (mult != 0 && !isGrounded)
         {
-            Rigidbody.AddForce(gravity * mult, ForceMode.Acceleration);
+            Rigidbody.AddForce(gravity * mult * Time.deltaTime * 60, ForceMode.Acceleration);
         }
     }
 
