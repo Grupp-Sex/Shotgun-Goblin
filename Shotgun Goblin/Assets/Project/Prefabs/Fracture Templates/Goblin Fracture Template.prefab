@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
+  BoundCollider: {fileID: 0}
   BoundSize: 0
   CanBeGrabbed: 1
   PriorityLayer: 4
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
-  explotionVelocity: 7
+  explotionVelocity: 3
   angularVelocityMult: 10
   damping: 0
 --- !u!114 &-3164109251070799775
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeMult: {x: 1, y: 1, z: 1}
   boundSize: {x: 0, y: 0, z: 0}
+  carve: 0
 --- !u!114 &-2765786035006243699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d054a974bb8be0342918c356606cb18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TelekenesisPhysicsObject: {fileID: 0}
   NavMeshObstacle: {fileID: 0}
   ReEnable: 0
 --- !u!1 &2678665005592961390
