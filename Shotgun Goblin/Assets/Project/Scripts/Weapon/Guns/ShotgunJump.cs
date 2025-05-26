@@ -37,6 +37,7 @@ public class ShotgunJump : MonobehaviorScript_ToggleLog, IShotActivated, IUserRe
         {
             yield return new WaitUntil(IsGrounded);
             ResetDubbleJump();
+            yield return new WaitUntil(() => !IsGrounded());
         }
     }
 

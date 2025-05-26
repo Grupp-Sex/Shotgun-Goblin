@@ -217,6 +217,96 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2515460670220000664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8117566495598979719}
+  - component: {fileID: 7662303867548443242}
+  - component: {fileID: 8281369891890303682}
+  - component: {fileID: 919975449670354677}
+  m_Layer: 2
+  m_Name: KillPlayerOnKillKey
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8117566495598979719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515460670220000664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4977380439728875049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7662303867548443242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515460670220000664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 58b45650b5939fb4d88de54de733aeab,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PauseActions
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &8281369891890303682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515460670220000664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bcc523904879a4e9b750a771e37a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthManager: {fileID: 8127145669896971995}
+--- !u!114 &919975449670354677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515460670220000664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1571d7b76c6c546880ff9a5f6e3248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4310579066823723909
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +381,7 @@ GameObject:
   - component: {fileID: 1604784130447322221}
   - component: {fileID: 6228649924915096453}
   - component: {fileID: 7967066861798169160}
+  - component: {fileID: 3963347526219859246}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Untagged
@@ -315,6 +406,7 @@ Transform:
   - {fileID: 327407414600433406}
   - {fileID: 5904484905776679407}
   - {fileID: 7347887259121447850}
+  - {fileID: 8117566495598979719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &81546719770475385
@@ -562,8 +654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 0}
   Movement: {fileID: 0}
-  downMult: 2
-  uppMult: 0.5
+  downMult: 5
+  uppMult: 1
   applyGravity: 1
   useJumping: 0
   isGrounded: 0
@@ -656,6 +748,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templates:
   - {fileID: 1586364916420043334, guid: 60a33c9f0ac0317459a750e41d0264dd, type: 3}
+--- !u!114 &3963347526219859246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fd2466c62d4d14bab476bbfe69b36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthManager: {fileID: 0}
+  healthPerSec: 2
+  damageStopHealTimer: 5
+  doHeal: 1
 --- !u!1 &5295495005426599990
 GameObject:
   m_ObjectHideFlags: 0
