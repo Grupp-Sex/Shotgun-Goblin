@@ -259,7 +259,6 @@ GameObject:
   - component: {fileID: 3860763773772469728}
   - component: {fileID: 5450903973860932361}
   - component: {fileID: 3332480983658791294}
-  - component: {fileID: 322687426823831476}
   - component: {fileID: 2122460323204443466}
   - component: {fileID: 8759330194841913597}
   - component: {fileID: 242752430374981456}
@@ -273,6 +272,8 @@ GameObject:
   - component: {fileID: 2961999212100492909}
   - component: {fileID: 5309388336936671357}
   - component: {fileID: 8443566120703246168}
+  - component: {fileID: 666188664030670787}
+  - component: {fileID: 8687451337198881031}
   m_Layer: 13
   m_Name: Enemy_Template
   m_TagString: Untagged
@@ -428,50 +429,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &322687426823831476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089769828471599658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c631b52fb7e37245974ef5f8e56ad6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerOptions:
-    triggerType: 1
-    minimumCollisionForce: 0
-    filterCollisionsByTag: 0
-    triggerAllowedTags: []
-    triggerKey: 0
-  fractureOptions:
-    fragmentCount: 5
-    xAxis: 1
-    yAxis: 1
-    zAxis: 1
-    detectFloatingFragments: 0
-    asynchronous: 0
-    insideMaterial: {fileID: 2100000, guid: 8eb9ed47ea120db40a6cb6ff6bdcc045, type: 2}
-    textureScale: {x: 1, y: 1}
-    textureOffset: {x: 0, y: 0}
-  refractureOptions:
-    enableRefracturing: 0
-    maxRefractureCount: 1
-    invokeCallbacks: 0
-  callbackOptions:
-    onFracture:
-      m_PersistentCalls:
-        m_Calls: []
-    onCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-  currentRefractureCount: 0
-  FractureTemplate: {fileID: 702047887813957574, guid: 5b1eb137fe63d224bb0344791b956ffc,
-    type: 3}
-  FractureOnStartup: 0
-  ActivateFractureButton: 0
 --- !u!114 &2122460323204443466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +654,32 @@ MonoBehaviour:
   LogInDebugConsole: 0
   blockedObjects: []
   RagdollManager: {fileID: 0}
+--- !u!114 &666188664030670787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdc15da8d6d6e44f93ba72b0cc96a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  templates:
+  - {fileID: 5998888466846648643, guid: 6f6ed9c55fb1d96418122795b647fca2, type: 3}
+--- !u!114 &8687451337198881031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089769828471599658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0ebd3bc5c45fd4e9c11b7d79068fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5106359225211248570
 GameObject:
   m_ObjectHideFlags: 0
