@@ -10,14 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4649716437368179187}
   - component: {fileID: 5467445574932234869}
-  - component: {fileID: 1693436501873037290}
-  - component: {fileID: 4954289907028918980}
   - component: {fileID: 6052679415963588546}
   - component: {fileID: 1240007945404489942}
   - component: {fileID: 8680509863868600751}
   - component: {fileID: 2558839054971298508}
   - component: {fileID: 1251733707791773029}
-  - component: {fileID: 361081729240537857}
+  - component: {fileID: 7316487685106027379}
   m_Layer: 0
   m_Name: Rigged_Goblin_Model_NonRagdoll
   m_TagString: Untagged
@@ -64,135 +62,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &1693436501873037290
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5132500178025792810}
-  serializedVersion: 4
-  m_Mass: 30
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!153 &4954289907028918980
-ConfigurableJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5132500178025792810}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 43.329, y: -0.0059999824, z: -3.209}
-  serializedVersion: 3
-  m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 1
-  m_YMotion: 1
-  m_ZMotion: 1
-  m_AngularXMotion: 1
-  m_AngularYMotion: 1
-  m_AngularZMotion: 1
-  m_LinearLimitSpring:
-    spring: 0
-    damper: 0
-  m_LinearLimit:
-    limit: 0
-    bounciness: 0
-    contactDistance: 0
-  m_AngularXLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowAngularXLimit:
-    limit: 0
-    bounciness: 0
-    contactDistance: 0
-  m_HighAngularXLimit:
-    limit: 0
-    bounciness: 0
-    contactDistance: 0
-  m_AngularYZLimitSpring:
-    spring: 0
-    damper: 0
-  m_AngularYLimit:
-    limit: 0
-    bounciness: 0
-    contactDistance: 0
-  m_AngularZLimit:
-    limit: 0
-    bounciness: 0
-    contactDistance: 0
-  m_TargetPosition: {x: 0, y: 0, z: 0}
-  m_TargetVelocity: {x: 0, y: 0, z: 0}
-  m_XDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
-    maximumForce: 3.4028233e+38
-    useAcceleration: 0
-  m_YDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
-    maximumForce: 3.4028233e+38
-    useAcceleration: 0
-  m_ZDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
-    maximumForce: 3.4028233e+38
-    useAcceleration: 0
-  m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 0
-  m_AngularXDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
-    maximumForce: 3.4028233e+38
-    useAcceleration: 0
-  m_AngularYZDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 10
-    maximumForce: 3.4028233e+38
-    useAcceleration: 1
-  m_SlerpDrive:
-    serializedVersion: 4
-    positionSpring: 0
-    positionDamper: 0
-    maximumForce: 3.4028233e+38
-    useAcceleration: 0
-  m_ProjectionMode: 0
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_ConfiguredInWorldSpace: 0
-  m_SwapBodies: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!114 &6052679415963588546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,21 +149,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetHealthManager: {fileID: 0}
---- !u!138 &361081729240537857
-FixedJoint:
+--- !u!114 &7316487685106027379
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5132500178025792810}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb498402efdb2864b8b2450da03db761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5467318986409396220
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,11 +667,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4649716437368179187}
     m_Modifications:
+    - target: {fileID: 2942798717247896301, guid: eccb970995067c249b588d3e981fa63a,
+        type: 3}
+      propertyPath: targetHealthManager
+      value: 
+      objectReference: {fileID: 8186975645402286833}
     - target: {fileID: 3819072630648572612, guid: eccb970995067c249b588d3e981fa63a,
         type: 3}
       propertyPath: m_Name
       value: GoblinBodyRig_NonRagdoll
       objectReference: {fileID: 0}
+    - target: {fileID: 6382089716159843870, guid: eccb970995067c249b588d3e981fa63a,
+        type: 3}
+      propertyPath: targetHealthManager
+      value: 
+      objectReference: {fileID: 8186975645402286833}
+    - target: {fileID: 6749347789811636821, guid: eccb970995067c249b588d3e981fa63a,
+        type: 3}
+      propertyPath: targetHealthManager
+      value: 
+      objectReference: {fileID: 8186975645402286833}
     - target: {fileID: 6776912106393712174, guid: eccb970995067c249b588d3e981fa63a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -857,7 +738,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 93135891002777960, guid: eccb970995067c249b588d3e981fa63a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eccb970995067c249b588d3e981fa63a, type: 3}
@@ -873,3 +755,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6673405144245585225}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8186975645402286833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3242952809640857528, guid: eccb970995067c249b588d3e981fa63a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6673405144245585225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f261152e0c70b9e40a2acf60f825d859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
