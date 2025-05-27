@@ -24385,8 +24385,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 555486766966792024, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
+      propertyPath: dashForce
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 555486766966792024, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
       propertyPath: dashDuration
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: wheel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: groundDrag
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081477112078462204, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 4977380439728875049, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -24444,7 +24464,8 @@ PrefabInstance:
       value: Abilaties Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5295495005426599990, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb331929aa402534b921e8eebc01d2c7, type: 3}

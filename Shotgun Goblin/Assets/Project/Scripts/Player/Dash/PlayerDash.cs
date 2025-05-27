@@ -114,7 +114,7 @@ public class PlayerDash : BaseDash
 
         canDash = false;
 
-        movement.WheelBreaksOff();
+        //movement.WheelBreaksOff();
         
         //Vector3 forceToApply = direction.normalized * dashForce;
 
