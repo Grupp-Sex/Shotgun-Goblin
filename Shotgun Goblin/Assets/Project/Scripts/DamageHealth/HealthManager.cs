@@ -20,6 +20,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     protected IDamageActivated[] damageActivatedScripts;
 
     public EventPusher<float> Event_HealthChanged = new EventPusher<float>();
+    public EventPusher<DamageInfo> Event_Damage = new EventPusher<DamageInfo>();
+
 
     private bool gameIsOn;
 
@@ -86,6 +88,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
 
         currentHealth -= damage;
+        Event_Damage.Invoke(this, damageInfo);
         Event_HealthChanged.Invoke(this,-damage);
         DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth);
         CheckHealth();

@@ -98,12 +98,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Emmission: 0.6
+    - _Emmission: 0.02
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientPow1: 2
+    - _GradientPow1: 3
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -118,23 +118,23 @@ Material:
     - _Surface: 0
     - _SwayAmmount: 0.04
     - _SwayAmmountBottom: 0
-    - _SwayAmmountTop: 0.1
+    - _SwayAmmountTop: 0.4
     - _SwayConcentration: 1
-    - _SwaySpeed: 0.3
-    - _SwayTopBottomPower: 1
+    - _SwaySpeed: 0.4
+    - _SwayTopBottomPower: 2
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.2754717, g: 0.2754717, b: 0.2754717, a: 1}
+    - _BottomColor: {r: 0.85998434, g: 0.9169811, b: 0.53115696, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 1, g: 0.4, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SwayDirection: {r: 1, g: 0, b: 0, a: 0}
-    - _TopColor: {r: 0.50327307, g: 0.7132075, b: 0.2785546, a: 1}
+    - _TopColor: {r: 1, g: 0.90312815, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6169006729695882649
 MonoBehaviour:
