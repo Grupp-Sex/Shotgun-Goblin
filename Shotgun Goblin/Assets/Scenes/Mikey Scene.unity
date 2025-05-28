@@ -140,13 +140,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733c992557ad30441a6c5d27dc67d258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthVolume: {fileID: 940873861}
+  playerHealthVolume: {fileID: 0}
+  midtonesVolume: {fileID: 0}
   minSmoothness: 0.2
-  maxSmoothness: 0.3
-  smoothSpeed: 1
-  minShadows: 0
-  maxShadows: 0.2
+  maxSmoothness: 0.4
+  smoothSpeed: 0.5
+  minShadows: -1
+  maxShadows: -0.8
   shadowSpeed: 0.5
+  vignetteStartThreshold: 80
+  vignetteEndThreshold: 20
+  minVignetteIntensity: 0.4
+  maxVignetteIntensity: 0.7
+  shadowsToggleThreshold: 40
+  midtonesStartThreshold: 30
+  midtonesEndThreshold: 15
+  minMidtonesValue: -0.5
+  maxMidtonesValue: 0
+  midtonesSpeed: 0.5
 --- !u!1001 &106376589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,6 +656,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 940873860}
+    - targetCorrespondingSourceObject: {fileID: 5124393934527020834, guid: eb331929aa402534b921e8eebc01d2c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 814562314}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5131602888718148011, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
@@ -657,6 +672,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 480891826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &814562313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814562314}
+  - component: {fileID: 814562315}
+  m_Layer: 0
+  m_Name: Player Midtones Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &814562314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814562313}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.055316925, y: -0.9852843, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 480891827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814562315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814562313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6da8bee18aec345429a231b5548e0045, type: 2}
 --- !u!1 &849489055
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +839,7 @@ GameObject:
   - component: {fileID: 940873860}
   - component: {fileID: 940873861}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: Player Health Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
