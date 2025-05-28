@@ -16,6 +16,10 @@ public class Player_Post_Processing : MonoBehaviour
     private ShadowsMidtonesHighlights shadows;
     private ShadowsMidtonesHighlights midtonesOnly;
 
+
+    [SerializeField] private float volumeWeight1 = 0f;
+    [SerializeField] private float volumeweight2 = 0f;
+
     [Header("LerpValues for Smoothness")]
     [SerializeField] private float minSmoothness = 0.2f;
     [SerializeField] private float maxSmoothness = 0.3f;
@@ -51,6 +55,9 @@ public class Player_Post_Processing : MonoBehaviour
         playerHealthVolume.profile.TryGet(out vignette);
         playerHealthVolume.profile.TryGet(out shadows);
         midtonesVolume.profile.TryGet(out midtonesOnly);
+
+        playerHealthVolume.weight = 1.0f;
+        midtonesVolume.weight = 1.0f;
     }
 
     // Update is called once per frame
