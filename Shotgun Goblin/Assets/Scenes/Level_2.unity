@@ -3996,6 +3996,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 546140598}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &550898046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5124393934527020834, guid: eb331929aa402534b921e8eebc01d2c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1565938359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &557583604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10859,6 +10865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Updated Main Camera Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 6856576999198017078, guid: 68415fe91e27bdc4ba318f836394da34,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 550898046}
     - target: {fileID: 8227362601943977032, guid: 68415fe91e27bdc4ba318f836394da34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16654,6 +16665,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 424929899}
   - {fileID: 1015887847}
+  - {fileID: 1418661072}
   - {fileID: 1565938359}
   - {fileID: 638924975}
   - {fileID: 1972562759}
@@ -16666,4 +16678,3 @@ SceneRoots:
   - {fileID: 58009223}
   - {fileID: 61260499}
   - {fileID: 1036970622}
-  - {fileID: 1418661072}
