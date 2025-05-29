@@ -114,34 +114,7 @@ public class PlayerMovement : MonoBehaviour, IMover
 
             
 
-
-       
-            
-
-            if (grounded && !StandingOnSlope())
-            {
-                    characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
-                    characterRB.useGravity = true;
-                //Debug.Log("P� marken");
-            }
-            else if (grounded && StandingOnSlope())
-            {
-                // If standing on slope, add force in the calculated slope direction
-                    Vector3 slopeDirection = SlopeMoveDirection();
-                    characterRB.AddRelativeForce(slopeDirection * movementSpeed * GetSlopeForceMultiplier(), ForceMode.Force);
-
-                    movementVector.y = -4.5f;
-
-                    //Turn off gravity while on slope so player don't glide off
-                    characterRB.useGravity = !StandingOnSlope();
-                //Debug.Log("Slope");
-            }
-            else if (!grounded)
-            {
-                characterRB.AddRelativeForce(movementVector.normalized * movementSpeed * airMultiplier, ForceMode.Force);
-                characterRB.useGravity = true;
-                //Debug.Log("Luften");
-            }
+     
 
             characterRB.AddRelativeForce(movementAcceleration, ForceMode.Acceleration);
 
@@ -168,12 +141,60 @@ public class PlayerMovement : MonoBehaviour, IMover
         if (!grounded)
         {
             movementAcceleration *= airMultiplier;
+            characterRB.useGravity = true;
+        }
+        else
+        {
+            if (StandingOnSlope())
+            {
+                // If standing on slope, add force in the calculated slope direction
+                Vector3 slopeDirection = SlopeMoveDirection();
+                movementAcceleration = slopeDirection * movementSpeed * GetSlopeForceMultiplier();
+
+                //movementVector.y = -4.5f;
+
+                //Turn off gravity while on slope so player don't glide off
+                characterRB.useGravity = false;
+            }
+            else
+            {
+                characterRB.useGravity = true;
+            }
         }
 
         if (doMaxSpeed)
         {
             movementAcceleration = LimitAcceleration(movementAcceleration, characterRB.velocity, maxSpeed);
         }
+
+
+
+
+        //if (grounded && !StandingOnSlope())
+        //{
+        //    characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
+        //    characterRB.useGravity = true;
+        //    //Debug.Log("P� marken");
+        //}
+        //else if (grounded && StandingOnSlope())
+        //{
+        //    // If standing on slope, add force in the calculated slope direction
+        //    Vector3 slopeDirection = SlopeMoveDirection();
+        //    characterRB.AddRelativeForce(slopeDirection * movementSpeed * GetSlopeForceMultiplier(), ForceMode.Force);
+
+        //    movementVector.y = -4.5f;
+
+        //    //Turn off gravity while on slope so player don't glide off
+        //    characterRB.useGravity = !StandingOnSlope();
+        //    //Debug.Log("Slope");
+        //}
+        //else if (!grounded)
+        //{
+        //    characterRB.AddRelativeForce(movementVector.normalized * movementSpeed * airMultiplier, ForceMode.Force);
+        //    characterRB.useGravity = true;
+        //    //Debug.Log("Luften");
+        //}
+
 
 
     }
@@ -316,6 +337,8 @@ public class PlayerMovement : MonoBehaviour, IMover
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
 
+            Debug.DrawRay(slopeHit.point, slopeHit.normal, Color.cyan);
+
             Debug.DrawRay(transform.position, Vector3.down * (playerHeight / 2 + 0.5f), Color.yellow);
             Debug.Log($"Slope angle: {angle}");
 
@@ -339,8 +362,18 @@ public class PlayerMovement : MonoBehaviour, IMover
     // Project movement vector onto slope and remove the slope's normals from the vector, making the player vector move along the slope direction
     private Vector3 SlopeMoveDirection()
     {
-        Vector3 projected = Vector3.ProjectOnPlane(movementVector, slopeHit.normal);
-        return projected.normalized * movementVector.magnitude;
+        Vector3 projected = Vector3.ProjectOnPlane(transform.TransformDirection(movementVector), slopeHit.normal);
+
+        Vector3 direction = projected.normalized * movementVector.magnitude;
+
+        Debug.DrawRay(transform.position, direction, Color.green);
+
+        direction = transform.InverseTransformDirection(direction);
+
+        
+
+
+        return direction;
     }
 
 }
