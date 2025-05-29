@@ -7,17 +7,27 @@ public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject pauseMenu;
+    public bool lockMouse;
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    protected bool CheckIfUiExist()
+    {
+        lockMouse = (gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy);
+
+         return lockMouse;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
-            if ((gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy))
+        CheckIfUiExist();
+
+
+            if (lockMouse)
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
