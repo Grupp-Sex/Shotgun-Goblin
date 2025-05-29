@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
-    //public GameObject optionsUI;
-    // Start is called before the first frame update
+    public GameObject pauseMenu;
     void Start()
     {
         Cursor.visible = false;
@@ -17,16 +16,18 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOverUI.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        
+            if ((gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy))
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        
     }
 
     public void PlayGame()
