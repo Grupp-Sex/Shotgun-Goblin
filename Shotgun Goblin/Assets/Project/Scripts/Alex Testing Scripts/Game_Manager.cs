@@ -16,16 +16,18 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOverUI.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        
+            if ((gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy))
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        
     }
 
     public void PlayGame()
