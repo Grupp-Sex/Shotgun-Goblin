@@ -7,25 +7,38 @@ public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject pauseMenu;
+    public bool lockMouse;
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    // checks if either of the ui canvases exist and is inactive
+    protected bool CheckIfUiExist()
+    {
+        lockMouse = (gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy);
+
+         return lockMouse;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (gameOverUI.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        CheckIfUiExist();
+
+
+            if (lockMouse)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        
     }
 
     public void PlayGame()

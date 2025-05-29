@@ -429,9 +429,9 @@ GameObject:
   - component: {fileID: 555486766966792024}
   - component: {fileID: 1604784130447322221}
   - component: {fileID: 6228649924915096453}
-  - component: {fileID: 7967066861798169160}
   - component: {fileID: 3963347526219859246}
   - component: {fileID: 7599506959009470673}
+  - component: {fileID: 157123479263345779}
   m_Layer: 2
   m_Name: Abilaties Player
   m_TagString: Player
@@ -500,7 +500,9 @@ MonoBehaviour:
   tiltAmount: 2
   tiltSpeed: 0.94
   orientation: {fileID: 5580618361630915387}
-  movementSpeed: 350
+  movementSpeed: 60
+  doMaxSpeed: 1
+  maxSpeed: 20
   groundDrag: 2.5
   turningSmotheness: 0.4
   jumpForce: 100
@@ -508,7 +510,7 @@ MonoBehaviour:
   airMultiplier: 0.25
   isJumping: 0
   playerHeight: 2
-  isGroundedOffset: 0.2
+  isGroundedOffset: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65
@@ -781,20 +783,6 @@ MonoBehaviour:
   DroppedObjects:
   - {fileID: 7349593200352051031}
   DeathDroppedObjects: {fileID: 0}
---- !u!114 &7967066861798169160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5131602888718148011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdc15da8d6d6e44f93ba72b0cc96a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  templates:
-  - {fileID: 1586364916420043334, guid: 60a33c9f0ac0317459a750e41d0264dd, type: 3}
 --- !u!114 &3963347526219859246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +831,21 @@ MonoBehaviour:
   minMidtonesValue: -0.5
   maxMidtonesValue: 0
   midtonesSpeed: 0.5
+--- !u!114 &157123479263345779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131602888718148011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d064f8996b5f24eaa9e28fcb6e11ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiTemplate: {fileID: 584282224405253586, guid: ecbd1c57fc0cd544d845af13e806b5a5,
+    type: 3}
+  health_manager: {fileID: 0}
 --- !u!1 &5215814955612049079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,11 +1200,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShotGun01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209584319383109356, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
-        type: 3}
-      propertyPath: TruncationInterpolation
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1727705532210433102, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
         type: 3}
