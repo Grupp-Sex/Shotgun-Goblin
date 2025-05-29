@@ -63,6 +63,8 @@ public class Player_Post_Processing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        volumeWeight1 = playerHealthVolume.weight;
+        volumeweight2 = midtonesVolume.weight;
         VignetteSmoothness();
         UpdateHealthEffects();
        
