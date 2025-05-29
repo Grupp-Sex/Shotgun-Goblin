@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    // checks if either of the ui canvases exist and is inactive
     protected bool CheckIfUiExist()
     {
         lockMouse = (gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy);
