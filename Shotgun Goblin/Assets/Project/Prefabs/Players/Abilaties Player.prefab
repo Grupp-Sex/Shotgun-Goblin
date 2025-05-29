@@ -511,9 +511,9 @@ MonoBehaviour:
   isJumping: 0
   playerHeight: 2
   isGroundedOffset: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 65
+  maxSlopeAngle: 80
+  minSlopeBoost: 1
+  maxSlopeBoost: 1
 --- !u!114 &5590560657115794484
 MonoBehaviour:
   m_ObjectHideFlags: 0
