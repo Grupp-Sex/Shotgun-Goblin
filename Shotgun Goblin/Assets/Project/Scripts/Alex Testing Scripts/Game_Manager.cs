@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
-    //public GameObject optionsUI;
-    // Start is called before the first frame update
+    public GameObject pauseMenu;
     void Start()
     {
         Cursor.visible = false;
