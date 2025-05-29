@@ -133,6 +133,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DistancePixelSize: 0.07
+    - _DistanceSteps: 10
+    - _DistanceThreshold: 100
     - _DoNormalMap: 1
     - _DoTile: 1
     - _DstBlend: 0
@@ -161,7 +164,9 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _TileBlocks: 1
     - _TileWorldSize: 20
+    - _UseDistancePixelation: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1

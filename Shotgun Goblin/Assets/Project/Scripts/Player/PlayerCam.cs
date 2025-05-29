@@ -40,26 +40,29 @@ public class PlayerCam : MonoBehaviour
    
     void LateUpdate()
     {
-        //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity för att inte skapa inconsintency
-        mouseX *= Time.deltaTime * sensitivity;
-        mouseY *= Time.deltaTime * sensitivity;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity för att inte skapa inconsintency
+            mouseX *= 1 / 60f * sensitivity;
+            mouseY *= 1 / 60f * sensitivity;
 
-        yRotation += mouseX;
+            yRotation += mouseX;
 
-        xRotation -= mouseY;
+            xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -85f, 85f); // Begränsar spelar från att titta mer än 90 grader upp och ner
-
-       
-       
-        //rotera orientation (vilket är spelaren) på y-axeln endast 
-
-        yTransform.MoveRotation(Quaternion.Euler(yTransform.rotation.x, yRotation, yTransform.rotation.z));
-
-        xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, xTransform.rotation.z));
+            xRotation = Mathf.Clamp(xRotation, -85f, 85f); // Begränsar spelar från att titta mer än 90 grader upp och ner
 
 
-        //currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
+
+            //rotera orientation (vilket är spelaren) på y-axeln endast 
+
+            yTransform.MoveRotation(Quaternion.Euler(yTransform.rotation.x, yRotation, yTransform.rotation.z));
+
+            xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, xTransform.rotation.z));
+
+
+            //currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
+        }
        
     }
 

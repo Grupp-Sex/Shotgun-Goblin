@@ -27,9 +27,12 @@ public class PlayerMovement : MonoBehaviour, IMover
     private Vector3 movementInput;
     private Vector3 targetMovementInput;
     private Vector3 movementVector;
+    private Vector3 movementAcceleration;
 
     [SerializeField] private float movementSpeed;
-   [SerializeField] private float groundDrag;
+    [SerializeField] private bool doMaxSpeed = true;
+    [SerializeField] private float maxSpeed = 10;
+    [SerializeField] private float groundDrag;
     [SerializeField] private float turningSmotheness = 0.9f;
 
 
@@ -68,7 +71,7 @@ public class PlayerMovement : MonoBehaviour, IMover
     {
         
 
-        SpeedControl();
+        //SpeedControl();
 
 
 
@@ -87,6 +90,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         //Handle Drag
         if (grounded)
         {
+
             characterRB.drag = groundDrag;
         }
         else
@@ -104,11 +108,12 @@ public class PlayerMovement : MonoBehaviour, IMover
     {
 
         SmotheInput(turningSmotheness);
-
+        CalculateAcceleration();
         if (targetMovementInput != Vector3.zero)
         {
+
             
-            movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
+
 
        
             
@@ -117,7 +122,7 @@ public class PlayerMovement : MonoBehaviour, IMover
             {
                     characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
                     characterRB.useGravity = true;
-                //Debug.Log("På marken");
+                //Debug.Log("Pï¿½ marken");
             }
             else if (grounded && StandingOnSlope())
             {
@@ -138,11 +143,12 @@ public class PlayerMovement : MonoBehaviour, IMover
                 //Debug.Log("Luften");
             }
 
+            characterRB.AddRelativeForce(movementAcceleration, ForceMode.Acceleration);
 
-        
 
 
-        
+
+
         }
 
         CameraTiltValue();
@@ -151,6 +157,42 @@ public class PlayerMovement : MonoBehaviour, IMover
 
 
 
+    }
+
+    protected void CalculateAcceleration()
+    {
+        movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
+
+        movementAcceleration = movementVector.normalized * movementSpeed;
+
+        if (!grounded)
+        {
+            movementAcceleration *= airMultiplier;
+        }
+
+        if (doMaxSpeed)
+        {
+            movementAcceleration = LimitAcceleration(movementAcceleration, characterRB.velocity, maxSpeed);
+        }
+
+
+    }
+
+    protected Vector3 LimitAcceleration(Vector3 acceleration, Vector3 velocity, float maxSpeed)
+    {
+        if(Vector3.Dot(acceleration, velocity) < 0)
+        {
+            return acceleration;
+        }
+
+        Vector3 forwardVelocity = Vector3.Project(velocity, acceleration);
+
+        if(forwardVelocity.sqrMagnitude > maxSpeed * maxSpeed)
+        {
+            return Vector3.ClampMagnitude(acceleration, maxSpeed);
+        }
+
+        return acceleration;
     }
 
     public Vector3 GetInputDirection()

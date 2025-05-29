@@ -21,6 +21,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     public EventPusher<float> Event_HealthChanged = new EventPusher<float>();
     public EventPusher<DamageInfo> Event_Damage = new EventPusher<DamageInfo>();
+    public EventPusher<DamageInfo> Event_Death = new EventPusher<DamageInfo>();
 
 
     private bool gameIsOn;
@@ -135,7 +136,9 @@ public class HealthManager : MonobehaviorScript_ToggleLog
 
     protected virtual void NotifyDeath(DamageInfo damage)
     {
-        for(int i = 0; i < deathActivatedScripts?.Length; i++)
+        Event_Death.Invoke(this, damage);
+
+        for (int i = 0; i < deathActivatedScripts?.Length; i++)
         {
             deathActivatedScripts[i].OnDeath(damage);
         }
