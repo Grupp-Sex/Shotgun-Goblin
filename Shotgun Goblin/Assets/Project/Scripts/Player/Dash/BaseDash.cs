@@ -84,7 +84,8 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
 
         if (Vector3.Dot(vector, truncator) < 0)
         {
-            result = Vector3.ProjectOnPlane(vector, truncator);
+            //result = Vector3.ProjectOnPlane(vector, truncator);
+            result = Vector3.zero;
         }
 
         return result;
