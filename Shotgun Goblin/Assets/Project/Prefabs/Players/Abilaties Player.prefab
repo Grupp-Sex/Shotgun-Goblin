@@ -500,8 +500,11 @@ MonoBehaviour:
   tiltAmount: 2
   tiltSpeed: 0.94
   orientation: {fileID: 5580618361630915387}
-  movementSpeed: 350
+  movementSpeed: 60
+  doMaxSpeed: 1
+  maxSpeed: 15
   groundDrag: 2.5
+  breakingDrag: 10
   turningSmotheness: 0.4
   jumpForce: 100
   jumpCooldown: 0

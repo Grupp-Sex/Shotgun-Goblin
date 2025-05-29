@@ -41,8 +41,8 @@ public class PlayerCam : MonoBehaviour
     void LateUpdate()
     {
         //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity för att inte skapa inconsintency
-        mouseX *= Time.deltaTime * sensitivity;
-        mouseY *= Time.deltaTime * sensitivity;
+        mouseX *= 1/60f * sensitivity;
+        mouseY *= 1/60f * sensitivity;
 
         yRotation += mouseX;
 
