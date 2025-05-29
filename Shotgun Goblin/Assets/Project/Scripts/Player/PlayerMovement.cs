@@ -134,6 +134,8 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     protected void CalculateAcceleration()
     {
+        // updated by ansgar
+
         movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
         movementAcceleration = movementVector.normalized * movementSpeed;
@@ -169,6 +171,9 @@ public class PlayerMovement : MonoBehaviour, IMover
 
 
 
+
+
+        // original code by mikey
 
         //if (grounded && !StandingOnSlope())
         //{
