@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -115,7 +114,7 @@ public class PlayerDash : BaseDash
 
         canDash = false;
 
-        movement.WheelBreaksOff();
+        //movement.WheelBreaksOff();
         
         //Vector3 forceToApply = direction.normalized * dashForce;
 
@@ -133,7 +132,7 @@ public class PlayerDash : BaseDash
 
         yield return new WaitForSeconds(dashDuration);
 
-        movement.WheelBreaksOn();
+        //movement.WheelBreaksOn();
 
         yield return new WaitForSeconds(dashCD);
 
@@ -145,7 +144,7 @@ public class PlayerDash : BaseDash
         return new DashData()
         {
             forceMode = ForceMode.Impulse,
-            truncateDirection = -direction,
+            truncateDirection = direction,
             unalterd_direction = direction,
             velocity = dashForce,
             worldForce = false,

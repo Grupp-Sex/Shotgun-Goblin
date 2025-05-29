@@ -45,9 +45,7 @@ public class PlayerMovement : MonoBehaviour, IMover
     public LayerMask whatIsGround;
     public bool grounded {  get; private set; }
 
-    [Header("Wheel")]
-    [SerializeField] WheelCollider wheel;
-    [SerializeField] float BreakingTorque;
+ 
 
     void Start()
     {
@@ -108,10 +106,10 @@ public class PlayerMovement : MonoBehaviour, IMover
             }
 
 
-            //Debug.Log("___________ " + movementVector);
+        
 
 
-            TurnWheel(movementInput.normalized);
+        
         }
 
         CameraTiltValue();
@@ -134,29 +132,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         movementInput = movementInput * (1 - lerpValue) + targetMovementInput * lerpValue;
     }
 
-    protected void TurnWheel(Vector3 turnDirection)
-    {
-        //converts the turnDirection vectior into an angle between -180 and 180
-        float turnAngle = Vector3.SignedAngle(turnDirection, new Vector3(0, 0, 1), new Vector3(0, -1, 0));
-
-        wheel.steerAngle = turnAngle;
-
-    }
-
-    public void WheelBreaksOn()
-    {
-        wheel.brakeTorque = BreakingTorque;
-
-        wheel.motorTorque = 0;
-    }
-
-    public void WheelBreaksOff()
-    {
-        wheel.brakeTorque = 0;
-
-        // disables the wheels built in "handbrake mode"
-        wheel.motorTorque = 0.00001f; 
-    }
+   
 
     
     
@@ -167,9 +143,8 @@ public class PlayerMovement : MonoBehaviour, IMover
 
         targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
-        //Debug.Log(movementInput);
+        
 
-        WheelBreaksOff();
 
         //Send horizontal movement to camera for tilting
         
@@ -179,12 +154,11 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     private void OnMovementStop(InputValue inputValue)
     {
-        //movementInput = Vector3.zero; //new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
+   
         targetMovementInput = Vector3.zero;
 
-        //Debug.Log("stopped movement " + movementInput);
+      
 
-        WheelBreaksOn();
 
        // Stop Camera tilt if not moving
        CameraTilt(0f);
@@ -257,11 +231,6 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     private void CameraTilt(float horizontalInput)
     {
-        
-       
-
-        //Debug.Log(targetTilt + " wweeew");
-
         targetTilt = -horizontalInput;
     }
 

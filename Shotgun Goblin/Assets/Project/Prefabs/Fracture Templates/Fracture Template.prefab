@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LogInDebugConsole: 0
+  BoundCollider: {fileID: 0}
   BoundSize: 0
   CanBeGrabbed: 1
   PriorityLayer: 5
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeMult: {x: 0.6, y: 0.6, z: 0.6}
   boundSize: {x: 0, y: 0, z: 0}
+  carve: 1
 --- !u!114 &-8219543084440411587
 MonoBehaviour:
   m_ObjectHideFlags: 0

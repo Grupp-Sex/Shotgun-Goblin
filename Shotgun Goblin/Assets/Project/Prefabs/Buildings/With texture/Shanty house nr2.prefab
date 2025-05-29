@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7020674998727078922}
   m_Layer: 0
   m_Name: Shanty house nr2
-  m_TagString: Untagged
+  m_TagString: FrozenFragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -200,7 +205,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -217,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -228,7 +233,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -331,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -405,7 +415,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -422,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -433,7 +443,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -536,6 +546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -604,7 +619,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -621,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -632,7 +647,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -741,6 +756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: metal_sheet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa79ccf660a6e5b418d9c547f316f363,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -815,7 +835,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -838,12 +858,12 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
-    xAxis: 1
+    fragmentCount: 3
+    xAxis: 0
     yAxis: 1
     zAxis: 0
-    detectFloatingFragments: 0
-    asynchronous: 0
+    detectFloatingFragments: 1
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: d86c74df1967990469afbc3765d3b756, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -946,6 +966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1014,7 +1039,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1031,7 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -1042,7 +1067,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -1151,6 +1176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1219,7 +1249,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1236,7 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -1247,7 +1277,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -1356,6 +1386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,7 +1465,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1447,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -1458,7 +1493,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -1561,6 +1596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1635,7 +1675,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1652,7 +1692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -1663,7 +1703,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -1766,6 +1806,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: metal_sheet (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa79ccf660a6e5b418d9c547f316f363,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1840,7 +1885,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1863,12 +1908,12 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
-    xAxis: 1
+    fragmentCount: 3
+    xAxis: 0
     yAxis: 1
     zAxis: 0
-    detectFloatingFragments: 0
-    asynchronous: 0
+    detectFloatingFragments: 1
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: d86c74df1967990469afbc3765d3b756, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -1971,6 +2016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2045,7 +2095,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2062,7 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -2073,7 +2123,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -2176,6 +2226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: metal_sheet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa79ccf660a6e5b418d9c547f316f363,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2250,7 +2305,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2273,12 +2328,12 @@ MonoBehaviour:
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
-    xAxis: 1
+    fragmentCount: 3
+    xAxis: 0
     yAxis: 1
     zAxis: 0
-    detectFloatingFragments: 0
-    asynchronous: 0
+    detectFloatingFragments: 1
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: d86c74df1967990469afbc3765d3b756, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
@@ -2381,6 +2436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plank (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c26058c12bb841441a0ecd52e8dc778b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2449,7 +2509,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2466,7 +2526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
@@ -2477,7 +2537,7 @@ MonoBehaviour:
     yAxis: 1
     zAxis: 0
     detectFloatingFragments: 0
-    asynchronous: 0
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: 65504c5ed08fa5f4f8ce54834a2476fd, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class HealthManager : MonobehaviorScript_ToggleLog
@@ -11,7 +10,7 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     public float Health => currentHealth;
     public float MaxHealth => maxHealth;
 
-    [SerializeField] bool imortal;
+    [SerializeField] public bool imortal;
 
     [SerializeField] bool kill;
 
@@ -19,6 +18,10 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     protected bool dead;
     protected IDeathActivated[] deathActivatedScripts;
     protected IDamageActivated[] damageActivatedScripts;
+
+    public EventPusher<float> Event_HealthChanged = new EventPusher<float>();
+    public EventPusher<DamageInfo> Event_Damage = new EventPusher<DamageInfo>();
+
 
     private bool gameIsOn;
 
@@ -51,11 +54,24 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
     }
 
-    
+    public virtual void Kill()
+    {
+        StartDeath();
+    }
+
+    public virtual void Heal(float health)
+    {
+        
+        currentHealth += health;
+        Event_HealthChanged.Invoke(this, health);
+
+
+        CheckHealth();
+    }
+
     public virtual void Damage(float damage, Vector3 position)
     {
-        Damage(new DamageInfo { damage = damage, position = position } );
-        
+        Damage(new DamageInfo { damage = damage, position = position } );   
     }
 
     public virtual void Damage(DamageInfo damageInfo)
@@ -72,6 +88,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
         }
 
         currentHealth -= damage;
+        Event_Damage.Invoke(this, damageInfo);
+        Event_HealthChanged.Invoke(this,-damage);
         DebugLog("Damage Taken: " + damage + " health: " + currentHealth + "/" + maxHealth);
         CheckHealth();
 
@@ -81,6 +99,8 @@ public class HealthManager : MonobehaviorScript_ToggleLog
     
     protected virtual void CheckHealth()
     {
+        if(currentHealth >= maxHealth) currentHealth = maxHealth;
+
         if (!imortal && currentHealth <= 0 && !isDying)
         {
             StartDeath();

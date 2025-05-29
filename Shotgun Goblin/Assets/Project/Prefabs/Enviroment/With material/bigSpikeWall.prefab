@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bigSpikeWall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e014f1770e31a1489b3a9ba4959c17b,
+        type: 3}
+      propertyPath: m_TagString
+      value: FrozenFragment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -136,10 +141,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8000937568443677986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,18 +158,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 2
     minimumCollisionForce: 0
     filterCollisionsByTag: 0
     triggerAllowedTags: []
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 25
+    fragmentCount: 10
     xAxis: 0
     yAxis: 1
     zAxis: 1
-    detectFloatingFragments: 0
-    asynchronous: 0
+    detectFloatingFragments: 1
+    asynchronous: 1
     insideMaterial: {fileID: 2100000, guid: a050e1bd01af44a478d0bef7a2584bbc, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}

@@ -35,7 +35,7 @@ public class ObjectVolumeParticels : MonoBehaviour
 
             VolumeParticleMaterialType overideParticleMaterial = spawningData.OverideParticleMaterial;
 
-            if (volumeParticles != null)
+            if (volumeParticles != null && objectShapeMesh.bounds.extents.sqrMagnitude != 0)
             {
 
                 switch (overideParticleMaterial)

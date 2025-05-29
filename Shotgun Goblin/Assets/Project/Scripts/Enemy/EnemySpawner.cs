@@ -87,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out hit, 0.8f, NavMesh.AllAreas))
             {
                 result = hit.position;
                 return true;

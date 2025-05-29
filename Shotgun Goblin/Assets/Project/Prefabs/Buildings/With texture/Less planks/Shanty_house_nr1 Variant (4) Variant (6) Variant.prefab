@@ -8,6 +8,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 50056157298687682, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 50056157298687682, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 56268174556204141, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 56268174556204141, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 105404194036958713, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 289903437336140169, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 289903437336140169, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 370022879493046596, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,25 +93,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.374
       objectReference: {fileID: 0}
+    - target: {fileID: 581207776923173633, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866083992384344172, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 955669868206335842, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 961645155804336178, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324269796927039095, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324269796927039095, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910157182125287873, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009243086351781932, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.82
+      value: -18.244896
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.755808
+      value: -7.7558126
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 125.69
+      value: 106.063324
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.53436154
+      value: -0.89954746
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
@@ -86,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.84525603
+      value: -0.43682307
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
@@ -101,12 +176,62 @@ PrefabInstance:
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -115.399
+      value: -308.197
       objectReference: {fileID: 0}
     - target: {fileID: 2080990014492391039, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147653135794276960, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147653135794276960, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514652255717745613, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514652255717745613, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681268850538003922, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681268850538003922, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943400178169007842, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014688197980659561, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014688197980659561, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230617133947527536, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4153787752900601046, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
@@ -148,6 +273,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -150.324
       objectReference: {fileID: 0}
+    - target: {fileID: 4205717459372354742, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691553558830209805, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912585152979875143, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912585152979875143, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_Name
@@ -156,6 +301,161 @@ PrefabInstance:
     - target: {fileID: 5151366764452541820, guid: a047885e4de0283419fd6734b04d7de0,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262096209885018426, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262096209885018426, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295980343324570712, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.xAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295980343324570712, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295980343324570712, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295980343324570712, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.fragmentCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295980343324570712, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384117886234268772, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.xAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384117886234268772, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384117886234268772, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384117886234268772, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.fragmentCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384117886234268772, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744235547019755526, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744235547019755526, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683284145120653792, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6783879941827857428, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827539692029348522, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827539692029348522, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852406201944896906, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.xAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852406201944896906, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852406201944896906, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852406201944896906, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.fragmentCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852406201944896906, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.detectFloatingFragments
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161442886809030457, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161442886809030457, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192799700436401438, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691217539800051404, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484219557663424909, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505967856115848110, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: triggerOptions.triggerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505967856115848110, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: fractureOptions.asynchronous
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534456700674456819, guid: a047885e4de0283419fd6734b04d7de0,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
