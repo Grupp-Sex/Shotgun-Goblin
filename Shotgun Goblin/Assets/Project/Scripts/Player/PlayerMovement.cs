@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -42,8 +43,14 @@ public class PlayerMovement : MonoBehaviour, IMover
     [Header ("Ground Check")]
     public float playerHeight;
     [SerializeField] private float isGroundedOffset;
-    public LayerMask whatIsGround;
+    private RaycastHit groundHit;
     public bool grounded {  get; private set; }
+
+    [Header("Slope Handling")]
+    [SerializeField] private float maxSlopeAngle = 80f;
+    [SerializeField] private float minSlopeBoost = 1f;
+    [SerializeField] private float maxSlopeBoost = 2f;
+    private RaycastHit slopeHit;
 
  
 
@@ -59,15 +66,22 @@ public class PlayerMovement : MonoBehaviour, IMover
 
     private void Update()
     {
-        characterRB.drag = groundDrag;
+        
 
         SpeedControl();
 
-      
+
 
         //Ground Check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f + isGroundedOffset, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, out groundHit, playerHeight / 2 + 0.2f);
+        
         Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.1f);
+
+        //If we want something to not be grounded, apply this tag 
+        //if (grounded && groundHit.collider.CompareTag("IgnoreGround"))
+        //{
+
+        //}
 
 
         //Handle Drag
@@ -96,13 +110,32 @@ public class PlayerMovement : MonoBehaviour, IMover
             
             movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
-            if (grounded)
+       
+            
+
+            if (grounded && !StandingOnSlope())
             {
-                characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
+                    characterRB.AddRelativeForce(movementVector.normalized * movementSpeed, ForceMode.Force);
+                    characterRB.useGravity = true;
+                //Debug.Log("På marken");
+            }
+            else if (grounded && StandingOnSlope())
+            {
+                // If standing on slope, add force in the calculated slope direction
+                    Vector3 slopeDirection = SlopeMoveDirection();
+                    characterRB.AddRelativeForce(slopeDirection * movementSpeed * GetSlopeForceMultiplier(), ForceMode.Force);
+
+                    movementVector.y = -4.5f;
+
+                    //Turn off gravity while on slope so player don't glide off
+                    characterRB.useGravity = !StandingOnSlope();
+                //Debug.Log("Slope");
             }
             else if (!grounded)
             {
                 characterRB.AddRelativeForce(movementVector.normalized * movementSpeed * airMultiplier, ForceMode.Force);
+                characterRB.useGravity = true;
+                //Debug.Log("Luften");
             }
 
 
@@ -232,6 +265,40 @@ public class PlayerMovement : MonoBehaviour, IMover
     private void CameraTilt(float horizontalInput)
     {
         targetTilt = -horizontalInput;
+    }
+
+    private bool StandingOnSlope()
+    {
+        // Check under player and calculate slope and store in angle and if angle is smaller than maxSlopeAngle and not 0 return true, if raycast dont hit return false
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.4f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+
+            Debug.DrawRay(transform.position, Vector3.down * (playerHeight / 2 + 0.5f), Color.yellow);
+            Debug.Log($"Slope angle: {angle}");
+
+            return angle < maxSlopeAngle && angle != 0;
+
+        }
+        return false;
+    }
+
+    private float GetSlopeForceMultiplier()
+    {
+        float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+
+        float slopePercentage = Mathf.InverseLerp(0, maxSlopeAngle, angle);
+       float result = Mathf.Lerp(minSlopeBoost, maxSlopeBoost, slopePercentage);
+        Debug.Log($"Slope added force: {result}");
+
+        return result;
+    }
+
+    // Project movement vector onto slope and remove the slope's normals from the vector, making the player vector move along the slope direction
+    private Vector3 SlopeMoveDirection()
+    {
+        Vector3 projected = Vector3.ProjectOnPlane(movementVector, slopeHit.normal);
+        return projected.normalized * movementVector.magnitude;
     }
 
 }
