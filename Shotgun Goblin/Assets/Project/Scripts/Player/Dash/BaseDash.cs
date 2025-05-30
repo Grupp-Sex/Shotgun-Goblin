@@ -87,6 +87,10 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
             //result = Vector3.ProjectOnPlane(vector, truncator);
             result = Vector3.zero;
         }
+        else
+        {
+            result = Vector3.Project(vector, truncator);
+        }
 
         return result;
     }
