@@ -13,10 +13,14 @@ public class EnemyMovement : MonoBehaviour
 
     private Coroutine Follow;
 
+    private EnemyAnimationHandler animationHandler;
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
+        animationHandler = GetComponentInChildren<EnemyAnimationHandler>();
         Agent.enabled = false;
+        
     }
 
     public void StartChase()
@@ -47,17 +51,29 @@ public class EnemyMovement : MonoBehaviour
 
                     //Agent.SetDestination(Target.transform.position);
                     SetDestination(Target.transform.position);
+
+                    if (Agent.velocity.magnitude > 0.1f)
+                    {
+                        //Putting animation triggers on enemy throughout the script / Mikey
+                        animationHandler?.SetRunning(true);
+                    }
+                    else
+                    {
+                        animationHandler?.SetRunning(false);
+                    }
+
                 }
                 else
                 {
+                    
                     Debug.LogError("Enemy is not on navmesh");
                 }
             }
 
             yield return Wait;
         }
+        animationHandler.SetRunning(false);
 
-        
 
     }
 
