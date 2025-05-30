@@ -43,7 +43,7 @@ public class Game_Manager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("TS2, Gameplay"); //Game file and it's components must be added here
+        SceneManager.LoadScene("Level_1"); //Game file and it's components must be added here
     }
 
     public void GameOver()

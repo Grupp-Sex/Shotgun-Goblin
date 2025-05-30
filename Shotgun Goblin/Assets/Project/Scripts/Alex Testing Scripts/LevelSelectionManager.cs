@@ -10,9 +10,9 @@ public class LevelSelectionManager : MonoBehaviour
         SceneManager.LoadScene("Level_1");
     }
 
-    public void TestLevelOne()
+    public void LevelTwo()
     {
-        SceneManager.LoadScene("TS1, Interactions and Movement");
+        SceneManager.LoadScene("Level_2");
     }
 
     public void TestLevelTwo()
