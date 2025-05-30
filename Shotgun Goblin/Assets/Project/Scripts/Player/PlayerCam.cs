@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//Written by Mikael
 public class PlayerCam : MonoBehaviour
 {
     
@@ -61,7 +62,7 @@ public class PlayerCam : MonoBehaviour
             xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, xTransform.rotation.z));
 
 
-            //currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
+            
         }
        
     }

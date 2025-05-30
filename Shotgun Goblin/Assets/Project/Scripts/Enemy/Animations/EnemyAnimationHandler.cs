@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Written by Mikael
 public class EnemyAnimationHandler : MonoBehaviour
 {
 

@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
+//Majorily written by Mikael and helped by Ansgar 
+
 public class PlayerMovement : MonoBehaviour, IMover
 {
     
@@ -34,8 +36,8 @@ public class PlayerMovement : MonoBehaviour, IMover
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private float groundDrag;
     [SerializeField] private float turningSmotheness = 0.9f;
-    public bool IsBraking { get; private set; }
-    public EventPusher<bool> Event_ToggleBrake = new EventPusher<bool>();
+    
+    
 
 
     [Header("Jump")]
@@ -155,7 +157,7 @@ public class PlayerMovement : MonoBehaviour, IMover
                 Vector3 slopeDirection = SlopeMoveDirection();
                 movementAcceleration = slopeDirection * movementSpeed * GetSlopeForceMultiplier();
 
-                //movementVector.y = -4.5f;
+                
 
                 //Turn off gravity while on slope so player don't glide off
                 if (movementAcceleration.sqrMagnitude > 0)
@@ -256,7 +258,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
 
-        ExitBrake();
+      
 
         //Send horizontal movement to camera for tilting
         
@@ -269,7 +271,7 @@ public class PlayerMovement : MonoBehaviour, IMover
    
         targetMovementInput = Vector3.zero;
 
-        EnterBrake();
+       
         
 
        // Stop Camera tilt if not moving
@@ -392,25 +394,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         return direction;
     }
 
-    public void EnterBrake()
-    {
-        if (!IsBraking)
-        {
-            IsBraking = true;
-
-            Event_ToggleBrake.Invoke(this, IsBraking);
-        }
-    }
-
-    public void ExitBrake()
-    {
-        if (IsBraking)
-        {
-            IsBraking = false;
-
-            Event_ToggleBrake.Invoke(this, IsBraking);
-        }
-    }
+    
 }
 
 public interface IMover
