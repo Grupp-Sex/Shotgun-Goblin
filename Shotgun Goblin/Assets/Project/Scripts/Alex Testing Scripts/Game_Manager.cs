@@ -68,10 +68,17 @@ public class Game_Manager : MonoBehaviour
     {
         SceneManager.LoadScene("Level_Selection");
     }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial01");
+    }
+
     public void Options()
     {
         SceneManager.LoadScene("Options_Menu");
     }
+
+
 
     public void QuitProgram()
     {
