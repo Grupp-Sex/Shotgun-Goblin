@@ -64,7 +64,7 @@ public class SoundManager : MonoBehaviour
 
     /*Takes in a soundtype from the enum, and the volume is set to it's max, which is 1
      Since the method is static and the audiosource isn't, we need to call it using
-    instance. This allows us to call SoundManager.PlaySound() from anywhere, without 
+    instance. This allows us to call SoundManager.PlayPooledSound() from anywhere, without 
     needing to have a reference to a SoundManager component.
     
      PlayOneShot plays an audioclip immediately on top of any other audio that is already playing. This method
