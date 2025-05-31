@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
+    private AudioSource ambientSource;
+    private Coroutine ambientFadeCoroutine;
     public static AudioManager Instance { get; private set; }
 
     /*The Header is a Unity attribute, it just makes a header/title for the groups, 
@@ -49,6 +51,7 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         SetupPool();
+        SetupAmbientSource();
     }
 
     private void SetupPool()
@@ -75,7 +78,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void Play3DSound(AudioClip clip, bool is3D, Vector3 position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
+    public void PlayPooledSound(AudioClip clip, bool is3D, Vector3 position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
     {
         //Make sure to not play the sound if there's no audioclip
         if (clip == null)
@@ -87,6 +90,7 @@ public class AudioManager : MonoBehaviour
         source.volume = volume;
         source.pitch = pitch;
         source.spatialBlend = is3D ? 1f : 0f; //1f == 3D sound, 0f == 2D sound
+
 
         if (is3D)
         {
@@ -106,6 +110,37 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(ReleaseAfterPlay(source));
     }
 
+    private void SetupAmbientSource()
+    {
+        ambientSource = gameObject.AddComponent<AudioSource>();
+        ambientSource.outputAudioMixerGroup = ambientMixGroup;
+        ambientSource.loop = true;
+        ambientSource.playOnAwake = false;
+        ambientSource.spatialBlend = 0f;
+    }
+    public void PlayAmbient(AudioClip clip, float volume = 1f, float fadeDuration = 0f)
+    {
+        if (clip == null) return;
+
+        if (ambientFadeCoroutine != null)
+        {
+            StopCoroutine(ambientFadeCoroutine);
+        }
+
+        /*Only if a fadeDuration is requested and something is already playing will
+        the "fade out - switch clip - fade in" be performed.*/
+        if (fadeDuration > 0f && ambientSource.isPlaying)
+        {
+            ambientFadeCoroutine = StartCoroutine(FadeAmbientOutAndIn(clip, volume, fadeDuration));
+        }
+        else
+        {
+            ambientSource.clip = clip;
+            ambientSource.volume = volume;
+            ambientSource.Play();
+        }
+    }
+
     private IEnumerator ReleaseAfterPlay(AudioSource source)
     {
         /*The yield here is what gives us the delay, and instead of using WaitForSeconds
@@ -114,6 +149,37 @@ public class AudioManager : MonoBehaviour
         yield return new WaitWhile(() => source.isPlaying);
         sourcePool.Release(source);
     }
+
+    private IEnumerator FadeAmbientOutAndIn(AudioClip newClip, float targetVolume, float duration)
+    {
+        float t = 0f;
+        float startVol = ambientSource.volume;
+
+        //Fading the audio out
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            ambientSource.volume = Mathf.Lerp(startVol, 0f, t / duration);
+            yield return null;
+        }
+
+        ambientSource.Stop();
+        ambientSource.clip = newClip;
+        ambientSource.Play();
+
+        //Fading the audio in
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            ambientSource.volume = Mathf.Lerp(0f, targetVolume, t / duration);
+            yield return null;
+        }
+
+        ambientSource.volume = targetVolume;
+        ambientFadeCoroutine = null;
+    }
+
+    //private IEnumerator StopAmbience()
 
     private void GetPooledAudioSource(AudioSource src)
     {
