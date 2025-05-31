@@ -42,7 +42,7 @@ public class PlayerDash : BaseDash
     //Do when pressing left shift
     private void OnDashStart()
     {
-        if (!canDash) return;
+        if (!canDash || !PlayerSettings.dash_shift) return;
 
         // Store input direction by player movement to be able to dash in any direction 
 
@@ -51,7 +51,7 @@ public class PlayerDash : BaseDash
     }
     private void OnKeysDashStart(InputValue input)
     {
-        if (!canDash) return;
+        if (!canDash || !PlayerSettings.dash_shift) return;
 
 
         if (tappCount.sqrMagnitude <= 0)
