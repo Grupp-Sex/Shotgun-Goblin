@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Pool;
@@ -52,6 +53,8 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SetupPool();
         SetupAmbientSource();
+
+        GameAudioManager.SetAudioManager(this);
     }
 
     private void SetupPool()
@@ -78,7 +81,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void PlayPooledSound(AudioClip clip, bool is3D, Vector3 position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
+    public void PlayPooledSound(AudioClip clip, bool is3D, Transform position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
     {
         //Make sure to not play the sound if there's no audioclip
         if (clip == null)
@@ -92,14 +95,14 @@ public class AudioManager : MonoBehaviour
         source.spatialBlend = is3D ? 1f : 0f; //1f == 3D sound, 0f == 2D sound
 
 
+        source.transform.position = Vector3.zero;
+
         if (is3D)
         {
-            source.transform.position = position;
+            source.transform.SetParent(transform);
+            source.transform.localPosition = Vector3.zero;
         }
-        else
-        {
-            source.transform.position = Vector3.zero;
-        }
+        
 
         source.Play();
 
