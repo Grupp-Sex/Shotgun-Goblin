@@ -28,21 +28,15 @@ public class Game_Manager : MonoBehaviour
         CheckIfUiExist();
 
 
-            if (lockMouse)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-        
+        ToggleMouse(lockMouse);
+
+
     }
 
     public void PlayGame()
     {
+        ToggleMouse(false);
+
         SceneManager.LoadScene("Level_1"); //Game file and it's components must be added here
     }
 
@@ -61,23 +55,47 @@ public class Game_Manager : MonoBehaviour
     //Switches scenes within the build-index
     public void MainMenu()
     {
+        ToggleMouse(true);
         SceneManager.LoadScene("Main_Menu"); 
     }
 
     public void Levels()
     {
+        ToggleMouse(true);
+
         SceneManager.LoadScene("Level_Selection");
     }
     public void Tutorial()
     {
+        ToggleMouse(false);
+
         SceneManager.LoadScene("Tutorial01");
     }
 
     public void Options()
     {
+        ToggleMouse(true);
+
         SceneManager.LoadScene("Options_Menu");
     }
 
+    protected void ToggleMouse(bool active)
+    {
+
+        // original code by Alex, move here by ansgar
+        if (active)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    
 
 
     public void QuitProgram()

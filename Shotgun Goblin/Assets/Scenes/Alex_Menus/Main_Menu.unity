@@ -566,8 +566,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6720378629937362000, guid: e418875f48869b74f985859960d3939c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103154657900758904}
   m_SourcePrefab: {fileID: 100100000, guid: e418875f48869b74f985859960d3939c, type: 3}
+--- !u!1 &2103154657900758903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6720378629937362000, guid: e418875f48869b74f985859960d3939c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103154657900758902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103154657900758904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103154657900758903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec1b1214a435c94eb55fead9a78ee34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
+  pauseMenu: {fileID: 2103154657900758903}
+  lockMouse: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
