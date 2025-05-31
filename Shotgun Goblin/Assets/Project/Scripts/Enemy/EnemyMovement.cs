@@ -52,15 +52,7 @@ public class EnemyMovement : MonoBehaviour
                     //Agent.SetDestination(Target.transform.position);
                     SetDestination(Target.transform.position);
 
-                    if (Agent.velocity.magnitude > 0.1f)
-                    {
-                        //Putting animation triggers on enemy throughout the script / Mikey
-                        animationHandler?.SetRunning(true);
-                    }
-                    else
-                    {
-                        animationHandler?.SetRunning(false);
-                    }
+                    
 
                 }
                 else
@@ -75,6 +67,23 @@ public class EnemyMovement : MonoBehaviour
         animationHandler.SetRunning(false);
 
 
+    }
+
+
+    
+    void Update()
+    {
+
+        // by Mikael (moved to update by Ansgar)
+        if (Agent.velocity.magnitude > 0.05f)
+        {
+            //Putting animation triggers on enemy throughout the script / Mikey
+            animationHandler?.SetRunning(true);
+        }
+        else
+        {
+            animationHandler?.SetRunning(false);
+        }
     }
 
 
