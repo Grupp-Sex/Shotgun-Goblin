@@ -353,6 +353,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a3f1c4019ae6be4489a38a29116c15d, type: 3}
   VolumeRange: {x: 1, y: 1}
   PitchRange: {x: 1, y: 4}
+  TargetPosition: {fileID: 0}
+  follow: 1
   threshold: 1
   type: 0
   soundBySpeed:
@@ -381,3 +383,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   maxSpeed: 10
   minSpeed: 2
+  cooldownDuration: 3
+  isOnCool: 0

@@ -9255,7 +9255,7 @@ PrefabInstance:
     - target: {fileID: 1053458266187490650, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: rangeOfSpawn
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1053458266187490650, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
@@ -9265,7 +9265,7 @@ PrefabInstance:
     - target: {fileID: 1053458266187490650, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: numberOfEnemies
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1053458266187490650, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
@@ -9279,13 +9279,18 @@ PrefabInstance:
       objectReference: {fileID: 1565938360}
     - target: {fileID: 1525807289336633642, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
+      propertyPath: rangeOfSpawn
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525807289336633642, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
+        type: 3}
       propertyPath: spawnOffset.y
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1525807289336633642, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: numberOfEnemies
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1525807289336633642, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
@@ -9350,7 +9355,7 @@ PrefabInstance:
     - target: {fileID: 3962589746630610703, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: rangeOfSpawn
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3962589746630610703, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
@@ -9360,12 +9365,12 @@ PrefabInstance:
     - target: {fileID: 3962589746630610703, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: numberOfEnemies
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3962589746630610703, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: delayBetweenSpawn
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5969689432342466128, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
@@ -9409,18 +9414,23 @@ PrefabInstance:
       objectReference: {fileID: 1565938360}
     - target: {fileID: 9157269043672541862, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
+      propertyPath: rangeOfSpawn
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157269043672541862, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
+        type: 3}
       propertyPath: spawnOffset.y
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9157269043672541862, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: numberOfEnemies
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9157269043672541862, guid: 21f7cd36b1feb0e459cd26aba45ef48f,
         type: 3}
       propertyPath: delayBetweenSpawn
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
