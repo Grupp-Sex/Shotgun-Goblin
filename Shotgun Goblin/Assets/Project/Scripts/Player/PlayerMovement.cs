@@ -1,3 +1,27 @@
+/*
+ * PlayerMovement.cs
+ * 
+ * Controls player movement mechanics including walking, running, jumping, and camera tilt.
+ * Implements smooth input handling, ground and slope detection, and physics-based movement using Rigidbody.
+ * Supports acceleration limits, slope force adjustments, and air movement multipliers.
+ * Integrates Unity's Input System callbacks for movement and jump input.
+ * 
+ * Features:
+ * - Movement input smoothing and acceleration
+ * - Camera tilt based on horizontal movement
+ * - Ground detection with drag adjustment
+ * - Jumping with cooldown and air control
+ * - Slope handling including slope angle checks and force multipliers
+ * - Velocity limiting to enforce max speed
+ * 
+ * Implements IMover interface for exposing input direction.
+ * 
+ * Authors:
+ * - Mainly Mikael
+ * - Assistance by Ansgar
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,6 +29,8 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+
+//Majorily written by Mikael and helped by Ansgar 
 
 public class PlayerMovement : MonoBehaviour, IMover
 {
@@ -34,8 +60,8 @@ public class PlayerMovement : MonoBehaviour, IMover
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private float groundDrag;
     [SerializeField] private float turningSmotheness = 0.9f;
-    public bool IsBraking { get; private set; }
-    public EventPusher<bool> Event_ToggleBrake = new EventPusher<bool>();
+    
+    
 
 
     [Header("Jump")]
@@ -140,7 +166,7 @@ public class PlayerMovement : MonoBehaviour, IMover
 
         movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
-        movementAcceleration = movementVector.normalized * movementSpeed;
+movementAcceleration = movementVector.normalized * movementSpeed;
 
         if (!grounded)
         {
@@ -155,7 +181,7 @@ public class PlayerMovement : MonoBehaviour, IMover
                 Vector3 slopeDirection = SlopeMoveDirection();
                 movementAcceleration = slopeDirection * movementSpeed * GetSlopeForceMultiplier();
 
-                //movementVector.y = -4.5f;
+                
 
                 //Turn off gravity while on slope so player don't glide off
                 if (movementAcceleration.sqrMagnitude > 0)
@@ -256,7 +282,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
 
-        ExitBrake();
+      
 
         //Send horizontal movement to camera for tilting
         
@@ -269,7 +295,7 @@ public class PlayerMovement : MonoBehaviour, IMover
    
         targetMovementInput = Vector3.zero;
 
-        EnterBrake();
+       
         
 
        // Stop Camera tilt if not moving
@@ -392,25 +418,7 @@ public class PlayerMovement : MonoBehaviour, IMover
         return direction;
     }
 
-    public void EnterBrake()
-    {
-        if (!IsBraking)
-        {
-            IsBraking = true;
-
-            Event_ToggleBrake.Invoke(this, IsBraking);
-        }
-    }
-
-    public void ExitBrake()
-    {
-        if (IsBraking)
-        {
-            IsBraking = false;
-
-            Event_ToggleBrake.Invoke(this, IsBraking);
-        }
-    }
+    
 }
 
 public interface IMover
