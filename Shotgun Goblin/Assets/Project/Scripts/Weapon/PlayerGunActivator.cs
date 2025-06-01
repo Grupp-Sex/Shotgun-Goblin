@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//ansgar
 public class PlayerGunActivator : MonoBehaviour
 {
     protected PlayerHeldItemInteractor heldItem;

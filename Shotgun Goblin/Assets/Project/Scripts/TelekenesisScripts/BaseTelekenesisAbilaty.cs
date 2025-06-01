@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// all telekenesis scripts are ansgar
 public class BaseTelekenesisAbilaty : MonobehaviorScript_ToggleLog
 {
     protected List<TelekenesisPhysicsObject> heldObjects;
