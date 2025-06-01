@@ -30,7 +30,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-//Majorily written by Mikael and helped by Ansgar 
+
 
 public class PlayerMovement : MonoBehaviour, IMover
 {
@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour, IMover
     [SerializeField] private float tiltSpeed = 0.8f;
     private float currentTilt = 0f;
     private float targetTilt;
+
+  
 
 
     [SerializeField] private Transform orientation;
@@ -107,6 +109,8 @@ public class PlayerMovement : MonoBehaviour, IMover
         grounded = Physics.Raycast(transform.position, Vector3.down, out groundHit, playerHeight / 2 + 0.2f);
         
         Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.1f);
+
+        
 
         //If we want something to not be grounded, apply this tag 
         //if (grounded && groundHit.collider.CompareTag("IgnoreGround"))
