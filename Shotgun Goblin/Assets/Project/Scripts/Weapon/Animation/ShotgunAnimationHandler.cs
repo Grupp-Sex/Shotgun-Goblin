@@ -1,8 +1,27 @@
+/*
+ * ShotgunAnimationHandler.cs
+ * 
+ * Handles animation logic for the shotgun weapon by responding to shooting and reloading events.
+ * Implements the IShotActivated interface, allowing it to be notified when the gun is fired or reloaded.
+ * 
+ * Features:
+ * - Triggers recoil and reload animations using Animator parameters.
+ * 
+ * Integration:
+ * - The Animator component should be assigned or found on the same GameObject.
+ * - Requires appropriate trigger parameters (default: "RECOIL", "RELOAD") to be set in the Animator.
+ * - This script is automatically notified by the BaseGun system through the IShotActivated interface.
+ * 
+ * Author:
+ * - Written by Mikael
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunAnimations : MonoBehaviour, IShotActivated
+public class ShotgunAnimationHandler : MonoBehaviour, IShotActivated
 {
 
     public Animator animator;
