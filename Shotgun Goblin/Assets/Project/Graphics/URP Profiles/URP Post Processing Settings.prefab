@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2600195370087102500}
   - component: {fileID: 577149038964319155}
+  - component: {fileID: 7140409323965080530}
   m_Layer: 0
   m_Name: URP Post Processing Settings
   m_TagString: Untagged
@@ -49,3 +50,20 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 770f9f9d4f6ebd8458b2e5d795d79008, type: 2}
+--- !u!114 &7140409323965080530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176783066670341456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290a2c3b991eb784c990987f2af6e0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 1
+  RendererData: {fileID: 11400000, guid: 3472850c8e3b2014da7dfe99bd189e77, type: 2}
+  ToggleShaders:
+  - ShaderName: FogEffect
+    Toggle: 1

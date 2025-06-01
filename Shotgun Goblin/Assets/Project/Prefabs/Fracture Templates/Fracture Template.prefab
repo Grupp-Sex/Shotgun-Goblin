@@ -1,0 +1,338 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2218318203337981819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8352126967347233987}
+  - component: {fileID: 8776330016152839171}
+  - component: {fileID: 245983950170615653}
+  - component: {fileID: 2451181719784949526}
+  - component: {fileID: 2312572841517368258}
+  - component: {fileID: 3429795546144225330}
+  - component: {fileID: 2420230112068804877}
+  - component: {fileID: 1514559514758087776}
+  - component: {fileID: -8219543084440411587}
+  - component: {fileID: 5500495884141641198}
+  - component: {fileID: 6856171906596192525}
+  - component: {fileID: -465320920851364473}
+  - component: {fileID: -798559688326188676}
+  - component: {fileID: -3044910364488511605}
+  - component: {fileID: -2670819513709704078}
+  - component: {fileID: 5542207658818523489}
+  - component: {fileID: -1196105753458712178}
+  - component: {fileID: -706688815540715780}
+  m_Layer: 0
+  m_Name: Fracture Template
+  m_TagString: FrozenFragment
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8352126967347233987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0002797, y: -0.66923046, z: 23.360483}
+  m_LocalScale: {x: 0.22761415, y: 0.21357276, z: 2.2066774}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8776330016152839171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833c2bf7f49ecdd42974fa70af38903c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  BoundCollider: {fileID: 0}
+  BoundSize: 0
+  CanBeGrabbed: 1
+  PriorityLayer: 5
+  PickupPriority: 0
+--- !u!208 &245983950170615653
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.005, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 2
+--- !u!114 &2451181719784949526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac36a28bb71ffd4d84df8b37490e2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  ThawNeighboursRadius: 0.3
+  RecallOnStart: 1
+  StartFrozen: 1
+  DoActivate: 0
+  IsFrozen: 0
+--- !u!114 &2312572841517368258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c956c0b4e18062e48871ce1e9435162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  SumFalloff: 0
+  LowerThreshold: 1
+  TruncationLerpValue: 0
+  KESum_relative: 0
+  KESumMax_relative: 0
+  MomentumSum_relative: 0
+  MomentumSumMax_relative: 0
+  KESum_collider: 0
+  KESumMax_collider: 0
+  MomentumSum_collider: 0
+  MomentumSumMax_collider: 0
+--- !u!114 &3429795546144225330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50845f7280555f247bbdf0518be4eaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  SoftImpactType: 3
+  SoftImpactThreshold: 20
+  HardImpactType: 2
+  HardImpactThreshold: 50
+--- !u!114 &2420230112068804877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45531e51f7ba37c41afe0998f3d630a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NavMeshObstacle: {fileID: 0}
+  Bounds: {fileID: 0}
+  type: 3
+  ThawObsticleData:
+    SizeMult: {x: 0, y: 0, z: 0}
+    Shape: 0
+    Carving: 0
+    MoveThreshold: 0
+    TimeToStationary: 0
+    CarveOnlyStationary: 0
+--- !u!114 &1514559514758087776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cdd8d6e817b4d42949a19c455cb7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeMult: {x: 0.6, y: 0.6, z: 0.6}
+  boundSize: {x: 0, y: 0, z: 0}
+  carve: 1
+--- !u!114 &-8219543084440411587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f261152e0c70b9e40a2acf60f825d859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  maxHealth: 5
+  currentHealth: 0
+  invincible: 0
+  imortal: 0
+  kill: 0
+--- !u!114 &5500495884141641198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a94d40cf6571e43a2277d05d207f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  TargetTags:
+  - FrozenFragment
+  DamageSpreadRadius: 0.5
+  EpicenterDamageMult: 1
+  EdgeDamageMult: 0.1
+--- !u!114 &6856171906596192525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138b9c7d9309fe345817ec6e9c47b7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  LowImpactDamage: 4
+  HighImpactDamage: 10
+--- !u!114 &-465320920851364473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb498402efdb2864b8b2450da03db761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-798559688326188676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd2f9344d528a243aefb7caf7ce76f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3044910364488511605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9679ec9a2ab0caf46b15213734ec5778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  CanDespawn: 1
+  despawnType: 0
+  isDespawning: 0
+--- !u!114 &-2670819513709704078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b65f1cce66cd2479ce0c7f7fe974fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  Despawner: {fileID: 0}
+  Rigidbody: {fileID: 0}
+  PauseOnFreeze: 1
+  DespawnTimerMinutes: 0.5
+  DespawnCheckIntervall: 10
+  isChecking: 0
+--- !u!114 &5542207658818523489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b74ebc02d2ab5848a06a6cecbe981fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - particleEmitterHolder: {fileID: 5777372909905234414, guid: 98de5a8464a1d4a42bb80ceca17a5e23,
+      type: 3}
+    OverideParticleMaterial: 2
+  volumeSpawner: {fileID: 0}
+  DoOnDisable: 1
+--- !u!114 &-1196105753458712178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1a4e8ac31dd964eb2cba68495a1b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectShapeMesh: {fileID: 0}
+--- !u!114 &-706688815540715780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff6796c5250a4649a87f4ed33ddcaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - particleEmitterHolder: {fileID: 705878447692446232, guid: be3be48dc8a24d84583e486a93511a87,
+      type: 3}
+    OverideParticleMaterial: 2
+  volumeSpawner: {fileID: 0}

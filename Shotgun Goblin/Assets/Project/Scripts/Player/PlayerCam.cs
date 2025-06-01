@@ -1,29 +1,61 @@
+/*
+ * PlayerCam.cs
+ * 
+ * Handles player camera movement using mouse input via Unity's Input System.
+ * Rotates the player (y-axis) and the camera (x-axis) independently for first-person.
+ * Locks the cursor and applies input sensitivity scaling to ensure consistent behavior across varying frame rates.
+ * 
+ * Features:
+ * - Horizontal and vertical rotation using Rigidbody
+ * - Clamping vertical rotation to prevent over-rotation
+ * - Cursor locking and hiding for immersive gameplay
+ * - Input system integration for look controls
+ * 
+ * Dependencies:
+ * - Requires Rigidbody references for xTransform (camera) and yTransform (player body or orientation root)
+ * - Must be paired with Unity Input System with "Look" action mapped
+ * 
+ * Author:
+ * - Written by Mikael
+ */
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//Written by Mikael
 public class PlayerCam : MonoBehaviour
 {
-    //public Transform orientation;
-    public Transform yTransform;
-    public Transform xTransform;
+    
+   private PlayerMovement playerMovement;
 
-    public float sensitivity = 5f;
+    public Rigidbody yTransform;
+    public Rigidbody xTransform;
+
+    
+
+
+    [SerializeField] private float sensitivity = 5f;
 
     float mouseX;
     float mouseY;
-    //[SerializeField] private float turnTime;
+   
 
     private Vector2 lookInput;
 
-    //float xRotationVelocity;
-    //float yRotationVelocity;
-    float xRotation;
-    float yRotation;
+    
+    public float xRotation { get; protected set; }
+    public float yRotation { get; protected set; }
 
-    
-    
+
+
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -33,38 +65,42 @@ public class PlayerCam : MonoBehaviour
    
     void LateUpdate()
     {
-        //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity för att inte skapa inconsintency
-        mouseX *= Time.deltaTime * sensitivity;
-        mouseY *= Time.deltaTime * sensitivity;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            //Scaling mouse movement med delta time (Tid mellan varje frame) och sensitivity fÃ¶r att inte skapa inconsintency
+            mouseX *= 1 / 60f * sensitivity;
+            mouseY *= 1 / 60f * sensitivity;
 
-        yRotation += mouseX;
+            yRotation += mouseX;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Begränsar spelar från att titta mer än 90 grader upp och ner
+            xRotation -= mouseY;
 
-        //rotera kamera åt bägge axis (x och y)
-        //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        //rotera orientation (vilket är spelaren) på y-axeln endast 
-        yTransform.rotation = Quaternion.Euler(0, yRotation, 0);
-        xTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            xRotation = Mathf.Clamp(xRotation, -85f, 85f); // BegrÃ¤nsar spelar frÃ¥n att titta mer Ã¤n 90 grader upp och ner
 
-        //Debug för att se ifall kameran tar emot mouse inputs
-        //Debug.Log(lookInput);
 
+
+            //rotera orientation (vilket Ã¤r spelaren) pÃ¥ y-axeln endast 
+
+            yTransform.MoveRotation(Quaternion.Euler(yTransform.rotation.x, yRotation, yTransform.rotation.z));
+
+            xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, xTransform.rotation.z));
+
+
+            
+        }
+       
     }
 
-    //protected float SmoothTurn(float input, float current, ref float velocity)
-    //{
-    //    return Mathf.SmoothDampAngle(current, current + input, ref velocity, turnTime);
-    //}
-
-    //OnLook tar player inputs från musen och förvarar dem i mouseX och mouseY beroende på om player tittar horizontelt (X) eller vertikalt (Y)
+    
+    //OnLook tar player inputs frÃ¥n musen och fÃ¶rvarar dem i mouseX och mouseY beroende pÃ¥ om player tittar horizontelt (X) eller vertikalt (Y)
     private void OnLook(InputValue input)
     {
         lookInput = input.Get<Vector2>();
         mouseX = lookInput.x;
         mouseY = lookInput.y;
-        //mouseX = input.Get<Vector2>().x;
-        //mouseY = input.Get<Vector2>().y;
+        
     }
+
+  
+
 }
