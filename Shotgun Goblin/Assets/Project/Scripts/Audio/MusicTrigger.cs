@@ -40,7 +40,7 @@ public class MusicTrigger : MonoBehaviour
 
 
     [SerializeField] private AudioClip[] audioClips;
-    [SerializeField] private float volume = 0.5f;
+    [SerializeField] private float volume = 0.4f;
     [SerializeField] private float fadeDuration = 1f;
 
     private bool isPlaying;
