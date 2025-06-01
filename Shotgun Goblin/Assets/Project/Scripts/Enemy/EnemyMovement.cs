@@ -13,12 +13,18 @@ public class EnemyMovement : MonoBehaviour
 
     private Coroutine Follow;
 
+    private EnemyAnimationHandler animationHandler;
+
+    // Made by Douglas
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
+        animationHandler = GetComponentInChildren<EnemyAnimationHandler>();
         Agent.enabled = false;
+        
     }
 
+    // Made by Douglas
     public void StartChase()
     {
 
@@ -34,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // Made by Douglas
     private IEnumerator FollowTarget()
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateSpeed);
@@ -56,9 +63,24 @@ public class EnemyMovement : MonoBehaviour
 
             yield return Wait;
         }
+        animationHandler.SetRunning(false);
+    }
 
-        
 
+    
+    void Update()
+    {
+
+        // by Mikael (moved to update by Ansgar)
+        if (Agent.velocity.magnitude > 0.05f)
+        {
+            //Putting animation triggers on enemy throughout the script / Mikey
+            animationHandler?.SetRunning(true);
+        }
+        else
+        {
+            animationHandler?.SetRunning(false);
+        }
     }
 
 

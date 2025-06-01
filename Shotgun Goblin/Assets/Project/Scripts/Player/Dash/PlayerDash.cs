@@ -1,7 +1,52 @@
+/*
+ * PlayerDash.cs
+ * 
+ * Handles dash input and execution for a player character.
+ * Inherits from BaseDash, which defines shared dash logic like ApplyDash() and DashData.
+ * Supports two types of dash:
+ * - Shift Dash: Activated using the left shift key.
+ * - Key Double-Tap Dash: Activated by double-tapping directional keys (e.g., WASD).
+ * 
+ * Features:
+ * - Dash cooldown system to prevent spamming
+ * - Directional dashing using input from PlayerMovement or key taps
+ * - Multitap support with a time threshold (0.5s) to detect double-tap behavior
+ * - Fallback base dash if no directional input is provided
+ * - Dashes apply force using Rigidbody and configurable ForceMode
+ * 
+ * Serialized Fields:
+ * - cam: Player camera transform (optional, not directly used in current script)
+ * - orientation: Player orientation transform (optional, not directly used)
+ * - dashForce: Strength of the dash impulse
+ * - baseDash: Default dash direction if no input is detected
+ * - dashDuration: Duration of the dash effect
+ * - dashCD: Cooldown period between dashes
+ * - canDash: Internal cooldown flag
+ * 
+ * Dependencies:
+ * - Requires Rigidbody component on the same GameObject
+ * - Requires PlayerMovement component to get input direction
+ * - Requires PlayerSettings.dash_shift to be enabled to allow dashing
+ * 
+ * Key Methods:
+ * - OnDashStart(): Handles dashing via shift key
+ * - OnKeysDashStart(): Handles directional key double-tap dashing
+ * - Dash(): Coroutine that applies dash force and manages cooldown
+ * - KeysDash(): Detects direction from cumulative tap count and triggers dash
+ * - CheckDirection(): Validates and clamps input direction
+ * - CreateDashData(): Prepares DashData to pass into BaseDash logic
+ * 
+ * Author:
+ * - Originally written by Mikael
+ * - Updated and extended by Ansgar
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class PlayerDash : BaseDash
 {
@@ -42,7 +87,7 @@ public class PlayerDash : BaseDash
     //Do when pressing left shift
     private void OnDashStart()
     {
-        if (!canDash) return;
+        if (!canDash || !PlayerSettings.dash_shift) return;
 
         // Store input direction by player movement to be able to dash in any direction 
 
@@ -51,7 +96,7 @@ public class PlayerDash : BaseDash
     }
     private void OnKeysDashStart(InputValue input)
     {
-        if (!canDash) return;
+        if (!canDash || !PlayerSettings.dash_dubbleTap) return;
 
 
         if (tappCount.sqrMagnitude <= 0)

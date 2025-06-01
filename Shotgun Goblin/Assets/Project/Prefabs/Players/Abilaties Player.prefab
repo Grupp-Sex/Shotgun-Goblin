@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 2
+  priority: 1
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: a25c7b2f9bdc09d4eae8a5280915b751, type: 2}
@@ -707,7 +707,7 @@ MonoBehaviour:
   isJumping: 0
   playerHeight: 2
   isGroundedOffset: 0
-  maxSlopeAngle: 80
+  maxSlopeAngle: 60
   minSlopeBoost: 1
   maxSlopeBoost: 1
 --- !u!114 &5590560657115794484
@@ -921,7 +921,7 @@ MonoBehaviour:
   DashObject: {fileID: 5131602888718148011}
   cam: {fileID: 0}
   orientation: {fileID: 327407414600433406}
-  dashForce: 250
+  dashForce: 350
   baseDash: {x: 0, y: 0, z: 1}
   dashDuration: 0.25
   dashCD: 0.5
@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 2
+  priority: 1
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: 6da8bee18aec345429a231b5548e0045, type: 2}
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 6676075064691277605}
   m_Layer: 14
   m_Name: DistanceTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1341,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 577149038964319155, guid: 0bf999c9ec834ee439d09137bababff2,
         type: 3}
       propertyPath: priority
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 577149038964319155, guid: 0bf999c9ec834ee439d09137bababff2,
         type: 3}
@@ -1406,7 +1406,7 @@ PrefabInstance:
     - target: {fileID: 9176783066670341456, guid: 0bf999c9ec834ee439d09137bababff2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1611,7 +1611,17 @@ PrefabInstance:
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5984595746247368937, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}

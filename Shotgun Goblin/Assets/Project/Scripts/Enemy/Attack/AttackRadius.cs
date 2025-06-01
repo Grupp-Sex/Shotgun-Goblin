@@ -16,11 +16,15 @@ public class AttackRadius : EnemyAttackScript
     private IOnEnemyAttack[] attacksScripts;//här
     private IOnEnemyHit[] hitsScripts;//här
 
+    private EnemyAnimationHandler animationHandler;
     private void Start() //här
     {
         attacksScripts = GetComponents<IOnEnemyAttack>();
         hitsScripts = GetComponents<IOnEnemyHit>();
+        animationHandler = transform.parent.GetComponentInChildren<EnemyAnimationHandler>();
     }
+
+    // Code made by Douglas with help from Ansgar
 
     protected virtual void Awake()
     {
@@ -114,6 +118,11 @@ public class AttackRadius : EnemyAttackScript
                     //closestDamageable.TakeDamage(Damage);
 
                     NotifyHit(closestDamageable);
+
+                    if (animationHandler != null)
+                    {
+                        animationHandler?.PlayAttack();
+                    }
 
                     DebugLog("Hit Target: " + closestDamageable.GetTransform().name);
 

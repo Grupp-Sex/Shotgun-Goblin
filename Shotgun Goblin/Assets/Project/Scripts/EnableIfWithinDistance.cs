@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnableIfWithinDistance : MonoBehaviour
 {
     public GameObject enableTarget;
+    [SerializeField] List<string> TargetTags = new List<string>() { "Player" };
     [SerializeField] bool enableWithin = true;
     [SerializeField] bool onEnter = true;
     [SerializeField] bool onExit = true;
+    [SerializeField] bool isEnabled;
 
     void Awake()
     {
@@ -16,18 +18,38 @@ public class EnableIfWithinDistance : MonoBehaviour
             enableTarget = gameObject;
         }
 
-        enableTarget.SetActive(!enableWithin);
+        ToggleObject(!enableWithin);
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (onEnter) 
-            enableTarget.SetActive(enableWithin);
+        if (CheckTag(other))
+        {
+            if (onEnter)
+            ToggleObject(enableWithin);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (onExit)
-            enableTarget.SetActive(!enableWithin);
+        if (CheckTag(other))
+        {
+            if (onExit)
+                ToggleObject(!enableWithin);
+        }
     }
+
+    protected bool CheckTag(Collider other)
+    {
+        return TargetTags.Contains(other.tag);
+    }
+
+    protected void ToggleObject(bool enabled)
+    {
+        enableTarget.SetActive(enabled);
+        isEnabled = enabled;
+    }
+
+    
 }

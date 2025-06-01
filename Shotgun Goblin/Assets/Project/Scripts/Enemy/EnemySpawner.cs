@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float delayBetweenSpawn;
     [SerializeField] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private MethodOfSpawning MethodOfSpawningEnemies;
+    [SerializeField] private float spawnMaxDistance = 0.8f;
+    [SerializeField] private Vector3 spawnOffset;
 
     private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
 
@@ -29,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
+    // handles the delay between spawns and checks/uses choosen method of spawning
     private IEnumerator SpawnEnemies()
     {
         WaitForSeconds wait = new WaitForSeconds(delayBetweenSpawn);
@@ -55,17 +58,21 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // randomly picks one of the object(s) in the enemies list and spawns it
     private void SpawnRandomEnemy()
     {
         SpawnEnemy(Random.Range(0, enemies.Count));
     }
 
+
+    // makes it so the object(s) in the enemies list can spawn an even amount between eachother 
     private void SpawnEvenEnemies(int numberOfSpawnedEnemies)
     {
         int spawnIndex = numberOfSpawnedEnemies % enemies.Count;
         SpawnEnemy(spawnIndex);
     }
 
+    // makes it so the first object in the enemies list gets spawned at least a third of the time
     private void SpawnThirdIsEnemy(int numberOfSpawnedEnemies)
     {
         int spawnIndex;
@@ -81,15 +88,16 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(spawnIndex);
     }
 
+    // makes it so objects spawn at a random point on a navmesh within a specified sphere
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 0.8f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out hit, spawnMaxDistance, NavMesh.AllAreas))
             {
-                result = hit.position;
+                result = hit.position + spawnOffset;
                 return true;
             }
         }
@@ -97,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
         return false;
     }
 
+    // takes an object from poolOfEnemyObjects at a specified index, spawns it and activates the objects behavior
     private void SpawnEnemy(int indexOfSpawn)
     {
         PoolableObject poolableObject = poolOfEnemyObjects[indexOfSpawn].GetObject();
@@ -125,3 +134,4 @@ public class EnemySpawner : MonoBehaviour
         Third
     }
 }
+// by Wilmer

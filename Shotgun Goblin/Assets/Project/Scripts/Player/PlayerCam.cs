@@ -1,9 +1,34 @@
+/*
+ * PlayerCam.cs
+ * 
+ * Handles player camera movement using mouse input via Unity's Input System.
+ * Rotates the player (y-axis) and the camera (x-axis) independently for first-person.
+ * Locks the cursor and applies input sensitivity scaling to ensure consistent behavior across varying frame rates.
+ * 
+ * Features:
+ * - Horizontal and vertical rotation using Rigidbody
+ * - Clamping vertical rotation to prevent over-rotation
+ * - Cursor locking and hiding for immersive gameplay
+ * - Input system integration for look controls
+ * 
+ * Dependencies:
+ * - Requires Rigidbody references for xTransform (camera) and yTransform (player body or orientation root)
+ * - Must be paired with Unity Input System with "Look" action mapped
+ * 
+ * Author:
+ * - Written by Mikael
+ */
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//Written by Mikael
 public class PlayerCam : MonoBehaviour
 {
     
@@ -61,7 +86,7 @@ public class PlayerCam : MonoBehaviour
             xTransform.MoveRotation(Quaternion.Euler(xRotation, yRotation, xTransform.rotation.z));
 
 
-            //currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
+            
         }
        
     }
