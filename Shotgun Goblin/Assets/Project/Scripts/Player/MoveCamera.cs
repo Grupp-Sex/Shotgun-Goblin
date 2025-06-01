@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by Mikael
 public class MoveCamera : MonoBehaviour
 {
     public Transform playerTransform;
