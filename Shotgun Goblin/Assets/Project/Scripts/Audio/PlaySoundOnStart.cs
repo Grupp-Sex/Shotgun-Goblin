@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySoundOnStart : MonoBehaviour
+public class PlaySoundOnStart : GenralSoundPlayer
 {
-    [SerializeField] List<AudioClip> Sounds;
+   
 
 
     private void Start()
@@ -12,15 +12,5 @@ public class PlaySoundOnStart : MonoBehaviour
         PlaySounds();
     }
 
-    protected void PlaySounds()
-    {
-        if(GameAudioManager.AudioManager != null)
-        {
-            for(int i = 0; i < Sounds.Count; i++)
-            {
-                GameAudioManager.AudioManager.PlayPooledSound(Sounds[i],true, false);
-
-            }
-        }
-    }
+    
 }

@@ -1449,6 +1449,11 @@ PrefabInstance:
       propertyPath: maximumAngle
       value: -70
       objectReference: {fileID: 0}
+    - target: {fileID: 2951251004847480978, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
+        type: 3}
+      propertyPath: PitchRange.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2994986816104830118, guid: fcce4a658cdf7864fb1adf17ad50ff0a,
         type: 3}
       propertyPath: LogInDebugConsole
@@ -1611,17 +1616,17 @@ PrefabInstance:
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
-        type: 3}
-      propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
+        type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5984595746247368937, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}

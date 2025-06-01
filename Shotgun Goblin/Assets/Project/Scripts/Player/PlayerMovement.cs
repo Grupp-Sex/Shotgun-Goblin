@@ -62,8 +62,9 @@ public class PlayerMovement : MonoBehaviour, IMover
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private float groundDrag;
     [SerializeField] private float turningSmotheness = 0.9f;
-    
-    
+
+    public EventPusher<bool> Event_ToggleBrake = new EventPusher<bool>();
+    protected bool brakeActive = false;
 
 
     [Header("Jump")]
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour, IMover
     [SerializeField] private float maxSlopeBoost = 2f;
     private RaycastHit slopeHit;
 
- 
+
 
     void Start()
     {
@@ -286,7 +287,7 @@ movementAcceleration = movementVector.normalized * movementSpeed;
         targetMovementInput = new Vector3(inputValue.Get<Vector2>().x, 0, inputValue.Get<Vector2>().y);
 
 
-      
+        ToggleBrake(false);
 
         //Send horizontal movement to camera for tilting
         
@@ -299,11 +300,12 @@ movementAcceleration = movementVector.normalized * movementSpeed;
    
         targetMovementInput = Vector3.zero;
 
-       
-        
+        ToggleBrake(true);
 
-       // Stop Camera tilt if not moving
-       CameraTilt(0f);
+
+
+        // Stop Camera tilt if not moving
+        CameraTilt(0f);
         
     }
 
@@ -422,6 +424,16 @@ movementAcceleration = movementVector.normalized * movementSpeed;
         return direction;
     }
 
+    public void ToggleBrake(bool brake)
+    {
+        if (brakeActive != brake )
+        {
+            brakeActive = brake;
+            Event_ToggleBrake.Invoke(this, brake);
+            
+        }
+        
+    }
     
 }
 
