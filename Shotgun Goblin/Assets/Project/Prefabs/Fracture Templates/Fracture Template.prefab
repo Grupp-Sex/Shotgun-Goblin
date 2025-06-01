@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 5542207658818523489}
   - component: {fileID: -1196105753458712178}
   - component: {fileID: -706688815540715780}
+  - component: {fileID: 922690541569056753}
   m_Layer: 0
   m_Name: Fracture Template
   m_TagString: FrozenFragment
@@ -336,3 +337,47 @@ MonoBehaviour:
       type: 3}
     OverideParticleMaterial: 2
   volumeSpawner: {fileID: 0}
+--- !u!114 &922690541569056753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218318203337981819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6789b983c03eb449571210bc631467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 8a3f1c4019ae6be4489a38a29116c15d, type: 3}
+  VolumeRange: {x: 1, y: 1}
+  PitchRange: {x: 1, y: 4}
+  threshold: 1
+  type: 0
+  soundBySpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSpeed: 10
+  minSpeed: 2
