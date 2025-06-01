@@ -9,7 +9,7 @@ public class PlaySoundOnStart : GenralSoundPlayer
 
     private void Start()
     {
-        PlaySounds();
+        PlaySounds(sounds);
     }
 
     

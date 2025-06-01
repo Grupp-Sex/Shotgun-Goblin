@@ -5,17 +5,23 @@ using UnityEngine;
 public class GenralSoundPlayer : MonoBehaviour
 {
     protected System.Random rd = new System.Random();
-    [SerializeField] List<AudioClip> sounds = new List<AudioClip>();
+    [SerializeField] protected List<AudioClip> sounds = new List<AudioClip>();
     [SerializeField] Vector2 VolumeRange = new Vector2(0.5f, 0.5f);
     [SerializeField] Vector2 PitchRange = new Vector2(0.5f, 1);
+    public Transform TargetPosition;
+    [SerializeField] bool follow = true;
+    private void Awake()
+    {
+        if(TargetPosition == null) TargetPosition = transform;
+    }
 
-    protected void PlaySounds()
+    protected void PlaySounds(List<AudioClip> clips, float soundMult = 1, float pitchMult = 1)
     {
         if (GameAudioManager.AudioManager != null)
         {
             for (int i = 0; i < sounds.Count; i++)
             {
-                GameAudioManager.AudioManager.PlayPooledSound(sounds[i], false, false, default, default, default, RandomizeValue(VolumeRange), RandomizeValue(PitchRange));
+                GameAudioManager.AudioManager.PlayPooledSound(sounds[i], true, follow, false, TargetPosition, default, RandomizeValue(VolumeRange) * soundMult, RandomizeValue(PitchRange) * pitchMult);
             }
         }
     }

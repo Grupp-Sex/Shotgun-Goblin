@@ -7,7 +7,7 @@ public class ShotSound : GenralSoundPlayer, IShotActivated
    
     public void RunShootLogic()
     {
-        PlaySounds();
+        PlaySounds(sounds);
     }
 
     
