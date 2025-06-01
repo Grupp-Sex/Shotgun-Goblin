@@ -96,7 +96,7 @@ public class PlayerDash : BaseDash
     }
     private void OnKeysDashStart(InputValue input)
     {
-        if (!canDash || !PlayerSettings.dash_shift) return;
+        if (!canDash || !PlayerSettings.dash_dubbleTap) return;
 
 
         if (tappCount.sqrMagnitude <= 0)
