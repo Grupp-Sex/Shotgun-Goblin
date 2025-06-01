@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Coded by Alexandra Renner
+
 public class Game_Manager : MonoBehaviour
 {
     public GameObject gameOverUI;
@@ -14,7 +16,7 @@ public class Game_Manager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // checks if either of the ui canvases exist and is inactive
+    //Checks if either of the ui canvases exist and is inactive
     protected bool CheckIfUiExist()
     {
         lockMouse = (gameOverUI != null && gameOverUI.activeInHierarchy) || (pauseMenu != null && pauseMenu.activeInHierarchy);
@@ -22,14 +24,12 @@ public class Game_Manager : MonoBehaviour
          return lockMouse;
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         CheckIfUiExist();
 
-
         ToggleMouse(lockMouse);
-
 
     }
 
@@ -37,7 +37,7 @@ public class Game_Manager : MonoBehaviour
     {
         ToggleMouse(false);
 
-        SceneManager.LoadScene("Level_1"); //Game file and it's components must be added here
+        SceneManager.LoadScene("Level_1"); 
     }
 
     public void GameOver()
@@ -78,12 +78,10 @@ public class Game_Manager : MonoBehaviour
 
         SceneManager.LoadScene("Options_Menu");
     }
-
-    
+   
 
     public static void ToggleMouse(bool active)
     {
-
         // original code by Alex, move here by ansgar
         if (active)
         {
@@ -96,9 +94,6 @@ public class Game_Manager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
-
-    
-
 
     public void QuitProgram()
     {

@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.Pool;
 using UnityEngine.UIElements;
 
+//Coded by Alexandra Renner
 
 public class AudioManager : MonoBehaviour
 {
@@ -97,7 +98,9 @@ public class AudioManager : MonoBehaviour
 
         source.transform.position = Vector3.zero;
 
-        if (is3D)
+
+        //Edit by Ansgar 
+        if (is3D) 
         {
             source.transform.SetParent(transform);
             source.transform.localPosition = Vector3.zero;
