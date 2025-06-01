@@ -64113,8 +64113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68725033100e2c43a58ebeacd6c0560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sounds:
+  sounds:
   - {fileID: 8300000, guid: 108a9dd8a687fd346961229dd84ae79e, type: 3}
+  VolumeRange: {x: 0.1, y: 0.1}
+  PitchRange: {x: 0.5, y: 1}
 --- !u!1 &5843243946654693571
 GameObject:
   m_ObjectHideFlags: 0

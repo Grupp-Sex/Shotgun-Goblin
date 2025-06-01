@@ -9715,6 +9715,7 @@ GameObject:
   - component: {fileID: 6414871301538359743}
   - component: {fileID: 501523922544809161}
   - component: {fileID: 4029834184743610403}
+  - component: {fileID: 2951251004847480978}
   m_Layer: 11
   m_Name: ShotGun01
   m_TagString: Untagged
@@ -9875,6 +9876,20 @@ MonoBehaviour:
   animator: {fileID: 0}
   shootTrigger: RECOIL
   reloadTrigger: RELOAD
+--- !u!114 &2951251004847480978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777437075893006855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3632f972e1111354fa7baaced6f20c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: b73176172577b7642b08a8b42a1192d9, type: 3}
 --- !u!1 &1913269347283854139
 GameObject:
   m_ObjectHideFlags: 0
