@@ -3293,6 +3293,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &509804992
 Transform:
   m_ObjectHideFlags: 0
@@ -5863,6 +5865,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7771701811772250529, guid: c7f0fdd9db0adb74c9fa425c08996e9c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &952493034
 Transform:
   m_ObjectHideFlags: 0
@@ -6322,11 +6326,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1015773407
@@ -6787,6 +6791,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1118239140
 Transform:
   m_ObjectHideFlags: 0
@@ -7882,7 +7888,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -400, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1015773403}
@@ -9219,6 +9225,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1521670108
 GameObject:
   m_ObjectHideFlags: 0
@@ -9690,6 +9698,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1622039428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10633,11 +10643,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1853701302
@@ -11316,6 +11326,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7771701811772250529, guid: c7f0fdd9db0adb74c9fa425c08996e9c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1997513201
 GameObject:
   m_ObjectHideFlags: 0
@@ -12418,7 +12430,7 @@ PrefabInstance:
     - target: {fileID: 8127145669896971995, guid: eb331929aa402534b921e8eebc01d2c7,
         type: 3}
       propertyPath: imortal
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

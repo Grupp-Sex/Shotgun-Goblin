@@ -26,6 +26,7 @@ public class KillZone : MonoBehaviour
         {
             helth.Damage(999999999f, helth.transform.position);
             helth.Damage(helth.MaxHealth, helth.transform.position);
+            helth.Kill();
         }
     }
 }
