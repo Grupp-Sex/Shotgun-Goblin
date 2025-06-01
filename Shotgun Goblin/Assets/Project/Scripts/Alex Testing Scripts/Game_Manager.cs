@@ -79,7 +79,9 @@ public class Game_Manager : MonoBehaviour
         SceneManager.LoadScene("Options_Menu");
     }
 
-    protected void ToggleMouse(bool active)
+    
+
+    public static void ToggleMouse(bool active)
     {
 
         // original code by Alex, move here by ansgar

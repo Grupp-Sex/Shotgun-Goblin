@@ -63991,6 +63991,7 @@ GameObject:
   - component: {fileID: 3428614628866018130}
   - component: {fileID: 8173848082825456514}
   - component: {fileID: 3379066548906108830}
+  - component: {fileID: 3684524242479989557}
   m_Layer: 0
   m_Name: EffectExplotion
   m_TagString: Untagged
@@ -64100,6 +64101,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DPS: 2000
+--- !u!114 &3684524242479989557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463595576684085070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68725033100e2c43a58ebeacd6c0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - {fileID: 8300000, guid: 108a9dd8a687fd346961229dd84ae79e, type: 3}
 --- !u!1 &5843243946654693571
 GameObject:
   m_ObjectHideFlags: 0
