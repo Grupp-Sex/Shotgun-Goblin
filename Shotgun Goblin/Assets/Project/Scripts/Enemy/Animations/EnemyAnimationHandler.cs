@@ -42,13 +42,13 @@ public class EnemyAnimationHandler : MonoBehaviour
 
     public void SetRunning(bool isRunning)
     {
-        Debug.Log("SetRunning Called: " +  isRunning);
+        //Debug.Log("SetRunning Called: " +  isRunning);
         animator.SetBool("IsRunning", isRunning);
     }
 
     public void PlayAttack()
     {
-        Debug.Log("PlayAttack Triggered");
+        //Debug.Log("PlayAttack Triggered");
         animator.SetTrigger("Attack");
     }
     

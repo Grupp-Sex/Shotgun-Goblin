@@ -51,6 +51,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7771701811772250529, guid: c7f0fdd9db0adb74c9fa425c08996e9c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &3168863745240701946
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +104,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &3396930430707582085
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,8 +155,10 @@ MonoBehaviour:
   numberOfEnemies: 10
   delayBetweenSpawn: 1
   enemies:
-  - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
+  - {fileID: 9136743148682674755, guid: e971d878b066cf84690d84ae04cd4c17, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &4273884783718245121
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +210,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &7264020794198755883
 GameObject:
   m_ObjectHideFlags: 0

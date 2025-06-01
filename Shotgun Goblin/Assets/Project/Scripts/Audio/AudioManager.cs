@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource ambientSource;
+    [SerializeField] private AudioSource ambientSource;
     private Coroutine ambientFadeCoroutine;
     public static AudioManager Instance { get; private set; }
 
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SetupPool();
         SetupAmbientSource();
 
@@ -81,13 +81,25 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void PlayPooledSound(AudioClip clip, bool is3D, Transform position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
+    public void PlayPooledSound(AudioClip clip, bool is3D, bool follow, bool isPooled = true, Transform position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
     {
         //Make sure to not play the sound if there's no audioclip
         if (clip == null)
             return;
 
-        var source = sourcePool.Get();
+
+        AudioSource source;
+        if (isPooled)
+        {
+            source = sourcePool.Get();
+        }
+        else
+        {
+            GameObject g = new GameObject("AudioSouce");
+
+            source = g.AddComponent<AudioSource>();
+        }
+    
         source.clip = clip;
         source.outputAudioMixerGroup = group ?? sfxMixGroup; //Assigns the input group into the source, and if it's null it'll by default go into sfxMixGroup
         source.volume = volume;
@@ -99,8 +111,13 @@ public class AudioManager : MonoBehaviour
 
         if (is3D)
         {
-            source.transform.SetParent(transform);
+            
+            source.transform.SetParent(position);
             source.transform.localPosition = Vector3.zero;
+            if (!follow)
+            {
+                source.transform.parent = null;
+            }
         }
         
 
@@ -110,7 +127,15 @@ public class AudioManager : MonoBehaviour
          we use a coroutine. Coroutines is a feature that lets you pause execution and resume it later. Since
          Unity's main Update loop doesn't support waiting/sleeping, the best option is to use a coroutine 
          to delay an action asynchronously.*/
-        StartCoroutine(ReleaseAfterPlay(source));
+
+        if (isPooled)
+        {
+            StartCoroutine(ReleaseAfterPlay(source));
+        }
+        else
+        {
+            StartCoroutine(DestroyAfterPlay(source));
+        }
     }
 
     private void SetupAmbientSource()
@@ -153,6 +178,15 @@ public class AudioManager : MonoBehaviour
         sourcePool.Release(source);
     }
 
+    private IEnumerator DestroyAfterPlay(AudioSource source)
+    {
+        /*The yield here is what gives us the delay, and instead of using WaitForSeconds
+         we wait until the source finish playing. This makes sure that the audioclip in the
+         source gets to finish before it get released. */
+        yield return new WaitWhile(() => source.isPlaying);
+        Destroy(source.gameObject);
+    }
+
     private IEnumerator FadeAmbientOutAndIn(AudioClip newClip, float targetVolume, float duration)
     {
         float t = 0f;
@@ -191,7 +225,10 @@ public class AudioManager : MonoBehaviour
 
     private void ReleasePooledAudioSource(AudioSource src)
     {
-        src.gameObject.SetActive(false);
+        if (src != null)
+        {
+            src.gameObject.SetActive(false);
+        }
     }
 
     private void DestroyPooledAudioSource(AudioSource src)
