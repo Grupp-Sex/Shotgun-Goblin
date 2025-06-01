@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 6676075064691277605}
   m_Layer: 14
   m_Name: DistanceTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1406,7 +1406,7 @@ PrefabInstance:
     - target: {fileID: 9176783066670341456, guid: 0bf999c9ec834ee439d09137bababff2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1611,7 +1611,17 @@ PrefabInstance:
     - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635637945488596974, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5984595746247368937, guid: b0fda1f899cd64c4dbee8df7f98b39ce,
         type: 3}

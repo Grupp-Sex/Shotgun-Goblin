@@ -7,6 +7,7 @@ public class EnemyKillTalley : MonoBehaviour
     public EventPusher<int> Event_EnemyKilled = new EventPusher<int>();
 
     public List<EnemySpawner> enemySpawners = new List<EnemySpawner>();
+    public List<GameObject> enemySpawnerHolders = new List<GameObject>(); 
 
     [SerializeField] private int KillCounter = 0;
 
@@ -18,10 +19,31 @@ public class EnemyKillTalley : MonoBehaviour
 
     protected void SubscribeToEnemySpawners()
     {
+        
+
+        for(int i = 0; i < enemySpawnerHolders.Count; i++)
+        {
+            
+            EnemySpawner[] newEnemySpawners = enemySpawnerHolders[i].GetComponentsInChildren<EnemySpawner>();
+
+            for(int j = 0; j < newEnemySpawners.Length; j++)
+            {
+                if (!enemySpawners.Contains(newEnemySpawners[j]))
+                {
+                    enemySpawners.Add(newEnemySpawners[j]);
+                }
+            }
+        }
+
+        
+
+
         for(int i = 0; i < enemySpawners.Count; i++)
         {
             enemySpawners[i].Event_ObjectSpawned.Subscribe(Event_EnemySpawned);
         }
+
+
     }
 
     protected void Event_EnemySpawned(object sender, GameObject newEnemy)
@@ -37,3 +59,5 @@ public class EnemyKillTalley : MonoBehaviour
         Event_EnemyKilled.Invoke(this, KillCounter);
     }
 }
+
+
