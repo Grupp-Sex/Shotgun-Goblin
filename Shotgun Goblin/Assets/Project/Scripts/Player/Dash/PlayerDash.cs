@@ -38,7 +38,7 @@
  * 
  * Author:
  * - Originally written by Mikael
- * - Updated and extended by Ansgar
+ * - Updated by Ansgar
  */
 
 

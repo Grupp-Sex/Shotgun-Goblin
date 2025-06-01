@@ -17,7 +17,7 @@
  * Implements IMover interface for exposing input direction.
  * 
  * Authors:
- * - Mainly Mikael
+ * - Mainly Mikael (Everything not explicitly commented under a name is made my Mikael)
  * - Assistance by Ansgar
  */
 
@@ -212,7 +212,7 @@ movementAcceleration = movementVector.normalized * movementSpeed;
 
 
 
-        // original code by mikey
+        // original code by Mikael
 
         //if (grounded && !StandingOnSlope())
         //{
