@@ -51,13 +51,9 @@ public class EnemyMovement : MonoBehaviour
 
                     //Agent.SetDestination(Target.transform.position);
                     SetDestination(Target.transform.position);
-
-                    
-
                 }
                 else
                 {
-                    
                     Debug.LogError("Enemy is not on navmesh");
                 }
             }
@@ -65,8 +61,6 @@ public class EnemyMovement : MonoBehaviour
             yield return Wait;
         }
         animationHandler.SetRunning(false);
-
-
     }
 
 
