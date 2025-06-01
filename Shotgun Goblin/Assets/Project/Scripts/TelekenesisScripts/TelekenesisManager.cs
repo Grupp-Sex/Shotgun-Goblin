@@ -459,7 +459,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
 
     protected bool IsPhysicsObjectWithinTheshold(TelekenesisPhysicsObject obj, float threshold)
     {
-        return Vector3DistanceSquared(GetTargetPosition, obj.transform.position) <= threshold * threshold;
+        return Vector3DistanceSquared(GetTargetPosition, obj.BoundCollider.bounds.center) <= threshold * threshold;
 
     }
 
