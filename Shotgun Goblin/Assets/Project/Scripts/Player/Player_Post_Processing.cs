@@ -1,10 +1,50 @@
+/*
+ * Player_Post_Processing.cs
+ * 
+ * Modifies post-processing effects based on the player's current health.
+ * Integrates with Unity's Universal Render Pipeline (URP) using Volume components and overrides
+ * for effects like Vignette and Shadows/Midtones/Highlights.
+ * 
+ * Effects Implemented:
+ * - Vignette: Intensity and smoothness increase as health drops below defined thresholds.
+ * - Shadows: Enabled and modulated when health is below a set danger threshold.
+ * - Midtones: A secondary Volume handles midtone-only changes (due to URP limitations with disabling individual overrides).
+ * 
+ * Core Features:
+ * - Smooth oscillation (using Mathf.PingPong) for visual pulsing effects like vignette smoothness and shadow luminance.
+ * - Health-based thresholds define when each effect activates or deactivates.
+ * - Uses linear interpolation (Lerp and InverseLerp) to scale visual intensity dynamically.
+ * - Works with two separate URP Volumes to independently control visual override effects.
+ * 
+ * Serialized Settings:
+ * - Sensitivity thresholds and interpolation speeds for all effects
+ * - Luminance ranges for shadows and midtones
+ * 
+ * Dependencies:
+ * - Requires `HealthManager` component on the same GameObject to track player health
+ * - Requires two active URP Volume objects in the scene:
+ *      - One for general health effects (Vignette + Shadows)
+ *      - One for midtones-only adjustments (custom solution to URP's override behavior)
+ * 
+ * Setup:
+ * - Attach to the player GameObject
+ * - Assign both Volume references in the Inspector or ensure they are named properly in the scene:
+ *      - "Player Health Volume"
+ *      - "Player Midtones Volume"
+ * - Ensure Vignette and ShadowsMidtonesHighlights overrides are added to the Volume profiles
+ * 
+ * Author:
+ * - Written by Mikael
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-//Written by Mikael
+
 public class Player_Post_Processing : MonoBehaviour
 {
     private HealthManager healthManager;

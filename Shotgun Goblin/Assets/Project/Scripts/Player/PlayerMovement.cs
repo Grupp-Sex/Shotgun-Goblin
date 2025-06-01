@@ -1,3 +1,27 @@
+/*
+ * PlayerMovement.cs
+ * 
+ * Controls player movement mechanics including walking, running, jumping, and camera tilt.
+ * Implements smooth input handling, ground and slope detection, and physics-based movement using Rigidbody.
+ * Supports acceleration limits, slope force adjustments, and air movement multipliers.
+ * Integrates Unity's Input System callbacks for movement and jump input.
+ * 
+ * Features:
+ * - Movement input smoothing and acceleration
+ * - Camera tilt based on horizontal movement
+ * - Ground detection with drag adjustment
+ * - Jumping with cooldown and air control
+ * - Slope handling including slope angle checks and force multipliers
+ * - Velocity limiting to enforce max speed
+ * 
+ * Implements IMover interface for exposing input direction.
+ * 
+ * Authors:
+ * - Mainly Mikael
+ * - Assistance by Ansgar
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -142,7 +166,7 @@ public class PlayerMovement : MonoBehaviour, IMover
 
         movementVector = movementInput;/* movementInput.x * orientation.right + orientation.forward * movementInput.z;*/
 
-        movementAcceleration = movementVector.normalized * movementSpeed;
+movementAcceleration = movementVector.normalized * movementSpeed;
 
         if (!grounded)
         {
