@@ -388,7 +388,7 @@ movementAcceleration = movementVector.normalized * movementSpeed;
             Debug.DrawRay(slopeHit.point, slopeHit.normal, Color.cyan);
 
             Debug.DrawRay(transform.position, Vector3.down * (playerHeight / 2 + 0.5f), Color.yellow);
-            Debug.Log($"Slope angle: {angle}");
+            //Debug.Log($"Slope angle: {angle}");
 
             return angle < maxSlopeAngle && angle != 0;
 
@@ -402,7 +402,7 @@ movementAcceleration = movementVector.normalized * movementSpeed;
 
         float slopePercentage = Mathf.InverseLerp(0, maxSlopeAngle, angle);
        float result = Mathf.Lerp(minSlopeBoost, maxSlopeBoost, slopePercentage);
-        Debug.Log($"Slope added force: {result}");
+        //Debug.Log($"Slope added force: {result}");
 
         return result;
     }

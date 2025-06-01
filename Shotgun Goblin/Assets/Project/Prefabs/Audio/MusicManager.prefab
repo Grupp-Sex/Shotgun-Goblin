@@ -41,7 +41,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5450792135324277908}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d68e2688af05104292cdd3e1661a827, type: 3}
@@ -163,3 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39602e1a5d4dd0e4d8f8d639f173e105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 1d68e2688af05104292cdd3e1661a827, type: 3}
+  volume: 1
+  fadeDuration: 1
