@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyAnimationHandler animationHandler;
 
+    // Made by Douglas
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
+    // Made by Douglas
     public void StartChase()
     {
 
@@ -38,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // Made by Douglas
     private IEnumerator FollowTarget()
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateSpeed);

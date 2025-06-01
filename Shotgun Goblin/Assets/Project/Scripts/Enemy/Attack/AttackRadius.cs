@@ -24,6 +24,8 @@ public class AttackRadius : EnemyAttackScript
         animationHandler = transform.parent.GetComponentInChildren<EnemyAnimationHandler>();
     }
 
+    // Code made by Douglas with help from Ansgar
+
     protected virtual void Awake()
     {
         Collider = GetComponent<SphereCollider>();    
