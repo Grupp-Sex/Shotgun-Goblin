@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource ambientSource;
+    [SerializeField] private AudioSource ambientSource;
     private Coroutine ambientFadeCoroutine;
     public static AudioManager Instance { get; private set; }
 
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SetupPool();
         SetupAmbientSource();
 
