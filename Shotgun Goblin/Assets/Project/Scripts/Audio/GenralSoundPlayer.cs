@@ -10,6 +10,7 @@ public class GenralSoundPlayer : MonoBehaviour
     [SerializeField] Vector2 PitchRange = new Vector2(0.5f, 1);
     public Transform TargetPosition;
     [SerializeField] bool follow = true;
+    [SerializeField] bool sound3d = true;
     private void Awake()
     {
         if(TargetPosition == null) TargetPosition = transform;
@@ -21,7 +22,7 @@ public class GenralSoundPlayer : MonoBehaviour
         {
             for (int i = 0; i < sounds.Count; i++)
             {
-                GameAudioManager.AudioManager.PlayPooledSound(sounds[i], true, follow, false, TargetPosition, default, RandomizeValue(VolumeRange) * soundMult, RandomizeValue(PitchRange) * pitchMult);
+                GameAudioManager.AudioManager.PlayPooledSound(sounds[i], sound3d, follow, false, TargetPosition, default, RandomizeValue(VolumeRange) * soundMult, RandomizeValue(PitchRange) * pitchMult);
             }
         }
     }
