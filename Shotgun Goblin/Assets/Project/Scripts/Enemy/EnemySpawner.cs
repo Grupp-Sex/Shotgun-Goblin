@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float delayBetweenSpawn;
     [SerializeField] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private MethodOfSpawning MethodOfSpawningEnemies;
+    [SerializeField] private float spawnMaxDistance = 0.8f;
+    [SerializeField] private Vector3 spawnOffset;
 
     private Dictionary<int, PoolOfObjects> poolOfEnemyObjects = new Dictionary<int, PoolOfObjects>();
 
@@ -93,9 +95,9 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 0.8f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out hit, spawnMaxDistance, NavMesh.AllAreas))
             {
-                result = hit.position;
+                result = hit.position + spawnOffset;
                 return true;
             }
         }
