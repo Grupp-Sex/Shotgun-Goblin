@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void PlayPooledSound(AudioClip clip, bool is3D, Transform position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
+    public void PlayPooledSound(AudioClip clip, bool is3D, bool follow, Transform position = default, AudioMixerGroup group = null, float volume = 1f, float pitch = 1f)
     {
         //Make sure to not play the sound if there's no audioclip
         if (clip == null)
@@ -99,8 +99,13 @@ public class AudioManager : MonoBehaviour
 
         if (is3D)
         {
+            
             source.transform.SetParent(transform);
             source.transform.localPosition = Vector3.zero;
+            if (!follow)
+            {
+                source.transform.parent = null;
+            }
         }
         
 
