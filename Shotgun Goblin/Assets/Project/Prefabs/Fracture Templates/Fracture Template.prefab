@@ -349,12 +349,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6789b983c03eb449571210bc631467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: 8a3f1c4019ae6be4489a38a29116c15d, type: 3}
+  sounds: []
   VolumeRange: {x: 1, y: 1}
   PitchRange: {x: 1, y: 4}
+  randomSounds:
+  - audioClip: {fileID: 8300000, guid: 8a3f1c4019ae6be4489a38a29116c15d, type: 3}
+    VolumeRange: {x: 1, y: 1}
+    PitchRange: {x: 1, y: 4}
+  - audioClip: {fileID: 8300000, guid: de54f377c7cd1984d84bf4d78cec84e2, type: 3}
+    VolumeRange: {x: 1, y: 1}
+    PitchRange: {x: 1, y: 4}
+  - audioClip: {fileID: 8300000, guid: 99aec73126a2d654c94a32bc8eb495b2, type: 3}
+    VolumeRange: {x: 1, y: 1}
+    PitchRange: {x: 1, y: 4}
+  - audioClip: {fileID: 8300000, guid: 3df9d4648c65e4b44a0955b796e06252, type: 3}
+    VolumeRange: {x: 1, y: 1}
+    PitchRange: {x: 1, y: 4}
   TargetPosition: {fileID: 0}
-  follow: 1
+  follow: 0
+  sound3d: 1
   threshold: 1
   type: 0
   soundBySpeed:
