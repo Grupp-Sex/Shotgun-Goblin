@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 3293492527497032538}
   - component: {fileID: 4635702018955613863}
   - component: {fileID: 6043139254713666736}
+  - component: {fileID: 6535879584725624495}
   m_Layer: 0
   m_Name: GrenadeTest
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 10
   PickupPriority: 1
@@ -330,6 +332,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interpolation: 0
   Rigidbody: {fileID: 0}
+--- !u!114 &6535879584725624495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447469202506934428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68725033100e2c43a58ebeacd6c0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: fdff7521726503b4d9841272aebfb242, type: 3}
+  VolumeRange: {x: 0.1, y: 0.1}
+  PitchRange: {x: 0.3, y: 0.4}
+  randomSounds: []
+  TargetPosition: {fileID: 0}
+  follow: 1
+  sound3d: 1
 --- !u!1 &4021836683777503397
 GameObject:
   m_ObjectHideFlags: 0

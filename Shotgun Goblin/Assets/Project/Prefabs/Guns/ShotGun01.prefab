@@ -9716,6 +9716,7 @@ GameObject:
   - component: {fileID: 501523922544809161}
   - component: {fileID: 4029834184743610403}
   - component: {fileID: 2951251004847480978}
+  - component: {fileID: 6697299547339557482}
   m_Layer: 11
   m_Name: ShotGun01
   m_TagString: Untagged
@@ -9892,9 +9893,31 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b73176172577b7642b08a8b42a1192d9, type: 3}
   VolumeRange: {x: 0.2, y: 0.2}
   PitchRange: {x: 0.5, y: 1}
+  randomSounds: []
   TargetPosition: {fileID: 0}
   follow: 0
   sound3d: 0
+--- !u!114 &6697299547339557482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777437075893006855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed41dc3ea3d20f42a874a91c3f19ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 22b45e01c642f1c4bb8fe855f474d14d, type: 3}
+  VolumeRange: {x: 0.2, y: 0.2}
+  PitchRange: {x: 0.9, y: 1.1}
+  randomSounds: []
+  TargetPosition: {fileID: 0}
+  follow: 0
+  sound3d: 0
+  OffsetTimer: 0.8
 --- !u!1 &1913269347283854139
 GameObject:
   m_ObjectHideFlags: 0

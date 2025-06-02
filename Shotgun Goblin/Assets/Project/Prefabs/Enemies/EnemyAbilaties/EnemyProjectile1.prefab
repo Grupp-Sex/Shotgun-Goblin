@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8388602546578099186}
   - component: {fileID: 1628836811956633403}
   - component: {fileID: 1952281610358588220}
+  - component: {fileID: 7371219144757200219}
+  - component: {fileID: 6752538620649283594}
   m_Layer: 2
   m_Name: ArrowControler
   m_TagString: Untagged
@@ -176,6 +178,47 @@ MonoBehaviour:
     m_RotationOrder: 4
   rigidbody: {fileID: 0}
   CollisionDetection: {fileID: 0}
+--- !u!114 &7371219144757200219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873254751081327347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a4cb866e342e14e93a7824120faf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 1f6a39b8db7687e499936ecf8fb2756c, type: 3}
+  VolumeRange: {x: 0.3, y: 0.3}
+  PitchRange: {x: 0.5, y: 2}
+  randomSounds: []
+  TargetPosition: {fileID: 8381851048391362519}
+  follow: 0
+  sound3d: 1
+  collisionDetection: {fileID: 8388602546578099186}
+--- !u!114 &6752538620649283594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873254751081327347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68725033100e2c43a58ebeacd6c0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: fdff7521726503b4d9841272aebfb242, type: 3}
+  VolumeRange: {x: 0.1, y: 0.1}
+  PitchRange: {x: 0.5, y: 1}
+  randomSounds: []
+  TargetPosition: {fileID: 0}
+  follow: 1
+  sound3d: 1
 --- !u!1 &1671728302444154943
 GameObject:
   m_ObjectHideFlags: 0
