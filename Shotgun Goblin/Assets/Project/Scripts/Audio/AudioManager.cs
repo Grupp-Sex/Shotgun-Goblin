@@ -183,8 +183,9 @@ public class AudioManager : MonoBehaviour
         /*The yield here is what gives us the delay, and instead of using WaitForSeconds
          we wait until the source finish playing. This makes sure that the audioclip in the
          source gets to finish before it get released. */
-        yield return new WaitWhile(() => source.isPlaying);
-        Destroy(source.gameObject);
+        yield return new WaitWhile(() => source != null && source.isPlaying);
+        if(source != null)
+            Destroy(source.gameObject);
     }
 
     private IEnumerator FadeAmbientOutAndIn(AudioClip newClip, float targetVolume, float duration)
