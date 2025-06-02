@@ -42,8 +42,9 @@ public class DamageBySpeed : MonoBehaviour
 
     private void Event_Collision(object sender, Collision collision)
     {
-
+        
         HealthManager health = collision.gameObject.GetComponent<HealthManager>();
+        if (health == null) return;
 
         float speed = collision.relativeVelocity.magnitude;
 
