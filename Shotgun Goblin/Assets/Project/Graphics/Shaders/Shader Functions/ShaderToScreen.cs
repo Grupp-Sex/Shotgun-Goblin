@@ -77,8 +77,9 @@ public class ShaderToScreen : ScriptableRendererFeature
             
 
             RenderTextureDescriptor fullscreenDescriptor = renderingData.cameraData.cameraTargetDescriptor;
-            
-            
+
+            fullscreenDescriptor.width = Mathf.Max(1, fullscreenDescriptor.width); // <---
+            fullscreenDescriptor.height = Mathf.Max(1, fullscreenDescriptor.height); // <---
 
 
             cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
@@ -101,8 +102,8 @@ public class ShaderToScreen : ScriptableRendererFeature
                 cmd.Blit(renderingData.cameraData.targetTexture, Shader.PropertyToID(tempRender.name));
 
 
-
-                material.mainTexture = renderingData.cameraData.targetTexture;
+                material.SetTexture("_MainTex", renderingData.cameraData.renderer.cameraColorTargetHandle); // <--
+                //material.mainTexture = renderingData.cameraData.targetTexture; <---
                 cmd.Blit(Shader.PropertyToID(tempRender.name), renderingData.cameraData.renderer.cameraColorTargetHandle, material, prio);
                     //Blitter.BlitCameraTexture(cmd, tempRender, renderTarget.cameraColorTargetHandle);
 

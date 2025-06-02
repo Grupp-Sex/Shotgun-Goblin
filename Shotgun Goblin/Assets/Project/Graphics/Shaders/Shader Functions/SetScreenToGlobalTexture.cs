@@ -42,8 +42,11 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
 
             RenderTextureDescriptor fullscreenDescriptor = cameraTextureDescriptor;
 
-            fullscreenDescriptor.width = Screen.width;
-            fullscreenDescriptor.height = Screen.height;
+            fullscreenDescriptor.width = Mathf.Max(1, cameraTextureDescriptor.width); // <--
+            fullscreenDescriptor.height = Mathf.Max(1, cameraTextureDescriptor.height); // <--
+
+            //fullscreenDescriptor.width = Screen.width; //<--
+            //fullscreenDescriptor.height = Screen.height; //<--
             fullscreenDescriptor.msaaSamples = 1;
 
 
@@ -73,6 +76,8 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         // You don't have to call ScriptableRenderContext.submit, the render pipeline will call it at specific points in the pipeline.
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            if (renderTarget == null) return;
+
             CommandBuffer cmd = CommandBufferPool.Get();
 
 
