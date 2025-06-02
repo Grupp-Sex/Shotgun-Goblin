@@ -7,7 +7,7 @@ public class PlaySoundOnStart : GenralSoundPlayer
    
 
 
-    private void Start()
+    private void OnEnable()
     {
         PlaySounds(sounds);
     }

@@ -10832,6 +10832,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1498419389}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e5f15550d61b4d43a6eb940cee9b11a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1498419394}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e5f15550d61b4d43a6eb940cee9b11a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1498419393}
   m_SourcePrefab: {fileID: 100100000, guid: 5e5f15550d61b4d43a6eb940cee9b11a, type: 3}
 --- !u!1 &1498419380 stripped
 GameObject:
@@ -10995,6 +11003,79 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06831705, y: 0.06246645, z: 0.06831705}
   m_Center: {x: 0, y: -0.04, z: 0}
+--- !u!114 &1498419393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498419380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6789b983c03eb449571210bc631467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: b9aa5b665e320714fa6fe8fecbf20e1e, type: 3}
+  VolumeRange: {x: 0.5, y: 0.5}
+  PitchRange: {x: 1, y: 1.4}
+  TargetPosition: {fileID: 0}
+  follow: 1
+  sound3d: 1
+  threshold: 2
+  type: 2
+  soundBySpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSpeed: 5
+  minSpeed: 1
+  cooldownDuration: 1
+  isOnCool: 0
+--- !u!114 &1498419394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498419380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c956c0b4e18062e48871ce1e9435162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInDebugConsole: 0
+  SumFalloff: 0
+  LowerThreshold: 3
+  TruncationLerpValue: 0
+  KESum_relative: 0
+  KESumMax_relative: 0
+  MomentumSum_relative: 0
+  MomentumSumMax_relative: 0
+  KESum_collider: 0
+  KESumMax_collider: 0
+  MomentumSum_collider: 0
+  MomentumSumMax_collider: 0
 --- !u!1001 &1521138025
 PrefabInstance:
   m_ObjectHideFlags: 0
