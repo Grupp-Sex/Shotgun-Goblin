@@ -130,8 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: a2a77c5c0b9c95f4dbf8b4828d2f4f0d, type: 3}
-  VolumeRange: {x: 0.5, y: 0.5}
-  PitchRange: {x: 2, y: 2.4}
+  VolumeRange: {x: 0.2, y: 0.2}
+  PitchRange: {x: 3, y: 4}
+  randomSounds: []
   TargetPosition: {fileID: 2213056632570768625}
   follow: 1
   sound3d: 1
@@ -278,8 +279,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8998454081373831590}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000046813378}
-  m_LocalPosition: {x: -0.00000035762787, y: 0.000054836273, z: 0.000027656555}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.00000047683716, z: -0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
