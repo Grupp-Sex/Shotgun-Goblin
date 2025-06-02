@@ -13,6 +13,7 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
     public Collider BoundCollider;
 
     [SerializeField] public float BoundSize;
+    public Vector3 Bounds;
     //[SerializeField] public Vector3 Velocity;
     //[SerializeField] public Vector3 ForceSum;
 
@@ -133,6 +134,7 @@ public class TelekenesisPhysicsObject : MonobehaviorScript_ToggleLog, IFrozenOnF
         {
             BoundCollider = GetComponent<Collider>();
         }
+        Bounds = BoundCollider.bounds.size;
 
         BoundSize = BoundCollider.bounds.size.magnitude;
 
