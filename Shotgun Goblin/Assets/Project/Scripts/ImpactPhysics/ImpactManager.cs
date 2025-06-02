@@ -48,13 +48,13 @@ public class ImpactManager : MonobehaviorScript_ToggleLog
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        KESum_relative *= SumFalloff;
-        KESum_collider *= SumFalloff;
+        KESum_relative *= SumFalloff * Time.deltaTime * 60;
+        KESum_collider *= SumFalloff * Time.deltaTime * 60;
 
-        MomentumSum_relative *= SumFalloff;
-        MomentumSum_collider *= SumFalloff;
+        MomentumSum_relative *= SumFalloff * Time.deltaTime * 60;
+        MomentumSum_collider *= SumFalloff * Time.deltaTime * 60;
         
     }
 

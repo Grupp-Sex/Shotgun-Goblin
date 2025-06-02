@@ -12,11 +12,13 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
     [SerializeField] public bool DropOriginPoint;
     [SerializeField] public Transform TargetPosition;
     [SerializeField] public GameObject AbilatiyScriptHolder;
+    
 
     [Header("Held Items")]
     [SerializeField] public float GrabDistanceThreshold;
     [SerializeField] public float HoldDistanceThreshold;
     [SerializeField] public int HeldObjectMax;
+    public float MaxObjectBoundSize = 4;
 
     [Header("Cooldown And Duration")]
     [SerializeField] float CooldownTimer = 2;
@@ -295,7 +297,7 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         {
             TelekenesisPhysicsObject newObject = colliders[i].GetComponent<TelekenesisPhysicsObject>();
 
-            if( newObject != null && newObject.isActiveAndEnabled && newObject.CanBeGrabbed)
+            if( newObject != null && newObject.isActiveAndEnabled && newObject.CanBeGrabbed && CheckObjectSize(newObject, MaxObjectBoundSize))
             {
                 Vector3 ClosestPoint = colliders[i].ClosestPoint(position);
 
@@ -324,6 +326,12 @@ public class TelekenesisManager : MonobehaviorScript_ToggleLog
         
         DebugLog("telekenesis. grabed objects, held object count is: " + GetHeldObjectCount);
 
+    }
+
+    protected bool CheckObjectSize(TelekenesisPhysicsObject obj, float threshold)
+    {
+
+        return !(obj.Bounds.x > threshold || obj.Bounds.y > threshold || obj.Bounds.z > threshold);
     }
 
 

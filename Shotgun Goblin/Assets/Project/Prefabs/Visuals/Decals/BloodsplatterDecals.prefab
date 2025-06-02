@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 6512620976553607045}
   - component: {fileID: 4920578582399618594}
   - component: {fileID: 8856707093995930455}
+  - component: {fileID: 3129567665991616473}
   m_Layer: 9
   m_Name: BloodsplatterDecals
   m_TagString: Untagged
@@ -591,6 +592,26 @@ MonoBehaviour:
   despawner: {fileID: 0}
   despawnTimer: 0
   childCount: 0
+--- !u!114 &3129567665991616473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052496006612818749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68725033100e2c43a58ebeacd6c0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 49f7699032ab37049a1ed399f5e19901, type: 3}
+  VolumeRange: {x: 2, y: 2}
+  PitchRange: {x: 0.3, y: 0.4}
+  randomSounds: []
+  TargetPosition: {fileID: 0}
+  follow: 0
+  sound3d: 1
 --- !u!1 &8075766331259764861
 GameObject:
   m_ObjectHideFlags: 0
