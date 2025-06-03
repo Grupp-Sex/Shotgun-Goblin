@@ -1,3 +1,4 @@
+using Palmmedia.ReportGenerator.Core;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,8 +66,6 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
         }
 
         
-
-
         DebugLog("Dash, force = " + force);
        
     }
