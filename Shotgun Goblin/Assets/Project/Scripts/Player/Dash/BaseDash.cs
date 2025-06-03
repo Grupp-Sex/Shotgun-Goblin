@@ -14,9 +14,12 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
 
     [SerializeField] GameObject DashObject;
 
+    public EventPusher<DashData> Event_Dash = new EventPusher<DashData>();
 
     protected void NotifyDashObject(DashData dashData)
     {
+        Event_Dash.Invoke(this,dashData);
+
         if (DashObject != null) 
         {
             IOnDash[] onDashScripts =DashObject.GetComponents<IOnDash>();
