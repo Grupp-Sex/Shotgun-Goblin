@@ -25,7 +25,7 @@ public class ShaderToScreen : ScriptableRendererFeature
     {
 
 
-        protected RTHandle tempRender;
+        //protected RTHandle tempRender;
 
         protected ScriptableRenderer renderTarget;
 
@@ -37,13 +37,17 @@ public class ShaderToScreen : ScriptableRendererFeature
 
         protected Material material;
 
+        protected int rtHandleID;
+
         public CustomRenderPass()
         {
             
 
             TexName = "ScreenTexture";
 
-            tempRender = RTHandles.Alloc(TexName, name: TexName);
+            rtHandleID = Shader.PropertyToID(TexName);
+
+            //tempRender = RTHandles.Alloc(TexName, name: TexName);
         }
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
@@ -82,7 +86,7 @@ public class ShaderToScreen : ScriptableRendererFeature
             fullscreenDescriptor.height = Mathf.Max(1, fullscreenDescriptor.height); // <---
 
 
-            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
+            cmd.GetTemporaryRT( rtHandleID /*Shader.PropertyToID(tempRender.name)*/, fullscreenDescriptor);
 
         }
 
@@ -99,18 +103,18 @@ public class ShaderToScreen : ScriptableRendererFeature
             {
                 CommandBuffer cmd = CommandBufferPool.Get();
 
-                cmd.Blit(renderingData.cameraData.targetTexture, Shader.PropertyToID(tempRender.name));
+                cmd.Blit(renderingData.cameraData.targetTexture, rtHandleID /*Shader.PropertyToID(tempRender.name)*/);
 
 
                 material.SetTexture("_MainTex", renderingData.cameraData.renderer.cameraColorTargetHandle); // <--
                 //material.mainTexture = renderingData.cameraData.targetTexture; <---
-                cmd.Blit(Shader.PropertyToID(tempRender.name), renderingData.cameraData.renderer.cameraColorTargetHandle, material, prio);
+                cmd.Blit(/*Shader.PropertyToID(tempRender.name)*/rtHandleID, renderingData.cameraData.renderer.cameraColorTargetHandle, material, prio);
                     //Blitter.BlitCameraTexture(cmd, tempRender, renderTarget.cameraColorTargetHandle);
 
                 context.ExecuteCommandBuffer(cmd);
-                cmd.Clear();
+                //cmd.Clear();
 
-                cmd.Release();
+                CommandBufferPool.Release(cmd);
             }
 
         }
@@ -118,8 +122,16 @@ public class ShaderToScreen : ScriptableRendererFeature
         // Cleanup any allocated resources that were created during the execution of this render pass.
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
-            
-            cmd.ReleaseTemporaryRT(Shader.PropertyToID(tempRender.name));
+
+            cmd.ReleaseTemporaryRT( rtHandleID/*Shader.PropertyToID(tempRender.name)*/);
+
+            //if (tempRender != null)
+            //{
+
+            //    RTHandles.Release(tempRender);
+
+            //    tempRender = null;
+            //}
         }
     }
 

@@ -20,7 +20,7 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
     {
         
 
-        protected RTHandle tempRender;
+        //protected RTHandle tempRender;
 
         protected ScriptableRenderer renderTarget;
 
@@ -28,12 +28,16 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
 
         protected string TexName;
 
+        protected int rtHandleID;
+
         public CustomRenderPass(string texName, RenderType type)
         {
 
-            TexName = texName;  
+            TexName = texName;
 
-            tempRender = RTHandles.Alloc(TexName, name: TexName);
+            rtHandleID = Shader.PropertyToID(TexName);
+
+            //tempRender = RTHandles.Alloc(TexName, name: TexName);
         }
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
@@ -45,12 +49,12 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
             fullscreenDescriptor.width = Mathf.Max(1, cameraTextureDescriptor.width); // <--
             fullscreenDescriptor.height = Mathf.Max(1, cameraTextureDescriptor.height); // <--
 
-            //fullscreenDescriptor.width = Screen.width; //<--
-            //fullscreenDescriptor.height = Screen.height; //<--
+            fullscreenDescriptor.width = Screen.width; //<--
+            fullscreenDescriptor.height = Screen.height; //<--
             fullscreenDescriptor.msaaSamples = 1;
 
 
-            cmd.GetTemporaryRT(Shader.PropertyToID(tempRender.name), fullscreenDescriptor);
+            cmd.GetTemporaryRT(rtHandleID /*Shader.PropertyToID(tempRender.name)*/, fullscreenDescriptor);
 
         }
 
@@ -85,28 +89,35 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
             {
                 case RenderType.Color:
 
-                    cmd.Blit(renderTarget.cameraColorTargetHandle, tempRender);
+                    cmd.Blit(renderTarget.cameraColorTargetHandle, rtHandleID);
                     break;
 
                 case RenderType.Depth:
-                    cmd.Blit(renderTarget.cameraDepthTargetHandle, tempRender);
+                    cmd.Blit(renderTarget.cameraDepthTargetHandle, rtHandleID);
 
                     break;
             }
             
             
-            cmd.SetGlobalTexture(TexName, tempRender);
+            cmd.SetGlobalTexture(TexName, rtHandleID);
 
             context.ExecuteCommandBuffer(cmd);
 
-            cmd.Release();
+            CommandBufferPool.Release(cmd);
 
         }
 
         // Cleanup any allocated resources that were created during the execution of this render pass.
         public override void OnCameraCleanup(CommandBuffer cmd)
         {
-            cmd.ReleaseTemporaryRT(Shader.PropertyToID(tempRender.name));
+            cmd.ReleaseTemporaryRT(rtHandleID/*Shader.PropertyToID(tempRender.name)*/);
+
+            //if(tempRender != null)
+            //{
+            //    RTHandles.Release(tempRender);
+
+            //    tempRender = null;
+            //}
         }
 
     }
