@@ -36,6 +36,7 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
     {
         dashData = AlterDashData(dashData);
         ApplyDash(dashData, rb);
+        
     }
 
     protected virtual DashData AlterDashData(DashData dashData)
@@ -45,6 +46,8 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
 
     protected virtual void ApplyDash(DashData dashData, Rigidbody rb)
     {
+        NotifyDashObject(dashData);
+
         Vector3 force = GetDashForce(dashData);
 
         if (dashData.truncateDirection != Vector3.zero)
