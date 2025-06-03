@@ -25,7 +25,10 @@ public class GenralSoundPlayer : MonoBehaviour
     }
 
     
-
+    public virtual void PlaySounds()
+    {
+        PlaySounds(sounds);
+    }
     protected void PlaySounds(List<AudioClip> clips, float soundMult = 1, float pitchMult = 1)
     {
         if (GameAudioManager.AudioManager != null)
