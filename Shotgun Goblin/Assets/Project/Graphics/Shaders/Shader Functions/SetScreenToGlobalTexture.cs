@@ -80,6 +80,9 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         // You don't have to call ScriptableRenderContext.submit, the render pipeline will call it at specific points in the pipeline.
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            if (renderingData.cameraData.cameraType != CameraType.Game)
+                return;
+
             if (renderTarget == null) return;
 
             CommandBuffer cmd = CommandBufferPool.Get();
