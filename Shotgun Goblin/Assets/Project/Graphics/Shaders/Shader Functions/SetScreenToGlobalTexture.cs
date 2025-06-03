@@ -44,18 +44,7 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         {
             base.Configure(cmd, cameraTextureDescriptor);
 
-            RenderTextureDescriptor fullscreenDescriptor = cameraTextureDescriptor;
-
-            fullscreenDescriptor.width = Mathf.Max(1, cameraTextureDescriptor.width); // <--
-            fullscreenDescriptor.height = Mathf.Max(1, cameraTextureDescriptor.height); // <--
-
-            fullscreenDescriptor.width = Screen.width; //<--
-            fullscreenDescriptor.height = Screen.height; //<--
-            fullscreenDescriptor.msaaSamples = 1;
-
-
-            cmd.GetTemporaryRT(rtHandleID /*Shader.PropertyToID(tempRender.name)*/, fullscreenDescriptor);
-
+            
         }
 
         public void SetRenderTarget(ScriptableRenderer target)
@@ -70,7 +59,17 @@ public class SetScreenToGlobalTexture : ScriptableRendererFeature
         // The render pipeline will ensure target setup and clearing happens in a performant manner.
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
-            
+            RenderTextureDescriptor fullscreenDescriptor = renderingData.cameraData.cameraTargetDescriptor;
+
+            fullscreenDescriptor.width = Mathf.Max(1, Screen.width); // <--
+            fullscreenDescriptor.height = Mathf.Max(1, Screen.height); // <--
+
+            //fullscreenDescriptor.width = Screen.width; //<--
+            //fullscreenDescriptor.height = Screen.height; //<--
+            fullscreenDescriptor.msaaSamples = 1;
+
+
+            cmd.GetTemporaryRT(rtHandleID /*Shader.PropertyToID(tempRender.name)*/, fullscreenDescriptor);
         }
 
 

@@ -14,9 +14,12 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
 
     [SerializeField] GameObject DashObject;
 
+    public EventPusher<DashData> Event_Dash = new EventPusher<DashData>();
 
     protected void NotifyDashObject(DashData dashData)
     {
+        Event_Dash.Invoke(this,dashData);
+
         if (DashObject != null) 
         {
             IOnDash[] onDashScripts =DashObject.GetComponents<IOnDash>();
@@ -33,6 +36,7 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
     {
         dashData = AlterDashData(dashData);
         ApplyDash(dashData, rb);
+        
     }
 
     protected virtual DashData AlterDashData(DashData dashData)
@@ -42,6 +46,8 @@ public abstract class BaseDash : MonobehaviorScript_ToggleLog
 
     protected virtual void ApplyDash(DashData dashData, Rigidbody rb)
     {
+        NotifyDashObject(dashData);
+
         Vector3 force = GetDashForce(dashData);
 
         if (dashData.truncateDirection != Vector3.zero)
