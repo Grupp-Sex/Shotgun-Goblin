@@ -13171,12 +13171,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 595954441}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &597198536 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 3518221851546835667, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-    type: 3}
-  m_PrefabInstance: {fileID: 5832008688216844136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &598053189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46330,21 +46324,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 305579577}
     m_Modifications:
-    - target: {fileID: 508571406720778068, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 88f93fede38d594429c43c6a401148d4, type: 2}
-    - target: {fileID: 1413526768481938230, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591994854793059159, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: BoundCollider
-      value: 
-      objectReference: {fileID: 597198536}
     - target: {fileID: 3243308955828288992, guid: 5817e0ce8663c8e4692e39a5a08c2610,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46395,35 +46374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3347839415207435561, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518221851546835667, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5538171562997498085, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 88f93fede38d594429c43c6a401148d4, type: 2}
     - target: {fileID: 6558994621847744231, guid: 5817e0ce8663c8e4692e39a5a08c2610,
         type: 3}
       propertyPath: m_Name
       value: OutHouseTelekenesis
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599242755795819370, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6603728114404678277, guid: 5817e0ce8663c8e4692e39a5a08c2610,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
