@@ -16664,6 +16664,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1754789673640039820, guid: 0fe1cadd03cb9cc4cab05974407c1bb2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1263245475}
+    - targetCorrespondingSourceObject: {fileID: 1754789673640039820, guid: 0fe1cadd03cb9cc4cab05974407c1bb2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1880872634}
     - targetCorrespondingSourceObject: {fileID: 6453873339935643662, guid: 0fe1cadd03cb9cc4cab05974407c1bb2,
         type: 3}
       insertIndex: -1
@@ -20448,6 +20456,62 @@ Transform:
   - {fileID: 994312434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1263245474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263245475}
+  - component: {fileID: 1263245476}
+  m_Layer: 0
+  m_Name: X_MarksTheSpot (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263245475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263245474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5123964, y: -0.4402053, z: -0.4715408, w: 0.5668497}
+  m_LocalPosition: {x: 96.16, y: 2.92, z: -8.12}
+  m_LocalScale: {x: 13.698199, y: 14.1744795, z: 0.63302994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015887848}
+  m_LocalEulerAnglesHint: {x: -84.908, y: -370.273, z: 289.89}
+--- !u!114 &1263245476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263245474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 45935afeb89447549b38ee3afd275636, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_DecalLayerMask: 1
+  m_ScaleMode: 0
+  m_Offset: {x: -6.0490956, y: -1.5341384, z: 0.5}
+  m_Size: {x: 15, y: 10, z: 1}
+  m_FadeFactor: 1
 --- !u!1001 &1269159029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32565,6 +32629,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1880157475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880872633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880872634}
+  - component: {fileID: 1880872635}
+  m_Layer: 0
+  m_Name: X_MarksTheSpot (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880872634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880872633}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.43723193, y: -0.5149359, z: -0.55440336, w: 0.4861134}
+  m_LocalPosition: {x: 109.3, y: 2.4, z: 0.4}
+  m_LocalScale: {x: 13.698199, y: 14.1744795, z: 0.63302994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015887848}
+  m_LocalEulerAnglesHint: {x: -84.908, y: -370.272, z: 271.892}
+--- !u!114 &1880872635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880872633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 45935afeb89447549b38ee3afd275636, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_DecalLayerMask: 1
+  m_ScaleMode: 0
+  m_Offset: {x: -4.0327306, y: -0.9204831, z: 0.5}
+  m_Size: {x: 10, y: 6, z: 1}
+  m_FadeFactor: 1
 --- !u!4 &1881106302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3866044215177031889, guid: 423a0dd52dc153a4bb36d38079f2f5da,
