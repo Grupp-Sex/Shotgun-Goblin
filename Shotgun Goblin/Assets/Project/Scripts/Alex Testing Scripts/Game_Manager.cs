@@ -49,33 +49,36 @@ public class Game_Manager : MonoBehaviour
      Scenes can be added to the build-index.*/
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        SceneManager.LoadScene(UnloadCurrent().buildIndex);
     }
 
     //Switches scenes within the build-index
     public void MainMenu()
     {
         ToggleMouse(true);
+        UnloadCurrent();
         SceneManager.LoadScene("Main_Menu"); 
     }
 
     public void Levels()
     {
         ToggleMouse(true);
-
+        UnloadCurrent();
         SceneManager.LoadScene("Level_Selection");
     }
     public void Tutorial()
     {
         ToggleMouse(false);
-
+        UnloadCurrent();
         SceneManager.LoadScene("Tutorial01");
     }
 
     public void Options()
     {
-        ToggleMouse(true);
 
+        ToggleMouse(true);
+        UnloadCurrent();
         SceneManager.LoadScene("Options_Menu");
     }
 
@@ -97,8 +100,15 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-    
 
+    protected Scene UnloadCurrent()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+
+        SceneManager.UnloadSceneAsync(scene);
+
+        return scene;
+    }
 
     public void QuitProgram()
     {
