@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b843da734365e4290290c6b6306656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambientSource: {fileID: 0}
   masterMixer: {fileID: 24100000, guid: fef15141c2a32ac4fbd8f9215e2c5870, type: 2}
   sfxMixGroup: {fileID: 0}
   ambientMixGroup: {fileID: 0}
@@ -210,6 +211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450792135324277908, guid: 6313dacc70136b04bbef8cc04ccf1479,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -200,6 +200,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 5
@@ -426,6 +427,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 1
@@ -1729,6 +1731,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 1
@@ -1887,6 +1890,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7771701811772250529, guid: c7f0fdd9db0adb74c9fa425c08996e9c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &192950236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2446,6 +2451,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 2
@@ -2691,6 +2697,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 5
@@ -3416,6 +3423,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 1
@@ -4078,6 +4086,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &509804992
 Transform:
   m_ObjectHideFlags: 0
@@ -5225,6 +5235,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 1
@@ -5676,6 +5687,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 3
@@ -6773,6 +6785,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 5
@@ -7121,6 +7134,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7771701811772250529, guid: c7f0fdd9db0adb74c9fa425c08996e9c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &952493034
 Transform:
   m_ObjectHideFlags: 0
@@ -7247,6 +7262,79 @@ Transform:
   - {fileID: 1801499616}
   m_Father: {fileID: 596816006}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &971616186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1116621131934144381, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 162.77003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1162.6404
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 666.7395
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7663934749536733613, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992909018595039020, guid: dc92ce7ce3685ad4c823c2481eff694e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc92ce7ce3685ad4c823c2481eff694e, type: 3}
 --- !u!1 &986962027
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,6 +7413,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 3
@@ -7477,6 +7566,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 4
@@ -8623,6 +8713,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 3
@@ -9303,6 +9394,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 3
@@ -9413,6 +9505,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1118239140
 Transform:
   m_ObjectHideFlags: 0
@@ -9862,6 +9956,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 2
@@ -10092,6 +10187,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 4687504342236997362, guid: b5a9c37404e041d4f8e68e9b02b5e650, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1190726289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10724,6 +10821,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 3
@@ -16015,6 +16113,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 1
@@ -16475,6 +16574,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 4
@@ -16964,6 +17064,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 5
@@ -17410,6 +17511,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 4
@@ -18222,6 +18324,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 4
@@ -19360,6 +19463,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 2
@@ -20377,6 +20481,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 5
@@ -20861,6 +20966,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 4
@@ -21408,6 +21514,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 2
@@ -22173,6 +22280,7 @@ MonoBehaviour:
   LogInDebugConsole: 0
   BoundCollider: {fileID: 0}
   BoundSize: 0
+  Bounds: {x: 0, y: 0, z: 0}
   CanBeGrabbed: 1
   PriorityLayer: 0
   PickupPriority: 2
@@ -27465,6 +27573,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 8869079173653502380, guid: 3782b6fa8f71dce4592aa0f3dd8e167c, type: 3}
   MethodOfSpawningEnemies: 2
+  spawnMaxDistance: 0.8
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2057486846
 GameObject:
   m_ObjectHideFlags: 0
@@ -28208,3 +28318,4 @@ SceneRoots:
   - {fileID: 410676053}
   - {fileID: 794671972}
   - {fileID: 1138647109}
+  - {fileID: 971616186}
